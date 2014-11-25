@@ -1,0 +1,304 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{prettyref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{nota}{Notation}
+
+\usepackage{todonotes}
+
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\el}{el}
+
+\newcommand{\bij}{\stackrel{\sim}{\rightarrow}}
+\newcommand{\inj}{\hookrightarrow}
+
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator{\Aut}{Aut}
+\newcommand{\Mon}{\mathrm{Mon}}
+\newcommand{\unl}[1]{\tilde{#1}}
+
+\newcommand{\term}[1]{\emph{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Prettyref
+
+\newrefformat{fig}{Figure~\ref{#1}}
+\newrefformat{chap}{Chapter~\ref{#1}}
+\newrefformat{sec}{\Sect\ref{#1}}
+\newrefformat{eq}{equation~\eqref{#1}}
+\newrefformat{prob}{Problem~\ref{#1}}
+\newrefformat{tab}{Table~\ref{#1}}
+\newrefformat{thm}{Theorem~\ref{#1}}
+\newrefformat{lem}{Lemma~\ref{#1}}
+\newrefformat{prop}{Proposition~\ref{#1}}
+\newrefformat{defn}{Definition~\ref{#1}}
+\newrefformat{cor}{Corollary~\ref{#1}}
+\newrefformat{conj}{Conjecture~\ref{#1}}
+\newrefformat{ex}{Example~\ref{#1}}
+
+\newcommand{\pref}[1]{\prettyref{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:introduction}
+
+\todo{Finish translating introduction}
+
+\section{Species of structures}
+\label{sec:species-of-structures}
+
+There already exists a precise concept of species of structures (\todo{Bourbaki
+[2]}). Describing a particular species is often done by specifying the
+conditions which a structure must satisfy to belong to the species.
+This description may take the form of an axiomatic theory of the species
+being considered. A key part of the concept is the transport of structures.
+
+We will abstract the concept of species so that the transport of
+structures is the main aspect. Moreover, as we only deal
+with the problems of counting and finite enumeration, we will confine ourselves
+to finitary species, unless otherwise noted.
+
+\subsection{Species and cardinality}
+\label{sec:species-and-cardinality}
+
+\todo{Commentary explaining $\B$.  Can probably steal some stuff from
+  my dissertation.}
+\begin{defn}
+  A (finitary) species is an endofunctor $M: \B \to \B$
+  on the groupoid $\B$ of finite sets and bijections.
+\end{defn}
+
+If $E$ is a finite set, $M [E]$ is the set of all \term{structures}
+of the species $M$ on $E$. We say that $E$ is the \term{underlying} set of
+$s \in M[E]$, or also that it is \term{supported} by $E$. We say
+also, by an abuse of language, that $s$ is an \term{element} of $M$ ($s \in M$) and that it is an
+\term{$M$-structure}.
+
+If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the structure on $F$
+obtained by \term{transport along $u$}. The bijection $u$ is an \term{isomorphism}
+between $s$ and $t$:
+\[ u : s \to t. \]
+We denote by $\el (M)$ the category whose objects are the $M$-structures and
+whose morphisms are isomorphisms of $M$-structures; it is the
+groupoid of \term{elements} of $M$. There is a \term{forgetful}
+functor $U: \el (M) \to \B$ whose
+value on $s \in M$ is the \term{underlying} set of the structure $s$. The concept
+of isomorphism of structures defines an equivalence relation whose
+classes are the \term{types} of structures of the species M; these classes are
+the \term{connected components} of the groupoid $\el (M)$. We use the notation
+$\pi_0 (M)$ to denote the set of types (of structures) of the species $M$. If
+$s \in M$, we denote the \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
+
+\newcommand{\Simp}{\mathcal{S}}
+
+\begin{ex}
+  Recall that a \emph{simplicial scheme} structure on $E$ is a set
+  $\Simp$ of non-empty subsets of $E$ such that (i) every non-empty
+  subset contained in an element of $\Simp$ belongs to $\Simp$, (ii)
+  the singletons $\{x\}$ for $x \in E$ belong to $\Simp$. The elements
+  of $\Simp$ are \emph{simplices}. The dimension of a simplex is one
+  less than its cardinality. A \emph{graph} is a simplicial scheme
+  whose simplices have dimension $\leq 1$. If $u : E \to F$ is a
+  bijection, it is clear that $u (\Simp) = \{u(S) \mid S \in \Simp\}$
+  is also a simplicial scheme structure on $F$. We can therefore
+  consider the \emph{species} of simplicial schemes. It is also clear
+  that if $\Simp$ is a graph then $u(\Simp)$ is one too; we obtain the
+  species of graphs, which is a \emph{subspecies} of the species of
+  simplicial schemes. More generally, any property $P$ which applies
+  to simplicial schemes, and whose satisfaction \todo{wording?} is
+  invariant under isomorphism, determines a subspecies of the species
+  of simplicial schemes. For example, connectedness is such an
+  invariant property. The species of \emph{forests} is that of graphs
+  \emph{without cycles}, the species of \emph{trees} is that of
+  connected forests, etc.
+\end{ex}
+
+\begin{ex} \label{ex:endofunctions}
+  The transport of an endofunction $a : E \to E$ along a bijection $u
+  : E \bij F$ is by \emph{conjugation}: $\phi \mapsto u \phi
+  u^{-1}$. The species of \emph{permutations} is a subspecies of the
+  species of endofunctions. If we require that the graph of an
+  endofunction is connected, we obtain the subspecies of
+  \emph{connected endofunctions} and, likewise, that of \emph{circular
+    permutations}. An important concept is that of \emph{contraction}:
+  an endofunction $\phi : E \to E$ is a contraction if there exists
+  $x_0 \in E$ such that for every $x \in E$ we have $\phi^n(x) = x_0$
+  when $n$ is large enough. That is, a contraction is an endofunction
+  which is ultimately constant.
+\end{ex}
+
+\begin{ex}
+  Let $S$ be the species of permutations. Consider the groupoid $\el
+  (S)$ of elements of $S$. The objects of $\el (S)$ are the sets $E
+  \in \B$ equipped with a permutation $\sigma_E \in S [E]$. The
+  morphisms $(E, \sigma_E) \to (F, \sigma_F)$ are the bijections $u: E
+  \to F$ such that $u\sigma_E = \sigma_F u$. Let $x_1, x_2, x_3,
+  \dots$ be an infinite sequence of variables.  Let $I (\sigma_E) =
+  x_1^{d_1} \dots x_n^{d_n}$, where $n = \Card E$ and where $d_i$ is
+  the number of cycles of length $i$ in $\sigma_E$. Two objects $(E,
+  \sigma_E)$ and $(F, \sigma_E)$ in $\el (S)$ are isomorphic if and
+  only if $I (\sigma_E) = I (\sigma_F)$. The set $\pi_0(S)$ of
+  connected components of the groupoid $\el (S)$ is therefore
+  naturally identified with the set $\Mon(x)$ of all monomials in the
+  variables $x_1, x_2, x_3, \dots$
+\end{ex}
+
+\subsubsection{}
+The group $E!$ of permutations of $E$ acts on $M [E]$ by transport
+of structures. The set $\pi_0 (M [E])$ of \emph{orbits} is identified
+with the set of types of $M$-structures supported by sets equipotent
+with $E$. We identify the orbit of $s \in M[E]$ with its type
+$|s|$. The \emph{stabilizer} subgroup of an element $s \in M [E]$ is
+the group $\Aut (s)$ of \emph{automorphisms} of $s$. We have the
+well-known formula \[ \Card |s| = \frac{n!}{\Card \Aut(s)}. \]
+
+One of the fundamental problems of enumerative combinatorics is to
+evaluate the two infinite sequences of numbers
+\begin{gather}
+  \Card M[n], \quad \text{$n \geq 0$ ($[n] = \{1, 2, \dots, n\}$)}, \\
+  \Card \pi_0(M[n]), \quad n \geq 0.
+\end{gather}
+
+We define two generating functions. The first is a series of Hurwitz
+(Comtet [6] \todo{citation}):
+
+\begin{equation}
+  M(x) = \sum_{n \geq 0} \Card M[n] \frac{x^n}{n!}.
+\end{equation}
+
+The second is a power series with integer coefficients (without
+factorial):
+
+\begin{equation}
+  \unl M(x) = \sum_{n \geq 0} \Card \pi_0(M[n]) x^n.
+\end{equation}
+
+We say that $M (x)$ is the \emph{cardinality} of $M$. Let us see
+immediately that the calculation of $\unl M (x)$ boils down to
+computing the cardinality of the \emph{associated} species $\unl M$.
+
+\begin{defn}
+  A structure of the species $\unl M$ is a pair $(\sigma, s)$ where
+  $\sigma$ is an automorphism of $s \in M$.
+\end{defn}
+
+\begin{prop}
+  We have
+  \[ \unl M (x) = \Card {\unl M}. \]
+\end{prop}
+
+\begin{proof}
+  We use Burnside's lemma: if a finite group $G$ acts on a finite set
+  $X$, then the cardinality of the set $\pi_0(X)$ of orbits of $X$ is
+  equal to that of the set $\{(\sigma, x) \mid \sigma \in G, x \in X,
+  \sigma \cdot x = x\}$ \emph{divided by} $\Card G$. (See Burnside
+  [3]. \todo{Citation})
+\end{proof}
+
+\subsection{The category of species}
+
+Species form a category: they are functors, and one can take natural
+transformations as morphisms. As it is desirable to have a larger than
+class of morphisms than that of isomorphisms, it is best to consider a
+species as a functor $M: \B \to \E$ to the category $\E$ of finite sets
+and \emph{functions} (by composing with the inclusion $\B \inj \E$).
+
+\begin{defn}
+  A \emph{morphism} $\alpha : M \to N$ is a natural transformation
+  from $M$ to $N$, considered as functors from $\B$ to $\E$.
+\end{defn}
+
+One can interpret $\alpha$ as follows: one has a \emph{construction}
+$\alpha$ allowing one to produce a structure of the species $N$
+(output) from a structure of the species $M$ (input), and for every
+bijection $u : E \to F$ the rectangle \[ \xymatrix{M[E]
+  \ar[r]^{\alpha_E} \ar[d]_{M[u]} & N[E] \ar[d]^{N[u]} \\ M[F]
+  \ar[r]^{\alpha_F} & N[F] } \] commutes; this means that the
+construction is \emph{equivariant} (or invariant): it does not change
+if one \emph{simultaneously} transports the input and the output along
+the same bijection; the vast majority of mathematical constructions
+have this property.
+
+If $\sigma_E$ is invertible regardless of $E$, the morphism $\alpha$
+is an \emph{isomorphism} between $M$ and $N$. In this case, we write
+$M \stackrel{\alpha}{=} N$, or more simply (by an abuse of notation) $M
+= N$. If $M$ and $N$ satisfy the weaker condition $\Card M = \Card N$,
+we say that $M$ and $N$ are \emph{equipotent} species, and we write $M
+\equiv N$.
+
+\begin{ex}
+  The construction of the transitive closure of a graph determines a
+  morphism from the species of graphs to the species of partitions.
+\end{ex}
+
+\begin{ex}
+  A \emph{rooted tree} is a tree equipped with a \emph{root} (which is
+  an arbitrary vertex of the underlying set). We usually orient the
+  edges of a rooted tree in the direction of the root. If we adjoin a
+  loop to the root, we obtain the graph of a \emph{contraction}
+  (\pref{ex:endofunctions}). There is an \emph{isomorphism} between
+  the species of rooted trees and the species of contractions.
+\end{ex}
+
+\begin{ex}
+  The species of linear orders, of permutations, of permutations
+  equipped with a fixed point, and of circular permutations equipped
+  with an automorphism are all \emph{equipotent}, without being
+  isomorphic.
+\end{ex}
+
+\subsubsection{} A morphism of species $M \to N$ determines a functor
+$\el (M) \to \el (N)$ between the corresponding groupoids. Note that
+this functor commutes with the forgetful functors \[ \xymatrix{\el(M)
+  \ar[rr] \ar[dr]_U & & \el(N) \ar[dl]^U \\ & B} \] \todo{Make this
+  not as wide}
+
+It is not true that a functor $\el (M) \to \el (N)$ is always induced
+by a morphism of species $M \to N$. For example, if $M$ is the species
+of preorders and $N$ the species of the orders, the usual construction
+of an order relation to from a pre-order (on a quotient of the
+pre-order's underlying set) determines a functor $\el (M) \to \el (N)$
+that \emph{does not come} from a morphism of species $M \to
+N$. However, it is easily checked that every functor $\el (M) \to \el
+(N)$ which commutes with the forgetful functors $U$ is induced by one
+and only one species morphism $M \to N$.
+
+\subsection{Relative species}
+
+We want to examine the concept of a \emph{relative} species. We begin
+with an example. Let $G$ be the species of \emph{graphs}. The concept
+of \emph{orientation} gives us a functor $O : \el (G) \to \E$, because
+one can transport a graph orientation along a graph isomorphism. The
+species of \emph{orientations} (of a graph) is \emph{relative} to that
+of graphs. On the other hand, the species $GO$ of \emph{oriented
+  graphs} is equipped with a projection $GO \to G$.
+
+\begin{defn}
+  Let $M$ be a species. A species \emph{relative} to $M$ is a functor
+  $T_M : \el (M) \to \E$.
+\end{defn}
+
+\end{document}
