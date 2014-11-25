@@ -1,0 +1,3721 @@
+ADVANCES IN MATHEMATICS 42, 1-82 (1981)
+
+Une théorie combinatoire des séries formelles
+
+ANDRÉ JoYAL*
+
+Département de Mathématiques, Université du Québec â Montréal,
+Montreal, Quebec H30 3P8, Canada
+
+This paper présents a combinatorial theory of forma] power séries. The
+combinatorial interprétation of formal power series is based on the concept of
+species of structures. A categorical approach is used to formulate it. A new proof of
+Cayley’s formula for the number of labelled trees is given as well as a new
+combinatorial proof (due to G. Labelle) of Lagrangäs inversion formula. Polya’s
+enumeration theory of isomorphism classes of structures is entirely renewed.
+Recursive methods for computing cycle_ index polynomials are described. A
+combinatorial version of the implicit function theorem is stated and proved. The
+paper ends with general considérations on the use of coalgebras in combinatorics.
+
+Table des matières. Introduction. 1. Espèces de structures. 2. Les opérations
+combinatoires. 3. Dénombrements des types de structures. 4. Espèces linéaires. 5.
+Espèces sur plusieurs variables. 6. Espèces pondérées. 7. Quelques aspects
+généraux. 8. Références.
+
+INTRODUCTION
+
+Le but de ce travail est à la fois d’exposer, de clariﬁer et d’uniﬁer le sujet.
+L’utilité des séries formelles dans les calculs combinatoires est bien établie.
+L’interprétation combinatoire de l’opération de substitution a fait l’objet de
+travaux assez récents (Bender et Goldman [1], Doubilet et al. [8], Foata et
+Schützenberger [12], Garsia et Joni [13], Gessel [l4]). La première inter-
+prétation (probabiliste) de la substitution des séries de puissances remonte à
+Watson (Kendall [l8]) (dans la théorie de processus en cascade).
+
+La caractéristique principale de la théorie présentée ici est son degré de
+généralité et sa simplicité. Dans cette théorie, les objets combinatoires
+correspondant aux séries formelles sont les espèces de structures. L’accent est
+mis sur le transport des structures plutôt que sur leurs propriétés. Ce point
+de vue n’est pas sans évoquer celui d’Ehresmann [9] et contraste avec celui
+de Bourbaki [2]. Aux opérations combinatoires sur les séries formelles
+
+* L’auteur est reconnaissant pour 1’appui ﬁnancier de l“Australian Research Grants
+Committee” et du “Ministère de l’Education du gouvernement du Québec, FCAC, Eq 1608.”
+
+1
+0001 -8708/8 l/IOOOOI-SZSOÂOO/O
+
+Copyright © 1981 by Académie Press, Inc.
+All rights of reproduction in any form reserved.
+
+2 ANDRÉ JOYAL
+
+correspondent des opérations sur les espèces de structures. Aux identités
+algébriques entre expressions formelles correspondent souvent des identités
+combinatoires. L’intuition et le calcul peuvent alors jouer sur deux plans
+dans un dialogue qui ressemble à celui qu’entretiennent l’algèbre et la
+géométrie. Il en résulte une sorte d’a1gèbre combinatoire analogue à l’algèbre
+géométrique de Grassman (et de Leibniz). La simplicité de la théorie est en
+grande partie due à l’usage qu’elle fait des concepts de la théorie des
+catégories [23] (les théories antérieures utilisant surtout la théorie des
+ensembles ordonnés et des partitions). De plus, elle met en évidence le fait
+fondamental qu’un très grand nombre de bijections construites sont
+naturelles, c’est—à—dire qu’elles ne dépendent pas d’un système de coor-
+données introduit au moyen d’une énumération arbitraire.
+
+Le travail contient quelques innnovations combinatoires comme le concept
+de vertébré et une nouvelle démonstration du résultat de Cayley sur le
+nombre d’arbres. On y trouve aussi une nouvelle démonstration combinatoire
+du théorème d’inversion de Lagrange. La théorie de Polya est entièrement
+refaite et il en résulte une méthode permettant souvent de calculer par
+récurrence les coefficients des polynômes indicateurs des cycles.
+
+La théorie présenté ici est partielle. Plusieurs aspects fondamentaux n’ont
+pas été abordés. Ainsi, il existe une théorie catégorique très générale de
+Fopération de substitution (Kelly [l7]). Des développements ultérieurs
+nécessiteront sans doute un tel degré de généralité. Nous nous sommes
+limités aux aspects les plus aptes (dans l’opinion de l’auteur) à capter l’at—
+tention d’un lecteur non familier avec les concepts de la théorie des
+catégories.
+
+Je suis surtout reconnaissant à G. Labelle d’avoir manifesté de l’intérêt
+pour les questions de l’auteur et à qui je dois la démonstration du théorème
+d’inversion de Lagrange présentée ici. Je dois aussi à J. Beck, F. W.
+Lawvere, P. Leroux, J. Labelle et S. Schanuel d’avoir eu des conversations
+stimulantes sur les relations possibles entre la combinatoire et la théorie des
+catégories. Je remercie G.—C. Rota pour m’avoir encouragé à rédiger ce
+travail. Je remercie aussi Cathy Kicinski pour son travail de dactylographie.
+Finalement, ce travail, rédigé sous le soleil du printemps australien, n’aurait
+jamais vu le jour sans l’hospitalité de Max Kelly, de l’université de Sydney.
+
+1. ESPÈCES DE STRUCTURES
+
+1.0. Il existe déjà un concept précis d’espèce de structures (Bourbaki
+[2]). La description d’une espèce particulière se fait souvent en spéciﬁant les
+conditions que doit satisfaire une structure pour appartenir à cette espèce.
+Cette description peut prendre la forme d’une théorie axiomatique de l’espèce
+considérée. Un aspect essentiel du concept est le transport de structures.
+
+UNE THÉORIE COMBINATOIRE 3
+
+Nous allons abstraite le concept d’espèce en considérant que le transport de
+structures en est l’aspect principal. De plus, comme nous ne traiterons que
+des problèmes de comptage et d’énumération ﬁnis, nous allons nous borner
+aux espèces ﬁnitaires, sauf mention du contraire.
+
+1.1. Espèces et cardinalité
+
+DÉFINITION 1. Une espèce (ﬁnitaire) est un endo-foncteur M: B-r B du
+groupoïde B des ensembles ﬁnis et bijections.
+
+Si E est un ensemble ﬁni, M [E ] est l’ensemble de toutes les structures
+d’espèce M sur E. Nous dirons que E est l’ensemble sous-jacent à une
+structure sEM [E ] ou encore que celle-ci est portée par E. Nous dirons
+aussi, par abus de langage, que s est un élément de M(s E M) et que c’est une
+M—structure.
+
+Si u: E —+F est une bijection, l’élément t =M[u](s) est la structure sur F
+obtenue en transportant s le long de u. La bijection u est un isomorphisme
+entre s et t:
+
+u:s—>t.
+
+Nous noterons el(M) la catégorie dont les objets sont les M-structures et
+dont les morphismes sont les isomorphismes de M-structures; c’est le
+groupoïde des éléments de M. On a un foncteur oubliant U: el(M)—> B dont
+la valeur en se M est l’ensemble sous-jacent à la structure s. Le concept
+d’isomorphisme de structures déﬁnit une relation d’équivalence dont les
+classes sont les types de structures d’espèce M; ces classes sont les
+composantes connexes du groupoïde el(M). Nous utiliserons la notation
+n0(M) pour désigner l’ensemble des types (de structures) d’espèce M. Si
+s E M, nous désignerons le type de s par la notation [s] e no(M).
+
+EXEMPLE 1. Rappelons qu’une structure de schéma simplicial sur E est
+un ensemble Y de parties non vides de E tel que (i) toute partie non vide
+contenue dans un élément de V appartient à .9’, (ii) les singletons {x} pour
+x E E appartiennent à .5’. Les éléments de .5’ sont les simplexes. La
+dimension d’un simplexe est sa cardinalité moins un. Un graphe est un
+schéma simplicial dont les simplexes sont de dimension <1. Si u: E —+ F est
+une bijection, il est clair que u(.9’) = {u(S)]S E V} est aussi une structure
+de schéma simplicial sur F. On peut donc considérer l’espèce des schémas
+simpliciaux. Il est aussi clair que si .5’ est un graphe alors u(.5’) en est un;
+on obtient l’espèce des graphes, c’est une sous-espèce de l’espèce des schémas
+simpliciaux. Plus généralement, toute propriété P, s’appliquant aux schémas
+simpliciaux, et dont la satisfaction est invariante par isomorphisme,
+détermine une sous-espèce de l’espèce des schémas simpliciaux. Ainsi la
+
+4 ANDRÉ JOYAL
+
+connexité est une propriété invariante. L’espèce des forêts est celle des
+graphes sans cycles, l’espèce des arbres est celle des forêts connexes, etc.
+
+EXEMPLE 2. Le transport d’une endofonction a: E—>E le long d’une
+bijection u:E zF se fait par conjugaison: oi—> uou". L’espèce des
+permutations est une sous-espèce de celle des endofonctions. Si on exige que
+le graphe d’une endofonction soit connexe, on obtient la sous-espèce des
+endofonctions connexes et aussi celle des permutations circulaires. Un
+concept important est celui de contraction: une endofonction d:E—+E est
+une contraction s’il existe x0 E E tel que pour tout x E E on ait gzi"(x) =x0
+dès que n est assez grand. Autrement dit, une contraction est une
+endofonction ultimement constante.
+
+EXEMPLE 3. Soit S l’espèce des permutations. Considérons le groupoïde
+el(S) des éléments de S. Les objets de el(S) sont les ensembles E E B munis
+d’une permutation 0E E S[E]. Les morphimes (E, 0E) —> (F, oF) sont les
+bijections u: E —>F telles que uoE =oFu. Soit x[,x,,x3,... une suite illimitée
+dïndéterminées. Posons I(o,_.)=x‘f‘ n-xf", où n=CardE et où d, est le
+nombre de cycles de longueur i de 0E. Deux objets (E, a5) et (F, 0E) de el(S)
+sont isomorphes si et seulement si I(oE) = I(o,). L’ensemble n0(S) des
+composantes connexes du groupoïde el(S) s’identiﬁe donc naturellement à
+l’ensemble Mon(x) de tous les monômes en les indéterminées x1, x2, x,,....
+
+1.1.1. Le groupe E l des permutations de E agit sur M [E ] par transport
+de structures. L’ensemble n0(M [E ]) des orbites s’identiﬁe à l’ensemble des
+types de M-structures portées par les ensembles équipotents à E. Nous iden-
+tiﬁerons l’orbite de s 6M [E ] à son type [s]. Le sous-groupe stabilisateur
+d’un élément s E M [E ] est le groupe Aut(s) des automorphismes de s. On a
+la formule bien connue
+
+n!
+
+CaYd|S]=-ËI_'a—‘/À—‘-ÎG5.
+
+Un des problèmes fondamentaux de la combinatoire énumérative est
+d’évaluer les deux suites inﬁnies de nombres
+
+CardMlnl, n>0(l"l= i1929'--9n})9 (1)
+
+Card n0(M[n]), n 2 O. (2)
+
+On définit deux séries génératrices, la première est une série de Hurwitz
+
+(Comtet [6]):
+
+M(x)= z CardM[n]Î1—T, V (1)
+
+n>0
+
+UNE THÉORIE COMBINATOIRE 5
+
+la seconde est une série de puissances à coefficients entiers (sans factoriel):
+
+M(x) = 2 Card no(M[n]) x". (2)
+n>0
+Nous dirons que M (x) est la cardinalité de M. Voyons immédiatement que
+
+le calcul de M(x) se ramène au calcul de la cardinalité d’une espèce associée
+M.
+
+DÉFINITION 2. Une structure d’espèce M est un couple (a, s) où o est un
+automorphisme de s e M.
+
+PROPOSITION 1. On a
+M (x) = Card M.
+
+Preuve. On utilise le lemme de Burnside: si un groupe ﬁni G agit sur un
+ensemble fini X, alors la cardinalité de l’ensemble n,,(X) des orbites de X est
+égale à celle de l’ensemble {(o,x)|a€ G,xEX,o-x=x} divisée par
+Card G. (Voir Burnside [3].)
+
+1.2. Catégorie des espèces
+
+Les espèces se constituent en catégorie: ce sont des foncteurs, on peut
+prendre comme morphismes les transformations naturelles. Comme il est
+désirable d’avoir une classe de morphismes plus large que celle des
+isomorphismes, il vaut mieux considérer qu’une espèce est un foncteur
+M : B —>E vers la catégorie E des ensembles finis et fonctions (en composant
+avec l’inclusion B C» E).
+
+DÉFINITION 3. Un morphisme a: M —+ N est une transformation naturelle
+de M vers N considérés comme des foncteurs de B vers E.
+
+On peut interpréter a comme suit: on dispose d’une construction a
+permettant de produire une structure d’espèce N (output) à partir d’une
+structure d’espèce M (input), et pour toute bijection u: E —> F le rectangle
+
+M[E] —"—‘—» N[E]
+jMlul [NM
+M[F] l. N[F]
+
+est commutatif; ce qui signiﬁe que la construction est équivariante (ou
+invariante): elle ne change pas si on transporte simultanément l’input et
+
+6 ANDRÉ JOYAL
+
+l’output le long de la même bijection; la très grande majorité des
+constructions mathématiques ont cette propriété.
+
+Si oE est inversible quel que soit E, le morphisme a est un isomorphisme
+entre M et N. Dans ce cas, nous écrirons M ÊN ou plus simplement (par
+abus de notation) M =N. Si M et N satisfont à la condition plus faible
+Card M = Card N, nous dirons que M et N sont des espèces équipotentes et
+nous écrirons M a N.
+
+EXEMPLE 4. La construction de la fermeture transitive d’un graphe
+détermine un morphisme de l’espèce des graphes vers l’espèce des partitions.
+
+EXEMPLE 5. Une arborescence est un arbre muni d’une racine (c’est un
+sommet arbitraire de l’ensemble sous-jacent). On oriente habituellement les
+arêtes d’une arborescence dans la direction de la racine. Si on adjoint une
+boucle à la racine on obtient le graphe d’une contraction (Ex. 2). Il y a
+isomorphisme entre l’espèce des arborescences et celle des contractions.
+
+EXEMPLE 6. Les espèces des ordres linéaires, des permutations, des
+permutations munies d’un point ﬁxe, des permutations circulaires munies
+d’un automorphisme sont équipotentes entre elles, sans être isomorphes.
+
+1.2.1. Un morphisme d’espèces M —+N détermine un foncteur
+el(M)—>el(N) entre les groupoïdes correspondants. Remarquer que ce
+foncteur commute avec les foncteurs oubliants
+
+el(M) ———> el(N)
+B.
+
+Il n’est pas vrai qu’un foncteur el(M)—>el(N) soit toujours induit par un
+morphisme d’espèces M —> N. Par exemple, si M est l’espèce des pré—ordres et
+N l’espèce des ordres, la construction habituelle d’une relation d’ordre à
+partir d’un pré-Ordre (sur un quotient de l’ensemble sous-jacent au pré-ordre)
+détermine un foncteur el(M)—>el(N) qui ne provient pas d’un morphisme
+d’espèce M —> N. Cependant, on vériﬁe aisément que tout foncteur
+el(M) —> el(N) commutant avec les foncteurs oubliants U, est induit par un et
+un seul morphisme d’espèce M —> N.
+
+1.3. E spêces relatives
+
+Nous voulons examiner le concept d’espèce relative. Commençons par un
+exemple. Soit G l’espèce des graphes. Le concept dbrientation nous donne
+
+UNE THÉORIE COMBINATOIRE 7
+
+un foncteur 0: el(G)—> E, car on peut transporter une orientation de graphe
+le long d’un isomorphisme de graphes. L’espèce des orientations (de graphe)
+est relative à celle des graphes. D’autre part, l’espèce G0 des graphes
+orientés est munie d’une projection G0 —> G.
+
+DÉFINITION 4. Soit M une espèce. Un espèce relative à M est un
+foncteur TM: el(M)» E.
+
+Étant donné TM on peut construire une espèce T munie d’un morphisme
+T—+" M: on pose T[E] = {(s, a)] s E M[E], a 6E TM [s]}. Pour transporter
+(s, a) E T[E] le long d’une bijection u: E —>F, on commence par transporter
+s pour obtenir t=M[u](s), ce qui donne d’abord un isomorphisme
+s—+“tE el(M), et ensuite ,8: TM[u](a); on pose T[u](s, a): (t,ﬁ). Le
+morphisme p: T—+M est la projection p(s, a) =s. Inversement, si on se
+donne un morphisme T——>"M, on peut construire TM:si s€M[E], on a
+pE:T[E]—>M[E] et on pose TM[s]=pg‘{s}ET[E]. La naturalité de p
+nous permet de vériﬁer que si u: E —>F est un isomorphisme entre s E M [E]
+et tEM[F] alors T[u] transforme pEî‘ {s} dans pE‘ {t}, ce qui donne
+TM[u]: TM[s] —> M[t]. On a, en fait, une proposition précise: une espèce au-
+dessus de M est une espèce T munie d’un morphisme T-v” M. Un morphisme
+(T, p) —> (T’, p’) entre espèces au-dessus de M est une ﬂèche T——>" T’ telle que
+
+p’u = p.
+
+PROPOSITION 2. Les constructions décrites ci-haut définissent une
+équivalence entre la catégorie des espèces relatives à M et la catégorie
+E |[X H/M des espèces au-dessus de M. (Voir 2.0. pour la natation E HXH.)
+
+Supposons que TM: el(M)—>E soit donné. Nous dirons souvent que
+(s, a)E T[E] est une M-structure s munie d’un élément a6 T M [s]. Par
+exemple, un graphe orienté est un graphe muni d’une orientation. Une
+structure d’espèce M (déf. 2) est une M-structure munie d’un automorphisme.
+Etc.
+
+Nous utiliserons quelques fois le terme “enrichi” plutôt que “muni.” Ainsi,
+soit R une espèce quelconque, nous dirons qu’une endofonction o: E —>E est
+R-enrichie si chacune des ses ﬁbres p"{x}, xEE, est munie d’une R-
+structure. De même, soit a une arborescence sur E. La fibre a"{x} d’un
+sommet xeE est l’ensemble des sommets de a reliés à x par une arête
+aboutissant à x (pour l’orientation d’une arborescence telle que décrite dans
+l’exemple 5). Nous dirons que a est R-enrichie si chacune de ses ﬁbres est
+munie d’une R-structure. (En n’oubliant pas les ﬁbres vides.)
+
+Dans les représentations graphiques des endofonctions ou des
+arborescences R-enrichies il est souvent commode de penser que les R-
+structures sur les ﬁbres sont situées sur l’ensemble des arêtes de ces ﬁbres.
+Par exemple, une arborescence R-enrichie peut se représenter comme sur la
+
+8 ANDRÉ JOYAL
+
+ 
+
+FIGURE 0
+
+ﬁgure 0 où un arc de cercle coupant transversalement les arêtes d’une ﬁbre
+désigne une R-structure. Il ne faut pas oublier les feuilles.
+
+2. LEs OPÉRATIONS COMBINATOIRES
+
+2.0. La catégorie des espèces est riche en opérations diverses. Dans cette
+section, nous allons décrire plusieurs opérations dont trois sont binaires. Les
+deux premières sont la somme (disjointe) et le produit. Avec ces deux
+opérations, la catégorie des espèces devient une sorte de semi-anneau. De
+facon plus précise, soit R un anneau commutatif, désignons par Rﬂxﬂ
+1’anneau des séries de Hurwitz à coefficients dans R: ce sont les séries for-
+melles
+
+où n>0,a,,€R.
+
+La
+n>0
+
+L’analogie poursuivie ici est que la catégorie des espèces serait le semi-
+anneau EHXH des séries de Hurwitz, mais à coeﬁicients dans la catégorie E
+des ensembles ﬁnis. Le concept de cardinalité induit un homomorphisme
+
+Card:E]|X]|—>Z||x]|.
+
+De plus, l’évaluation M l—> M [0] est un foncteur préservant la somme et le
+produit
+
+EllXll-rE
+
+dont le noyau J est un idéal sur lequel nous allons décrire des opérations de
+puissances divisées (Cartan [4])
+
+rnïJ-‘EIIXII (n20)
+
+UNE THÉORIE COMBINATOIRE 9
+
+de sorte que l’on a
+M(x)"
+
+Card y,,(M) = m
+
+(n > 0)-
+
+Utilisant ces opérations de puissances divisées nous décrirons ensuite
+l’opération de substitution d’une espèce dans une autre. Nous terminerons ce
+chapitre en introduisant le calcul diﬂérentiel des espèces et en donnant une
+démonstration combinatoire de la formule d’inversion de Lagrange.
+
+2.1. Somme et produit
+
+La somme disjointe de deux espèces M et N est le coproduit dans la
+catégorie des espèces:
+(M +N)[E] =M[E] +N[E].
+
+Plus généralement, une famille arbitraire d’espèces (M ,),E, est sommable si
+pour tout ensemble ﬁni E, l’ensemble des indices iE I pour lesquels
+M,[E] 9e 0, est ﬁni. On pose
+
+(Z M.) [E1 = Z Mm.
+
+iel le!
+
+Il est évident que Card préserve la somme. Passons à la déﬁnition du produit
+M - N de deux espèces M et N. Disons d’abord qu’un partage d’un ensemble
+E en deux morceaux est un couple (E ,, E2) tel que E , UE1 = E et
+E, NE, = z. On déﬁnit de même le concept de partage de E, en n morceaux
+(n E N): nous écrirons E =E, +  +E,, pour indiquer que (E,,...,E,,) est
+un partage de E en n morceaux.
+
+DÉFINITION 5. Une structure d’espèce M - N sur E E B est un
+quadruplet (E,,E2, s, t), où E =El + E, et (s, t) E M[E,] X N[E2].
+
+PROPOSITION 3. On a
+Card(M - N) = Card(M) - Card(N).
+Preuve. On a par déﬁnition
+
+(M - NllEl =   2 M1151] >< NiEzi.
+
+E]+E2=E
+
+Si CardE=net0<k<nona(Z)partagesE=E,+E, avec CardE,=k.
+Ce qui entraîne
+
+Card(M . N)[n] =   )card M[k] Card N[n — k].
+
+10 ANDRÉ JOYAL
+
+L’espèce uniforme est une espèce n’ayant qu’une seule structure sur chaque
+ensemble; on peut s’en donner des représentations diverses: les structures de
+graphes complets, de topologies chaotiques et d’applications identiques déter-
+minent des espèces uniformes.
+
+EXEMPLE 7. Soient S l’espèce des permutations, S0 celle des
+permutations sans point fixe et U l’espèce uniforme, on a: S=S0- U
+(Fig. l); prenant les cardinalités, on obtient:
+
+1 X
+l_x = S0(x) e
+et donc
+e-X
+S0(x)= 1_x .
+
+EXEMPLE 8. Soient D l’espèce des endofonctions, D0 l’espèce des
+endofonctions munies d’un point fixe et A l’espèce des arborescences, on a
+
+D0=A .1).
+
+En effet, on peut partager le domaine E d’une endofonction o munie d’un
+point ﬁxe x0 en deux morceaux E = E 1 + E2. Le premier E 1 est constitué de
+tous les points ultimement transformés en x0 par o. Sur E 2, a induit une
+contraction (Chap. 1,Ex. 2), ce qui équivaut à une arborescence. Sur le
+second morceau E2, o induit une endofonction arbitraire (Fig. 2).
+
+Le produit M =]'[f‘zlM, d’une suite ﬁnie d’espèces s’explicite comme
+suit: une structure d’espèce M sur E est un partage E =E, +  +E,, dont
+chaque morceau E 2. (possiblement vide) est muni d’une structure d’espèce M ,..
+
+ 
+
+UNE THÉORIE COMBINATOIRE 11
+
+été
+
+FIGURE 2
+
+On peut aussi décrire la puissance N5 d’une espèce N par un ensemble ﬁni
+S: une structure d’espèce N‘ sur E est une fonction x:E—> S dont chaque
+ﬁbre est munie d’une structure d’espèce N; autrement dit, c’est une fonction
+N-enrichie.
+
+EXEMPLE 9. (Joyal). Un vertébré est un arbre bipointé par un couple
+(p0, 17,) de sommets. Nous dirons que p0 est le sommet de queue et p, le
+sommet de tête. Le plus court chemin du sommet de queue au sommet de tête
+est la colonne vertébrale. Les sommets en Ordre linéaire sur la colonne
+vertébrale sont les vertèbres. Pour chaque sommet p soit v(p) la vertèbre la
+plus proche de p. La fonction v est idempotente et il y une structure d’ar—
+borescence sur chaque ﬁbre de v. Les racines de ces arborescences sont les
+vertèbres. Ainsi, un vertébré sur E détermine un partage de longueur variable
+E=E2 +  En, dont chaque morceau E,- est muni d’une structure d’ar-
+borescence, et inversement. On a donc l’identité:
+
+V=A +A’+A’+ 
+
+Où V est l’espèce des vertébrés et A celle des arborescences (Fig. 3).
+
+EXEMPLE 10. Soient L l’espèce des ordres linéaires et S un ensemble
+ﬁni. Une structure d’espèce L‘ sur E est une fonction E—>S dont chaque
+ﬁbre est munie d’un Ordre linéaire. Le nombre l(n, s) de ces objets (si
+n =Card E et s=Card S) est donc le coefﬁcient de x"/n! dans la série
+(1 —x)“. Ce qui montre que
+
+l(n,s)=s(s+ 1)—-- (s+n— 1).
+
+12 ANDRÉ JOYAL
+
+V(P)
+
+P
+
+FIGURE 3
+
+Par la suite, nous allons souvent considérer qu’un ensemble ﬁni A
+détermine une espèce en posant
+
+A[E]=A si E=0
+=O sinon.
+
+Avec cette convention la catégorie E agit comme un anneau de coefficients
+pour EUX I] car la somme disjointe et le produit cartésien d’ensembles se
+confondent alors avec la somme et le produit des espèces tels que décrits plus
+tôt.
+
+2.2. Puissances divisées et substitution
+
+DÉFINITION 6. Soit N une espèce telle que N [0] :9 et soit E un
+ensemble ﬁni. Une assemblée de structures d’espèce N sur E est une partition
+de E dont chaque classe est munie d’une structure d’espèce N. Un membre
+d’une assemblée est une classe munie de la N—structure correspondante. La
+puissance divisée y,,(N) est l’espèce des assemblées de N-structures ayant
+exactement n membres. Uexponentielle exp(N) est l’espèce de toutes les
+assemblées de N-structures.
+
+PROPOSITION 4. On a —
+
+N(x)"
+n!
+
+Card y,,(N) =
+
+Card exp(N) = exp(N(x)).
+
+Preuve. Il suffit évidemment de démontrer la première identité.
+Remarquons d’abord qu’une structure d’espèce N" sur E détermine un
+partage E = E 1 +  + En en morceaux non vides (et distincts): en effet, E i
+est muni d’une N—structure et par hypothèse N [0] = z. Si on oublie l’ordre
+linéaire entre les morceaux on a une partition {E, ,...,E,,} dont chaque classe
+
+UNE THÉORIE COMBINATOIRE 13
+
+est munie d’une N structure. On a montré qu’une N"-structure n’est rien
+d’autre qu’une N-assemblée dont les membres ont été placés en ordre
+linéaire:
+
+Card N" = n! Card y,,(N).
+
+Pour un grand nombre d’espèces, on peut indiquer un concept de connexité
+et démontrer qu’une structure quelconque se compose d’une partition dont
+chaque classe est munie d’une structure connexe. Dans ces conditions, une
+espèce M sera isomorphe à l’espèce des assemblées de structures connexes:
+M = exp(MC).
+
+EXEMPLE 11. Les forêts sont de assemblées d’arbres. Les forêts d’ar-
+borescences sont des assemblées d’arborescences. Les permutations sont des
+assemblées de permutations circulaires. Les partitions sont des assemblées de
+partitions à une seule classe, etc.
+
+Uopération de substitution d’une espèce dans une autre est la plus riche en
+possibilités.
+
+DÉFINITION 7. Soient R et N des espèces et supposons que N[0] :0.
+L’espèce R(N) est celle des couples (a, p), où a est une assemblée de R-
+structures et p est une R-structure sur l’ensemble des membres de a.
+
+Nous dirons que R(N) est le résultat de la substitution de N dans R. Nous
+dirons qu’un élément de R (N) est une R-assemblée (de N-structures). Notons
+immédiatement que, exp(N) est le résultat de la substitution de N dans
+l’espèce uniforme (Ex. 7).
+
+THÉORÈME 1. Supposant que N [O] = z on a
+Card R(N) = R(N(x)).
+
+Preuve. Pour chaque entier n à 0 soit R,, l’espèce des R—structures dont
+l’ensemble sous-jacent est de cardinalité n. On a une décomposition en
+somme disjointe
+
+R = z R",
+n>0
+
+induisant une décomposition des R-assemblées en fonction du nombre de
+membres:
+
+R(N)= 2 R.<N).
+
+n>0
+
+14 ANDRÉ JOYAL
+
+Un élément de R,,(N) est une assemblée de n membres munie d’une R-
+Structure. On a donc
+
+Card R,,(N) = Card y,,(N) X Card R[n],
+
+ce qui entraîne
+
+CardR(N)= z Cardmﬂïÿfl
+n>0 '
+=R(N(x)). C.Q.F.D.
+
+Remarques. Pour pouvoir penser combinatoirement il est nécessaire de
+se donner des représentations visuelles. Saisir la nature d’une espèce c’est être
+capable de se représenter la forme générale de ses structures. La forme d’une
+Structure est invariante par iso-morphisme. Ce qu’il faut arriver à se
+représenter d’abord c’est le type général des structures d’une espèce donnée.
+Ce type est indépendant d’un étiquetage ou d’une énumération des sommets
+de l’ensemble sous-jacent. Par exemple, Supposons que l’on veuille se
+représenter le type général des structures d’espèce R(N) sachant que l’on a
+déjà une représentation pour R et N. Ce qu’on peut faire, c’est véritablement
+substituer au lieu et à la place de chaque sommet d’une R-structure, des N-
+structures arbitrairement choisies. Pour cela, on peut imaginer que les
+sommets de la R-structure se gonflent en cellules abritant des N-structures.
+L’ensemble sous-jacent d’une conﬁguration cellulaire est la somme des
+ensembles sous-jacents des structures contenues dans les cellules. Ainsi, si on
+substitue l’espèce des permutations circulaires dans l’espèce des arbres, on
+obtient une espèce dont le type général peut se représenter comme sur la
+ﬁgure 4.
+
+Cette représentation n’est pas la seule et il est commode de l’adapter aux
+particularités d’une espèce. Par exemple, supposons que l’espèce N soit
+pointée, dest-à-dire munie d’une morphisme N —>"B ou B est l’espèce des
+“sommets” (B[E]=E pour E 6B). Chaque structure SEN possède
+alors un point de base p(s) E E. On peut utiliser les points de base pour se
+donner une autre représentation des R(N)-structures: pour chaque sommet
+d’une R-structure on choisit une N-structure et on fait coïncider ce sommet
+avec le point de base de la N-structure choisie. Par exemple, le point de base
+d’une arborescence est la racine; si on substitue l’espèce A des arborescences
+dans celle des ordres linéaires (non vides) on obtient l’espèce des vertébrés
+(Ex. 9). Quand N est pointée on peut déﬁnir comme suit la substitution: une
+R(N)-structure sur E est un triplet (v, aHB), où
+
+(1) v est une fonction indempotente E —> E,
+(2) a est une fonction qui choisit pour chaque x E Im(v) une structure
+
+UNE THÉORIE COMBINATOIRE 15
+
+FIGURE 4
+
+a(x)EN[v"{x}] de sorte que le point de base de a(x) coïncide avec
+x E v“‘{x},
+(3) ﬁ est une R-structure sur Im(v).
+
+EXEMPLE 12. Soient D l’espèce des endofonctions, S celle des
+permutations et A celle des arborescences. On a la décomposition
+
+D = sp4).
+
+En effet, soit de D[E]. Un point x E E est périodique s’il existe un entier
+n à 1 tel que a"(x) = x. La fonction a permute entre eux les points
+périodiques. Pour chaque x E E soit v(x) le premier point périodique dans la
+suite x, Mx), d’(x),.... La fonction v est idempotente et son image est l’en-
+semble des points périodiques. Pour chaque x6 Im(v) la ﬁbre v"{x} est
+munie d’une structure d’arborescence dont x est la racine. Inversement, si on
+se donne une assemblée d’arborescences et une permutation de l’ensemble des
+racines, il est ‘clair que l’on peut construire une endofonction correspon-
+danted (Fig. 5).
+
+507/42/1-2
+
+16 ANDRÉ JOYAL
+
+X
+
+FIGURE 5
+
+Les exemples 9 et 12 nous donnent une démonstration Simple du théorème
+de Cayley: le nombre a" d’arbres sur un ensemble de cardinalité n 2l est
+n"’2. En effet, le nombre de vertébrés (arbre bipointé) est égal à nzan.
+L’exemple 9 montre que les vertévrés sont des assemblées linéaires
+d’arborescences. L’exemple l0 montre que les endofonctions sont des
+assemblées permutées d’arborescences. Comme le nombre d’ordre linéaires
+coïncide avec le nombre de permutations, on obtient nia" = n" (n à 1).
+
+Le Théorème 1 suggère d’adopter la notation M(X) pour désigner une
+espèce M. La variable X s’interprète comme l’espèce singleton: il y a une
+seule structure d’espèce X (à isomorphisme près) et elle est portée par les
+singletons. Le résultat M (X) de la substitution de X dans M est isomorphe à
+M. Pour certaines espèces nous adopterons une notation franchement
+algébrique si cela ne crée pas d’ambiguité. Ainsi, exp(X) ou e’ désignera
+l’espèce uniforme, XeX l’espèce des ensembles pointés, ex —— 1 l’espèce
+uniforme non vide, cosh(X) et sinh(X) les espèces uniformes paires et
+impaires, 1/ 1 —X l’espèce des ordres linéaires, etc. Cependant, nous conser-
+verons la notation S(X) pour désigner l’espèce des permutations aﬁn d’éviter
+de la confondre avecl/1—X. De même, nous utiliserons le notation C(X)
+plutôt que log 1/1—X pour désigner l’espèce des permutations circulaires,
+etc.
+
+EXEMPLE 13. Une relation de préordre g sur E détermine une relation
+d’équivalence: x2 y si et seulement si on a x4 y et y gx. La relation de
+préordre induite sur le quotient E/E est une relation d’ordre. Inversement.
+Cela montre que l’espèce des préordres s’obtient en substituant l’espèce
+ex —1 dans l’espèce des relations d’ordres. En particulier, l’espèce des
+préordres totaux est 1 1
+
+ÎXÎÎÏÎËÎ‘
+
+UNE THÉORIE COMBINATOIRE 17
+
+ 
+
+FIGURE 6
+
+EXEMPLE 14. Dand un graphe, deux sommets sont doublement connectés
+si on peut les relier par un chemin évitant n’importe laquelle arête choisie
+d’avance. Les sommets d’un graphe se partagent en composantes doublement
+connexes. Soient G: l’espèce des graphes connexes pointés et G2‘, celle des
+graphes doublement connexe pointés. On a la relation
+
+G: = GuXeGPO").
+
+En effet, dans un graphe connexe pointé considérons la composante
+doublement connexe H du point de base; pour chaque sommet x soit v(x) le
+sommet le plus près situé dans la composante H. On vériﬁe aisément que v
+est bien déﬁnie. C’est une fonction idempotente dont les ﬁbres sont munies
+d’une structure d’espèce X - e°"""; l’image de v coïncide avec le graphe
+doublement connexe pointé H (Fig. 6).
+
+EXEMPLE 15 (Pôlya [26]). Considérons l’espèce A des arborescences.
+On a l’identité (Fig. 7)
+
+A = X - exp(A ).
+
+ 
+
+FIGURE 7
+
+18 ANDRÉ JOYAL
+
+FIGURE 8
+
+Plus généralement, l’espèce AE des arborescences R—enrichies satisfait à
+Féquation (voir 1.3, Fig. 0)
+
+AE=X-R(AE).
+
+2.3. Calcul dijférentiel
+
+Pour tout ensemble ﬁni E, soit E * l’ensemble obtenue par adjonction à E
+d’un point supplémentaire *:
+
+E+=E+ {*}.
+
+DÉFINITION 8. L’espèce dérivée M’ d’une espèce M est déﬁnie comme
+suit:
+M’[E]=M[E*].
+
+EXEMPLE 16. La dérivée de l’espèce C(X) des permutations circulaires
+est l’espèce des ordres linéaires (Fig. 8):
+1
+
+“(Xlñîî
+
+FIGURE 9
+
+UNE THÉORIE COMBINATOIRE 19
+
+ 
+
+FIGURE l0
+
+EXEMPLE 17. La dérivée de l’espèce des arbres est celle des forêts d’ar—
+borescences (Fig. 9).
+
+EXEMPLE 18. Rappelons qu’un graphe est pair si le nombre d’arêtes
+joignant chaque sommet est pair. La dérivée de l’espèce des graphes pairs est
+l’espèce des graphes (Fig. l0). (Harary et Palmer [15].)
+
+EXEMPLE 19. La dérivée de l’espèce des ordres linéaires 1/(1—X) est
+égale à (1/(1—X))- (1/(1—X)).
+
+Rappelons qu’une structure pointée d’espèce M sur E est un élément de
+E X M [E]. Nous noterons M‘ l’espèce des M-structures pointées.
+
+PROPOSITION 5.. On a les relations
+
+M‘ = X . M’,
+(M+N)’ =M’ +N’,
+(M-N)’=M’ -N+M-N’,
+M(N)’ =M’(N) » N’.
+Ces identités ne sont pas seulement des relations entre quantités
+
+numériques mais de véritables identités combinatoires. Nous laissons au
+lecteur le plaisir de les démontrer.
+
+20 ANDRÉ JOYAL
+
+EXEMPLE 20. Pour illustrer le calcul différentiel combinatoire
+considérons l’équation satisfaite par l’espèce A des arborescences:
+
+A=X—e”.
+
+Uopération de “pointage” est une dérivation:
+A°=X°-e" +X- e“A°,
+Les arborescences pointées sont les vertébrés:
+V=A°=X-e" +X-e"V
+=A +A — V
+=A +A’ +A’ + .
+
+On a montré que les vertébrés sont des assemblées linéaires (non vides) d’ar-
+borescences. (Voir 2.1, Ex. 9.)
+
+2.4. La formule d’Inversion de Lagrange
+
+2.4.1. Les méthodes de l’analyse laissent quelquefois des traces dans
+l’univers restreint des séries formelles. Un exemple est la théorie du résidu
+(au point 0) d’une série formelle méromorphe. La propriété dïnvariance du
+résidu par changement inversible x=w(t) de paramètre est une identité
+algébrique fondamentale:
+
+Rés f (x) dx = Rés f (u(t)) u’(t) dt.
+
+Cette identité est équivalente à la formule d’inversion de Lagrange. Cette
+formule donne le coefﬁcient c,, de x" dans la série g(v(x)) lorsque v(x)
+satisfait l’équation v(x) = xR (v(x)):
+
+1
+c, = Î X coeff de t"" dans g’ (t) R(t)".
+
+Pour la démontrer, il sufﬁt de remarquer que ce coefﬁcient est égal au résidu
+à l’origine de g(v(x))/ﬁ“. Remarquer de plus que u(t) = t/R(t) est la série
+inverse de u. Effectuant le changement de paramètre x = u(t) et utilisant la
+propriété d’invariance, on obtient
+
+u’(t)
+
+u(t)n+l
+
+c" = Rés g(t) dt
+
+UNE THÉORIE COMBINATOIRE 2l
+
+g(t) d
+
+ET?’
+
+l Rés   dt
+
+= Rés
+
+1
+= Î X coeff de t""' dans g’ (t) R(t)".
+
+Comme les calculs sont réversibles, l’équivalence entre la formule d’inversion
+et la propriété dïnvariance est claire.
+
+2.4.2. Depuis Pôlya [26], la formule d’inversion est souvent utilisée en
+combinatoire pour calculer les coefficients de certaines séries génératrices
+(l’exemple canonique est celui de l’espèce A des arborescences qui satisfait
+l’équation A =X - exp(A ), voir Moon [24]).
+
+Il existe déjà une démonstration purement combinatoire de la formule d’in-
+version (Raney [27]). Cette démonstration repose sur des concepts différents
+de ceux qui seront utilisés dans la démonstration qui suit. Au chapitre 4,
+nous donnerons une autre démonstration de la formule d’inversion.
+
+THÉORÈME 2 (Inversion de Lagrange). Soient R et F des espèces et soit
+A E l’espèce des arborescences R—enrichies. On a pour n à 1:
+
+F(AE)[n] 2F'R"[n -1]
+(le signe E signiﬁe équipotence).
+Preuve. Rappelons (Ex. 15) que A, satisfait l’équation
+A E = X - R(A E).
+Ce qui entraîne par dérivation
+Ai. =R(A.) +X - RIAaAI.
+= R(AE) + CEA],
+et par itération (CE =X - R’(AR))
+
+=R(A,,)(1 +C,, +C}. + ---)
+
+1
+
+=R A ————.
+
+< .> 1 _ CR
+
+A ce point, nous désirons remplacer 1/(1 — CE) par S(CE), où S est
+
+l’espèce des permutations. Nous avons besoin d’interpréter combinatoirement
+le résultat de ce remplacement.
+
+22 ANDRÉ JOYAL
+
+ 
+
+FIGURE 1 1
+
+LEMME 1 (G. Labelle [20]). L’espèce CE=X -R’(AR) coïncide avec
+celle des contractions R-enrichies. (Voir 1.3 et Ex. 5.)
+
+En effet, considérons une contraction R-enrichie b: E —> E. Soit x0 le point
+de convergence de a. On peut partager E en deux morceaux: E =
+{x0} + E —- {x0}. Sur le second morceau, il y a une structure de R’—assemblée
+de AR-strueture comme on le voit sur la ﬁgure 11 (c’est la boucle qui
+explique la présence de la dérivée dans la formule CR =X - R'(AR)). Inver-
+sement.
+
+LEMME 2 (G. Labelle). Le résultat de la substitution de CE dans
+l’espèce S des permutations coïncide avec l’espèce DE des endofonctions R-
+enrichies.
+
+Preuve. Le lemme afﬁrme que l’on a S(CR)=DR. Utilisons la décom-
+position d’une endofonction en permutations et arborescences telle que
+
+ 
+
+FIGURE 12
+
+UNE THÉORIE COMBINATOIRE 23
+
+décrite dans l’exemp1e12. Remplaçons les arborescences de cette décom-
+position par des contractions. Si on compare, en chaque point, la ﬁbre de
+l’endofonction avec la ﬁbre de la contraction “contenant” ce point, on se
+rend compte qu’elles sont en bijection (elles coïncident si le point n’est pas
+périodique). On peut transporter ensuite les R-structures le long de ces
+bijections. Cela montre que les endofonctions R-enrichies sont en bijection
+canonique avec les assemblées permutées de contractions R-enrichies.
+
+On poursuit le démonstration du théorème en prenant la dérivée de F(AE):
+
+Fou)’ = FIAnAI
+=F'(A..)R<A.>T:‘-CÎ
+EF’(AE)R(AR)DE.
+
+LEMME 3 (G. Labelle) (Lemme du repartage). Soit G une espèce
+quelconque. Une structure d’espèce G(AE)DE sur un ensemble E peut
+s’interpréter comme la donnée d’un partage E=El +E2 dont le premier
+morceau E 1 est muni d’une G-structure y et le second morceau E2 est muni
+d’une fonction R-enrichie Â: E2 —> E.
+
+Preuve. Soit (F,,F2, g, f) une structure d’espèce G(AE) - DE sur E. On
+a E =F, +F2. On peut décrire g comme- une forêt d’arborescences R-
+enrichies dont l’ensemble des racines est muni d’une G-structure y. Soit E ,
+l’ensemble de ces racines et soit E2 le complémentaire. Cette forêt d’ar-
+borescences, réunie à l’endofonction f, déﬁnit une fonction R-enrichie
+Â: E2 —>E. (Voir Fig. 13.) Inversement, partant de (E “E2, y, Â), on retrouve
+d’abord F, comme l’ensemble de tous les points de E qui sont ultimement
+transformés dans E, par l. On complète la démonstration en méditant sur la
+figure 13.
+
+F
+
+îêmrjkxs
+.5   o<
+pg<îzgï°ä
+
+1 E
+
+2
+
+FIGURE 13
+
+24 ANDRÉ JOYAL
+
+Nous utiliserons maintenant ce lemme pour calculer la cardinalité de
+(G(AE)RE)[n]. En effet, les fonctions R-enrichies Â:E2—+E coïncident avec
+les fonctions R-enrichies Â:E2—v [n] dans le cas où E = [n] (voir la
+remarque précédant Pexemple 9). On a donc
+
+(G(AR)DR)ini = (G ' R")l"l-
+
+Pour terminer, remarquons que nous désirons calculer F(AE)[n] et si
+n à 1, on a
+
+F(Ar)lnl =F(AR)ln — 1l
+EFI(AR)R(AR)DRin -1l
+a (F’R)R""[n-— 1]
+= F’R"[n -1]. C.Q.F.D.
+
+3. DÉNOMBREMENTS DES TYPES DE STRUCTURES
+
+3.0. Dans ce chapitre, nous chercherons à résoudre le problème du
+dénombrement des types de structures d’une espèce donnée M. Il nous sufﬁra
+de calculer, pour chaque n E N, la cardinalité de l’ensemble n0(M[n]) des
+orbites de M [n] sons Faction de [n]!. Autrement dit, nous voulons identifier
+la série génératrice
+
+M(x)= z Card n0(M[n])x".
+
+n>0
+
+Il est souvent impossible de décrire M(x) explicitement. Cependant, si on
+dispose d’une équation fonctionnelle, on pourra calculer les coefficients de
+M(x) par récurrence. La technique courante pour calculer le nombre de
+classes d’isomorphismes est due à Polya. Elle fait usage d’un certain
+polynôme indicateur des cycles (Polya [26]). Nous calculerons plutôt une
+série indicatrice Z M. Nous obtiendrons un théorème de substitution pour les
+séries indicatrices. Ce résultat nous permettra souvent de calculer les coef-
+ﬁcients de ZM par récurrence. Nous suivrons une voie moins algébrique et
+plus combinatoire que celle de Polya. De cette facon, nous espérons montrer
+le lien direct entre le problème du dénombrement des structures et celui du
+dénombrement des types de structures.
+
+Rappelons que calculer M(x) revient à calculer la cardinalité d’une espèce
+associée M (Prop. 1):
+
+M(x) = Card M.
+
+UNE THÉORIE COMBINATOIRE 25
+
+Les éléments de M [E] sont les couples (a, s), où s 6 M [E] et o E E! est un
+automorphisme de s. On constate aisément que la relation P=M +N
+entraîne P = M + N et aussi que P = M » N entraîne P = MN. Supposons
+maintenant que P=M(N), que peut-on dire de P? Par exemple, on a le
+résultat suivant qui est évident:
+
+PROPOSITION 6. Si P= 1/(1 —N) alors
+
+1
+P = .
+l _ ﬁ
+On a aussi un résultat bien connu (Harary et Palmer [15]):
+
+PROPOSITION 7. Si P = exp(N) alors
+
+f(x) = exp z ﬂot") 
+
+n>1 n
+
+Nous démontrerons que:
+
+PROPOSITION 8. Soit S l’espèce des permutations. Si P = S(N) alors
+1
+ﬁ°°= Ü ÈRE‘
+
+n>l
+
+La difficulté réside dans le fait que la relation AÎN)(x)=M(1V(x)) est
+fausse. Les exemples montrent que la nature de la réponse dépend fortement
+de la structure interne du substituant et très peu de sa cardinalité. Nous
+allons développer un concept plus ﬁn de cardinalité:
+
+zîEllXll-rlllxl}
+
+à valeur dans un anneau Z{{x}} de séries formelles en une inﬁnité d’indéter—
+minées {x,, x2 ,...}. Cet anneau est muni d’une opération de substitution: si
+
+f=f(x,,...) et g= g(x,,...) alors
+ﬂa) =f(gr. gp-u),
+où ‘
+81: 805i» x2Is---)-
+Nous démontrerons un théorème de substitution:
+
+ZMIN) = M(ZN)'
+
+26 ANDRÉ JOYAL
+
+De plus, on aura
+M(x) = ZM(x, 0, 0,...),
+M(x) = ZM(x, x2, x3,...)
+
+et nous obtiendrons le résultat suivant:
+
+PROPOSITION 9. Si P =M(N) alors
+
+I7(x) = ZM(N(x), N(x2),...).
+
+Nous pourrions donner des démonstrations combinatoires complètes des
+résultats de ce chapitre, mais au coût d’une artillerie catégorique lourde.
+Nous avons choisi une approche intermédiaire qui utilisera un peu d’algèbre
+comme le principe du prolongement des identités algébriques. Cela donne un
+texte de lecture plus facile.
+
+3.2. Le problème est de calculer la cardinalité de M/(N). Pour cela, nous
+chercherons à comprendre sa structure combinatoire. Un élément de
+MÎN)[E] est un couple (o, h), Où h est un élément de M(N)[E] et o est un
+automorphisme de h. Uassemblée h détermine une relation d’équivalence R
+sur E. o est un automorphisme de R, ce qui signifie que o est compatible
+avec R. Le quotient E/R est donc muni d’une permutation induite a/R. Cette
+permutation se décompose en cycles. Nous commencerons par supposer que
+o/R est circulaire.
+
+DÉFINITION 9. Une couronne de N-structures est une assemblée
+hEexp(N) munie d’un automorphisme o permutant ciculairement ses
+membres. La longueur d’une couronne est le nombre des membres de
+l’assemblée. Notons C,,(N) l’espèce des couronnes (de N-structures) dont la
+longueur est n.
+
+PROPOSITION 10.
+
+Card C,,(N) = N(x")/n.
+
+Preuve. Montrons d’abord comment, à partir d’un élément de N(X"), on
+peut fabriquer une couronne. Un élément l de 1\7(X")[E] est une N-assemblée
+d’ordres linéaires de cardinalité n. Cet élément l déﬁnit une partition P de E;
+l’ensemble E/P des classes est muni d’une N—structure (r, t) et chaque classe
+est un ordre linéaire de cardinalité n. Pour 1 gi gn soit C, l’ensemble de
+tous les éléments de rang i dans ces ordres linéaires. Si on envoie chaque
+
+UNE THÉORIE COMBINATOIRE 27
+
+v-«N
+
+i_z/
+‘ l
+l
+
+FIGURE 14
+
+élément dans son successeur, on obtient des bijections a2: C,—+C,+2 pour
+1<i<n—1.0n aune chaîne
+
+C1—’C2—ŸC3"' —'Cn.
+
+Comme chaque C, est un système de représentants de la partition P, on a
+une structure t, sur C, par transport de la N-structure t de l’assemblée. On a
+aussi un automorphisme r2 de t2 en transportant r sur C2. Nous allons
+fermer circulairement la chaîne d’isomorphismes de N-structures
+
+(CI»ti)"ï" (C29 t2)  (Cris tu)
+
+en déﬁnissant un isomorphisme on: (C,,,t,,)—> (C2,t2). Il suffit de prendre
+0,, = r2(o,,_2  a2)". On a obtenu une couronne (o, h) de longueur n sur E.
+De plus, dans cette couronne, il y a une N-structure initiale (C2, t2). Inver-
+sement, [supposons que l’on ait une couronne (o, h)€ C,2(N)[E] marquée
+d’une N-structure initiale (C2, t2). Prenant les images successives de (C2, t2)
+par o on obtient une chaîne
+
+(Cis [OEIL-ÿ (Cza t2)  (Cnitn)
+
+Chaque élément x2 E C2 est le premier élément d’un ordre linéaire
+{x2 <ox2 <  <o""‘x2}. Ce qui nous donne une partition P dont les
+classes sont des ordres linéaires de grandeur n. L’ensemble E/P des classes
+
+ 
+
+28 ANDRÉ JOYAL
+
+est muni d’une N-structure t isomorphe à t2 (ou à t2). Pour obtenir un
+automorphisme r de t, il sufﬁt de transporter sur E/P l’automorphisme r2 de
+C2 obtenu en faisant un tour complet de la couronne:
+
+r2=a"|C2.
+
+On a donc montré qu’une N(X”) structure est équivalente à une couronne de
+longueur n marquée d’un membre initial. Comme il y a n choix possibles
+pour ce membre initial, on a
+
+n x Card C,,(N) = lŸ(x").
+
+COROLLAIRE 1. Supposons que N [0] = o. L’espèce des couronnes de N-
+structures a pour cardinalité
+
+no")
+
+n
+
+5.01)]
+
+Considérons maintenant un élément (o, h) E ex/p‘(1/V)[E]. L’élément h est
+une assemblée de N-structures; elle induit une relation d’équivalence R sur E.
+L’automorphiSme o induit une permutation o/R de E/R. Cette permutation
+o/R décompose E en une assemblée de couronnes de N-structures. On a donc
+
+COROLLAIRE 2. Supposons que N [0] = Q). On a
+
+Card CXRÎV)= exp [ E: N0“) 
+n>1
+
+Remarquer que ce corollaire entraîne le proposition 7. Soit maintenant S
+l’espèce des permutations. Considérons la catégorie el(S) des éléments de S.
+Le objets de el(S) sont les couples (E, oE), où oE E S[E]. On a déjà décrit
+(Ex. 3) le monôme indicateur des cycles I (oE) = x3"  xﬁ". L’ensemble 7I0(S)
+des composantes connexes du groupoïde el(S) s’identiﬁe à l’ensemble
+Mon(x) des monômes en les indéterminées x2,x2, x2,... . De plus, si I(oE) =
+x =x‘{"1--- xi", la cardinalité du groupe des automorphismes de l’objet (E, oE)
+est ega e à
+
+aut(x) = 1d12dï  n""d2!  dnl.
+
+Considérons maintenant un élément (o,h)EexÎ(ÎV)[E]. On sait que h
+détermine une relation d’équivalence R sur E compatible avec o. Nous dirons
+que (o, h) est de classe x=xfn mxfln si on a I(o/R)=x, où o/R est la
+permutation induite par o sur le quotient E/R. En particulier (o, h) est de
+classe x" si et seulement si c’est une couronne le longueur n. Avec ces
+conventions, on a:
+
+UNE THÉORIE COMBINATOIRE 29
+
+PROPOSITION l1. L’espèce des assemblées de couronnes (de N-
+structures) de classe x = xi" - - - ﬁ" a pour cardinalité
+
+1
+aut(x)
+
+lV(x)"'N(x’)"1 --- N(x")"'".
+
+Preuve. En effet cette espèce s’exprime comme le produit des puissances
+divisées
+Vd2(CI(N 7d2(C2(N))  742(c)(1)’
+
+Sa cardinalité est donc
+
+giî 1000),“ 1 <N(xz))diu L <1V(>,».))I.
+
+v2! 2 ' d"! n
+
+3.2.1. Soulignons maintenant que M est une espèce munie d’une
+projection M —> S. Ce qui entraîne que M déﬁnit un foncteur M) : el(S)-r E
+(voir 1.3). La valeur de M’ en (E, 0E) est l’ensemble des éléments t E M [E]
+laissés inchangés par 0E. Considérons maintenant un "foncteur arbitraire
+W: el(S) —+E. Il est clair que ‘Pexpression Card W[x] a un sens pour
+x E Mon(x). Posons
+
+x
+Z0, = xenänm Card W[x] —-——auî(x).
+
+ZW=ZW(x2,x2,...) est une série formelle. Pour toute espèce N telle que
+N [0] = z, nous allons déﬁnir une substitution W{N}de sorte que si W=MÎ
+on ait
+
+MÎN) =M’ {N}.
+
+DÉFINITION 10. Une structure d’espèce W{N} sur E est la donnée de
+
+(1) une assemblée h de N-structures sur E,
+(2) un automorphisme 0 de h,
+
+(3) une W-structure sur (P, 02,), où P estfensemble des membres de h
+et 0,. est la permutation de P induite par 0.
+
+Il est clair que l’on a
+Ai’ {N} =Aî(7')
+
+car si W=MÏ la W-structure sur (P, 02.), dans la déﬁnition ci-haut, est une
+M-structure laissée invariante par 02..
+
+30 ANDRÉ JOYAL
+
+PROPOSITION 12. Avec les hypothèses précédentes, on a
+Card W{N} = 2,20m), N(x2),...).
+
+Preuve. On a une décomposition
+
+W= Z W2,
+xeMomx)
+
+où W,‘ est l’espèce des W-structures portées par les objets (E, 0E) de type x.
+Cette décomposition induit des décompositions
+
+W{N}= v WxlNl,
+
+A—.i
+xeMon(x)
+
+2,, = V ZWX.
+
+Mi
+xeMon(x)
+
+Il suffira donc de montrer que Card W2{N} =ZWx(N(x),N(x2),...). Mais la
+proposition 1l montre que si x = x2"  xi", alors
+
+1
+aut (x)
+
+Card W2 = Card W[x] >< N(x)"‘  N(x")""
+
+ce qui achève la démonstration puisque l’on a par déﬁnition
+
+xdl ... xd"
+ZWX = Card  
+
+COROLLAIRE. Card MÎN) = Z25) (N(x), N(x2),...).
+Preuve. On a successivement
+Card MÎIV) = Card Ai’ {N}
+= 22;) (N(x), N(x2),...).
+
+Pour rendre ce corollaire effectif (Prop. 9) il faut pouvoir calculer Z 25).
+Nous donnerons trois formules permettant de calculer Z 2;). Comme cela ne
+crée pas d’ambiguités, nous écrirons Z M plutôt que Z 25).
+
+Pour chaque 0 E [n]l, soit pM(a) le nombre de M-structures laissées ﬁxes
+par 0. Ce nombre ne dépend que de la classe d’isOmorphisme x =I(0). On
+peut donc écrire pM(x) sans ambiguité. D’autre part, soit n0(M) l’ensemble
+des types de structures d’espèce M. Pour chaque tE 7t0(M), soit G, le groupe
+des automorphismes d’une structure de typet (n’importe laquelle, elles sont
+toutes isomorphesl).
+
+UNE THÉORIE COMBINATOIRE 31
+
+PROPOSITION 13. La série formelle ZM=Z,5) possède les trois
+expressions suivantes:
+
+X
+Pédänîr “l
+z..= z 3; z Mains). <2)
+n>0 ' aelnll
+1
+
+Cette proposition est conséquence d’un lemme bien connu qui suit. Soit G
+un groupe ﬁni agissant sur un ensemble ﬁni X. Pour chaque x E X, goit G, le
+sous-groupe stabilisateur de x. Pour chaque a E G soit p2.(0) le nombre de
+points de X laissés inchangés par o. Soit f :X 4R une fonction invariante
+sous l’action de G et u: G-æ R une fonction invariante par conjugaison.
+
+LEMME. On a les identités
+
+l Zr<x)= Z J-‘ï
+
+Card G m, 252,0 Card G2
+1 1
+Card o à uüﬂpxw)‘ E), Card 0,, 2,5202 m)’
+
+ou la sommation dans les seconds membres s’ejfectue sur un système complet
+de représentants de l’ensemble X /G des orbites de X.
+
+Preuve de la proposition. L’expression (1) est par déﬁnition égale à Z25).
+Si on applique la première identité du lemme au cas G= [n]!, X = [n]!
+(l’action étant par conjugaison) et f (o) = p,5(0) 1(0), on obtient l’équivalence
+entre les expressions (1) et (2). Finalement, si on applique la seconde identité
+du lemme au cas G = [n]!, X =M [n] et u(0) =I(0), on voit que les
+expressions (2) et (3) coïncident.
+
+Toute espèce M est évidemment la somme de ses composantes connexes:
+
+M= z M2.
+teno(M)
+La proposition précédente montre que l’on a
+1
+
+ =  P"
+
+607/42/ 1 -3
+
+32 ANDRÉ JOYAL
+
+Nous prendrons souvent la notation Z , pour désigner ce polynôme. C’est le
+polynôme indicateur des cycles du type t.
+
+EXEMPLE 21. Si M= exp(X) on a n0(exp) = N et
+
+1
+Zn=— z, 
+"i oêln]!
+
+ce qui entraîne (voir Chap. 6, Ex. 36)
+
+x"
+ZE20=exp  
+
+n>l n
+
+EXEMPLE 22. Soit C l’espèce des permutations circulaires. On a
+ﬂo(C)=N— l0}
+
+1
+Z. =-n- Ê M0263",
+dln
+
+où a est la fonction d’Euler. Par suite,
+
+2C: Z  In 1
+
+D2 n 1—x,,
+
+EXEMPLE 23. Si S est l’espèce des permutations, la formule (1) nous
+donne
+X
+
+Zs: Z PSÛ‘)
+
+xeMon(x) 5(7)
+Comme on a de plus
+
+PSÛ‘) = autÜ‘)
+cela entraîne que
+1
+
+l—x,,'
+
+Z5: I]
+n>1
+
+3.2.2. Nous allons montrer comment, dans certains cas, on peut établir
+une équation fonctionnelle permettant de calculer les coefﬁcients de Z M par
+récurrence. Considérons l’anneau Z{{x}} des séries formelles
+
+f=f(xl’x2’x3"")
+Z flxl-L
+
+_ xeMontx) auqx),
+
+UNE THÉORIE COMBINATOIRE 33
+
+où les coefﬁcients f [x] E Z. Posons f (0) = f (0, 0, 0,...). Nous allons déﬁnir
+la substitution g(f) de g, f E Z{{x}} dans le cas où f (0) = 0. Posons
+
+fi =f(xis xﬁsm)‘
+
+DÉFINITION 11. Le résultat g( f ) de la substitution de f dans g est la
+Série formelle g( f ) = g(f'2, 13,...)
+
+Cette opération de substitution a beaucoup des propriétés de la
+substitution ordinaire des séries formelles à une variable; elle est associative
+et la substitution de f déﬁnit un endomorphisme gI—-> g(f) de Panneau
+Z{{x}}. De plus, si l’on pose
+
+0113.
+
+g(f)’ = g’(f)f’-
+
+THÉORÈME 3. La transformation Z:E||X[[—>Z{{x}} a les propriétés
+suivantes: .
+
+ZM(x, O, 0,...) = M(x), (1)
+ZM(x,x’,...) =M(x), (2)
+ZM+N=ZM+ZN9 _ (3)
+ZM.N=Z25-ZN, (4)
+
+ZMW) = ZM(ZN)a (5)
+
+ZM’ = Zim l (5)
+
+Z, = x2, l (7)
+ZMXN=ZMXZN. (8)
+
+Dans la dernière ligne (8) nous avons inclus le produit cartésien M XN
+(cet ami oublié). Le membre de droite de (8) doit être interprété comme le
+produit des deux séries coeﬁicient par coefficient. Toutes ces identités sont
+soit triviales, soit déjà démontrées à l’exception de (5):
+
+PROPOSITION 14. Si P = M(N) alors
+
+Z2, = ZM(t2 , t2,...),
+
+34 ANDRÉ .l0YAL
+oû
+t2- : ZNÇXÏ, X220...)
+
+Nous donnerons une démonstration utilisant le principe du prolongement
+deiidentités algébriques. Soit R une espèce arbitraire (R [0] = o). Calculons
+P(R ). On a, en vertu du corollaire de la proposition l1, les égalités
+
+13D? xx) = z.<1î<x).1î(x2)....)
+et aussi
+Wuoxx) = zMuvTxx). Nîï)<x")....)
+D’autre part, on a
+zﬁïxx") = ZN(Ë(x"). R(x2")...-)
+= t,,(IÎ(x), IÎ(x2),...).
+Ce qui entraîne, par substitution
+Ffïxx) = z..(t.(1î<x)....). z.(ä(x)....). m).
+
+Comme les variables R(x") (n 2 1) sont suffisament générales, le résultat est
+démontré.
+
+Remarque. Nous dirons que Z22 est la série indicatrice de M.
+
+EXEMPLE 24. Soit R une espèce. Supposons que l’on veuille calculer la
+série indicatrice Z 22 de l’espèce A des arborescences R-enrichies. On a
+
+A=xnRm)
+ce qui entraîne
+Z22 =x2Z22(Z22).
+Nous verrons en 3.3 que cette équation est suffisante pour déterminer
+
+entièrement Z A si on connaît déjà les coefﬁcients de Z22. Si on cherche
+seulement à calculer Â (x), On trouve
+
+Â(x) = xZ22(Â(x), Â(x2),...).
+
+EXEMPLE 25. Supposons que B satisfasse à l’équation
+
+B=X+Tœ)
+
+UNE THÉORIE COMBINATOIRE 35
+où
+Tl0l = Tl1l= 0-
+On obtient
+Z3 = x. + ZT(ZB)9
+
+Ë(x) = x + Z,(Ë(x), Ê(x2),...)
+
+ce qui est encore suffisant pour déterminer Z, et Ê(x) si l’on connaît Z,
+explicitement.
+
+EXEMPLE 26. Cette fois, un exemple particulier: déterminons la série
+indicatrice Z ,, de l’espèce des parenthésages commutatifs. On a
+
+P(X) = X +  P(X)’
+Zx1/2x=Ë(xi+ x2)-
+Ce qui donne l’équation
+Z,,(x, , x,,...) = x1 + %(Z,,(x1,...)’ + Z,,(x2,...)).
+
+On vériﬁe que la série
+
+Z,,(x, , x2, O,..., 0, x,.», O,..., xlm, 0,
+satisfait aussi à cette équation. Comme la solution est unique (Théorème 4),
+cela montre que Z, ne dépend que des variables x2, (i; 0) (les groupes
+
+d’automorphismes des P-structures sont des 2—groupes). Posons y,-=x2,-
+(ï 20)-
+
+Zp = 2m, Jar»),
+2,, = z(y0, y, ,..., y", 0, 0,...).
+On a
+
+zÎ. — 22.. + Zyo + z..-1(y1, y; y") = 0-
+
+Soit z = u/(x) la solution de l’équation
+
+z2—2z+2x=O.
+
+36 ANDRÉ JOYAL
+
+On a le développement en série
+xk
+x//(x)=x+ Z 1.3 -  . (zk-æîä
+k>2 -
+et la récurrence
+zn = V/(yo +%zn—l(y1a"'! J6.»-
+
+Ce qui donne
+
+Z0 = W(yo)e
+z1= v/(yo + äv/(yû),
+z; = v/(yo + âu/(y; + àu/(yzn),
+
+Z11 = W(x1+%W(x2 ‘l’ àV/(xa ‘l’  
+On aura évidemment
+Pïx) = v/(x + %w(x’ + àwoc‘ +  D).
+
+3.2.3. Le théorème des fonctions implicites pour les séries indicatrices.
+
+Pour calculer une série indicatrice on peut souvent utiliser une équation
+fonctionnelle et le théorème des fonctions implicites. Nous voulons main-
+tenant énoncer et démontrer ce théorème des fonctions implicites. Pour ne
+pas accroître inutilement la complexité de l’énoncé et de la démonstration,
+nous nous restreindrons au cas de deux variables seulement.
+
+Soit R{{x, y}} l’anneau des séries formelles en la double inﬁnité d’indéter-
+minées {x1. y,,x,, y,,...}. SoitfE R{{x, y}} on a
+
+f=f(x,y)
+=f(xh ylsxzs 36v")-
+Posons
+
+f (0, 0) =f(0, 0, 0r-°)s
+
+Ï_ÊÂ
+äx-‘ôx,
+Êf___a_f_
+a)’ ayl,
+
+f: =f(xi9 yis x21» .V2is---)-
+
+UNE THÉORIE COMBINATOIRE 37
+
+Soit maintenant u, v E RHx, y}}. Si u(0, 0) = v(O, O) = 0, on déﬁnit la
+substitution f (u, v) comme suit:
+
+f(u9 v) =f(uh v]! “z: 029W)‘
+
+Supposons que j; ge R{{x, y}} satisfont aux conditions
+
+f(0,0)= g(0,0)=o, (1)
+âf ôf
+
+à; gy- (0 0)9&0 (2)
+:95 es: ’
+
+âx ây
+
+THÉORÈME 4. Si les conditions précédentes sont satisfaites, alors il y a
+un et un seul couple (u, v) d’e'léments de R{{x, y}} tel que u(0,0)=0,
+v(0, O) = 0 et
+
+x z/‘(us v)’
+y = 804, v)-
+
+(Il faut interpréter Fégalité x = f (u, v) comme signifiant x, = f (u, v); elle
+entraîne que x, = f (u,, 0,) pour tout i; 1.)
+
+Pour démontrer le résultat nous adopterons des notations vectorielles:
+
+Z1: (x19 yt)»
+h = (ﬁ g),
+W: = ("i9 Ut)-
+On a
+h = h(z) = h(z, , z2,...),
+w = w(z) = w(z,, z,,...),
+w, = w(z,, zw...)
+et lelsystème à résoudre s’écrit
+z, = h(w, , w,,...). (I)
+
+Supposons le système déjà résolu et substituons 22:0, z,=0,.... On
+obtient:
+
+z, = h(.w,(z, , 0, 0,...), 0, 0,...).
+
+38 ANDRÉ JOYAL
+
+Etant donné l’hypothèse sur le déterminant du jacobien, cela montre que
+w,(z, , O, 0,...) est uniquement déterminé.
+Plus généralement, posons
+
+w” = w(z, ,..., z", 0, 0,...)
+
+= W"(z, ,..., z”).
+
+Si on effectue les substitutions 2H, = 0, z” +2 = 0,... l’équation (I) devient
+z1= h(w"(z, ,..., 2,1), a2,..., an, 0, 0,...),
+où
+
+_ ln/‘l
+a, — w ‘(z,-, z2i,..., zIn/i“).
+
+Supposant que les w’ sont connus pour 1<r<n, on voit que cette
+dernière équation prend la forme
+
+21: k(w", z2,..., z")
+
+ce qui entraîne l’existence d’une seule solution w"=w"(z,,...,z,,) car le
+jacobien de k(z,,z2,...,z,,) par rapport à z, coïncide avec le jacobien de h
+par rapport à z, (à l’origine z, = 0). L’unicité de w"" entraîne que
+
+w"(z1,..., z,,_,, O) = w"".
+
+Le prolongement w = lim w" est solution unique du système (I).
+
+naCO
+
+4. ESPÈCES LINÉAIRES
+
+4.0. Dans ce chapitre, nous étudierons l’une des variations possibles du
+concept d’espèce: le concept d’espèce linéaire. Nous avons poursuivi
+précédemment une analogie entre la catégorie des espèces et l’anneau des
+séries formelles de Hurwitz. Pour ce faire, nous avons utilisé la notation
+E IIXH. Uanalogie que nous poursuivrons maintenant sera entre 1’anneau des
+séries formelles ordinaires et la catégorie des espèces linéaires; nous
+désignerons celle-ci par la notation EllX Nous verrons que EIIXI} est en un
+sens un sous-anneau de E HXH. Après un parcours rapide des propriétés
+élémentaires de E|IX 1], nous démontrerons, dans ce contexte, la formule d’In-
+version de Lagrange. Cette démonstration est une variation de celle déjà
+donnée en 2.4; la bijection non canonique entre l’espèce des ordres linéaires
+et celle des permutations ne joue plus, dans celle-ci, aucun rôle.
+
+UNE THÉORIE COMBINATOIRE 39
+
+4.1. Déﬁnitions, propriétés élémentaires, exemples.
+
+Désignons par L la catégorie des ordres linéaires ﬁnis et bijections
+croissantes.
+
+DÉFINITION 12. Une espèce linéaire est un foncteur F: L —» E.
+
+Tout ordre linéaire ﬁni est isomorphe de manière unique à un intervalle
+[n] et un seul. La catégorie L est donc équivalente à la catégorie discrète N:
+la donnée d’une espèce F est équivalente à la donnée d’une suite d’ensembles
+(n l-r F[n]). Cette réduction est quelquefois utile, mais nous préférons penser
+que F[L] est l’ensemble des structures d’espèce F sur L E L: cette façon de
+voir est plus réaliste, comme le lecteur aura l’occasion de s’en convaincre.
+
+EXEMPLE 27. Une partie A c:L E L est eparse si elle ne contient aucune
+paire de sommets successifs. L’ensemble des parties éparses est une espèce
+linéaire.
+
+EXEMPLE 28. Une promenade (sur Z) est une fonction e: L —> {—l, +1}.
+Une boucle est une promenade telle que
+
+z e(x) = O.
+xeL
+L’ensemble des promenades (resp. des boucles) est une espèce linéaire.
+La cardinalité d’une espèce linéaire F est la série
+
+F(x)= CardF= z Card(F[n])x".
+
+neN
+
+Nous adopterons souvent la notation F(X) pour désigner une espèce F et
+aussi la notation EIX] pour désigner la catégorie des espèces linéaires.
+
+4.2. Opérations combinatoires
+
+Dans cette partie, nous décrirons des opérations combinatoires sur les
+espèces linéaires.
+
+Une coupure de L e L est un partage L =L1 +L, dont le premier
+morceau L1 est un segment inférieur de L et le second morceau L, est un
+segment supérieur de L. On dira aussi initial et terminal plutôt que inférieur
+et supérieur.
+
+Le produit F - G de deux espèces se déﬁnit comme suit:
+
+DÉFINITION 13. Une structure d’espèce F - G sur L E L est un
+quadruplet (L,,Lz,ﬁg), où (L,,L2) est une coupure L =L, +L2 et où
+(fig) EFlLIl >< GlLzl-
+
+40 ANDRÉ JOYAL
+PROPOSITION 15. Pour F, G E E[[X]| on a: CardF- G = Card FCard G.
+
+EXEMPLE 29. Soit P l’espèce des promenades, B l’espèce des boucles et
+R celle des promenades sans retour (s: L —+ {—l, 1} est sans retour si L al: o
+et si 2x<,e(x) 3‘: O pour tout le L). On a une décomposition P: B « R.
+
+EXEMPLE 30. Soit f :L—>L une endofonction. Nous dirons que f est
+ordonnée si x< y entraîne f(x)<f(y). Nous dirons que f est montante
+(resp. descendante) si on a x<f(x) (resp. f(x)<x) pour tout xEL.
+Désignons par C l’espèce des contractions ordonnées (voir Ex. 2) et par C"
+(resp. C‘) celle des contractions ordonnées montantes (resp. descendantes).
+On a une décomposition X - C = C+ - C’ (Fig. 15).
+
+Déﬁnissons la substitution F (G) dans le cas où G[0] = Q.
+
+DÉFINITION 14. Une structure d’espèce F(G) sur L E L est la donnée:
+(1) d’un partage L =L, +  +L, en segments non vides, chacun d’eux
+étant muni d’une G-structure; (2) d’une structure d’espèce F sur l’ensemble
+ordonné des segments {L1 < L, <  < L,}.
+
+PROPOSITION 16. Card F(G) = F(G(x)).
+
+Remarque. Dans la description de la substitution F (G), il est souvent
+commode d’adapter le choix du support de la F-structure aux conditions
+particulières d’une situation: ainsi, nous aurions pu “placer” la structure
+d’espèce F sur l’ensemble des premiers éléments des segments du partage.
+Etc...
+
+EXEMPLE 31. Le domaine d’une endofonction ordonnée f: L—>L se
+partage de facon unique L=L,+  +L, en segments L,- sur chacun
+desquels f induit une contraction ordonnée (Fig. 16). On a un partage
+analogue des endofonctions ordonnées montantes.
+
+EXEMPLE 32. L’exemple précédent se généralise. Soit R une espèce
+
+linéaire. Nous dirons qu’une fonction croissante f :L—>L’ est R-enrichie si
+chacun des segments ﬁbres f *‘{l’} (l’ 6L’) est muni d’une R-structure.
+
+ 
+/\/'Àx«a 
+
+FIGURE 15
+
+UNE THÉORIE COMBINATOIRE 41
+
+Â\ K\/‘\
+
+U Ù U
+
+FIGURE 16
+Notons F, l’espèce des endofonctions ordonnées R-enrichies. Notons de plus
+C, l’espèce des contractions ordonnées R-enrichies. On a
+
+_ I
+"I-c,‘
+
+F.
+EXEMPLE 33. L’espèce C* des contractions ordonnées montantes
+satisfait à l’équation
+
+1
+
++E 
+C “I—c+
+
+—X.
+
+En effet, soit f: L —> L un élément de C *. Soit m E L le point de convergence
+de f (c’est aussi l’élément maximum de L). Considérons le segment (Fig. 17)
+
+f"‘lm} - {ml = {I1 lrl‘
+
+Déplaçons l, à l’extrémité terminale du segment
+
+SI: U f-"llli
+n>l
+f “induit” une structure de contraction montante sur L, = S, + {l,}.
+
+EXEMPLE 34. On peut généraliser l’exemple précédent au cas enrichi.
+Cependant, il faut pour cela remplacer le concept de contraction par celui
+
+ 
+
+
+
+FIGURE 17
+
+42 ANDRÉ JOYAL
+
+d’arborescence (1.2, Ex. 5). Pour obtenir une arborescence d’une contraction.
+il sufﬁt d’éliminer la boucle du point de convergence. Les concepts d’ar«
+borescences ordonnées, montantes et descendantes correspondent tout à fait
+à ceux de contractions ordonnées, montantes et descendantes. Les concepts
+enrichies dijfêrent étant donné l’absence de la boucle à la racine de l’ar-
+borescence. Soit A j,‘ l’espèce des arborescences ordonnées montantes R-
+enrichies. On a
+
+A;=R(A;)-X.
+
+Si on veut ajouter un point supplémentaire s à un ordre linéaire L. il faut
+indiquer la position relative de >l< dans L, ce qui se fait par une coupure
+L =L“ + L+ en segments inférieur et supérieur:
+
+g. __._/*g—\,____/
+L" I?‘
+
+FIGURE 18
+
+Nous dirons que l’ordre linéaire L’ + {*} + L* est une augmentation de L.
+Nous sommes maintenant en position de décrire l’espèce dérivée M’ d’une
+espèce linéaire M.
+
+DÉFINITION 15. Un élément de M’ [L] est une augmentaion
+L‘ + {>I<} + L* de L munie d’une structure d’espèce M.
+
+On peut aussi pointer une espèce linéaire M. Un structure d’espèce M‘ sur
+L est un élément de L X M[L]. On a un isomorphisme M‘ = X - M’.
+
+PROPOSITION 17. On a
+Card M’ = M(x)’.
+
+Toutes les opérations déﬁnies jusqu’à maintenant sont fonctorielles. Les
+relations usuelles entre ces opérations se vériﬁent. Elles ont un sens
+combinatoire.
+
+4.3. InversI'on de Lagrange
+
+Il s’agit de calculer F(A(X)) en sachant que A est solution de l’équation
+A(X) = X - R(A(X)).
+
+THÉORÈME 5 (Inversion de Lagrange pour les espèces linéaires). Pour
+tout entier n 2 1 on a une bijection
+
+[n] >< F(A)[n] a F’R"[n — l].
+
+UNE THÉORIE COMBINATOIRE 43
+
+Preuve. Remarquons que l’espèce A s’identiﬁe à l’espèce A Ë des
+arborescences ordonnées montantes R—enrichies (voir Ex 34). Un peu de
+calcul différentiel (comme en 2.4) nous montre que
+
+1
+FA ’=F’ R ———————.
+( ) (A) (A) ,_X,,,,,,)
+LEMME 1. L’espèce X — R’(A) coïncide avec l’espèce C, des contractions
+ordonnées R-enrichies.
+
+Preuve. Il sufﬁra d’examiner attentivement les trois ﬁgures suivantes. La
+première illustre une contraction ordonnée R-enrichie et la dernière une
+structure d’espèce X - R’(A) (Fig. 19).
+
+On sait que 1/(1—C,,) coïncide avec l’espèce F, des endofonctions
+ordonnées R-enrichies (voir Ex. 31 et 32).
+
+LEMME 2 (Lemme du repartage). Soit G une espèce linéaire quelconque.
+Une structure d’espèce F R - G(A) sur L s’identiﬁe à un partage L = L, + L2,
+le premier segment L, étant muni d’une fonction croissante R-enrichie
+f: L, —+ L, le second segment L, étant muni d’une structure d’espèce G.
+
+La démonstration de ce lemme est une version “linéaire” de celle du
+lemme 3 en 2.4.
+On termine la démonstration du théorème comme en 2.4.
+
+mm
+wszf
+‘ê/‘U 
+’“<JV*”ÊJÎ
+
+FIGURE 19
+
+44 ANDRÉ JOYAL
+
+4.4. Pour terminer ce chapitre sur les espèces linéaires, nous allons décrire
+un homomorphisme
+
+h:EﬁX]]—>EHXH.
+
+Soit f/ E E ||X|l l’espèce des Ordres linéaires. La catégorie el(.’f) des
+éléments de Æ (voir 1.1) coïncide avec la catégorie L. Les espèces linéaires
+sont des foncteurs el(_‘/)—> E, ce sont des espèces relatives (voir 1.3). Il y a
+donc équivalence i entre la catégorie E|IX]] et la catégorie EllXll/Y. De
+façon plus explicite, Soit F une espèce linéaire. Une structure d’espèce i(F)
+sur un ensemble E est un couple (l, s), où le E/ [E] et s E F [l]. On a donc
+
+Card i(F)[n] = n! Card Fln]
+et en conséquence
+Card i(F) = Card F.
+
+Le foncteur h est obtenu par composition de i avec le foncteur oubliant
+E llXll/Ÿr’ E llXll-
+
+PROPOSITION 18. Le foncteur h préserve la somme, le produit et la
+substitution.
+
+5. ESPÈCES SUR PLUSIEURS VARIABLES
+
+5.0. Dans ce chapitre, nous examinerons l’extension, au cas de plusieurs
+variables, des concepts et résultats des chapitres précédents. Cette extension
+nous permettra de développer les rudiments de la théorie des équations
+combinatoires. Nous énoncerons et démontrerons un théorème des espèces
+implicites analogue au théorème des fonctions implicites.
+
+5.1. Espèces et opérations
+Soit un entier d>0. Notons B“ le produit d fois par lui-même du
+
+groupoïde B des ensembles ﬁnis et bijections:
+
+B"=B x  XB (d fois).
+
+DÉFINITION 16. Une espèce sur d sortes est un foncteur M : Bd —+ E.
+
+Nous écrirons M[E] ou M[E,,...,E,,] pour désigner l’ensemble des
+structures d’espèces M portées par E=(E,,...,E,,)EB“. Les concepts de
+transport de structures, d’isomorphismes, d’automorphismes sont évidents.
+Le groupe E!=E,!><  xEd! agit sur M[E]; l’ensemble nOM[E] des
+
+UNE THÉORIE COMBINATOIRE 45
+
+orbites est l’ensemble des types de structures d’espèce M sur E. Soit n=
+(n,,..., n,,)EN“, on pose n! = n,!  ndl; [n] = ([n,],..., [nd]) et M[n] =
+M [n,,..., nd] =M[[n,],..., [n,,]]. On déﬁnit deux séries
+
+M(x,,...,x,,)= z CardM[n]%;, (1)
+A7(x, ,..., xd) = Âd Card(tt,,M[n]) x", (2)
+
+où x" =x',"  x3".
+
+La première est la cardinalité de M. La seconde série M(x) peut s’inter-
+préter comme la cardinalité d’une espèce associée Il? (voir 1.1, déf. 2). Un
+morphisme entre deux espèces est une transformation naturelle. On déﬁnit
+aisément la somme disjointe d’une famille sommable d’espèces. Passons
+maintenant à la déﬁnition du produit M - N de deux espèces. Si E, F, G E B‘,
+nous écrirons E = F + G pour exprimer que E, = F, + G, (1 4 i g d) et nous
+dirons que (F, G) est un partage de E en deux morceaux.
+
+DÉFINITION 17. Une structure d’espèce M - N sur E e B“ est un
+quadruplet (F, G, u, v) tel que E =F + G et (u, v) E M[F] X N[G].
+
+PROPOSITION 19. On a
+
+CardM-N=CardM- CardN.
+
+Une partition P de E E B‘ est une partition de l’ensemble total
+E, +  + Ed. Chaque classe C 6 P peut être vue comme un multi-ensemble:
+
+C = (C 0E,  CﬂEd) e B”.
+
+Soit N une espèce sur d sortes telle que N [0] = 0.
+
+DÉFINITION 18. Une assemblée de structures d’espèce N sur E E B“ est
+une partition P de E dont chaque classe C est munie d’une structure d’espèce
+N. Un membre d’une assemblée est une classe C e P munie de la N—structure
+correspondante. La puissance divisée y,,(N) est l’espèce des assemblées de n
+membres. L’exponentielle exp(N) est l’espèce de toutes les assemblées de N-
+structures.
+
+PROPOSITION 20. On a
+1
+Card y,,(N) = F N(x, ,..., xd)",
+
+Card exp(N) = exp N(x, ,..., x").
+
+46 ANDRÉ JOYAL
+
+Passons maintenant à la description de la substitution. Soient N , ,..., N, des
+espèces sur d sortes telles que N ,[O] = Q pour 1 g i g r, et soit R une espèce
+sur r sortes.
+
+DÉFINITION 19. Une structure d’espèce R(N,,...,N,) sur E E B“ est un
+quadruplet (P, x, a, ,6), où
+
+(1) P est une partition de E.
+
+(2) x est une fonction P—-> [r] attribuant à chaque classe une sorte.
+
+(3) a est une fonction qui choisit sur chaque classe C E P une
+structure d’espèce N,, Où i = 1(C).
+
+(4) [i est une structure d’espèce R sur P considéré comme multi-
+ensemble: P = (x"{ l },..., x“{r}).
+
+PROPOSITION 21. On a
+
+Card R(N, ,..., N,) = R(N,(x),..., N,(x))
+où
+
+x = (x,,..., xd).
+
+Remarques. Nous allons éclaircir le sens géométrique ou visuel de
+l’opération de substitution. Il nous faut comprendre le type général des
+structures d’espèce R(N,,...,N,). Remarquons d’abord qu’il n’est pas
+nécessaire que l’ensemble des sortes soit un intervalle. Si l’ensemble des
+sortes est {o, o}, on peut représenter comme suit un ensemble sur ces deux
+sortes
+
+FIGURE 20
+
+Soit M l’espèce des endofonctions (de l’ensemble total) transformant les
+points noirs en points noirs. On a la représentation
+
+UNE THÉORIE COMBINATOIRE 47
+
+aæﬁÿ
+
+FIGURE 21
+
+et pour cardinalité
+
+l
+CardM= z i"(i+j)’3Î,—}—ÎI—,
+m), l. j.
+
+où la variable x est associée aux points noirs et la variable y est associée aux
+points blancs, Les règles de substitution données dans les remarques suivant
+le théorème 1 du no 2.2 s’appliquent, avec la restriction que la substitution ne
+se fait plus de façon homogène: aux sommets de sorte i (gonﬂés un cellules)
+il faut substituer des structures d’espèce N,. De plus (dans la représentation
+cellulaire) il faut que chaque cellule ait la mémoire de la sorte du sommet
+original. Les remarques du no 2.2 sur la substitution des espèces pointées
+s’appliquent également.
+
+EXEMPLE 35 (Leroux [22] et Labelle [21]). Le concept de vertébré,
+utilisé dans la démonstration du théorème de Cayley (suivant l’exemple 12)
+peut aussi être utilisé pour obtenir d’autres résultats sur le dénombrement des
+arbres. Un arbre bicoloré est un arbre sur un ensemble à deux sortes {°, '}
+dont les arêtes joignent des sommets de sortes distinctes. Le nombre d’arbres
+bicolorés sur E = (E.,Eo) est égal à n’""m"" (où n = CardE. et
+m = Card E0). Pour démontrer ce résultat, on déﬁnit le concept de vertébré
+bicoloré: c’est un arbre bicoloré muni d’un couple (xmxo) de sommets, le
+premier étant de sorte 0 et le second de sorte °. I1 sufﬁra de démontrer que le
+nombre de vertébrés bicolorés est égal à n"'m". Pour cela, nous allons décom-
+poser les vertébrés bicolorés comme dans l’exemple 9.
+
+Notons A.(X, Y) (resp. AO(X, Y)) l’espèce des arborescences bicolorées dont
+la racine est de sorte 9 (resp. de sorte 0) (supposant X <> ‘, Y <> 0). Soit
+V(X, Y) l’espèce des vertébrés bicolorés, on a l’identité (Fig. 22)
+
+1
+
+V=————————.
+1+ ,_A.AO
+
+607/42/1-4
+
+48 ANDRÉ JOYAL
+
+FIGURE 22
+
+D’autre part, disons qu’une endofonction d’un ensemble sur deux sortes {', 0}
+est oscillante si elle transforme les points d’une sorte dans les points de
+l’autre sorte.
+
+Soit (F(X, Y)) l’espèce des endofonctions oscillantes et S l’espèce des
+permutations, on a l’identité (Fig. 23)
+
+F(X, Y) = S(A,AO).
+On conclut que
+
+1+ V(x. y) = F(x, y)
+ce qui donne le rèsultat.
+
+On peut pointer une espèce M(X,,...,X,,) au niveau i (1 g i g d): une M-
+structure pointée au niveau i (ou X,) sur (E ,,...,E,,) est un élément du
+produit cartésien E, X M [E ,,..., Ed]. On peut aussi prendre la dérivée parv
+tielle:
+
+FIGURE 23
+
+UNE THÉORIE COMBINATOIRE 49
+
+DÉFINITION 20. Une structure d’espèce âM/âX, sur (E, ,..., Ed) est une
+structure d’espèce M sur (E, ,..., E," ,..., En), où E," =E,- + {*}.
+
+PROPOSITION 22. On a
+
+âM
+Card———=—?—CardM.
+
+âx, âx,
+De plus, l’espèce des M-structures pointées au niveau X , coïncide avec
+X ,(âM/ôX ,).
+
+Les règles habituelles de calcul, gouvernant les opérations déﬁnies plus
+haut, sont toujours valables. Par exemple, on a
+ô ’ 6R ôN,
+
+——R(N  N,) = —— (N  N, —
+ax, ‘ E, av, ‘ 3x,.
+
+pour des espèces R = R(Y, ,..., Y,) et N, =N,(X,,...,X,,) (1 g i g r).
+
+5.2. Le théorème des espèces implicites
+
+Les espèces de structure satisfont souvent des équations qui les carac-
+térisent. L’exemple le plus connu est sans doute l’espèce A des arborescences.
+On a A =X - exp(A). Il y a aussi l’espèce des arborescences à ﬁbres
+linéairement ordonnées:
+
+mais cette équation entraîne
+
+A
+A,=X- (1+ L )
+
+=X+A,Î.
+
+Cette dernière équation est exactement celle satisfaite par l’espèce des
+parenthésages (un parenthésage sur E est un ordre linéaire muni d’un système
+bien formé de parenthèses). Il serait intéressant de pouvoir conclure sans
+plus de calcul que l’espèce A ,_ et celle des parenthésages sont naturellement
+isomorphes. C’est le problème de l’unicité des solutions combinatoires.
+L’objet de cette partie est de démontrer un théorème d’existence et d’unicité
+des solutions combinatoires d’un système d’équations convenables.
+
+50 ANDRÉ JOYAL
+
+Soient X= (X,  Xd), Y= (Y,  Y,) et F(X, Y) = (F,(X, Y),..., F,(X. Y))-
+
+Supposons que F (0, 0) = O. Nous dirons que N (X ) = (N , ,..., N,) est une
+solution du système d’équations
+Y = F (X, Y) (I)
+si l’on a N(0) = 0 et
+N(X) = F(X, N(X)).
+
+Plus précisément, une solution est un couple (N,a), où a est un
+isomorphisme
+N â F(X, N).
+
+Un isomorphisme de solutions u: (N, a)—+ (P,[i) est un isomorphisme
+d’espèces u: N —+ P tel que le rectangle
+
+N —‘*—» F(X, N)
+
+lu lFuﬁu)
+
+P i. F(X, P)
+soit commutatif.
+
+THÉORÈME 6. Si la matrice jacobienne (ôF/ôY)(O, 0) est nilpotente,
+alors le système d’équations (I) possède au moins une solution; de plus, il y a
+un et un seul isomorphisme entre deux solutions.
+
+Disons d’abord que le cardinalité totale d’un multi-ensemble E =
+(E,,...,E,,) est la somme CardE = CardE, +  + Card E, Soient A, B E E
+||X,,...,X,,||. Un morphisme w:A —> B est un contact d’ordre 2 n si
+VIE : A [E] —v B[E] est un isomorphisme lorsque Card E g n.
+
+Soient lll,ï U ,-—> V, (1 g i g s) des morphismes de la catégorie
+E ||X,,...,X,,||, et soit R E E || Y,,..., YSH. Supposons que U,(0) = V,(O) :9,
+pour 1 g i g s.
+
+LEMME I. Si tous les morphismes w, (1 g i g s) sont des contacts d’ ordre
+2 n alors le morphisme
+
+q; = R(I,u, ,..., 1,4/5) :R(U, ,..., US) —> R(V,,..., V5)
+
+est un contact d’ordre 2 n. Si de plus, pour un entier 1 gk gs, W; est un
+contact d’ordre 2 n + 1 pour tout 1 g i < k et si
+
+8R ôR
+T,‘ O)=... zaYs (O)=g
+
+alors u: est un contact d’ordre 2 n + 1.
+
+UNE THÉORIE COMBINATOIRE 5l
+
+Preuve. Soit E E B‘ avec Card(E) g n. Il faut montrer que Papplication
+y/E:R(U,,..., U,)[E] «+R(V,,..., V,)[E]
+
+est bijective. Soit s E R(U,,..., U,)[E]. On a s = (P, x, a, ﬁ). Les classes de la
+partition P de E sont des multi-ensembles de cardinalité totale gn. Les
+fonctions (w,)c pour C E P sont bijectives. La structure w,,-(s) est le résultat
+du remplacement, au moyen des (w,)c, des U,-structures sur ces classes, par
+des V,-structures. Ce qui montre que I115 est bien bijective. Pour démontrer la
+seconde assertion, il sufﬁt de considérer le cas où Card(E) = n + 1. Avec les
+mêmes notations. soit C e P. Si Card(C)g n, (Il/Je est bijectif. Supposons
+donc que Card(C) = n + 1. On a alors P = {C} ce qui entraîne que le multi-
+ensemble P= Q"{l},...,x“‘{r}) est isomorphe à ([0], [0],..., [1]
+(position i),..., [O]). Comme ,8 est un élément de R[P], on voit que
+R l0, O,..., 1 (position i),..., 0] est non vide. Uhypothèse sur les dérivées
+partielles entraîne que i < k; comme alors w, est un contact d’ordre 2 n + l,
+on voit encore que (I/I,)C est bijectif. C.Q.F.D.
+
+Soit maintenant f CE ]|X,,...,X,,H la sous catégorie pleine des espèces
+A E E l[X,,...,X,,[| telles que A[0,..., 0] = ra. Notons f’ la catégorie produit
+J‘ x  x f (r facteurs). Nous dirons qu’un morphisme (w,,..., un):
+(A,,...,A,)->(B,,...,B,) est un contact d’ordre 2n si w, est un contact
+d’ordre 2 n pour tout l g i g r. Nous allons maintenant déﬁnir un foncteur
+F: J'ai". On pose
+
+F(A , ,...,A,) = (A’, ,...,A’,),
+où
+A; =F,(X,A,,...,A,)
+:5 Fi(X1,.-., Xd, A1’uIc,Ar)u
+
+LEMME 2. Si A —->"‘ B e f’ est un contact d’ordre 2 n alors FA —>F"‘ FB
+est un contact d’ordre 2 n. De plus, F'(w) = (F o  o F)(w) (itération
+d’ordre r) est un contact d’ordre 2 n + 1.
+
+Preuve. La première assertion résulte immédiatement de la première
+partie du lemme 1. Pour la seconde, il sufﬁt de remarquer que la valeur du
+jacobien de F’ à l’origine est nulle, {(âF/ôY)(O, 0))’ = z, vue Phypothèse de
+nilpotence. On applique ensuite la seconde partie du lemme I avec s = d + r,
+k=d+1, U,=X,= V,pour 1 gigd, U,=A,et V,=B,pour d+1<i<S-
+
+Passons maintenant à la démonstration de la proposition.
+
+52 ANDRÉ JOYAL
+
+(I) Existence d’une solution
+
+Posons A0 = z et A”, = F(A,,). On a la fonction vide A0 —+"°A,, c’est un
+Contact d’ordre O. On déﬁnit par récurrence des morphismes
+
+in =F(in—l) (n >1)»
+Il en résulte une suite illimitée
+
+A0—i°—>A,—i—1—>A2L>-n. (l)
+
+La limite directe de cette suite est ﬁnitaire. En effet, le lemme 2 montre que
+i, est un contact d’ordre 2 [n/r]. Ce qui entraîne que pour tout E E B“
+Papplication (in), est un isomorphisme dès que n est assez grand. Soit A0,, la
+limite directe de la suite (1). On a des triangles commutatifs:
+
+A0__"°__,A1__"1__,A2_LA3____....
+. i1 “il; (2)
+J0
+A00.
+
+Vériﬁons que Aœ est une solution de l’équation (1). En effet, l’opération
+fonctorielle F préserve les limites directes. F (Aœ)_est donc limite directe de la
+suite
+
+Foiopï. F(A,)L“L.F(A,)___. 
+c’est—à-dire de la suite
+
+i i
+A,—‘—>A,——’—> A3——>---.
+
+Il y a donc un et un seul isomorphisme i: AŒ—+F(AŒ) tel que tous les
+triangles
+
+An+1
+ﬁn w") 
+Aœ
+
+———i——'F(Aœ)
+
+soient commutatifs.
+
+(II) Unicité des solutions
+
+Supposons que l’on ait une autre solution ﬁ: B —> F(B ). Remarquons
+d’abord l’existence d’une et d’une seule suite de morphismes A, —>“"B (n 2 0)
+telle que les triangles
+
+UNE THÉORIE COMBINATOIRE 53
+
+u
+An+i—""—> B
+
+ l” <4>
+
+FŒ)
+
+soient tous commutatifs. L’unicité est évidente car uo a un domaine de
+déﬁnition vide, et comme li est un isomorphisme on a u, H = ﬂ“‘F(u,,). L’ex-
+istence suit du même coup. Voyons que les triangles
+
+Ao“iï"AI"ï"-42"""A3î’ 
+
+   (5,
+
+W u
+B
+sont tous commutatifs. C’est évident pour le premier (n = 0). Pour passer de
+n à n + 1, on applique F pour obtenir
+
+A ln+I
+n+l n+2
+
+A
+F(u,.\_ ﬁn”) (6)
+
+F09)
+
+on compose ensuite avec ﬂ“':F(B)—+B et on utilise (4). On est maintenant
+en position de passage à la limite: on a un morphisme unique u:Aœ —+B tel
+que les triangles
+
+An
+'/ \:" <7)
+" B
+
+Aœ———————»
+
+soient tous commutatifs. Voyons que u est un isomorphisme de solution. En
+effet u, est un contact d’ordre 0 et le lemme montre que u, est un contact
+d’ordre 2 [n/r]. On conclut que u est un contact d’ordre oo, c’est—à—dire un
+isomorphisme. Il faut encore vériﬁer la compatibilité:
+
+Aœ__u__.B
+
+l l‘ i <8>
+
+F(A m) J‘—"L. p(s).
+
+Pour cela on compose Pextrémité supérieure gauche de ce rectangle avec
+j,,+,:A,,+,—>Aœ et on obtient (par 7 et par 3)
+
+54 ANDRÉ JOYAL
+
+An+l l3" B
+F09) l5 (9)
+FIA...) Je» P(R)
+
+c’est—à—dire (par 7) le triangle
+
+An+llnië' B
+
+M l“ (10)
+F(B)
+
+qui est bien commutatif (par 4). Comme les morphismes j',,,,:A,,+,—»Aœ
+recouvrent Aœ on a bien démontré la commutativité de (8).
+
+Il reste à montrer que u est unique. Supposant que (8) est commutatif, on
+compose u avec j,,:A,, —>Aœ et on obtient une suite u,,:A,,—> B. Comme les
+morphismes j" : A, —> A (n 2 0) recouvrent A, il sufﬁra de vériﬁer que la suite
+(un) satisfait (4), ce qui entraînera le résultat. Composant le rectangle (8)
+avec j, H :A,, + , —>Aœ, on obtient (9) et ensuite (10), c’est—à—dire (4).
+
+C.Q.F.D.
+
+6. ESPÈCES PONDÉRÉES
+
+6.0. Si l’analOgie entre espèces et séries de Hurwitz à coefﬁcients entiers
+est exacte, on doit pouvoir effectuer des modiﬁcations par changements de
+coefﬁcients. Pour tout monoïde commutatif à factorisations finies P, nous
+allons introduire une catégorie E, d’ensembles P-gradués. Cette catégorie
+nous servira de coefﬁcients dans la construction d’une catégorie d’espèces à
+valeur dans E,.. De plus, si 2,, dénote l’anneau des combinaisons linéaires
+formelles des éléments de P, la cardinalité d’une espèce de E, HXII prendra sa
+valeur dans Z, IIXH.
+
+6.1. Soit P un monoïde. Nous dirons qu’un ensemble A muni d’une
+fonction A a" P est P-gradué ou P-pondéré; la fonction p est la graduation
+ou la pondération; le degré ou le poids de a E A est l’élément p(a) E P. Un
+morphisme A —>’ B d’ensembles pondérés est une fonction préservant le poids.
+La somme A + B d’ensembles pondérés est la somme disjointe munie de la
+pondération induite par celle des facteurs. Le produit A -B est le produit
+cartésien A X B muni de la pondération p(a,b)= p(a) - p(b). Supposons
+maintenant que p soit à factorisations ﬁnies (pour tout z EP l’ensemble
+{(x, y) l xy = z} est ﬁni). On peut alors considérer Panneau Z ,, = Z[[P]] des
+
+UNE THÉORIE COMBINATOIRE 55
+
+combinaisons linéaires formelles d’éléments de P: un élément f E Z, est une
+fonction f: P-v Z; la somme et le produit sont déﬁnis comme suit:
+
+(f + 8X2) =f(Z) + 8(2)
+(fgXz) = Ê f (x) 3U)-
+
+xÿ=Z
+
+On peut écrire
+
+f= z f(x)-x.
+
+xeP
+
+Disons qu’un ensemble gradué A—>”P est ﬁnitaire si pour tout xEP
+l’ensemble p“{x} est ﬁni; la cardinalité de A —+" P est la fonction
+xI-r Card p“{x}. Nous dirons aussi que CardA est le poids total de A. On
+a
+
+CardA = z (Card p“{x}) - x
+
+XEI’
+
+= 2 p(a)-
+
+06A
+
+Nous désignerons par E, la catégorie des ensembles P-gradués ﬁnitaires. E,
+est close pour le produit des ensembles P-gradués.
+
+PROPOSITION 23. Pour A, B E E, on a
+CardA +B=CardA + CardE
+CardA -B = (CardA)- (Card B).
+DÉFINITION 21. Une espèce P-graduée (ou P-pondérée) est un foncteur
+M : B —r E, .
+La cardinalité (ou le poids) de M est la série de Hurwitz
+M(x) = go (Card M[n]) 
+
+Si EPHXII dénote la catégorie des espèces p-pondérées, on a un
+homomorphisme
+
+Card= E» llXll -> Z1» IIXII‘
+
+56 ANDRÉ JOYAL
+Le produit et la somme de M, N E E,,1|X|| sont déﬁnis comme suit:
+
+' (M+ NIIEI =M[E] +N[E].
+
+(M - N)lEl= Ë MIAI -NIBI.
+
+A+B=E
+
+Supposons maintenant que P soit commutatÿ. On peut alors déﬁnir la
+substitution R(N) dans le cas où N [0] = Q. La déﬁnition de cette opération
+est absolument identique à celle donnée en 2.2. sauf qu’il faut préciser le
+poids d’une R-assemblée de N-structures: c’est le produit des poids des N-
+structures membres multiplié par le poids de la R-structure sur Fassemblée.
+
+PROPOSITION 24. On a
+Card R(N) = R(N(x)).
+
+La théorie des espèces pondérées est identique à celle des espèces tout
+court nonobstant l’attention qu’il faut accorder au poids. Par exemple,
+supposons que l’on cherche à exprimer une espèce M sous une forme
+exponentielle M =exp(N). On procède comme d’habitude: on identiﬁe un
+concept de connexité. Sachant que M = exp(MC), où MC est l’espèce
+(ordinaire) des structures connexes, il faut ensuite vériﬁer que le poids d’une
+M-structure est bien égal au produit des poids de ses composantes: dans ce
+cas, nous dirons que la pondération de M est multiplicative; cette condition
+entraîne ﬁnalement que l’espèce pondérée M est bien l’exponentielle de
+l’espèce pondérée MC. Cette analyse se généralise au cas Où l’on cherche une
+décomposition M = R(N), le concept correspondant de multiplicativité de la
+pondération étant clair.
+
+EXEMPLE 36. Soit s,,s,,s3,... une suite dénombrable dïndéterminées.
+On peut pondérer l’espèce S des permutations en déﬁnissant comme suit le
+poids d’une permutation o E S [E ]:
+
+F(G) = si”  sîî"‘°’.
+
+où n = Card E et où d,(o) est le nombre de cycles de longueur i dans o. On a
+alors
+
+Card S = E: Znx".
+
+n20
+
+UNE THÉORIE COMBINATOIRE 57
+
+où Z, est le polynôme indicateur des cycles du groupe [n]!
+
+Z. = -1-, Z p(a)-
+
+n‘ aeln]!
+
+Les structures connexes sont ici les permutations circulaires. Comme la
+pondération est évidemment multiplicative on a S = exp(C). Le poids d’une
+permutation circulaire o E C[E] est égal à s, si Card E = n. On a donc
+
+Il
+
+CardC= z (n— l)lx,,f—,—
+D, n.
+
+z s ""
+n>l n n
+ce qui entraîne l’identité bien connue:
+
+z Z,,x"=exp [ Z s" xn].
+
+n>o n>l n
+
+EXEMPLE 37 (Formule de Mehler). Nous allons suivre de près la
+démonstration de Foata [11]. Si on modiﬁe l’exemple précédent en ne
+considérant que les involutions, on obtient
+
+n x2
+
+z h x -—ex (sx+s ——)
+n>o nn!—' p I 22 ’
+
+MS” S1) = 2€" p(a)
+
+a1=I
+
+les polynômes h, sont étroitement reliés aux polynômes d’Hermite. La
+formule de Mehler est
+
+x"
+Ê hn(sl9 S2)hn(t13 [zim
+
+n>o
+_ 1 l exp [ÜIÏÙX + (Sitz ‘l’ tisz) 952/2]
+\/1—s,t,x’ 1"S2t2x2
+
+Pour la démontrer, on interprète combinatoirement le premier membre: soit
+M l’espèce des couples d’involutions (o, r), avec la pondération
+
+p07, T) = SÎTPIŸVÊ’
+
+58 ANDRÉ JOYAL
+
+si p(a) = s," s31 et p(r) = sîlsäl. On a évidemment
+
+CardM= Z h,,(s,,s2) h,,(t, , mi”,
+n>o n.
+
+Il sufﬁt maintenant d’exprimer M sous forme exponentielle. En effet, un
+couple (o, r) E M [E ] induit une représentation du groupe dihédral Dœ (deux
+générateurs involutifs) sur l’ensemble E. Cette représentation se décompose
+en représentations connexes. La pondération est évidemment multiplicative.
+On a donc M = eXp(MC). On classifie les représentations connexes en quatre
+sous—espèces:
+
+MC=A+B+C+D.
+
+Nous allons décrire ces sous-espèces par des graphes: on relie deux
+sommets par un trait plein (pointillé) s’ils s’échangent par a (resp. par r).
+Nous indiquerons aussi le poids des transpositions correspondantes (et des
+bouclesl).
+
+Sous—espèce A:
+Ë Îcz
+°\...../
+
+Ce sont les graphes cycliques de longueurs paires avec des arêtes alter-
+nativement pleines et pointillées. On a
+
+l
+
+1
+AW=îmî:zP
+
+Sousespèce B:
+,1 
+
+Si on oriente cette chaîne en choisissant l’une des boucles, on obtient une
+espèce isomorphe à celle décrite sommairement comme suit:
+
+5l
+
+5l 52
+
+On a donc
+
+ = sîtzxz 
+
+UNE THÉORIE COMBINATOIRE 59
+Sous-espèce C:
+
+.'o .',
+c, ._ _ .... .... .... . 1:,
+
+Sous-espèce D:
+
+t2 s2 
+s, .... .... .... n.» '. t,
+
+D est isomorphe à l’espèce décrite sommairement par
+
+:2
+
+.-.c, 
+s10..- .2
+
+On a donc
+
+D = t —2——.
+(x) sllx1_s2t2x2
+
+EXEMPLE 38 (Polynômes exponentiels). On peut pondérer comme suit
+l’espèce P des partitions. Soient x,,x,,... des indéterminées. Posons
+
+P(Q) = x?‘  xi",
+
+où n est la cardinalité de l’ensemble sous-jacent à Q et où d, est le nombre
+de classes ayant pour cardinalité i. Les polynômes exponentiels sont les
+polynômes
+
+Y» =Z P(Q).
+a
+
+où la sommation a lieu sur toutes les partitions de [n]. La fonction p est
+multiplicative, on a donc l’identité
+
+xn
+z 
+
+n>0
+
+2 x ""]
+n>0 n n! l
+
+EXEMPLE 39 (Suite binômiale). Soit N une espèce telle que N [0] :9.
+On peut déﬁnir le poids d’une assemblée h E exp(N) en posant p(h) = t", où
+n est le nombre de membres de h. Considérons les polynômes
+
+P..(î) = Z p(h)-
+
+heexp(N)[n]
+
+60 ANDRÉ JOYAL
+
+La fonction p est multiplicative, on a
+Card exp(N) = exp(Card N)
+
+plus explicitement
+
+Il
+ÿ: P,,(t)x—'=eXp(tN(x)).
+n20 n‘
+Les polynômes P,,(t) ont une interprétation combinatoire (Mullin et Rota
+[25]): Si T est un ensemble de cardinalité t alors p,,(t) est le nombre de
+fonctions f: [n]—> T dont chaque ﬁbre est munie d’une assemblée de N»
+structures. On a l’identité du binôme:
+
+l1
+
+n
+Pn(t1+l2): E: 
+
+R10
+
+) Par.) P.-.<z.>.
+
+7. QUELQUES ASPECTS GÉNÉRAUX
+
+7.0. Dans les chapitres précédents nous avons fait un rapprochement
+entre des concepts purement combinatoires d’une part et des concepts
+purement algébriques d’autre part. Ce rapprochement se ﬁt surtout sur le
+mode analogique. La question se pose de savoir s’il est possible de dépasser
+Panalogie en développant une théorie générale. Il Semble encore trop tôt pour
+énoncer une telle théorie. Trop de directions possibles s’offrent Sur la voie de
+la généralisation et seule la pratique mathématique pourra nous indiquer
+l’importance ou Finsigniﬁance d’un concept. La théorie présentée dans ce
+chapitre est minimale. Elle se Situe dans le prolongement des travaux de
+Rota [28], Joni et Rota [16], sur l’interprétation combinatoire des cogèbres.
+
+7.1. Monoides
+
+Rap elons u’une caté Orie monoïdale est une caté Orie A munie d’une
+q g g
+opération binaire fonctorielle
+
+A X A —;®—+ A,
+d’un objet unité I E A et d’isomorphismes naturels
+
+A®(B®C)3(A®B)®C,
+(A 6903A,
+I®A:A.
+
+UNE THÉORIE COMBINATOIRE 6l
+
+Ces isomorphismes naturels sont assujettis à des conditions de cohérence
+(voir “Cohérence in Catégories,” Réf. [32]). Il est en général impossible
+d’éliminer totalement les questions de cohérence. Cependant, nous exclurons
+autant que possible de ce travail les aspects de cohérence en supposant que
+les conditions de cohérence sont satisfaites. Cela ne présente pas trop de
+risques si l’on a dans l’esprit des exemples concrets, naturels.
+
+Une catégorie monoïdale (A, ®, I) est symétrique si elle est munie d’un
+isomorphisme (cohérent) de commutation A ®B s. B ®A.
+
+Un monoïde dans une catégorie monoïdale A est un triplet
+(M,M®M—>°M, I—>"M) où ME A et où c et e satisfont aux axiomes
+d’associativité et d’unité:
+
+M®M®M W M®M
+
+[eau v ]..-
+
+M®M—‘—»M
+
+ 
+
+ 
+
+I®M “e” M®M W M®I
+\èc/
+M
+
+Si la catégorie monoïdale A est symmétrique on peut déﬁnir le produit
+M,®M, de deux monoïdes M, et M2. La multiplication de M,®M,
+s’obtient par composition
+
+ 
+
+M.®M.®M.®M.—ï»M.®M.®M.®M.
+
+[N902
+
+M,®M,.
+
+On peut aussi déﬁnir le concept de monoide commutatif‘: le composé de
+M ® M —>°M avec l’isomorphisme de commutation M ® M 2: M ® M doit
+coïncider avec m.
+
+EXEMPLE 40. La catégorie E IIX [I munie du produit des espèces est
+monoïdale symétrique.
+
+EXEMPLE 41. La substitution est une opération monoïdale sur l’idéal f
+des espèces telles que N [0] = 0. La substitution n’est pas symétrique.
+
+EXEMPLE 42. Si N [0] = Q, l’espèce l/(l —N) est un monoïde. La
+multiplication est la concaténation des assemblées linéaires de N-structures:
+
+62 ANDRÉ JOYAL
+
+L’unité 1 —> 1/(1 —N) est l’assemblée vide. Ce monoïde est libre sur l’espèce
+N. Il n’est pas commutatif. Cependant, comme tous les monoïdes libres (dans
+une catégorie monoïdale symétrique), il est muni d’un (unique) anti-
+automorphisme involutif induisant l’identité sur N : c’est le renversement de
+l’ordre d’une assemblée linéaire.
+
+EXEMPLE 43. Uexponentielle exp(N) est un monoïde commutatif pour
+l’opération de réunion de deux assemblées juxtaposées:
+
+exp(N) - exp(N) —> exp(N).
+On vériﬁe que c’est le monoïde commutatif libre sur N (N [0] = 0).
+
+EXEMPLE 44. L’espèce X/1——X des ordres linéaires non vide est un
+monoïde de l’idéal f (pour l’opération de substitution).
+
+EXEMPLE 45. Si S Ef et si S [1] :0, on peut démontrer l’existence
+d’un monoïde N libre sur S (pour l’opération de substitution). Pour le
+construire, on prend la solution N de l’équation
+
+N = X + S(N)
+ce qui donne un morphisme
+S o N ‘LE-r N.
+
+L’opération de multiplication N(N) —>"'N est l’unique ﬂèche m rendant
+commutatif le rectangle
+
+s o N o N JL» s o N
+
+aoN a
+l l
+
+N o N E N.
+
+Plus particulièrement, si S zXz/Zl alors la solution N de l’équation
+
+N = X + NZ/2!
+
+est l’espèce des parenthésages commutatÿs. L’opération N(N)—> N ne fait
+qu’exprimer la substitution habituelle de parenthésages dans un parenthésage.
+
+7.2. Loi de décomposition numérique
+
+Dans ce qui suit, nous noterons souvent comme une addition la
+multiplication A XA —>A d’une monoïde commutatif (ordinaire). Nous
+dirons alors que A est un monoïde additif. Une fonction f: A —> B préservant
+
+UNE THÉORIE COMBINATOIRE 63
+
+la somme et l’élément nul est une fonction additive. Une fonction
+fzA XB-r C additive en chaque variable est une fonction bi-additive. Le
+
+produit tensoriel A ®B de deux monoïdes additifs s’obtient en construisant
+
+la fonction bi—additive universelle A xB-æ/i ®B. La catégorie Ad des
+monoïdes additifs, munie de ce produit tensoriel, est une catégorie
+symétrique’ monoïdale. L’objet unité pour le produit tensoriel est le monoïde
+additif des nombres naturels:
+
+A®N3N®A3A
+
+Pour tout ensemble I, soit N(I) le monoïde abélien libre sur I. On a des
+isomorphismes
+
+N(I x J) = N(I) ® N(I),
+NU)=N.
+
+Une cogèbre est un objet A eAd muni d’une structure de monoi'de dans la
+catégorie opposée _Ad°"". On a une co-multiplication
+
+A 14A ®A
+et une co-unité
+A —‘—r N
+devant satisfaire aux axiomes d’associativité
+
+A —“+ A®A
+
+«I le
+A®A——>A®A®A
+
+etd’unité
+N®A—‘®—“‘—+A®A——”É‘Ë—>A®N
+
+ïkïv
+
+A.
+
+DÉFINITION 22. Une loi de décomposition (numérique) sur un ensemble I
+est la donnée d’une structure de cogèbre (d, e) sur N(I).
+
+La co-multiplication d: N(I) —> N(I) ® N(I) équivaut à une fonction
+
+m1.. N(I x r)
+
+607/42/16
+
+64 ANDRÉ JOYAL
+
+et nous dirons souvent que celle-ci est la loi de décomposition. On a de
+expressions
+
+où [jlk] E N est le nombre de façon de décomposer i en deux morceaux, le
+premier étant j et le second k. Si [,",,] > 0 nous dirons que (j, k) est une
+décomposition de i (en deux morceaux). L’associativité de la loi de décom-
+position s’exprime par l’identité
+
+ëLÏJh”rFëL“kH.Ül l”
+
+La valeur commune des deux membres de cette égalité est le nombre [j  ,]
+de façon de décomposer i en (j, k, r). Plus généralement, on déﬁnit pour
+chaque n 2 2 des applications
+
+d": I —> N(I"),
+
+d.tz')= 2  l . ]o‘.....j).
+(i,....,j,,)el" Jlamnln 1 n
+
+Si [jlnfxd-n] > 0 nous dirons que (j,,...,j,,) est une décomposition de i (en n
+morceaux). L’axiome d’unité de la structure de cogèbre Signiﬁe que
+
+Èijialﬂoûzëla ijlswùzô} (‘in
+
+l1
+
+DÉFINITION 23. Un élément uEI est neutre si e(u)=1. Un élément
+v E I est primitif si d(v) = (v, v).
+
+(Si v est primitif, il est aussi neutre.) Pour tout i E I on a (par (**))2
+
+z [id ]e(a)=l.
+
+ael l
+
+Ce qui montre qu’il existe un et un Seul élément u 6 I tel que
+
+[i l. u ]=l et e(u)=1.
+
+Posons ä,(i) = u. On déﬁnit aussi un élément neutre â,,(i) en exigeant que
+laom {il = 1-
+
+UNE THÉORIE COMBINATOIRE 65
+
+PROPOsmON 25. Les conditions suivantes sont équivalentes:
+(i) i est neutre,
+
+(ii) e(i) > 0,
+(iii) â,,(i) =i (resp. â,(i) = i).
+
+Preuve. (i) => (ii), trivial
+(ii) => (iii). Supposons e(i) > 0. On a
+
+55°“; leur) i a la“); leur‘) i Ils") > °
+
+ce qui entraîne que i=â,,(i).
+(iii) a (i), trivial.
+
+PROPOsmON 26. Si (j, k) est une décomposition de i, on a les égalités
+
+(i) âo(i)=âo(j).
+
+(ii) â.(ï)=ô.(l<).
+
+(iii) 3I(J')=3o(k)-
+De plus, si k (resp. j) est neutre on a i= j et k=â,(i) (resp. i==k et
+1313007)-
+
+Preuve. Démontrons d’abord la dernière assertion. Par hypothèse, on a
+[ , ' ,,] > 0 et s(k) = I. Utilisant l’identité (**) on a
+
+â,’=z [j ]e(a)2 [jik ]e(k)>0,
+
+a J
+
+et donc i = j et k=â,(i). Pour démontrer le reste, supposons seulement que
+[ j I k] >  On a
+
+l.» k 21ml ï lﬁallk 21ml
+
+àliik lk lait/cil”
+
+et donc (par (=I=))
+
+l1’ k Ïzoolîlj a klla émoi”
+
+ce qui entraîne l’existence de aEI tel que [a 3,00] > 0. Comme ô,(k) est
+
+66 ANDRÉ JOYAL
+
+neutre, on conclut que â,(i) =ô,(k). Pour terminer, on utilise que [j l k] X
+laoikf‘, k] > 0 et par suite que {M0,}, k] > 0 ce qui entraîne l’existence de
+
+aEIteI que
+a i
+ljaoucilla kl”
+
+et ﬁnalement que a =j et â,(a) = 800c). C.Q.F.D.
+
+EXEMPLE 46 (Leroux [22]). Une catégorie C est à décomposition ﬁnie si
+pour tout morphisme f E C l’ensemble {(13,19 l f,f2 = f } est ﬁni. Soit N(C)
+le monoïde additif libre sur l’ensemble des morphismes de C. On a une loi de
+décomposition d: C —> N(C ® C)
+
+d(f)= Ï: (fnfz)
+fif2=f
+la co-unité e: C —> N est la fonction
+g(f) = 1 si f est une identité
+= 0 sinon.
+
+Dans cet exemple, les éléments neutres, les éléments primitifs et les
+morphismes identités coïncident.
+
+7.2.1. Soit B un semi-anneau. Une loi de décomposition (d, s) sur I nous
+permet de déﬁnir une structure de semi-anneau sur l’ensemble B’ des
+fonctions de I vers B:
+
+(f + gxz‘) = f0’) + g(t),
+. z .
+(f-g)(1)=; [j k lf(I)g(/<)-
+
+Dans le cas où B est un anneau, B’ est un anneau. Un problème fréquent est
+celui de la détermination des éléments inversibles de Panneau B’ ainsi que du
+calcul explicite des inverses. Notons I0 l’ensemble des éléments neutres de I.
+Notons B’° l’anneau des fonctions de I 0 vers B (la multiplication de f, g E B'°
+
+est (fgXu) =f(u) 801))-
+
+PROPOSITION 27. L’inclusion B’°Ç+B’ (extension par 0) est un
+homomorphisme d’anneau. De plus, si tout élément neutre est primitif, la
+projection B’ —+ B’° est aussi un homomorphisme dïmneau.
+
+UNE THÉORIE COMBINATOIRE 67
+
+Preuve. Soient j; g e B’, des fonctions appartenant à l’image B’° C—»B’.
+On a pour tout iEI
+
+(r- g)<t)= Z [f k [f(j) gac).
+
+(JJÜËIXI
+
+Comme on a f (j) = g( j) = 0 pour je I ——. l0 on peut écrire
+
+. _ z‘ . .
+(f - gxz) — Mäﬂo [j [M guc).
+D’autre part, si [f k] > 0 et (j, k)EI0 X10 on a i=j= k (Prop. 26). Cela
+entraîne que
+(f' ËXÏ) =f(Î) 8U) si ÎË Ïo
+
+= O sinon.
+
+La seconde assertion de la proposition est immédiate.
+Disons maintenant que (j,,..., j,,)€I" est une décomposition stricte de
+i E I si [1-1. Ï 4"] > 0 et s’il n’y aucun élément primitif parmi {j, ,..., jn}.
+
+DÉFINITION 24. Une loi de décomposition d:I-+N(I XI) est
+héréditairement ﬁnie si pour chaque iEI, l’ensemble des décompositions
+strictes est ﬁni.
+
+THÉORÈME 7 [7, 22, 29]. Supposons que d:I—+N(I XI) soit une loi
+héréditairement ﬁnie. Une condition nécessaire et siçﬁîsante pour que f E B’
+(B est un anneau) soit inversible est que f (i) soit inversible pour tout élément
+primitif i E I.
+
+Preuve. Remarquons d’abord qu’avec les hypothèses de la proposition,
+les éléments neutres et primitifs coïncident. En effet, si i est neutre on a
+
+l- ' -l= «
+z z
+ce qui entraîne que
+
+l1-î...zl>liïl"liiil>°«
+
+Si i n’était pas primitif‘, on aurait une inﬁnité de décompositions strictes de i,
+ce qui est contraire à Phypothèse. La proposition précédente montre alors
+que Panneau B'° est un rétracte de Panneau B’. On peut donc écrire
+
+f=ﬁ+fls
+
+68 ANDRÉ JOYAL
+
+où f0EB’° et f1 E Ker(B’—>B’°). Si f est inversible alors f0 est inversible
+puisque la projection B’—>B’° est un homomorphisme d’anneau. Ce qui
+montre que la condition est nécessaire. Inversement, supposons que f0 soit
+inversible. Montrons que
+
+(ﬁa)"f= 8 + Vol"?
+
+=e+5
+est inversible. La série géométrique
+(e + a)“ = î (—1)"ô"
+n>0
+converge car
+
+6m‘): 2j  ’ . [aonu-ôrj.)
+(jl,...,j',.)ël" jl9""jn
+
+= V‘ [ ’i.[ô<j.>»--ô<j.)
+
+(J......1'Î)Ë(I—Io>" J11»:
+et les coefficients ljl. Ï 4"] dans cette dernière somme s’annulent tous dès que
+n est suffisamment grand. C.Q.F.D.
+
+Remarque 1. Si l’anneau B contient les nombres rationnels, on peut
+déﬁnir pour tout a E B la puissance (a + ô)“ en utilisant le développement de
+Newton:
+
+(s+a)"=;0(;‘)ô"
+où
+(i: )= a(a—1)--’-”(a—n+l).
+
+Remarque 2. La fonction zeta Ç: I —>B est la fonction telle que Ç(i) 2 1
+pour tout i E]. La fonction de Mäbius p:I—>B est Finverse C" =p. Les
+égalités
+
+g(i)=; [JÏ k [au
+
+R‘
+
+f(i)=Z [J7 k [nm guc)
+
+.k
+
+s.
+
+UNE THÉORIE COMBINATOIRE 69
+
+sont donc équivalentes. La démonstration de la proposition précédente nous
+
+fait voir que
+ﬂ<i>= Z (—1)"[ ’ [
+
+(_h,...,j,.)E(I-Io)" j] w-vjn
+
+autrement dit que
+#0’) = Doû’) - D10‘).
+
+où D0(i) (resp. D,(i)) est le nombre total de décompositions strictes de i,
+dont la longueur est paire (resp. impaire).
+
+7.2.2. Une structure de monoïde
+I X I —'> I, e G I
+peut s’étendre additivement en une structure de semi-anneau:
+N(I) X N(I)» N(I), e G N(I).
+
+Il se peut qu’une loi de décomposition (d, a) déﬁnisse des homomorphismes
+de semi-anneaux:
+
+N<I)—“» N(I) a N(I).
+N(I) L» N.
+
+(Pour la structure de semi-anneau induite sur N(I)®N(I).) Dans ce cas
+nous dirons que (d, e) et (-, e) sont compatibles et que N(I) est une bigèbre
+(Sweedler [3l]). Cela équivaut à dire que l’on a des égalités
+
+(i)  l   [f1 il kiiliz i2 kzi’
+d(€)= (eue),
+
+(ii) 8(Î1 - i2) = 8G,) - 6G,),
+s(e)=1.
+
+Notons I0 l’ensemble des éléments neutres de I (Prop. 25).
+
+PROPOSITION 28. Pour tout (i,,iz)€IxI on a i, - i, E10 ssi i, e10 et
+i, E I0. De plus, on a les égalités
+
+ôoÛn ° i2) = ôoÜI) ' aoÜ-z):
+â1(il'i2)= 5161) ' 3x62)-
+
+70 ANDRÉ JOYAL
+
+Preuve. La première assertion résulte de Pégalité (ii). Pour obtenir la
+
+seconde, on utilise (i): sij=i1 - i, et k=â,(i1-i,) on a
+e v 1  n  1
+jy‘j_2[=j jl k1 f2 k2
+kl-kgîk
+
+ce qui entraîne l’existence d’un quadruplet (jl, k,, jz, k2) tel que
+
+1  H  w
+J} k1 f2 k2 '
+
+Comme k, - k, = k on voit que k, et k2 sont neutres. La dernière assertion de
+la proposition 26 nous permet de conclure que
+
+k1=â1(1'1) et k2=ô1(1‘2)
+et donc que
+
+61(1)) ' âl(i2):â1(i1'i2)' C-Q-F-D-
+
+Disons qu’une fonction f: I—> B est multiplicative si f(i - j) =f(i) -f(j) et
+f (e) = 1-
+
+PROPOSITION 29. Soit B un anneau commutatif. Si f, gEB' sont des
+fonctions multinlicatives alors f - gEB’ est multiplicative. De plus, si f "
+existe, c’est une fonction multiplicative.
+
+Pour tout te I et pour tout f E B’ soit _1] f 6B’ la fonction j l-> f (i - j).
+(On déﬁnit aussi f [i E B’.)
+
+LEMME. On a la formule
+
+(i.k)eIx1
+
+U(fg)= Z [jik[(gf)(k_lg)-
+Preuve. On a successivement
+
+il CfgXi’) = (fg)(i ' l")
+
+= Z [u ‘i’ v[f(u)g(v)
+
+V.1)
+
+=Z [ji k [(<11f>-Q<Jg))(r>.
+
+JJ<
+
+ 
+
+UNE THÉORIE COMBINATOIRE 71
+
+Démontrons maintenant la dernière assertion de la proposition: si f est
+multiplicative et si fg=e alors g est multiplicative. Il faut montrer que
+g [r = g - (g(r)) pour tout r e I. (B’ est une B-algèbre.) On a
+
+ie=ufg=Z [il kÿgrmg)
+
+k
+
+[Ï khrvmug
+
+ï .
+=f- [j k [fUXÏLl g)-
+D’autre part, on a
+
+_'l€=6(ï)6=6(ï)f' 8=f- (€078)-
+
+Comme f est inversible il suit que
+
+ea>g=z [Ï k [nous g).
+
+1.1: J
+
+Autrement dit, que pour tout r E I
+
+e - (g(r»=r- (gin.
+
+Multipliant par g les deux membres de cette dernière égalité, on trouve
+
+g - (g(r)) = g l!‘ C-QFD.
+
+La proposition précédente nous permet de conclure en particulier que la
+fonction de Môbîus u = C" est multiplicative. Si B = Z(I), on peut chercher
+à inverser l’inc1usion I C» Z(I). Si c’est possible, on obtient Fantipode
+6l: I —> Z(I). Si la multiplication I X I —+I est commutative, l’antipode est une
+fonction multiplicative. Dans le cas où la loi de décomposition est
+héréditairement ﬁnie, on a la formule
+
+0(z')= Z  ](—1)"j.-  -J..
+
+(j1,...,j,,)strlcte Jn
+
+7.3. Catégorie additive
+
+Nous utiliserons le terme catégorie additive dans un sens différent du sens
+habituel, faute d’avoir pu trouver une meilleure terminologie. Il s’agit plus ou
+moins de refaire Palgèbre linéaire en remplacant le concept (l’ensemble par
+celui de catégorie et le concept de fonction par celui de foncteur.
+
+72 ANDRÉ JOYAL
+
+Une catégorie additive (M , +, 0) est une catégorie monoïdale symétrique
+où le produit ® est noté additivement (+). L’object unité est baptisé objet
+nul. Un foncteur additif F: M —+ Æ entre catégories additives est un foncteur
+préservant la somme et l’objet nul (à isomorphisme cohérent près):
+
+F(A +B)3F(A) +F(B),
+F(0):0.
+
+Nous noterons Hom(M, .5’) la catégorie des foncteurs additifs de M vers Æ.
+C’est une catégorie additive, la somme F + G de deux foncteurs étant déﬁnie
+comme d’habitude:
+
+(F+ G)(A)=F(A) + G(A),
+O(A)=0.
+
+On déﬁnit aussi le concept de foncteur bi-additif F: M >< u?» g c’est un
+foncteur additif en chaque variable (et cohérence):
+
+F(A1 +A21B)=F(A1»B)+F(A21B)1
+F(A,B1+B2):F(A,B,)+F(A,B2),
+F(A,0):F(0,B)z0.
+
+Un (semi) anneau est une catégorie additive M munie d’un produit bi-
+additif M X M —°—>M et d’un objet unité I E M satisfaissant aux axiomes
+d’associativité et d’unité (et cohérence).
+
+Le produit tensoriel M (>93 de deux catégories additives s’obtient en
+construisant le foncteur bi-additif universel: M ®Æ —> M 63:5’.
+
+La catégorie additive libre L(C) sur une catégorie C se construit de la
+façon suivante: les objets de L(C) sont les familles ﬁnies (A ,-),-e, d’objets de
+C; les morphismes (A,)ke,—> (BjL-e, sont les couples (u, a), où u: I—>J est une
+bijection et où a = (qs,.),.ê, est une famille de morphismes 95,- :A,—+ B00, (i E I).
+La composition est déﬁnie par la formule (v, w)(u, d) = (vu, u/uo), où y/uçl =
+(wkumgkê, Nous utiliserons la notation 2m14,- pour désigner la famille
+(A,.),.e,. Avec cette notation on a la formule
+
+z A,+ 2 A,.= V A,..
+
+La
+ieI, 1'512 iell+lz
+
+La catégorie additive unité est le groupoïde B des ensembles ﬁnis et
+bijections (muni de la somme disjointe). On a des équivalences de catégories:
+
+M®B :4 B®M 3M
+
+UNE THÉORIE COMBINATOIRE 73
+
+et aussi
+Hom(B, M) s. M .
+
+On a les sorites habituelles: un foncteur additif M®Æ —> V est équivalent
+à un foncteur additif M —> Hom(Æ, 7), etc.
+
+Soit l la catégorie constituée d’un seul object et d’une seul morphisme. La
+catégorie L(l) coïncide avec le groupoïde B des ensembles ﬁnis et bijections.
+On a aussi la formule
+
+L(C1XC2)3L(C1)®L(C2)-
+
+7.4. Lois de décomposition combinatoire
+
+Nous allons maintenant examiner le concept de co-multiplication sur un
+groupoïde additif :
+
+d:A—+A®/À.
+
+Nous supposerons toujours que d est associative et que l’on a une co-unité
+M ——‘—> B.
+
+Nous nous limiterons au cas où M est libre sur un groupoïde A. Nous
+dirons alors que d est une loi de décomposition sur A. Vu l’identité
+L(A) ®L(A):«.L(A x A), une loi de décomposition sur A est un foncteur
+additif
+
+L(A) —> L(A X A).
+ou plus simplement un foncteur
+A l» L(A x A).
+De même, la co-unité e est un foncteur
+A —‘—» B.
+
+Strictement parlant, d est une loi de décomposition binaire. On peut aussi
+considérer une décomposition ternaire en composant
+
+L(A) 4» L(A) ®L(A)
+[L(A)®d
+
+L(A) ®L(A) ®L(A)-
+
+74 ANDRÉ JOYAL
+
+Uassociativité d’une loi de décomposition exprime le fait que cette loi
+ternaire peut aussi s’obtenir (à isomorphisme cohérent près) en composant
+
+L(A)—"—-+L(A)®L(A)
+
+dtîJuA)
+L(A) ® L(A)® L(A)-
+Nous écrirons, pour A E A
+
+d(A) = È (d.*(A)1dË(A))-
+ieD(A)
+
+Nous dirons que D(A) est l’ensemble des décompositions (binaires) de A.
+Nous dirons aussi que d,Ï(A) (resp. df(A)) est le premier morceau (resp. le
+second morceau) de la décomposition i E D(A ).
+
+Une loi d est symmétrique si l’on a une transformation naturelle involutive
+r: d —> d et pour chaque i E D(A) des isomorphismes (cohérents)
+dKA) 3 dÎuKA)
+
+Considérons maintenant une catégorie Æ munie d’une structure de semi-
+anneau. Une loi de décomposition sur le groupoïde A nous permettra de
+déﬁnir une structure de semi-anneau sur le catégorie [A, Æ] des foncteurs de
+A vers Æ (7.2.1). Le produit F- G de deux foncteurs F: A—> Æ, G: A a3
+est un foncteur dont la valeur en A E A est égale à
+
+(F- G)(A)= Ÿ (F(d1-'(A)) - G(dÏ(A)))
+
+4._l
+
+ieD(A)
+
+Supposons de plus que A soit muni d’une structure monoïdale
+A X A ——'—> A, I E A, compatible avec la loi de décomposition d (7.2.2). Cette
+compatibilité s’exprime par des isomorphismes (cohérents)
+
+p: D(A -B) :1 D(A) X D(B),
+6110443): dKA) ' dKB),
+d1Î(A -B) 3 61304) - dÏ(B),
+
+61(1) a‘ (1,1),
+s(A -B) 3 G(A) X e(B),
+6(1) r, 1.
+
+Si p(k) = (U)
+
+Si le semi-anneau .9 est commutatif (i.e., symmétrique) on peut démontrer
+que le produit F - G de deux foncteurs multiplicatifs F, G: A—>B est un
+foncteur multiplicatif.
+
+UNE THÉORIE COMBINATOIRE 75
+
+EXEMPLE 47. Le groupoïde B est muni d’un loi de décomposition
+symétrique
+
+d: B —» L(B x B)
+dont la valeur en E E B est égale à
+
+d(E)= Ê (A13)
+
+A+B=E
+
+où la sommation a lieu sur l’ensemble de tous le partages de E en deux
+morceaux. La co-unité e: B —> B est le foncteur
+
+6(E)=Q si Eqﬁz
+=l si E=Q.
+
+On vériﬁe aussi que la somme B X B—>+ B est une structure monoïdale
+compatible avec la loi de décomposition d. Soit .9 un semi-anneau
+commutatif. Le semi-anneau [B,9] est le semi-anneau des séries de Hurwitz
+à coefficients dans .9. Les foncteurs F: B—>9 préservant les structures
+multiplicatives sont les séries exponentielles F = exp(BX) (B E 9).
+
+EXEMPLE 48. Soit O le groupoïde des ensembles ordonnés ﬁnis et
+isomorphismes. Une section inférieure S _ de E E 9 est une partie S_ S E
+telle que x ç y E S_ entraîne x E S _. On déﬁnit aussi le concept de section
+supérieure. Une décomposition de E e O est un couple (S_ , S k) de sections
+inférieure et supérieure tel que S_ 05+ =0 et S _ U S + =E. On a une loi
+de décomposition
+
+d:O—>L(OXO)
+
+dont la valeur en E E 0 est égale à
+
+d(E)= z (S_,S+).
+(S_,S+)eD(E)
+Cette loi n’est pas symétrique. La somme disjointe d’ensembles ordonnés
+nous donne une structure multiplicative O x O -—>* O compatible avec la loi
+de décomposition. ’
+
+EXEMPLE 49 (Fàa di Bruno). Considérons le groupoïde F dont les objets
+sont les surjections A —»A’ d’ensembles ﬁnis et les morphismes sont les
+rectangles commutatifs
+
+76 ANDRÉ JOYAL
+
+A—'3—>B
+
+l l
+
+AILE!
+
+où u et u’ sont des isomorphismes.
+On a une loi de décomposition
+
+d(A —+>A’)=z (A ——>+A/R,A/R —»A’)
+R
+
+où la sommation a lieu sur l’ensemble des relations d’équivalence R sur A
+induisant une factorisation A ——»A/R —>+ A’ de A —» A’. La co-unité e: F —+ B
+se déﬁnit comme suit
+s(A —>+A’) = 1 si A —>+A’ est un isomorphisme
+= g sinon.
+
+L’opération de somme disjointe A + B —+>A’ + B’ (de deux surjections)
+permet de déﬁnir une structure monoïdale
+
+FXF—+>F
+
+compatible avec la loi de décomposition. Si 9 est un semi-anneau
+commutatif, un foncteur multiplicatif N : F —> 9 est entièrement déterminé si
+l’on connaît sa restriction au sous—groupoïde de surjections A ——>+ 1. Comme
+ce dernier groupoïde est équivalent au groupoïde B* des ensembles ﬁnis non
+vides, on peut identiﬁer un foncteur multiplicatif N : F—+9 à un foncteur
+N: B* 49 c’est—à—dire à une espèce N : B —> 9 telle que N [0] = 0. De cette
+façon la structure monoïdale sur la catégorie des foncteurs multiplicatifs
+s’identiﬁe à la substitution des espèces de l’idéal f c: 9 |[X|[ (Chap. 2).
+
+EXEMPLE 50. Soit A le groupoïde des groupes abéliens ﬁnis et
+isomorphismes. On a une loi de décomposition
+
+d:A—+L(AXA)
+
+dont la valeur en A E A est égale à
+
+d(A)= z (su/s)
+
+SGA
+
+où la sommation a lieu sur tout les sous-groupes S de A.
+
+EXEMPLE 51 (Joni et Rota [16], Lawvere). Un intervalle ﬁni est un
+
+UNE THÉORIE COMBINATOIRE 77
+
+ensemble ordonné ﬁni ayant un plus petit et plus grand élément. Soit l le
+groupoïde des intervalles ﬁnis et isomorphismes. Pour U E I et x E U soit U,
+(resp. U‘) Pintervalle { y| y E U, y {x} (resp. l’intervalle { y! y E U, y >x})
+On a une loi de décomposition
+
+d: I‘—>L(I x I)
+
+dont 1a valeur en U E I est la somme
+d(U)= z (U,,,U‘).
+xeU
+
+De plus, le produit (cartésien) U X V de deux intervalles est un intervalle. Ce
+qui donne une structure monoïdale
+
+IXI-ï»!
+
+compatible avec la loi de décomposition.
+
+7.4.1. Plusieurs lois de décomposition proviennent d’une loi de
+composition. Par exemple, soit A un groupoïde muni d’une structure
+monoïdale (A, ®, I). Une décomposition d’un Objet E e A est un triplet
+(A,B, a), où a est un isomorphisme
+
+a:A ®B—>E.
+
+Un isomorphisme de décompositions (A, B, a)—+ (A’, B’, a’) est un couple
+(A —>"A’, B —>” B’) d’isomorphismes tel que le triangle
+
+A®B
+
+u®v E
+
+soit commutatif. Supposons maintenant que le foncteur A X A—>®A soit
+ﬁdèle et que pour tout E E A l’ensemble des classes d’isomorphismes des
+décompositions de E soit ﬁni. On peut alors déﬁnir une loi de décomposition
+
+A’®B’
+
+d:A-+L(AXA)
+
+dont la valeur en E E A est
+
+d(E)= Z (Au?)
+
+A®B=E
+
+78 ANDRÉ JOYAL
+
+où la sommation a lieu sur un système complet de représentants des classes
+d’isomorphismes des décompositions de E.
+
+EXEMPLE 52 (Dirichlet). Le groupoïde B* des ensembles ﬁnis non vides
+(et bijections) muni du produit cartésien. Un couple (R,S) de relations
+d’équivalence sur E E B* est orthogonal si l’application canonique
+
+E —> E/R X E/S
+est une bijection. On a la loi de décomposition
+
+d(E)= Ê) (E/RÆ/S)
+(R,S
+
+où la sommation a lieu sur tous les couples orthogonaux de relations
+d’équivalence sur E.
+
+La composition des morphismes d’une catégorie nous permet souvent de
+déﬁnir une loi de décomposition. Soit C une catégorie. Une décomposition
+d’une morphisme f E C est un triangle fzf, = f:
+
+A——’——»B
+N u‘
+C.
+
+Deux décompositions f1f2=ﬁ gk g1= f sont isomorphes s’il existe un
+diagramme commutatif
+
+D
+
+où u est un isomorphisme. Supposons que:
+
+(1) il y a au plus un isomorphisme entre deux décompositions,
+
+(2) l’ensemble des classes d’isomorphismes des décompositions d’un
+morphisme est ﬁni.
+
+Si ces deux conditions sont satisfaites, on peut déﬁnir une loi de décom-
+
+UNE THÉORIE COMBINATOIRE 79
+
+position sur le groupoïde C dont les objects sont les ﬂèches de C et les
+isomorphismes sont les rectangles commutatifs
+
+A—”—»A'
+
+l’ t’
+
+B——N—>B’.
+On a
+
+dg): Ë (fiafz):
+
+UhfÜËDU)
+
+où D( f ) est un système complet de représentants des classes
+d’isomorphismes des décompositions de f.
+
+EXEMPLE 53. Si la catégorie C est celle des ensembles ﬁnis et
+surjections on obtient l’exemple 49 (Faà di Bruno).
+
+EXEMPLE 54. On obtient un autre exemple en prenant pour C la
+catégorie des ordre linéaires ﬁnis et surjections croissantes. Il y a sur C une
+structure multiplicative compatible avec la loi de décomposition: c’est la
+somme ordinale f, + f,: L, +L,—>L’, +Lg de deux surjections croissantes
+f, : L, ——>LÇ,j‘,:L, —>L’,. Si 9 est un semi-anneau commutatif, les foncteurs
+multiplicatifs F: C —> 9 s’identiﬁent aux espèces linéaires sans terme
+constant. Le produit de foncteurs multiplicatifs s’identiﬁe à la substitution de
+ces espèces linéaires.
+
+EXEMPLE 55. On peut prendre pour C la catégorie dont les objets sont
+les couples (E, a), où o est une permutation de l’ensemble ﬁni E. Les
+morphismes (E, a) —»° (E’,a’) sont les surjections çlzE-HE’ telles que
+va = 0'45. Il y a sur C une structure multiplicative évidente. Cet exemple est
+en rapport étroit avec la substitution de séries indicatrices vues au
+chapitre 3.
+
+7.5. Aspects numériques
+
+Soit A un groupoïde muni d’une loi de décomposition
+d: A -+ L(A X A).
+
+Nous allons décrire une loi de décomposition numérique induite sur l’en-
+semble n0(A) des composantes connexes de A:
+
+' d= 7to(A) -* N(7ro(A) X 7Io(A))-
+
+4507/42/14
+
+80 ANDRÉ JOYAL
+
+Désignons par |s| la composante connexe contenant s e A. L’élément
+
+Z (|dl(s)l, ldi(s)l)
+
+ieD(s)
+
+de N(7t0(A) X n0(A)) ne dépend que de la classe d’isomorphisme |s| de s. On
+a donc une application
+
+dï tto(A) -> N(ﬂo(A) >< ïro(A))
+
+telle que
+
+dasn= Z (ld1‘(s)lildi(s)l)-
+
+ieD(S)
+On déﬁnit aussi
+e:n0(A)—+N
+par
+e(ls[) = Card a(s).
+PROPOSITION 30. Les application (d,e) déﬁnissent une loi de décom-
+
+position numérique sur l’ensemble n0(A).
+
+Si (i, j, k)E 7r0(A), l’entier naturel [ J. ’ k] a la signiﬁcation suivante: si
+1' = [s], c’est le nombre de décompositions rED(s) telles que [df(s)| = j et
+[dÎ(s)[ = k. Dans le cas où d provient d’une structure monoïdale A X A ->® A
+(7.4.1) on a un résultat plus précis. Supposons que pour tout s E A le groupe
+aut(s) des automorphismes de s soit ﬁni. Posons pour iE n0(A)
+
+aut(i) = Card(aut(s))
+
+ou i = |s|. Notons n0(A) X n0(A)—>' n0(A) la structure de monoïde induite
+par la structure monoïdale de A. On a la formule
+
+[ l J: aut(i)
+j aut( j) aut(k)
+
+= 0 sinon.
+
+si j-k=i
+
+EXEMPLE 56. La plupart des exemples donnés en 7.4 sont des lois de
+décompositions héréditairement ﬁnies (déf. 24). On peut donc appliquer le
+théorème 7 pour calculer les inverses. En particulier, si on utilise la bigèbre
+de Faà di Bruno (Ex. 49), cela montre que les séries de Hurwitz f, à coef-
+ﬁcients entiers, telles que f (0)=0, f ’(0)= 1, sont closes pour l’inversion
+
+fon
+
+UNE THÉORIE COMBINATOIRE 8l
+
+ctionnelle. On voit aussi que sif est à coefﬁcients rationnels et si a E Q,
+
+on peut déﬁnir Pitération fractionnaire f “. Des résultats semblables sont
+valides pour les séries à plusieurs variables. Etc.
+
+1l.
+
+l3.
+
+8. RÉFÉRENCES
+
+. E. A. BENDER ET J. R. GOLDMAN, Enumerative uses of generating functions, Indiana
+Univ. Math. J. 20 (1971), 753-765.
+
+. N. BOURBAKI, “Eléments de mathématiques. Théorie des ensembles," Chap. 4,
+“Structures,” Hermarm, Paris, 1968.
+
+. W. BuRNsIDE, “Theory of Groups of Finite Order,” 2nd ed. p. 191, Theorem V11, Dover,
+New York, 1955.
+
+. H. CARTAN, “Séminaire Henri Cartan” (7e année 1954-1955).
+
+. P. CARTIER ET D. FOATA, “Problèmes combinatoires de commutation et réarrangements,”
+Lecture Notes in Mathematics No. 85, Springer-Verlag, 1969.
+
+. L. CoIvrrET, “Advanced Combinatorics," Reidel, Dordrecht-1-lolland/Boston, 1974.
+
+. M. CONTENT, F. LEMAY, ET P. LEROUX, Catégories de Mëbius et fonctorialités: Un cadre
+général pour l’inversion de Môbius, J. Combin. Theory Ser. A 28 (1980), 169-190.
+
+. P. DOUBILET, G.—C. ROTA, E1“ R. P. STANLEY, The idea of generating function, dans
+“Finite Operator Calculus” (G.—C. Rota, Ed.), pp. 83-134, Academic Press, New York,
+1975.
+
+. C. EHREsMANN, “Catégories et structures,” Dunod, Paris, 1965.
+
+. D. FOATA, “La série génératrice exponentielle dans les problèmes tfénumérations,” Les
+
+Presses de l’Université de Montréal, 1974.
+
+D. FOATA, A combinatorial proof of the Mehler Formula, J. Combin. Theory Ser. A 24
+
+(1978), 367-376.
+
+. D. FOATA, ET M.»P. SCHÜTZENBERGER, “Théorie Géométrique des Polynômes Eu1ériens,”
+
+Lecture Notes in Mathematics No. 138, Springer-Verlag, New York/Berlin, 1970.
+
+A. M. GARs1A ET S. A. JONI, “Lecture Notes in combinatorics, U.C.S.D.,” Depanment
+
+of Mathematics, La Jolla, 1976.
+
+14. 1. M. GEssEL, “Generating Functions and Enumeration of Séquences,” Ph. D. Thesis,
+
+1977.
+
+15. F. HARARY ET E.  PALMER, “Graphical Enumeration,” Académie Press, New York/
+
+N.—_
+O00!)
+
+London, 1973.
+
+. S. A. JONI ET G.—C. ROTA, Coalgebras and bialgebras in combinatorics, Stud. Appl.
+Math. 61 (1979), 93-139.
+
+. G. M. KELLY, On clubs and doctrinies, dans “Category Seminar” (G. M. Kelly, Ed.),
+Lecture Notes in Mathematics No. 420, Springer-Verlag, New York/Berlin, 1974.
+
+. D. G. KENDALL, Branching processes since 1873, J. London Math. Soc. 41, 385-406.
+
+. D. E. KNUTH, Subspaces, subsets, and partitions, J. Combin. Theory 10 (1971), 178-180.
+
+. G. LABELLE, Une nouvelle démonstration combinatoire des formules d’inversions de
+Lagrange, Advances in Math., in press.
+
+21. J. LABELLE, Applications diverses de la théorie combinatoire des espèces de structures.
+Ann. Sci. Math. Québec, à paraître.
+
+22. P. LERoux, Les catégories de Mëbius, Cahiers Topologie Géom. Dwerentielle 16(3)
+(1975), 280-283.
+
+23. S. MACLANE, “Catégories for the Working Mathematician,” Springer-Verlag, New York,
+1971.
+
+24. J. W. MOON, Counting labelled trees, Canadian Mathematica] monographs, 1970.
+
+82
+
+25
+
+26.
+
+28.
+
+30.
+
+3l.
+32.
+
+le
+
+ANDRÉ JOYAL
+
+. R. MULLIN ET G.—C. ROTA, On the foundations of combinatoriél theory 111. Theory of
+binamial énumération, dans “Graph Theory and Its Applications,” (B.Harris, Ed.),
+Academic Press, New York, 1970.
+
+G. POLYA, Kombinatorische Anzahlbestimmungen fur Gruppen, Graphen und chemisché
+Verbindungen. Acta Math. 68 (1937), 145-254.
+
+. G. RANEY, Functional composition patterns and power séries réversion, Trans. Amer.
+Math. Soc. 94 (1960), 441-451.
+
+GsC. ROTA, Hopf algebra in combinatorics, dans “Problèmes combinatoires et théorie
+des graphes,” Colloques internationaux CNRS, No. 260, pp. 363-365, CNRS, Paris.
+
+. G.—C. ROTA, On the foundations of combinatorial theory. 1. Theory of Môbius functions,
+Z. Wahrsch. Band 2, Heft4 (1964), 340-368.
+
+R. P. STANLEY, Generating functions, dans “M.A.A. Studies in Combinatorics” (G.—C.
+Rota, Ed.), Mathematical Association of America, 1978.
+
+S. SwEEDLER, “Hopf Algebras," Benjamin, New York, 1969.
+
+S. MACLANE (Ed.), “Cohérence in Catégories,” Lecture Notes in Mathématics No. 281,
+Springer-Verlag, New York/Berlin, 1972.
+
+(Remarque: cette liste contient quelques références en plus de celles directement citées dans
+texte.)
+
