@@ -1,3 +1,8 @@
 *.aux
 *.log
 *.pdf
+*.hi
+*.o
+.shake.database
+Shake
+*_flymake.*
