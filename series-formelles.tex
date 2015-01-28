@@ -1,10 +1,19 @@
+%% -*- mode: LaTeX; compile-command: "mk" -*-
 \documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
 
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[all]{xy}
 \usepackage{prettyref}
+\usepackage{mdframed}
+\usepackage{todonotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Theorem-like environments
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{prop}[thm]{Proposition}
@@ -21,7 +30,13 @@
 \newtheorem*{rem}{Remark}
 \newtheorem*{nota}{Notation}
 
-\usepackage{todonotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Commentary environment
+
+\newmdenv[leftmargin=1em, rightmargin=1em]{commentary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Math formatting
 
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\E}{\mathbb{E}}
@@ -67,7 +82,7 @@
 
 \todo{Finish translating introduction}
 
-\section{Species of structures}
+\section{Species of Structures}
 \label{sec:species-of-structures}
 
 There already exists a precise concept of species of structures (\todo{Bourbaki
@@ -84,12 +99,15 @@ to finitary species, unless otherwise noted.
 \subsection{Species and cardinality}
 \label{sec:species-and-cardinality}
 
-\todo{Commentary explaining $\B$.  Can probably steal some stuff from
-  my dissertation.}
 \begin{defn}
   A (finitary) species is an endofunctor $M: \B \to \B$
   on the groupoid $\B$ of finite sets and bijections.
 \end{defn}
+
+\begin{commentary}
+  Commentary explaining $\B$.  Can probably steal some stuff from my
+  dissertation.
+\end{commentary}
 
 If $E$ is a finite set, $M [E]$ is the set of all \term{structures}
 of the species $M$ on $E$. We say that $E$ is the \term{underlying} set of
@@ -113,6 +131,16 @@ $\pi_0 (M)$ to denote the set of types (of structures) of the species $M$. If
 $s \in M$, we denote the \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
 
 \newcommand{\Simp}{\mathcal{S}}
+
+\begin{commentary}
+  This is some long commentary.  Blah blah blah.  This is some long
+  commentary.  Blah blah blah.  I wonder how it will look when the
+  page wraps.  This is some long commentary.  Blah blah blah.  This is
+  some long commentary.  Blah blah blah.  I wonder how it will look
+  when the page wraps.  This is some long commentary.  Blah blah blah.
+  This is some long commentary.  Blah blah blah.  I wonder how it will
+  look when the page wraps.
+\end{commentary}
 
 \begin{ex}
   Recall that a \emph{simplicial scheme} structure on $E$ is a set
@@ -300,5 +328,68 @@ of graphs. On the other hand, the species $GO$ of \emph{oriented
   Let $M$ be a species. A species \emph{relative} to $M$ is a functor
   $T_M : \el (M) \to \E$.
 \end{defn}
+
+\todo{Ugh, this paragraph will need a lot of commentary and/or some
+  nice pictures.}
+Given $T_M$, one can construct a species $T$
+equipped with a morphism $T \to^p M$: set $T [E] = \{(s, \alpha) \mid
+s \in M [E], \alpha \in T_M[s]\}$. To transport $(s, \alpha) \in T[E]$
+along a bijection $u : E \to F$ we begin by transporting $s$ to obtain
+$t = M [u] (s)$, which gives first an isomorphism $s \to^u t \in
+\el(M)$ and then $\beta = T_M [u] (\alpha)$; we set $T [u] (s, \alpha)
+= (t, \beta)$. The morphism $p : T \to M$ is the projection $p (s,
+\alpha) = s$. Conversely, given a morphism $T \to^p M$, we can
+construct $T_M$: if $s \in M [E]$, we have $p_E: T [E] \to M [E]$ and
+set $T_M [s] = p_E^{-1}\{s\} \subseteq T [E]$. Naturality of $p$
+allows us to verify that if $u : E \to F$ is an isomorphism between $s
+\in M [E]$ and $T \in M [F]$ then $T [u]$ turns $p_E^{-1} \{s\}$ into
+$p_E^{-1} \{t\}$, which gives $T_M [u] : T_M [s] \to T_M [t]$. We
+have, in fact, a precise proposition: a \term{species over $M$} is a
+species $T$ equipped with a morphism $T \to^p M$. A morphism $(T, p)
+\to (T', p')$ between species above $M$ is an arrow $T \to^u T'$ such
+that $p'\ u = p$.
+
+\begin{prop}
+The constructions described above define a
+equivalence between the category of species relative to $M$ and the category
+$E \|X\|/_M$ of species over $M$.See REFERENCE 2.0 for the notation
+$E\|X\|$.)
+\end{prop}
+
+Suppose $T_M: \el (M) \to E$ is given. We often say that $(s, \alpha)
+\in T [E]$ is an $M$-structure $s$ \term{equipped} with an element
+$\alpha \in T_M[s]$. For example, a directed graph is a graph
+\term{equipped} with an orientation. A structure of the species
+$\tilde M$ (DEFINITION 2) is an $M$-structure \term{equipped} with an
+automorphism.  \emph{etc.}
+
+We sometimes use the term ``enriched'' rather than ``equipped''. Thus,
+if $R$ is any species, we will say that endofunction $\phi : E \to E$
+is \term{$R$-enriched} if each of its \term{fibers} $\phi^{-1}\{x\}$,
+$x \in E$ is equipped with an $R$-structure.  Similarly, let $a$ be an
+arborescence \todo{???} on $E$. The \term{fiber} $a^{-1}\{x\}$ of a
+vertex $x \in E$ is the set of vertices of $a$ connected to $x$ by an
+edge adjacent to $x$ (for the orientation of a tree as described in
+Example XXX \todo{fill in}). We say that $a$ is \term{$R$-enriched} if each of its
+fibers is equipped with an $R$-structure. (Keeping in mind the empty
+fibers.)
+
+In graphical representations of endofunctions or $R$-enriched trees it
+is often convenient to assume that $R$-structures on the fibers are
+placed on the set of \emph{edges} of the fibers.  For example, an
+$R$-enriched tree can be represented as in Figure XXX \todo{make a
+  figure} where an arc cutting through the edges of a fiber denotes an
+$R$-structure. Don't forget the leaves.
+
+\section{The Combinational Operations}
+\label{sec:combinatorial-operations}
+
+The category of species is rich in various operations. In this
+section, we describe several operations of which three are binary.
+The first two are the sum (disjoint) and the product. With these two
+operations, the category of species becomes a kind of semi-ring.  More
+precisely, let $R$ be a commutative ring, and denote by $R[[ x
+]]$ the ring of Hurwitz series with coefficients in $R$: these
+are the formal series
 
 \end{document}
