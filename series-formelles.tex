@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{stmaryrd}
 \usepackage[all]{xy}
 \usepackage{prettyref}
 \usepackage{mdframed}
@@ -40,6 +41,8 @@
 
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\E}{\mathbb{E}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
 \DeclareMathOperator{\el}{el}
 
 \newcommand{\bij}{\stackrel{\sim}{\rightarrow}}
@@ -51,6 +54,9 @@
 \newcommand{\unl}[1]{\tilde{#1}}
 
 \newcommand{\term}[1]{\emph{#1}}
+
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Prettyref
@@ -131,16 +137,6 @@ $\pi_0 (M)$ to denote the set of types (of structures) of the species $M$. If
 $s \in M$, we denote the \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
 
 \newcommand{\Simp}{\mathcal{S}}
-
-\begin{commentary}
-  This is some long commentary.  Blah blah blah.  This is some long
-  commentary.  Blah blah blah.  I wonder how it will look when the
-  page wraps.  This is some long commentary.  Blah blah blah.  This is
-  some long commentary.  Blah blah blah.  I wonder how it will look
-  when the page wraps.  This is some long commentary.  Blah blah blah.
-  This is some long commentary.  Blah blah blah.  I wonder how it will
-  look when the page wraps.
-\end{commentary}
 
 \begin{ex}
   Recall that a \emph{simplicial scheme} structure on $E$ is a set
@@ -384,12 +380,82 @@ $R$-structure. Don't forget the leaves.
 \section{The Combinational Operations}
 \label{sec:combinatorial-operations}
 
+\newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
+
 The category of species is rich in various operations. In this
 section, we describe several operations of which three are binary.
 The first two are the sum (disjoint) and the product. With these two
 operations, the category of species becomes a kind of semi-ring.  More
-precisely, let $R$ be a commutative ring, and denote by $R[[ x
-]]$ the ring of Hurwitz series with coefficients in $R$: these
-are the formal series
+precisely, let $R$ be a commutative ring, and denote by $\Poly R x$
+the ring of Hurwitz series with coefficients in $R$: these are the
+formal series
+\[ \sum_{n \geq 0} a_n \frac{x^n}{n!}, \quad \text{where $n \geq 0,
+  a_n \in R$.} \] The continued analogy here is that the category of
+species would be the semiring $\Poly{\E}{X}$ of Hurwitz series, but
+\emph{with coefficients from the category $\E$ of finite sets}. The
+concept of cardinality induces a \emph{homomorphism}
+\[ \Card : \Poly{\E}{X} \to \Poly{\Z}{x}. \]
+
+In addition, the evaluation $M \mapsto M [0]$ is a functor preserving sum and
+product
+
+\[ \Poly \E X \to \E \]
+
+whose kernel $J$ is an ideal on which we will describe the operations
+of \term{divided powers} (Cartan [4] XXX look this up)
+
+\[ \gamma_n : J \to \Poly \E X \quad \text{($n \geq 0$)} \]
+
+
+
+so that we have
+
+
+\[ \Card \gamma_n(M) = \frac{M(x)^n}{n!} \quad \text{($n \geq 0$)}. \]
+
+
+
+Using these operations of divided powers we then describe
+the operation of \term{substitution} of one species into another. We end this
+chapter with an introduction to the \term{differential calculus} of species
+and a \emph{combinatorial} proof of the Lagrange inversion formula.
+
+\subsection{Sum and product}
+
+The disjoint sum of two species $M$ and $N$ is the \emph{coproduct}
+in the category of species:
+\[ (M + N) [E] = M [E] + N [E]. \]
+
+More generally, an arbitrary family of species $(M_i)_{i \in I}$ is
+summable if for any finite set $E$, the set of indices $i \in I$ for
+which $M_i[E] \neq \varnothing$ is finite.  We set
+\[ \left( \sum_{i \in I} M_i \right) [ E ] = \sum_{i \in I} M_i[E]. \]
+It is clear that $\Card$ preserves sum. We now turn to the definition
+of the \term{product} $M \cdot N$ of two species $M$ and $N$. Define
+first a \term{partition} of a set $E$ into two \term{parts} is a pair
+$(E_1, E_2)$ such that $E_1 \union E_2 = E$ and $E_1 \intersect E_2 =
+\varnothing$. One defines in the same way the concept of a partition
+of $E$ into $n$ pieces ($n \in \N$): we write $E = E_ + \dots + E_n$
+to indicate that $(E_1, \dots, E_n)$ is a partition of $D$ into $n$
+pieces.
+
+\begin{defn}
+  A structure of the species $M \cdot N$ on $E \in \B$ is a quadruplet
+  $(E_1, E_2, s, t)$, where $E = E_1 + E_2$ and $(s, t) \in M[E_1]
+  \times N [E_2]$.
+\end{defn}
+
+\begin{prop}
+We have
+\[ \Card (M \cdot N) = \Card (M) \cdot \Card (N). \]
+\end{prop}
+\begin{proof}
+By definition,
+\[ (M \cdot N)[E] = \sum_{E_1 + E_2 = E} M[E_1] \times N[E_2]. \]
+If $\Card E = n$ and $0 \leq k \leq n$ there are $\binom n k$
+partitions $E = E_1 + E_2$ with $\Card E_1 = k$.  As a result,
+\[ \Card(M \cdot N) [n] = \sum_{k=0}^n \binom n k \Card M [k] \Card N
+[n - k]. \]
+\end{proof}
 
 \end{document}
