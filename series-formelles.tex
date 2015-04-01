@@ -12,6 +12,7 @@
 \usepackage{prettyref}
 \usepackage{mdframed}
 \usepackage{todonotes}
+\usepackage{xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Theorem-like environments
@@ -76,6 +77,11 @@
 \newrefformat{ex}{Example~\ref{#1}}
 
 \newcommand{\pref}[1]{\prettyref{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Other formatting
+
+\newcommand{\etc}{\textit{etc.}\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -463,78 +469,142 @@ set; one can give it various representations: the structures of
 complete graphs, chaotic topologies XXX ?, and identical applications XXX? determine
 the uniform species.
 
-EXAMPLE 7. Let $S$ be the species of \term{permutations}, and $S_0$ that of
+\begin{ex}
+Let $S$ be the species of \term{permutations}, and $S_0$ that of
 permutations without \emph{fixed points}, and $U$ the uniform species. We have $S = S_0 \cdot U$
 XXX Fig.; taking cardinalities, we get:
-
-
 \[ \frac{1}{1-x} = S_0 (x) e^x \]
 and therefore
-
 \[ S_0 (x) = \frac{e^{-x}}{1 - x}. \]
+\end{ex}
 
-EXAMPLE 8. Let $D$ be the species of endofunctions, $D_0$ the species
+\begin{ex}
+Let $D$ be the species of endofunctions, $D_0$ the species
 endofunctions equipped with a fixed point, and $A$ and the species of arborsecences XXX?. Then
-
 \[ D_0 = A \cdot D. \]
-
 Indeed, one can partition the domain $E$ of an endofunction $\phi$ equipped with a
 fixed point $x_0$ into two parts $E = E_1 + E_2$. The first, $E_1$, consists of
 all the points ultimately transformed into $x_0$ by $\phi$. On $E_1$, $\phi$ induces
 a contraction (XXX Chap. 1 Ex. 2), which is equivalent to an arborescence XXX. On
-the second part $E_2$, $\phi$ induces an arbitrary endofunction (XXX Fig. 2).
+the second part $E_2$, $\phi$ induces an arbitrary endofunction (XXX
+Fig. 2).
+\end{ex}
 
-The \emph{product} $M = \prod_{i=1}^n M_i$ of a finite sequence of species can be explicitly defined
-as follows: a structure of the species $M$ on $E$ is a \emph{partition} $E = E_1 + \dots + E_n$ where
-each part $E_i$ (possibly empty) is \emph{equipped} with a structure of the species $M_i$.
-
-
-
-
-
-
+The \emph{product} $M = \prod_{i=1}^n M_i$ of a finite sequence of
+species can be explicitly defined as follows: a structure of the
+species $M$ on $E$ is a \emph{partition} $E = E_1 + \dots + E_n$ where
+each part $E_i$ (possibly empty) is \emph{equipped} with a structure
+of the species $M_i$.
 
 FIGURE 2 XXX
 
-One can also describe the \term{power} $N^S$ of a species $N$ by a finite set
-$S$: a structure of the species $N^S$ on $E$ is a function $\chi : E \to S$ where each
-fiber is \emph{equipped} with a structure of the species $N$; in other words, it is an \emph{$N$-enriched} function.
+One can also describe the \term{power} $N^S$ of a species $N$ by a
+finite set $S$: a structure of the species $N^S$ on $E$ is a function
+$\chi : E \to S$ where each fiber is \emph{equipped} with a structure
+of the species $N$; in other words, it is an \emph{$N$-enriched}
+function.
 
 
-Example 9. (Joyal). A \emph{vertebrate} is a tree \term{bipointed} by a pair
-$(p_0, p_1)$ of vertices. We say that $p_0$ is the \term{tail vertex} and $p_1$ the
-\term{head vertex}. The shortest path from the tail vertex to the head vertex
-is the \term{spine}. The vertices along the spine are
-\term{vertebrae}. For each vertex $p$, let $v(p)$ be the vertebra
-closest to $p$. The function $v$ is idempotent, and there a tree???-structure on each fiber of $v$.
-The roots of these trees are
-the vertebrae. Thus, a vertebrate on $E$ determines a variable length partition
-$E = E_1 + \dots + E_n$, in which each part $E_i$ is equipped with a tree structure,
-and vice versa. So we have the identity:
-
-\[ V = A + A^2 + A^3 + \dots, \]
-
-where $V$ is the species of vertebrates and $A$ that of trees??? (Fig 3 XXX).
+\begin{ex}[Joyal]
+  A \emph{vertebrate} is a tree \term{bipointed} by a pair $(p_0,
+  p_1)$ of vertices. We say that $p_0$ is the \term{tail vertex} and
+  $p_1$ the \term{head vertex}. The shortest path from the tail vertex
+  to the head vertex is the \term{spine}. The vertices along the spine
+  are \term{vertebrae}. For each vertex $p$, let $v(p)$ be the
+  vertebra closest to $p$. The function $v$ is idempotent, and there a
+  tree???-structure on each fiber of $v$.  The roots of these trees
+  are the vertebrae. Thus, a vertebrate on $E$ determines a variable
+  length partition $E = E_1 + \dots + E_n$, in which each part $E_i$
+  is equipped with a tree structure, and vice versa. So we have the
+  identity:
+  \[ V = A + A^2 + A^3 + \dots, \] where $V$ is the species of
+  vertebrates and $A$ that of trees??? (Fig 3 XXX).
+\end{ex}
 
 EXAMPLE 10. Let $L$ be the species of linear orders and $S$ a finite set.
 A structure of the species $L^S$ on $E$ is a function $E \to S$ where each
 fiber is equipped with a linear order. The number $l(n, s)$ of such objects (if
 $n = \Card E$ and $s = \Card S$) is the coefficient of $x^n/n!$ in the series
 $(1-x)^{-s}$. This shows that
-
 \[ l(n, s) = s (s + 1) \dots (s + n-1). \]
-
-
-
-
-
-
 
 FIGURE 3
 
 Hereafter, we will often consider that a finite set $A$
 determines a species by setting
-
 \[ A [E] = \begin{cases} A \quad \text{if $E = \varnothing$} \\ \varnothing \quad \text{otherwise}. \end{cases} \]
+With this convention, the category $\E$ acts as a ring of coefficients
+for $\Poly \E X$, because the disjoint sum and Cartesian product of sets
+can be conflated with the sum and product of species as described
+earlier.
+
+\subsection{Divided powers and substitution}
+
+DEFINITION 6. Let $N$ be a species such that $N [0] = \varnothing$ and let $E$ be a
+finite set. An \term{assembly} of structures of the species $N$ on $E$ is a partition
+of $E$ where each class is equipped with a structure of the species $N$.
+A \term{member} of the assembly is a class equipped with the corresponding $N$-structure. The
+\term{divided power} $\gamma_n(N)$ is the species of assemblies of $N$-structures with
+exactly $n$ members. The \term{exponential} $\exp (N)$ is the species of all
+assemblies of $N$-structures.
+
+PROPOSITION 4. We have
+
+\begin{align*}
+\Card \gamma_n(N) &= \frac{N(x)^n}{n!}, \\
+\Card \exp (N) &= \exp (N (x)).
+\end{align*}
+
+Proof. It obviously suffices to prove the first identity.  Note first
+that a structure of the species $N^n$ on $E$ determines a partition $E
+= E_1 + \dots + E_n$ into \emph{non-empty} (and disjoint) parts:
+indeed, $E_i$ is equipped with an $N$-structure and by hypothesis $N
+[0] = \varnothing$. If we forget about the linear order on the parts,
+we have a partition $\{E_1, \dots, E_n\}$ where each class is equipped
+with an $N$-structure. We have shown that an $N^n$-structure is none
+other than an $N$-assembly whose members have been placed in a
+\emph{linear order}:
+\[ \Card N^n = n! \Card \gamma_n(N). \]
+For many species, one may indicate a concept of \term{connectedness}
+and demonstrate that any structure consists of a partition
+where each class is equipped with a connected structure. Under these conditions, a
+species $M$ is isomorphic to the species of assemblies of connected structures:
+$M = \exp (M_C)$.
+
+EXAMPLE 11. \term{Forests} are assemblies of trees. Forests of
+arborescences are assemblies of arborescences. Permutations are
+assemblies of circular permutations. Partitions are assemblies of
+partitions with a single class, \etc
+
+The operation of \term{substitution} of one species into another is
+the richest in possibilities.
+
+DEFINITION 7. Let $R$ and $N$ be species and assume that $N [0] = \varnothing$.
+The species $R (N)$ is that of pairs $(a, \rho)$, where $a$ is an assembly of $N$-
+structures and $\rho$ is an $R$-structure on the set of members of $a$.
+
+We say that $R (N)$ is the result of \term{substituting} $N$ into $R$. We
+say that an element of $R (N)$ is an $R$-assembly (of $N$-structures). Note
+immediately that $\exp (N)$ is the result of substituting $N$ in
+the \emph{uniform} species (Ex. 7).
+
+Theorem 1. Assuming $N [0] = \varnothing$, we have
+\[ \Card R (N) = R (N (x)). \]
+
+Proof. For each integer $n \geq 0$, let $R_n$ be the species of $R$-structures
+where the underlying set has cardinality $n$. It has a decomposition
+as a disjoint sum
+\[ R = \sum_{n \geq 0} R_n, \]
+inducing a decomposition of $R$-assemblies according to the number of
+members:
+\[ R (N) = \sum_{n \geq 0} R_n(N). \]
+An element of $R_n(N)$ is an assembly of $n$ members \emph{equipped} with an $R$-structure.
+We have therefore
+\[ \Card R_n(N) = \Card \gamma_n(N) \times \Card R [n], \]
+resulting in
+\begin{align*} \Card R(N) &= \sum_n \geq 0 \Card R[n]
+  \frac{N(x)^n}{n!} \\
+  &= R(N(x)).
+\end{align*}
 
 \end{document}
