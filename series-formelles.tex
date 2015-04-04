@@ -14,6 +14,8 @@
 \usepackage{todonotes}
 \usepackage{xspace}
 
+\usepackage[authoryear]{natbib}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Theorem-like environments
 
@@ -62,6 +64,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Prettyref
 
+\newcommand{\Sect}{\S}
+
 \newrefformat{fig}{Figure~\ref{#1}}
 \newrefformat{chap}{Chapter~\ref{#1}}
 \newrefformat{sec}{\Sect\ref{#1}}
@@ -108,6 +112,16 @@ structures is the main aspect. Moreover, as we only deal
 with the problems of counting and finite enumeration, we will confine ourselves
 to finitary species, unless otherwise noted.
 
+\begin{commentary}
+  See \citet[pp. 4 XXX]{BLL} for some examples of ``axiomatic theories
+  of species''.  XXX more examples.  The main point here is about
+  \emph{transport} of species, that is, the ability to ``swap out''
+  the labels in a structure for some other labels.  In most previous
+  treatments this was taken as something secondary, a desideratum to
+  be verified after each definition; Joyal's insight is to make
+  transport itself the central defining feature of species.
+\end{commentary}
+
 \subsection{Species and cardinality}
 \label{sec:species-and-cardinality}
 
@@ -116,24 +130,54 @@ to finitary species, unless otherwise noted.
   on the groupoid $\B$ of finite sets and bijections.
 \end{defn}
 
+If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
+the species $M$ on $E$. We say that $E$ is the \term{underlying} set
+of $s \in M[E]$, or also that it is \term{supported} by $E$. We say
+also, in an abuse of language, that $s$ is an \term{element} of $M$
+($s \in M$) and that it is an \term{$M$-structure}.
+
 \begin{commentary}
-  Commentary explaining $\B$.  Can probably steal some stuff from my
-  dissertation.
+  Commentary explaining $\B$.  Remind what a groupoid is.  Can
+  probably steal some stuff from my dissertation.  Show what $\B$
+  looks like.  Note that any groupoid in fact looks like a disjoint
+  union of cliques.
+
+  The fact that a species is a \emph{functor} corresponds to the idea
+  of ``baking in'' the notion of \emph{transport}: functors send not
+  only objects to objects (in this case, sets of labels to sets of
+  structures) but also morphisms to morphisms (in this case,
+  bijections between label sets to bijections between labelled
+  structures).
+
+  Many modern treatments define species as functors $\B \to \E$, where
+  $\E$ is the category of (finite) sets and total functions (XXX cite
+  some thing(s)).  Note, however, that functors necessarily preserve
+  isomorphisms, so every bijection in $\B$ must actually map to a
+  bijection in $\E$.  Thus, for most purposes the distinction is not
+  an important one.  In fact, functors $\B \to \E$ are introduced
+  later, in \pref{sec:category-of-species}.
 \end{commentary}
 
-If $E$ is a finite set, $M [E]$ is the set of all \term{structures}
-of the species $M$ on $E$. We say that $E$ is the \term{underlying} set of
-$s \in M[E]$, or also that it is \term{supported} by $E$. We say
-also, by an abuse of language, that $s$ is an \term{element} of $M$ ($s \in M$) and that it is an
-\term{$M$-structure}.
-
-If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the structure on $F$
-obtained by \term{transport along $u$}. The bijection $u$ is an \term{isomorphism}
-between $s$ and $t$:
+If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the
+structure on $F$ obtained by \term{transport along $u$}. The bijection
+$u$ is an \term{isomorphism} between $s$ and $t$:
 \[ u : s \to t. \]
+\begin{commentary}
+  Note that $u : s \to t$ is a mild abuse of notation; $u$ is, of
+  course, a bijection between label sets $E$ and $F$.  The point is
+  that, via transport, $u$ induces a bijection between the sets of
+  structures $M[E]$ and $M[F]$.  If $s \in M[E]$ and $t \in M[F]$ are
+  related by this bijection then we say that $s$ and $t$ are
+  isomorphic.
+
+  A concrete example should help to make the idea clear.  XXX example
+  here of isomorphic trees, as well as non-isomorphic trees.
+\end{commentary}
 We denote by $\el (M)$ the category whose objects are the $M$-structures and
 whose morphisms are isomorphisms of $M$-structures; it is the
-groupoid of \term{elements} of $M$. There is a \term{forgetful}
+groupoid of \term{elements} of $M$.
+
+There is a \term{forgetful}
 functor $U: \el (M) \to \B$ whose
 value on $s \in M$ is the \term{underlying} set of the structure $s$. The concept
 of isomorphism of structures defines an equivalence relation whose
@@ -249,12 +293,14 @@ computing the cardinality of the \emph{associated} species $\unl M$.
 \end{proof}
 
 \subsection{The category of species}
+\label{sec:category-of-species}
 
 Species form a category: they are functors, and one can take natural
-transformations as morphisms. As it is desirable to have a larger than
+transformations as morphisms. As it is desirable to have a larger
 class of morphisms than that of isomorphisms, it is best to consider a
-species as a functor $M: \B \to \E$ to the category $\E$ of finite sets
-and \emph{functions} (by composing with the inclusion $\B \inj \E$).
+species as a functor $M: \B \to \E$ to the category $\E$ of finite
+sets and \emph{functions} (by composing with the inclusion $\B \inj
+\E$).
 
 \begin{defn}
   A \emph{morphism} $\alpha : M \to N$ is a natural transformation
@@ -274,7 +320,7 @@ have this property.
 
 If $\sigma_E$ is invertible regardless of $E$, the morphism $\alpha$
 is an \emph{isomorphism} between $M$ and $N$. In this case, we write
-$M \stackrel{\alpha}{=} N$, or more simply (by an abuse of notation) $M
+$M \stackrel{\alpha}{=} N$, or more simply (in an abuse of notation) $M
 = N$. If $M$ and $N$ satisfy the weaker condition $\Card M = \Card N$,
 we say that $M$ and $N$ are \emph{equipotent} species, and we write $M
 \equiv N$.
@@ -404,22 +450,12 @@ concept of cardinality induces a \emph{homomorphism}
 
 In addition, the evaluation $M \mapsto M [0]$ is a functor preserving sum and
 product
-
 \[ \Poly \E X \to \E \]
-
 whose kernel $J$ is an ideal on which we will describe the operations
 of \term{divided powers} (Cartan [4] XXX look this up)
-
 \[ \gamma_n : J \to \Poly \E X \quad \text{($n \geq 0$)} \]
-
-
-
 so that we have
-
-
 \[ \Card \gamma_n(M) = \frac{M(x)^n}{n!} \quad \text{($n \geq 0$)}. \]
-
-
 
 Using these operations of divided powers we then describe
 the operation of \term{substitution} of one species into another. We end this
@@ -606,5 +642,8 @@ resulting in
   \frac{N(x)^n}{n!} \\
   &= R(N(x)).
 \end{align*}
+
+\bibliographystyle{plainnat}
+\bibliography{series-formelles}
 
 \end{document}

@@ -6,3 +6,8 @@
 .shake.database
 Shake
 *_flymake.*
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
