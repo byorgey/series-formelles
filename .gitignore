@@ -11,3 +11,4 @@ Shake
 *.dvi
 *.fdb_latexmk
 *.fls
+diagrams/
