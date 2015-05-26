@@ -1,5 +1,7 @@
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
+module Diagrams where
+
 import           Data.Tree
 import           Diagrams.Backend.Rasterific.CmdLine
 import           Diagrams.Prelude
@@ -93,4 +95,4 @@ figure0 =
   , lf
   ]
 
-main = mainWith (drawEnrichedTree (layoutEnrichedTree t2) # frame 0.5)
+-- main = mainWith (drawEnrichedTree (layoutEnrichedTree t2) # frame 0.5)

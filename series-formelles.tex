@@ -14,7 +14,7 @@
 \usepackage{todonotes}
 \usepackage{xspace}
 
-\usepackage[backend=cairo,extension=pdf]{diagrams}
+\usepackage[backend=cairo,extension=pdf,outputdir=diagrams]{diagrams-latex}
 
 \usepackage[authoryear]{natbib}
 
@@ -433,7 +433,8 @@ $R$-structure. Don't forget the leaves.
 \begin{figure}
   \centering
   \begin{diagram}
-    
+import Diagrams
+dia = drawEnrichedTree (layoutEnrichedTree figure0) # frame 0.5
   \end{diagram}
 \end{figure}
 
