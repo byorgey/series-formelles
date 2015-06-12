@@ -14,7 +14,7 @@
 \usepackage{todonotes}
 \usepackage{xspace}
 
-\usepackage[backend=cairo,extension=pdf,outputdir=diagrams]{diagrams-latex}
+\usepackage[backend=pgf,extension=pgf,input,outputdir=diagrams]{diagrams-latex}
 
 \usepackage[authoryear]{natbib}
 
@@ -432,7 +432,7 @@ $R$-enriched tree can be represented as in Figure XXX \todo{make a
 $R$-structure. Don't forget the leaves.
 \begin{figure}
   \centering
-  \begin{diagram}
+  \begin{diagram}[width=300]
 import Diagrams
 dia = drawEnrichedTree (layoutEnrichedTree figure0) # frame 0.5
   \end{diagram}
@@ -651,6 +651,81 @@ resulting in
   \frac{N(x)^n}{n!} \\
   &= R(N(x)).
 \end{align*}
+
+
+Remarks. To think combinatorially it is necessary
+to give visual representations. To grasp the nature of a species is to be
+capable of representing the general shape of its structures. The \emph{shape} of a
+structure is invariant under isomorphism. What is needed to get
+represent first is the general type of structures of a given species. XXX ???
+This type is independent of a labelling or an enumeration of the vertices
+of the underlying set. For example, suppose that we want to
+represent the general type of structures of the species $R(N)$ knowing that we
+already have a representation for $R$ and $N$. What we can do is to literally
+substitute arbitrarily selected $N$-structures in place of each vertex of an $R$-structure,
+For this, one can imagine that
+the vertices of the $R$-structure blow up into cells containing the $N$-structures.
+The underlying set of a cellular configuration is the sum of
+the underlying sets of the structures contained in the cells. Thus, if we
+substitute the species of circular permutations into the species of trees, we
+obtain a species whose general type can be represented as in
+Figure 4.
+
+This representation is not the only one, and it is convenient to adapt to
+the particularities of a species. For example, suppose that the species $N$
+is \emph{pointed}, that is, equipped with a morphism $N \to^p B$ where $B$ is the species
+of "vertices" ($B [E] = E$ for $E \in B$). Each structure $s \in N[E]$ then has
+a \emph{base point} $p (s) \in E$. One can used the base points to
+give another representation of $R (N)$-structures: for each vertex
+of an $R$-structure one chooses an $N$-structure and makes the vertex \emph{coincide}
+with the base point of the selected $N$-structure. For example, the base point
+a rooted tree is the root; if we substitute the species $A$ of rooted trees
+into that of (nonempty) linear orders, we obtain the species of vertebrates
+(Ex. 9). When $N$ is pointed we can define substitution as follows: an
+$R (N)$-structure on $E$ is a triplet $(v, \alpha, \beta)$, where
+
+(1) $v$ is an idempotent function $E \to E$,
+(2) $\alpha$ is a function that selects for each $x \in \Im (v)$ a structure
+
+
+
+FIGURE 4
+
+$\alpha (x) \in N [v^{-1}\{x\}]$ such that the base point of $\alpha (x)$ \emph{coincides} with $x \in v^{-1}\{x\}$,
+
+(3) $\beta$ is an $R$-structure on $\Im (v)$.
+
+Example 12. Let $D$ be the species of endofunctions, $S$ that of
+permutations, and $A$ that of arborescences. We have the decomposition
+
+\[ D = S(A). \]
+
+Indeed, let $\phi \in D [E]$. A point $x \in E$ is \term{periodic} if there exists an integer
+$n \geq 1$ such that $\phi^n(x) = x$. The function $\phi$ \term{permutes} the periodic points.
+For each $x \in E$ let $v (x)$ be the first periodic point in the
+sequence $x, \phi(x), \phi^2(x) \dots$. The function $v$ is idempotent and its image is the set
+of periodic points. For each $x \in \Im (v)$ the fiber $v^{-1}\{x\}$ is
+equipped with a arborescence structure whose root is $x$. \emph{Conversely}, if
+one has an assembly of arborescences and a permutation of the set of roots,
+it is clear that one can construct a corresponding endofunction
+$\phi$ (FIG 5)
+
+
+
+
+
+
+
+FIGURE 5
+
+Examples 9 and 12 give a simple proof of Cayley's theorem: the number
+$a_n$ of trees on a set of cardinality $n \geq 1$ is
+$n^{n-2}$. Indeed, the number of vertebrates (bipointed trees) is
+equal to $n^2a_n$.  Example 9 shows that the vertebrates are
+\emph{linear} assembies of arborescences.  Example 10 shows that
+endofunctions are \emph{permuted} assemblies of arborescences.  As the
+number of linear orders coincides with the number of permutations, one
+obtains $n^2 a_n = n^n (n \geq 1)$.
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}

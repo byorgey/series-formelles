@@ -3,7 +3,7 @@
 module Diagrams where
 
 import           Data.Tree
-import           Diagrams.Backend.Rasterific.CmdLine
+import           Diagrams.Backend.PGF.CmdLine
 import           Diagrams.Prelude
 
 -- Pre: subtrees are always arranged in counterclockwise order around root
