@@ -336,7 +336,7 @@ we say that $M$ and $N$ are \emph{equipotent} species, and we write $M
   morphism from the species of graphs to the species of partitions.
 \end{ex}
 
-\begin{ex}
+\begin{ex} \label{ex:rooted-tree}
   A \emph{rooted tree} is a tree equipped with a \emph{root} (which is
   an arbitrary vertex of the underlying set). We usually orient the
   edges of a rooted tree in the direction of the root. If we adjoin a
@@ -404,10 +404,10 @@ species $T$ equipped with a morphism $T \to^p M$. A morphism $(T, p)
 that $p'\ u = p$.
 
 \begin{prop}
-The constructions described above define a
-equivalence between the category of species relative to $M$ and the category
-$E \|X\|/_M$ of species over $M$.See REFERENCE 2.0 for the notation
-$E\|X\|$.)
+  The constructions described above define a equivalence between the
+  category of species relative to $M$ and the category $E \|X\|/_M$ of
+  species over $M$. \emph{(See \pref{sec:combinatorial-operations} for the
+  notation $E\|X\|$.)}
 \end{prop}
 
 Suppose $T_M: \el (M) \to E$ is given. We often say that $(s, \alpha)
@@ -421,12 +421,12 @@ We sometimes use the term ``enriched'' rather than ``equipped''. Thus,
 if $R$ is any species, we will say that endofunction $\phi : E \to E$
 is \term{$R$-enriched} if each of its \term{fibers} $\phi^{-1}\{x\}$,
 $x \in E$ is equipped with an $R$-structure.  Similarly, let $a$ be an
-rooted tree on $E$. The \term{fiber} $a^{-1}\{x\}$ of a
-vertex $x \in E$ is the set of vertices of $a$ connected to $x$ by an
-edge adjacent to $x$ (for the orientation of a tree as described in
-Example XXX \todo{fill in}). We say that $a$ is \term{$R$-enriched} if each of its
-fibers is equipped with an $R$-structure. (Keeping in mind the empty
-fibers.)
+rooted tree on $E$. The \term{fiber} $a^{-1}\{x\}$ of a vertex $x \in
+E$ is the set of vertices of $a$ connected to $x$ by an edge adjacent
+to $x$ (for the orientation of a tree as described in
+\pref{ex:rooted-tree}). We say that $a$ is \term{$R$-enriched} if each
+of its fibers is equipped with an $R$-structure. (Keeping in mind the
+empty fibers.)
 
 In graphical representations of endofunctions or $R$-enriched trees it
 is often convenient to assume that $R$-structures on the fibers are
