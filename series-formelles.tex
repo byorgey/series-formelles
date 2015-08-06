@@ -280,7 +280,7 @@ We say that $M (x)$ is the \emph{cardinality} of $M$. Let us see
 immediately that the calculation of $\unl M (x)$ boils down to
 computing the cardinality of the \emph{associated} species $\unl M$.
 
-\begin{defn}
+\begin{defn} \label{defn:unl}
   A structure of the species $\unl M$ is a pair $(\sigma, s)$ where
   $\sigma$ is an automorphism of $s \in M$.
 \end{defn}
@@ -414,7 +414,7 @@ Suppose $T_M: \el (M) \to E$ is given. We often say that $(s, \alpha)
 \in T [E]$ is an $M$-structure $s$ \term{equipped} with an element
 $\alpha \in T_M[s]$. For example, a directed graph is a graph
 \term{equipped} with an orientation. A structure of the species
-$\tilde M$ (DEFINITION 2) is an $M$-structure \term{equipped} with an
+$\tilde M$ (\pref{defn:unl}) is an $M$-structure \term{equipped} with an
 automorphism.  \emph{etc.}
 
 We sometimes use the term ``enriched'' rather than ``equipped''. Thus,
@@ -520,9 +520,10 @@ complete graphs, chaotic topologies XXX ?, and identical applications XXX? deter
 the uniform species.
 
 \begin{ex}
-Let $S$ be the species of \term{permutations}, and $S_0$ that of
-permutations without \emph{fixed points}, and $U$ the uniform species. We have $S = S_0 \cdot U$
-XXX Fig.; taking cardinalities, we get:
+  Let $S$ be the species of \term{permutations}, and $S_0$ that of
+  permutations without \emph{fixed points}, and $U$ the uniform
+  species. We have $S = S_0 \cdot U$ XXX Fig.; taking cardinalities,
+  we get:
 \[ \frac{1}{1-x} = S_0 (x) e^x \]
 and therefore
 \[ S_0 (x) = \frac{e^{-x}}{1 - x}. \]
@@ -532,13 +533,13 @@ and therefore
   Let $D$ be the species of endofunctions, $D_0$ the species
   endofunctions equipped with a fixed point, and $A$ and the species
   of rooted trees?. Then
-\[ D_0 = A \cdot D. \]
-Indeed, one can partition the domain $E$ of an endofunction $\phi$ equipped with a
-fixed point $x_0$ into two parts $E = E_1 + E_2$. The first, $E_1$, consists of
-all the points ultimately transformed into $x_0$ by $\phi$. On $E_1$, $\phi$ induces
-a contraction (XXX Chap. 1 Ex. 2), which is equivalent to a rooted tree. On
-the second part $E_2$, $\phi$ induces an arbitrary endofunction (XXX
-Fig. 2).
+  \[ D_0 = A \cdot D. \] Indeed, one can partition the domain $E$ of
+  an endofunction $\phi$ equipped with a fixed point $x_0$ into two
+  parts $E = E_1 + E_2$. The first, $E_1$, consists of all the points
+  ultimately transformed into $x_0$ by $\phi$. On $E_1$, $\phi$
+  induces a contraction (XXX Chap. 1 Ex. 2), which is equivalent to a
+  rooted tree. On the second part $E_2$, $\phi$ induces an arbitrary
+  endofunction (XXX Fig. 2).
 \end{ex}
 
 The \emph{product} $M = \prod_{i=1}^n M_i$ of a finite sequence of
@@ -652,7 +653,7 @@ immediately that $\exp (N)$ is the result of substituting $N$ in
 the \emph{uniform} species (Ex. 7).
 \end{defn}
 
-\begin{thm}
+\begin{thm} \label{thm:card-subst}
   Assuming $N [0] = \varnothing$, we have
   \[ \Card R (N) = R (N (x)). \]
 \end{thm}
@@ -750,20 +751,20 @@ endofunctions are \emph{permuted} assemblies of rooted trees.  As the
 number of linear orders coincides with the number of permutations, one
 obtains $n^2 a_n = n^n$ $(n \geq 1)$.
 
-Theorem 1 suggests adopting the notation $M (X)$ to designate a
-species $M$. The variable $X$ is interpreted as the \emph{singleton}
-species: there is only a single structure of the species $X$ (up to
-isomorphism) and it is supported by the singletons. (???) The result
-$M (X)$ of the substitution of $X$ in $M$ ​​is isomorphic to $M$. For
-some species we adopt a frankly (???)  algebraic notation if it does
-not create ambiguity. Thus, $\exp (X)$ or $e^X$ designate the uniform
-species, $X e^X$ the species of pointed sets, $e^X - 1$ the uniform
-nonempty species, $\cosh (X)$ and $\sinh (X)$ the uniform even and odd
-species, $1/(1 - X)$ the species of linear orders, \etc However, we
-retain the notation $S (X)$ to designate the species of permutations
-in order to avoid confusion with $1/(1-X)$. Similarly, we will use the
-notation $C (X)$ rather than $\log 1/(1-X)$ to designate the species
-of circular permutations, \etc
+\pref{thm:card-subst} suggests adopting the notation $M (X)$ to
+designate a species $M$. The variable $X$ is interpreted as the
+\emph{singleton} species: there is only a single structure of the
+species $X$ (up to isomorphism) and it is supported by the
+singletons. (???) The result $M (X)$ of the substitution of $X$ in $M$
+is isomorphic to $M$. For some species we adopt a frankly (???)
+algebraic notation if it does not create ambiguity. Thus, $\exp (X)$
+or $e^X$ designate the uniform species, $X e^X$ the species of pointed
+sets, $e^X - 1$ the uniform nonempty species, $\cosh (X)$ and $\sinh
+(X)$ the uniform even and odd species, $1/(1 - X)$ the species of
+linear orders, \etc However, we retain the notation $S (X)$ to
+designate the species of permutations in order to avoid confusion with
+$1/(1-X)$. Similarly, we will use the notation $C (X)$ rather than
+$\log 1/(1-X)$ to designate the species of circular permutations, \etc
 
 \begin{ex}
   A preorder relation $\leq$ on $E$ determines an equivalence
