@@ -13,10 +13,14 @@
 \usepackage{mdframed}
 \usepackage{todonotes}
 \usepackage{xspace}
+\usepackage{url}
+\usepackage{xcolor}
 
 \usepackage[backend=pgf,extension=pgf,input,outputdir=diagrams]{diagrams-latex}
 
 \usepackage[authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Theorem-like environments
@@ -39,7 +43,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Commentary environment
 
-\newmdenv[leftmargin=1em, rightmargin=1em]{commentary}
+\newmdenv[skipabove=1em, skipbelow=1em, innermargin=1.5em, outermargin=1.5em, backgroundcolor=black!15]{commentary}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Math formatting
@@ -99,6 +103,34 @@
 
 \begin{document}
 
+\begin{center}
+  {\textbf{A COMBINATORIAL THEORY OF FORMAL SERIES}}
+  \bigskip
+
+  {\small ANDR\'E JOYAL} \bigskip
+
+  {\small Translation and commentary by \\
+    BRENT A. YORGEY}
+  \vspace{0.5in}
+
+  {\small \textbf{This is an unofficial translation of an article
+       that appeared in an Elsevier publication. Elsevier has not
+       endorsed this translation.} \medskip
+
+     See \url{http://www.elsevier.com/about/open-access/open-access-policies/oa-license-policy/elsevier-user-license}.
+  } \bigskip
+
+  {\small \bibentry{joyal1981theorie}} \vspace{0.5in}
+
+\end{center}
+
+\section*{Preface}
+
+\todo{Write a preface explaining the motivation, format of the
+  commentary, and so on.}
+
+\newpage
+
 \title{A combinatorial theory of formal series}
 \author{Andr\'e Joyal}
 \address{Department of Mathematics, University of Quebec Montreal \\
@@ -133,9 +165,9 @@ the subject.  The usefulness of formal series in combinatorial
 calculations is well established.  The combinatorial interpretation of
 the substitution operation has been the subject of relatively recent
 work (Bender and Goldman [1], Doubilet et al. [8], Foata and
-Schützenberger [12], Garsia and Joni [13], Gessel [l4]). The first
+Schützenberger [12], Garsia and Joni [13], Gessel [14]). The first
 interpretation (probabilistic) of the substitution of power series
-dates back to Watson (Kendall [l8]) (in theory of cascade processes).
+dates back to Watson (Kendall [18]) (in theory of cascade processes).
 
 The main feature of the theory presented here is its degree of
 generality and simplicity. In this theory, the combinatorial objects
@@ -202,10 +234,10 @@ to finitary species, unless otherwise noted.
   See \citet[pp. 4 XXX]{BLL} for some examples of ``axiomatic theories
   of species''.  XXX more examples.  The main point here is about
   \emph{transport} of species, that is, the ability to ``swap out''
-  the labels in a structure for some other labels.  In most previous
-  treatments this was taken as something secondary, a desideratum to
-  be verified after each definition; Joyal's insight is to make
-  transport itself the central defining feature of species.
+  the labels in a structure for some other labels.  Apparently, in
+  (most?) previous treatments this was taken as something secondary, a
+  desideratum to be verified after each definition; Joyal's insight is
+  to make transport itself the central defining feature of species.
 \end{commentary}
 
 \subsection{Species and cardinality}
