@@ -12,3 +12,5 @@ Shake
 *.fdb_latexmk
 *.fls
 diagrams/
+.cabal-sandbox/
+.diagrams_cache/
