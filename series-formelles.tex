@@ -1,5 +1,5 @@
 %% -*- mode: LaTeX; compile-command: "mk" -*-
-\documentclass{article}
+\documentclass{amsart}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
@@ -99,10 +99,90 @@
 
 \begin{document}
 
+\title{A combinatorial theory of formal series}
+\author{Andr\'e Joyal}
+\address{Department of Mathematics, University of Quebec Montreal \\
+Montreal, Quebec H30 3P8, Canada}
+\translator{Brent A. Yorgey}
+\address{Department of Mathematics and Computer Science \\ Hendrix
+  College \\ 1600 Washington Ave \\ Conway, Arkansas, 72032 \\ United
+  States of America}
+
+\maketitle
+
+\begin{abstract}
+  This paper presents a combinatorial theory of formal power
+  series. The combinatorial interpretation of formal power series is
+  based on the concept of species of structures. A categorical
+  approach is used to formulate it. A new proof of Cayley’s formula
+  for the number of labelled trees is given as well as a new
+  combinatorial proof (due to G. Labelle) of Lagrange's inversion
+  formula. Polya's enumeration theory of isomorphism classes of
+  structures is entirely renewed.  Recursive methods for computing
+  cycle index polynomials are described. A combinatorial version of
+  the implicit function theorem is stated and proved. The paper ends
+  with general considerations on the use of coalgebras in
+  combinatorics.
+\end{abstract}
+
 \section{Introduction}
 \label{sec:introduction}
 
-\todo{Finish translating introduction}
+The aim of this work is simultaneously to explain, clarify, and unify
+the subject.  The usefulness of formal series in combinatorial
+calculations is well established.  The combinatorial interpretation of
+the substitution operation has been the subject of relatively recent
+work (Bender and Goldman [1], Doubilet et al. [8], Foata and
+Schützenberger [12], Garsia and Joni [13], Gessel [l4]). The first
+interpretation (probabilistic) of the substitution of power series
+dates back to Watson (Kendall [l8]) (in theory of cascade processes).
+
+The main feature of the theory presented here is its degree of
+generality and simplicity. In this theory, the combinatorial objects
+corresponding to formal series are the species of structures. The
+emphasis is placed on the transport of structures rather than on their
+properties. This point of view is reminiscent of that of Ehresmann [9]
+and contrasts with that of Bourbaki [2]. The combinatorial operations
+on formal series correspond to operations on species of
+structures. Algebraic identities between formal expressions often
+correspond to combinatorial identities.  Intuition and calculation can
+then play on two fronts in a dialogue that resembles that between
+algebra and geometry. The result is a kind of combinatorial algebra
+analogous to the geometric algebra of Grassman (and Leibniz). The
+simplicity of the theory is largely due to the use it makes of the
+concepts of the theory of categories [23] (previous theories mainly
+use the theory of ordered sets and partitions). Furthermore, it
+highlights the fundamental fact that a very large number of
+constructed bijections are \emph{natural}, that is to say, they do not
+depend on a system of coordinates introduced by means of an arbitrary
+enumeration.
+
+The work contains a few combinatorial innovations, like the concept of the
+\term{vertebrate} and a new proof of Cayley's result on the
+number of trees. There is also a new combinatorial proof
+of Lagrange's inversion theorem. Polya theory is entirely
+redone and results in a method for calculating by
+\emph{recurrence} the coefficients of cycle index polynomials.
+
+The theory presented here is partial. Several fundamental aspects have
+not been addressed. For example, there is a very general categorical
+theory of the substitution operation (Kelly [l7]). Further
+developments probably require such a level of generality. We limited
+ourselves to those aspects most suitable (in the opinion of the
+author) to capture the attention of a reader unfamiliar with the
+concepts of the theory of categories.
+
+I am especially grateful to G. Labelle for expressing interest in the
+author's questions, and to whom I owe the proof of Lagrange's
+inversion theorem presented here. I am also indebted to J. Beck, F. W.
+Lawvere, P. Leroux, J. Labelle and S. Schanuel for stimulating
+conversations on the possible relationship between combinatorics and
+the theory of categories. I thank G. C. Rota for encouraging me to
+write this work. I also thank Cathy Kicinski for her work of typing.
+Finally, this work, written in the sunny Australian spring, would
+never have been possible without the hospitality of Max Kelly of the
+University of Sydney.
+
 
 \section{Species of Structures}
 \label{sec:species-of-structures}
