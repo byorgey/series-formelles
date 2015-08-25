@@ -43,7 +43,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Commentary environment
 
-\newmdenv[skipabove=1em, skipbelow=1em, innermargin=1.5em, outermargin=1.5em, backgroundcolor=black!15]{commentary}
+\newmdenv[skipabove=1em, skipbelow=1em, innermargin=1.5em, outermargin=1.5em, backgroundcolor=black!10, linecolor=black!10]{commentary}
+
+%% XXX use a different font for commentary?  Or a different font for
+%% original paper?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Todo notes
+
+\presetkeys{todonotes}{backgroundcolor=yellow!20!white,inline}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Math formatting
@@ -127,7 +135,25 @@
 \section*{Preface}
 
 \todo{Write a preface explaining the motivation, format of the
-  commentary, and so on.}
+  commentary, and so on.  Things to mention: classic work. Worthwhile
+  read, even given subsequent developments like BLL. Even I learned
+  new things and new perspectives from reading it.  Theory of species
+  opens up relationships between combinatorics and CS, algebraic data
+  types etc.
+
+  Inaccessible to many because of (1) language, (2) audience.  (1)
+  easily enough addressed.  Have updated diagrams etc., typeset
+  everything in LaTeX as well. As for (2), originally written for
+  mathematicians. I've added commentary with additional explanation
+  and examples.  Especially concerned to make it accessible to those
+  in the CS world.  Show how commentary is typeset.
+
+  Contribution/collaboration welcome.  Could particularly use help
+  with translation; I don't actually know any French.  Explain my
+  philosophy in translating: italics, etc. Add link to
+  original. Contributions to commentary are also welcome.  Helpful
+  even just to read and say which parts you find particularly hard to
+  understand, so I know to add some commentary.}
 
 \newpage
 
@@ -210,12 +236,11 @@ author's questions, and to whom I owe the proof of Lagrange's
 inversion theorem presented here. I am also indebted to J. Beck, F. W.
 Lawvere, P. Leroux, J. Labelle and S. Schanuel for stimulating
 conversations on the possible relationship between combinatorics and
-the theory of categories. I thank G. C. Rota for encouraging me to
-write this work. I also thank Cathy Kicinski for her work of typing.
-Finally, this work, written in the sunny Australian spring, would
-never have been possible without the hospitality of Max Kelly of the
-University of Sydney.
-
+category theory. I thank G. C. Rota for encouraging me to write this
+work. I also thank Cathy Kicinski for her work of typing.  Finally,
+this work, written in the sunny Australian spring, would never have
+been possible without the hospitality of Max Kelly of the University
+of Sydney.
 
 \section{Species of Structures}
 \label{sec:species-of-structures}
@@ -233,13 +258,13 @@ with the problems of counting and finite enumeration, we will confine ourselves
 to finitary species, unless otherwise noted.
 
 \begin{commentary}
-  See \citet[pp. 4 XXX]{BLL} for some examples of ``axiomatic theories
-  of species''.  XXX more examples.  The main point here is about
-  \emph{transport} of species, that is, the ability to ``swap out''
-  the labels in a structure for some other labels.  Apparently, in
-  (most?) previous treatments this was taken as something secondary, a
-  desideratum to be verified after each definition; Joyal's insight is
-  to make transport itself the central defining feature of species.
+  See \citet[pp. 6--7]{BLL} for some examples of ``axiomatic theories
+  of species''. The main point here is about \emph{transport} of
+  species, that is, the ability to ``swap out'' the labels in a
+  structure for some other labels.  Apparently, in (most?) previous
+  treatments this was taken as something secondary, a desideratum to
+  be verified after each definition; Joyal's insight is to make
+  transport itself the central defining feature of species.
 \end{commentary}
 
 \subsection{Species and cardinality}
@@ -257,10 +282,10 @@ also, in an abuse of language, that $s$ is an \term{element} of $M$
 ($s \in M$) and that it is an \term{$M$-structure}.
 
 \begin{commentary}
-  Commentary explaining $\B$.  Remind what a groupoid is.  Can
-  probably steal some stuff from my dissertation.  Show what $\B$
-  looks like.  Note that any groupoid in fact looks like a disjoint
-  union of cliques.
+  Commentary explaining $\B$.  Remind what a groupoid is.  Show what
+  $\B$ looks like.  Note that any groupoid in fact looks like a disjoint
+  union of cliques. (Can probably steal a bunch of the above from my
+  dissertation.)
 
   The fact that a species is a \emph{functor} corresponds to the idea
   of ``baking in'' the notion of \emph{transport}: functors send not
@@ -269,13 +294,15 @@ also, in an abuse of language, that $s$ is an \term{element} of $M$
   bijections between label sets to bijections between labelled
   structures).
 
+  \todo{Give some simple examples.}
+
   Many modern treatments define species as functors $\B \to \E$, where
-  $\E$ is the category of (finite) sets and total functions (XXX cite
-  some thing(s)).  Note, however, that functors necessarily preserve
-  isomorphisms, so every bijection in $\B$ must actually map to a
-  bijection in $\E$.  Thus, for most purposes the distinction is not
-  an important one.  In fact, functors $\B \to \E$ are introduced
-  later, in \pref{sec:category-of-species}.
+  $\E$ is the category of (finite) sets and total functions (not
+  bijections) \todo{cite some thing(s)}.  Note, however, that functors
+  necessarily preserve isomorphisms, so every bijection in $\B$ must
+  actually map to a bijection in $\E$.  Thus, for most purposes the
+  distinction is not an important one.  In fact, functors $\B \to \E$
+  are introduced later, in \pref{sec:category-of-species}.
 \end{commentary}
 
 If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the
@@ -290,8 +317,8 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
   related by this bijection then we say that $s$ and $t$ are
   isomorphic.
 
-  A concrete example should help to make the idea clear.  XXX example
-  here of isomorphic trees, as well as non-isomorphic trees.
+  A concrete example should help to make the idea clear.  \todo{example
+  here of isomorphic trees, as well as non-isomorphic trees.}
 \end{commentary}
 We denote by $\el (M)$ the category whose objects are the $M$-structures and
 whose morphisms are isomorphisms of $M$-structures; it is the
@@ -322,12 +349,11 @@ $s \in M$, we denote the \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
   that if $\Simp$ is a graph then $u(\Simp)$ is one too; we obtain the
   species of graphs, which is a \emph{subspecies} of the species of
   simplicial schemes. More generally, any property $P$ which applies
-  to simplicial schemes, and whose satisfaction \todo{wording?} is
-  invariant under isomorphism, determines a subspecies of the species
-  of simplicial schemes. For example, connectedness is such an
-  invariant property. The species of \emph{forests} is that of graphs
-  \emph{without cycles}, the species of \emph{trees} is that of
-  connected forests, etc.
+  to simplicial schemes, and which is invariant under isomorphism,
+  determines a subspecies of the species of simplicial schemes. For
+  example, connectedness is such an invariant property. The species of
+  \emph{forests} is that of graphs \emph{without cycles}, the species
+  of \emph{trees} is that of connected forests, etc.
 \end{ex}
 
 \begin{ex} \label{ex:endofunctions}
@@ -377,7 +403,7 @@ evaluate the two infinite sequences of numbers
 \end{gather}
 
 We define two generating functions. The first is a series of Hurwitz
-(Comtet [6] \todo{citation}):
+\citep{comtet1974combinatorics}:
 
 \begin{equation}
   M(x) = \sum_{n \geq 0} \Card M[n] \frac{x^n}{n!}.
@@ -408,8 +434,8 @@ computing the cardinality of the \emph{associated} species $\unl M$.
   We use Burnside's lemma: if a finite group $G$ acts on a finite set
   $X$, then the cardinality of the set $\pi_0(X)$ of orbits of $X$ is
   equal to that of the set $\{(\sigma, x) \mid \sigma \in G, x \in X,
-  \sigma \cdot x = x\}$ \emph{divided by} $\Card G$. (See Burnside
-  [3]. \todo{Citation})
+  \sigma \cdot x = x\}$ \emph{divided by} $\Card G$. (See
+  \citet[p. 191, Theorem VII]{burnside1955groups}.)
 \end{proof}
 
 \subsection{The category of species}
@@ -580,7 +606,7 @@ In addition, the evaluation $M \mapsto M [0]$ is a functor preserving sum and
 product
 \[ \Poly \E X \to \E \]
 whose kernel $J$ is an ideal on which we will describe the operations
-of \term{divided powers} (Cartan [4] XXX look this up)
+of \term{divided powers} (Cartan [4] \todo{citation})
 \[ \gamma_n : J \to \Poly \E X \quad \text{($n \geq 0$)} \]
 so that we have
 \[ \Card \gamma_n(M) = \frac{M(x)^n}{n!} \quad \text{($n \geq 0$)}. \]
@@ -628,16 +654,16 @@ partitions $E = E_1 + E_2$ with $\Card E_1 = k$.  As a result,
 [n - k]. \]
 \end{proof}
 
-The \term{uniform} species is a species with only one structure on each
-set; one can give it various representations: the structures of
-complete graphs, chaotic topologies XXX ?, and identical applications XXX? determine
-the uniform species.
+The \term{uniform} species is a species with only one structure on
+each set; one can give it various representations: the structures of
+complete graphs, chaotic topologies \todo{translation?}, and identical
+applications \todo{translation?} determine the uniform species.
 
 \begin{ex}
   Let $S$ be the species of \term{permutations}, and $S_0$ that of
   permutations without \emph{fixed points}, and $U$ the uniform
-  species. We have $S = S_0 \cdot U$ XXX Fig.; taking cardinalities,
-  we get:
+  species. We have $S = S_0 \cdot U$ \todo{figure reference}; taking
+  cardinalities, we get:
 \[ \frac{1}{1-x} = S_0 (x) e^x \]
 and therefore
 \[ S_0 (x) = \frac{e^{-x}}{1 - x}. \]
@@ -651,9 +677,9 @@ and therefore
   an endofunction $\phi$ equipped with a fixed point $x_0$ into two
   parts $E = E_1 + E_2$. The first, $E_1$, consists of all the points
   ultimately transformed into $x_0$ by $\phi$. On $E_1$, $\phi$
-  induces a contraction (XXX Chap. 1 Ex. 2), which is equivalent to a
-  rooted tree. On the second part $E_2$, $\phi$ induces an arbitrary
-  endofunction (XXX Fig. 2).
+  induces a contraction \todo{reference (Chap. 1 Ex. 2)}, which is
+  equivalent to a rooted tree. On the second part $E_2$, $\phi$
+  induces an arbitrary endofunction \todo{reference (Fig. 2)}.
 \end{ex}
 
 The \emph{product} $M = \prod_{i=1}^n M_i$ of a finite sequence of
@@ -662,7 +688,7 @@ species $M$ on $E$ is a \emph{partition} $E = E_1 + \dots + E_n$ where
 each part $E_i$ (possibly empty) is \emph{equipped} with a structure
 of the species $M_i$.
 
-FIGURE 2 XXX
+\todo{FIGURE 2}
 
 One can also describe the \term{power} $N^S$ of a species $N$ by a
 finite set $S$: a structure of the species $N^S$ on $E$ is a function
@@ -678,13 +704,14 @@ function.
   to the head vertex is the \term{spine}. The vertices along the spine
   are \term{vertebrae}. For each vertex $p$, let $v(p)$ be the
   vertebra closest to $p$. The function $v$ is idempotent, and there a
-  tree???-structure on each fiber of $v$.  The roots of these trees
-  are the vertebrae. Thus, a vertebrate on $E$ determines a variable
-  length partition $E = E_1 + \dots + E_n$, in which each part $E_i$
-  is equipped with a tree structure, and vice versa. So we have the
-  identity:
+  tree \todo{translation?}-structure on each fiber of $v$.  The roots
+  of these trees are the vertebrae. Thus, a vertebrate on $E$
+  determines a variable length partition $E = E_1 + \dots + E_n$, in
+  which each part $E_i$ is equipped with a tree structure, and vice
+  versa. So we have the identity:
   \[ V = A + A^2 + A^3 + \dots, \] where $V$ is the species of
-  vertebrates and $A$ that of trees??? (Fig 3 XXX).
+  vertebrates and $A$ that of trees \todo{translation} \todo{reference
+    (Fig 3)}.
 \end{ex}
 
 \begin{ex}
@@ -696,7 +723,7 @@ function.
   \[ l(n, s) = s (s + 1) \dots (s + n-1). \]
 \end{ex}
 
-FIGURE 3
+\todo{FIGURE 3}
 
 Hereafter, we will often consider that a finite set $A$
 determines a species by setting
@@ -795,20 +822,20 @@ resulting in
   representations. To grasp the nature of a species is to be capable
   of representing the general shape of its structures. The
   \emph{shape} of a structure is invariant under isomorphism. What is
-  needed to get represent first is the general type of structures of a
-  given species. XXX ???  This type is independent of a labelling or
-  an enumeration of the vertices of the underlying set. For example,
-  suppose that we want to represent the general type of structures of
-  the species $R(N)$ knowing that we already have a representation for
-  $R$ and $N$. What we can do is to literally substitute arbitrarily
-  selected $N$-structures in place of each vertex of an $R$-structure,
-  For this, one can imagine that the vertices of the $R$-structure
-  blow up into cells containing the $N$-structures.  The underlying
-  set of a cellular configuration is the sum of the underlying sets of
-  the structures contained in the cells. Thus, if we substitute the
-  species of circular permutations into the species of trees, we
-  obtain a species whose general type can be represented as in Figure
-  4.
+  needed to represent first is the general type of structures of a
+  given species. \todo{translation?}  This type is independent of a
+  labelling or an enumeration of the vertices of the underlying
+  set. For example, suppose that we want to represent the general type
+  of structures of the species $R(N)$ knowing that we already have a
+  representation for $R$ and $N$. What we can do is to literally
+  substitute arbitrarily selected $N$-structures in place of each
+  vertex of an $R$-structure, For this, one can imagine that the
+  vertices of the $R$-structure blow up into cells containing the
+  $N$-structures.  The underlying set of a cellular configuration is
+  the sum of the underlying sets of the structures contained in the
+  cells. Thus, if we substitute the species of circular permutations
+  into the species of trees, we obtain a species whose general type
+  can be represented as in Figure 4.
 
 This representation is not the only one, and it is convenient to adapt to
 the particularities of a species. For example, suppose that the species $N$
@@ -831,8 +858,7 @@ $R (N)$-structure on $E$ is a triplet $(v, \alpha, \beta)$, where
 \end{enumerate}
 \end{rem}
 
-FIGURE 4
-
+\todo{FIGURE 4}
 
 \begin{ex}
 Let $D$ be the species of endofunctions, $S$ that of
@@ -849,12 +875,7 @@ of rooted trees and a permutation of the set of roots, it is clear
 that one can construct a corresponding endofunction $\phi$ (FIG 5)
 \end{ex}
 
-
-
-
-
-
-FIGURE 5
+\todo{FIGURE 5}
 
 Examples 9 and 12 give a simple proof of Cayley's theorem: the number
 $a_n$ of trees on a set of cardinality $n \geq 1$ is
@@ -869,29 +890,30 @@ obtains $n^2 a_n = n^n$ $(n \geq 1)$.
 designate a species $M$. The variable $X$ is interpreted as the
 \emph{singleton} species: there is only a single structure of the
 species $X$ (up to isomorphism) and it is supported by the
-singletons. (???) The result $M (X)$ of the substitution of $X$ in $M$
-is isomorphic to $M$. For some species we adopt a frankly (???)
-algebraic notation if it does not create ambiguity. Thus, $\exp (X)$
-or $e^X$ designate the uniform species, $X e^X$ the species of pointed
-sets, $e^X - 1$ the uniform nonempty species, $\cosh (X)$ and $\sinh
-(X)$ the uniform even and odd species, $1/(1 - X)$ the species of
-linear orders, \etc However, we retain the notation $S (X)$ to
-designate the species of permutations in order to avoid confusion with
-$1/(1-X)$. Similarly, we will use the notation $C (X)$ rather than
-$\log 1/(1-X)$ to designate the species of circular permutations, \etc
+singletons. \todo{translation?} The result $M (X)$ of the substitution
+of $X$ in $M$ is isomorphic to $M$. For some species we adopt a
+frankly \todo{translation?}  algebraic notation if it does not create
+ambiguity. Thus, $\exp (X)$ or $e^X$ designate the uniform species, $X
+e^X$ the species of pointed sets, $e^X - 1$ the uniform nonempty
+species, $\cosh (X)$ and $\sinh (X)$ the uniform even and odd species,
+$1/(1 - X)$ the species of linear orders, \etc However, we retain the
+notation $S (X)$ to designate the species of permutations in order to
+avoid confusion with $1/(1-X)$. Similarly, we will use the notation $C
+(X)$ rather than $\log 1/(1-X)$ to designate the species of circular
+permutations, \etc
 
 \begin{ex}
   A preorder relation $\leq$ on $E$ determines an equivalence
   relation: $x \equiv y$ if and only if one has $x \leq y$ and $y \leq
   x$.  The preorder relation induced on the quotient $E / \equiv$ is
-  an order relation (???), and conversely.  This shows that the
+  an order relation \todo{translation?}, and conversely.  This shows that the
   species of preorders is obtained by substituting the species $e^X -
   1$ in the species of order relations. In particular, the species of
   total preorders is
   \[ \frac{1}{1 - (e^X - 1)} = \frac{1}{2 - e^X}. \]
 \end{ex}
 
-FIGURE 6
+\todo{FIGURE 6}
 
 \begin{ex}
   In a graph, two vertices are \term{doubly connected} if we can
@@ -906,22 +928,20 @@ FIGURE 6
   component $H$. We can easily verify that $v$ is well defined. It is
   an idempotent function whose fibers are equipped with a structure of
   the species $X \cdot e^{\Gc(X)}$; the image of $v$ coincides with
-  the doubly connected pointed graph $H$ (XXX FIG 6).
+  the doubly connected pointed graph $H$ \todo{reference (FIG 6)}.
 \end{ex}
 
+\todo{FIGURE 7}
 
-FIGURE 7
+\todo{FIGURE 8}
 
-
-
-FIGURE 8
-
-\begin{ex}[Polya XXX CITE]
-  Consider the species $A$ of rooted trees.  One has the identity (XXX
-  FIG. 7)
+\begin{ex}[Polya]
+  \todo{citation}
+  Consider the species $A$ of rooted trees.  One has the identity
+  \todo{reference (FIG. 7)}
 \[ A = X \cdot \exp (A). \]
 More generally, the species $A_R$ of R-enriched trees satisfies
-the equation (see 1.3, Fig. 0 XXX)
+the equation \todo{reference (see 1.3, Fig. 0 XXX)}
 \[ A_R = X \cdot R(A_R). \]
 \end{ex}
 
@@ -939,28 +959,24 @@ follows:
 
 \begin{ex}
   The derivative of the species $C (X)$ of circular permutations is
-  the species of linear orders (Fig. 8 XXX):
+  the species of linear orders \todo{reference (Fig. 8 XXX)}:
   \[ C'(X) = \frac{1}{1 - X} \]
 \end{ex}
 
-FIGURE 9
+\todo{FIGURE 9}
 
-
-
-
-
-FIGURE 10
+\todo{FIGURE 10}
 
 \begin{ex}
   The derivative of the species of trees is that of forests of pointed
-  trees XXX FIg 9).
+  trees \todo{reference (Fig 9)}.
 \end{ex}
 
 \begin{ex}
   Recall that a graph is \term{even} if the number of edges adjacent
   to each vertex is even. The derivative of the species of even graphs
-  is the species of graphs (Fig. l0 XXX). (Harary and Palmer [15] XXX
-  CITE)
+  is the species of graphs \todo{reference (Fig. 10)}. \todo{citation
+    (Harary and Palmer [15])}
 \end{ex}
 
 \begin{ex}
