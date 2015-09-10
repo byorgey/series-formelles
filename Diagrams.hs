@@ -1,3 +1,4 @@
+{-# LANGUAGE GADTs                     #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
 module Diagrams where
