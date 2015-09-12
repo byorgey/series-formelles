@@ -1,4 +1,4 @@
-%% -*- mode: LaTeX; compile-command: "mk" -*-
+%% -*- mode: LaTeX; compile-command: "cabal --sandbox-config-file=/home/brent/writing/translation/series-formelles/cabal.sandbox.config exec -- mk" -*-
 \documentclass{amsart}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -684,9 +684,10 @@ and therefore
 
 \begin{figure}
   \centering
-  \missingfigure{Permutation partitioned into fixed points and no
-    fixed points.}
-  \caption{XXX}
+  \begin{diagram}[width=200]
+    dia = ellipseXY 2 1
+  \end{diagram}
+  \caption{$S = S_0 \cdot U$}
   \label{fig:permutation}
 \end{figure}
 

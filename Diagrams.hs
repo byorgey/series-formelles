@@ -3,9 +3,14 @@
 
 module Diagrams where
 
+import           Control.Monad
 import           Data.Tree
 import           Diagrams.Backend.PGF.CmdLine
 import           Diagrams.Prelude
+import           Diagrams.TwoD.Path.Metafont
+
+------------------------------------------------------------
+-- Drawing enriched trees (Fig 0)
 
 -- Pre: subtrees are always arranged in counterclockwise order around root
 drawEnrichedTree :: Tree (P2 Double) -> Diagram B
@@ -95,5 +100,50 @@ figure0 =
     ]
   , lf
   ]
+
+------------------------------------------------------------
+-- Figure 1
+
+arrowedge :: P2 Double -> P2 Double -> Diagram B
+arrowedge p q = arrowBetween' opts p (lerp 0.4 p q) <> (lerp 0.5 p q ~~ q)
+  where
+    opts = with & headLength .~ local 0.07
+
+figure1 :: Diagram B
+figure1 = mconcat
+  [ mconcat . map mkLoop $
+    [ pentagon 0.4 # rotateBy (1/2) # translate ((-0.3) ^& 0.5)
+    , heptagon 0.3 # translateX (-1.3)
+    , square 0.4 # shearX (-0.3) # translate ((-0.6) ^& (-0.4))
+    , triangle 0.2 # rotateBy (1/2)
+    , triangle 0.3 # rotateBy (1/5) # translate (0.4 ^& 0.4)
+    ]
+  , yinyang
+  ]
+  where
+    outside :: Located (Trail V2 Double)
+    outside = ellipseXY 1.8 1
+    s, t :: Double
+    s = 0.2
+    t = 0.75
+    p, q :: P2 Double
+    p = outside `atParam` s
+    q = outside `atParam` t
+
+    yinyang :: Diagram B
+    yinyang = mconcat
+      [ metafont $ p
+                     .- leaving (negated $ outside `tangentAtParam` s) -.
+                   lerp 0.5 p q
+                     .- arriving (outside `tangentAtParam` t) -.
+                   endpt q
+      , stroke outside
+      ]
+
+    mkLoop :: [P2 Double] -> Diagram B
+    mkLoop ps = mconcat $
+      (zipWith arrowedge <*> (\xs -> tail xs ++ [head xs])) ps
+      ++
+      map (place (circle 0.01 # fc black)) ps
 
 -- main = mainWith (drawEnrichedTree (layoutEnrichedTree t2) # frame 0.5)
