@@ -684,12 +684,16 @@ and therefore
 
 \begin{figure}
   \centering
-  \begin{diagram}[width=200]
-    dia = ellipseXY 2 1
+  \begin{diagram}[width=250]
+    import Diagrams
+
+    dia = figure1 # frame 0.1
   \end{diagram}
   \caption{$S = S_0 \cdot U$}
   \label{fig:permutation}
 \end{figure}
+\todo{add 2-cycle to \pref{fig:permutation}.  Function for placing arrowhead @
+  midpoint of arbitrary path?}
 
 \begin{ex}
   Let $D$ be the species of endofunctions, $D_0$ the species of

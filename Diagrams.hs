@@ -105,9 +105,27 @@ figure0 =
 -- Figure 1
 
 arrowedge :: P2 Double -> P2 Double -> Diagram B
-arrowedge p q = arrowBetween' opts p (lerp 0.4 p q) <> (lerp 0.5 p q ~~ q)
+arrowedge p q = arrowBetween' speciesArrowOpts p (lerp 0.4 p q) <> (lerp 0.5 p q ~~ q)
+
+speciesHeadLength = 0.07
+speciesArrowOpts = with & headLength .~ local speciesHeadLength
+
+vertexDot :: Diagram B
+vertexDot = circle 0.01 # fc black
+
+fixpt :: Double -> Diagram B
+fixpt r = mconcat
+  [ vertexDot
+  , arrowAt' speciesArrowOpts
+      (origin # translateY vOffset
+              # translateX (- 0.5 * speciesHeadLength)
+      )
+      (0.001 *^ unit_X)
+  , circle r # translateY r
+  ]
   where
-    opts = with & headLength .~ local 0.07
+    vOffset | speciesHeadLength < 2*r = r + sqrt (r*r - (speciesHeadLength/2)^2)
+            | otherwise               = 2*r
 
 figure1 :: Diagram B
 figure1 = mconcat
@@ -117,6 +135,15 @@ figure1 = mconcat
     , square 0.4 # shearX (-0.3) # translate ((-0.6) ^& (-0.4))
     , triangle 0.2 # rotateBy (1/2)
     , triangle 0.3 # rotateBy (1/5) # translate (0.4 ^& 0.4)
+    ]
+  , mconcat $ map (place (fixpt 0.08))
+    [ (1 ^& 0.3)
+    , (1.5 ^& 0)
+    , (0.6 ^& (-0.3))
+    , (0.2 ^& (-0.4))
+    , (1.25 ^& (-0.45))
+    , (0 ^& (-0.7))
+    , (0.4 ^& (-0.85))
     ]
   , yinyang
   ]
@@ -144,6 +171,6 @@ figure1 = mconcat
     mkLoop ps = mconcat $
       (zipWith arrowedge <*> (\xs -> tail xs ++ [head xs])) ps
       ++
-      map (place (circle 0.01 # fc black)) ps
+      map (place vertexDot) ps
 
 -- main = mainWith (drawEnrichedTree (layoutEnrichedTree t2) # frame 0.5)
