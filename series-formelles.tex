@@ -145,62 +145,94 @@
 
 \section*{Preface}
 
-This is the paper by Joyal that introduced the concept of
-\emph{combinatorial species}, as a way to unify and generalize the
-existing theory of generating functions.  It was one of the first
-attempts to apply category theory to combinatorics---now a proven
-combination.
+In his classic 1981 paper \emph{Une th\'eorie combinatoire des
+  s\'eries formelles (A combinatorial theory of formal series)}, Joyal
+introduces the notion of \term{(combinatorial) species}, which has had
+a wide-ranging influence on combinatorics. \todo{elaborate?}
 
 During the course of researching my PhD dissertation on the
 intersection of combinatorial species and programming languages, I
-read a lot of secondary literature on species and assumed that would
-have to be enough, since I do not read French---the language in which
-Joyal's paper was written.  However, I eventually came across some
-questions to which I could not find answers, only to be told that the
-answers were already in Joyal's paper!  Somewhat reluctantly I found a
-copy and began trying to read it, whereupon I discovered several
-surprising things.
+read a lot of secondary literature on species, but not Joyal's
+original paper---it is written in French, which I do not read. I
+didn't think this would be a great loss, since I supposed the material
+in his paper would be well-covered elsewhere, for example in the
+textbook by \citet{bll} (which thankfully \emph{has} been translated
+into English). However, I eventually came across some questions to
+which I could not find answers, only to be told that the answers were
+already in Joyal's paper!  Somewhat reluctantly I found a copy and
+began trying to read it, whereupon I discovered several surprising
+things.
 
-First of all, reading mathematical French is not too difficult, even
-for someone who does not know any French, especially if one already
-understands the math---although it is certainly slow going.  Second,
-it turns out that Joyal's is a fantastic paper full of interesting
-ideas and examples which did not appear in any of the secondary
-literature.
+First, armed with a dictionary and Google Translate, reading
+mathematical French is not too difficult (even for someone who does
+not know any French!)---though it certainly helps if one already
+understands the math.  Second, it turns out that Joyal's paper makes
+for excellent reading, and is full of insights and examples which do
+not appear in any of the secondary literature.
 
-I am excited to bring this work to the attention of the functional
-programming languages community, but there are two barriers to it
-being more widely accessible in that context: the language barrier is
-the obvious one, but more importantly, it assumes a lot of background
+\todo{some sort of transition saying why/when I decided to do this}
+
+Joyal's paper (and the theory of species more generally) has a lot to
+offer to computer science, and to functional programming in
+particular, but there are two primary barriers preventing it from
+being widely accessible in that context. The language barrier is the
+obvious one, which is easily enough addressed by a translation.  The
+second, more serious barrier is that the paper assumes background
 knowledge (in mathematics in general and combinatorics in particular)
-which many people in the programming languages community may not
-have.  To address the first barrier, I decided to produce an English translation---to address the first
-barrier---and to add commentary, examples, and code to address the
-second.  The commentary will be typeset like this:
+which many in the programming languages community may not have.  To
+address this barrier I have added commentary, examples, and code that
+help to explain and illuminate the content to a wider audience.  The
+commentary is typeset like this:
 \begin{commentary}
   This is some commentary.
 \end{commentary}
+
 This is a long-term project; I do not know how long it will take to
-finish, but plan to work on it slowly and steadkly.  Collaboration and
-contributions are welcome!  Things I could particularly use help with:
+finish, but plan to work on it slowly and steadily.  Collaboration and
+contributions are welcome!  Things I could particularly use help with include:
 \begin{itemize}
 \item Translation.  If you know both French and English well, I would
-  love more eyes on the translation.  There are particular places
-  where I am not sure about the translation, which I have indicated
-  \trans{like this}{comme \c{c}a}.  However, you need not limit
-  yourself to looking at those places; all of the translation could
-  use checking.
+  love to have your eyes on the translation.  There are particular
+  places where I am not sure about the translation, which I have
+  indicated \trans{like this}{comme \c{c}a}.  However, just because I
+  am sure about other parts does not mean I am right! All of the
+  translation would benefit from checking for accuracy and style.
 \item Commentary. I would of course be happy to receive contributions
-  of additional commentary; but even (especially!) if you are not an
+  of additional commentary. But even (especially!) if you are not an
   expert, an incredibly helpful way you can contribute is simply to
   try reading the translation and commentary, and let me know of any
-  parts you find confusing or unclear---that will be a signal that the
+  parts you find confusing or unclear---a signal that the
   commentary needs to be clarified, or more commentary added.
 \end{itemize}
 
 I am also interested to eventually publish this somehow---if you
 represent an interested publisher, or have a recommendation of a
 suitable one, please let me know!
+
+\subsection*{Technical details}
+\label{sec:tech-details}
+
+\todo{OCR (tesseract) -> Google translation toolkit. LaTeX. diagrams.}
+
+\newpage
+
+\section*{Introduction}
+\label{intro}
+
+\begin{itemize}
+\item Combinatorial classes (with examples).
+\item Generating functions.  Examples, references.
+\item Joyal's paper turns GFs into combinatorial objects in their own
+  right via categorification.
+\item Important contributions:
+  \begin{itemize}
+  \item First to apply CT to combinatorics
+  \item Unified and generalized known collection of GF techniques
+  \item Applied theory to novel results, and very concise derivations
+    of celebrated results (Cayley, Lagrange inversion)
+  \end{itemize}
+
+\end{itemize}
 
 \newpage
 
@@ -302,7 +334,7 @@ the concept is the transport of structures.
 \begin{commentary}
   \todo{definition of species}
 
-  See \citet[pp. 6--7]{BLL} for some examples of ``axiomatic theories
+  See \citet[pp. 6--7]{bll} for some examples of ``axiomatic theories
   of species''. The main point here is about \emph{transport} of
   species, that is, the ability to ``swap out'' the labels in a
   structure for some other labels.  Apparently, in (most?) previous
