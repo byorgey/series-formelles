@@ -7,12 +7,63 @@
 
 \newcommand{\C}{\mathcal{C}}
 
+\newcommand{\Pp}{\mathcal{P}^+}
+\newcommand{\Pm}{\mathcal{P}^-}
+
 \begin{document}
 
 \noindent
 Bourbaki, \emph{Livre I Th\'eorie des ensembles Chap.IV (\'etat 7?)
-  Structures}, p. 6.
+  Structures}, p. 2--6.
 \url{http://sites.mathdoc.fr/archives-bourbaki/PDF/180_nbr_083.pdf}
+
+\section*{Echelons.}
+
+Nous nous proposons, dans ce chapitre, de d\'ecrire une fois pour
+toutes, et d'une fa{\c c}on aussi g\'en\'erale que possible, un
+certain nombre de constructions formatives et de d\'emonstrations, que
+interviennent constamment dans toutes les th\'eories math\'ematiques.
+Les crit\'eres que nous obtiendrons, comme ceux du chap.I, serviront
+\`a abr\'eger notablement les raisonnements du type envisag\'e, et
+fourniront en outre un principe de classification pour les diverses
+th\'eories math\'ematiques usuelles.
+
+Bien entendu, la justification de ces crit\`eres appartient \`a la
+m\'etamath\'ematique.
+
+Pour la description que nous avons en vue, il nous sera commode
+d'introduire des assemblages que \emph{ne sont pas} des termes ou
+relations de th\'eories math\'ematiques.  Consid\'erons, d'une part,
+des lettres distinctes $x_1, x_2, \dots, x_n$, et d'autre part trois
+nouveaux signes $\Pp$, $\Pm$ et $X$.
+
+Une \emph{construction d'\'echelons sur les lettres} $x_1, \dots, x_n$
+est une suite d'assemblages form\'es avec ces lettres et les trois
+signes pr\'ec\'edents, chacun de ces assemblages \'etant appel\'e,
+soit \emph{\'echelon covariant}, soit \emph{\'echelon contravariant}
+(sur les lettres $x_1, \dots, x_n$), de sorte que, pour chaque
+assemblage $A$ de la suite, l'une des conditions suivantes soit
+v\'erifi\'ee:
+\begin{enumerate}
+\item[a)] $A$ est une des lettres $x_1, \dots, x_n$, et est alors covariant.
+\item[b)] Il y a dans la suite un assemblage $B$ pr\'ec\'edant $A$ et
+  tel que $A$ soit $\Pp B$ (resp. $\Pm B$); si $B$ est contravariant,
+  $A$ est contravariant (resp. covariant); si $B$ est covariant, $A$
+  est covariant (resp. contra-variant).
+\item[c)] Il y a dans la suite deux assemblages $B$, $C$ pr\'ec\'edant
+  $A$, \emph{tous deux} contravariants ou \emph{tous deux} covariants,
+  tels que $A$ soit $X B C$; si $B$ et $C$ sont tous deux
+  contravariants (resp. covariants) $A$ est contravariant (resp
+  covariant).
+\end{enumerate}
+
+La m\'ethode d\'evelopp\'ee dans l'Appendice du chap.I premet de
+reconnaitre si un assemblage donn\'e des lettres $x_1, \dots, x_n$ et
+des trois signes $\Pp$, $\Pm$ et $X$, est ou non un \'echelon et s'il
+est contravariant ou covariant.
+
+Il est imm\'ediat que tout \'echelon sur \emph{certaines} des lettres
+$x_1, \dots, x_n$ et aussi un \'echelon sur $x_1, \dots, x_n$.
 
 \section*{Esp\`eces de structures et structures.}
 
@@ -42,6 +93,7 @@ $y_1, \dots, y_n$ sont des lettres distinctes des constantes de $\C$
 et de toutes les lettres figurant dans $R\{x_1, \dots, x_n, s_1,
 \dots, s_p\}$, et ou on a pos\'e \[ s_j' = T_j\langle f_1, \dots,
 f_n\rangle \langle s_j \rangle \] pour $1 \leq j \leq p$.
+\end{enumerate}
 
 La d\'efinition des termes $T_j\langle f_1, \dots, f_n\rangle$ se fait
 bien entendu dahs la th\'eorie obtenue en adjoignant \`a $\C$, d'une
@@ -49,6 +101,42 @@ part l'axiome ``$f_1$ est une bijection de $x_1$ sur $y_1$ et \dots et
 $f_n$ est une bijection de $x_n$ sur $y_n$'', et d'autre part l'axiome
 ``$s_1 \subset T_1(x_1, \dots, x_n)$ et \dots et $s_p \subset T_p(x_1,
 \dots, x_n)$''.
+
+\section*{Echelons.}
+
+We propose, in this chapter, to describe once and for all, and as
+generally as possible, a certain number of formative constructions and
+proofs, that constantly intervene in all mathematical theories.  The
+criteria we obtain, such as in chap.I, will be used to notably shorten
+the reasoning of the type envisaged, and also provide a classification
+principle for various usual mathematical theories.
+
+Of course, the justification for these criteria belongs to
+metamathematics.
+
+For the description we have in mind, it will be convenient to
+introduce assemblies that \emph{are not} terms or relations of
+mathematical theories.  Consider, first, the distinct letters $x_1,
+x_2, \dots, x_n$, and on the other hand three new symbols $\Pp$, $\Pm$,
+and $X$.
+
+An \emph{echelon construction on the letters} $x_1, \dots, x_n$ is a
+sequence of assemblies formed with the letters and the three preceding
+symbols, each of the assemblies being called either a \emph{covariant
+  echelon} or a \emph{contravariant echelon} (on the letters $x_1,
+\dots, x_n$), so that, for each assembly $A$ in the sequence, one of
+the following conditions holds:
+\begin{enumerate}
+\item[a)] $A$ is one of the letters $x_1, \dots, x_n$ and is covariant.
+\item[b)] There is in the sequence an assembly $B$ preceding $A$ such
+  that $A$ is $\Pp B$ (resp. $\Pm B$); if $B$ is contravariant,
+  $A$ is contravariant (resp. covariant); if $B$ is covariant, $A$
+  is covariant (resp. contravariant).
+\item[c)] There is in the sequence two assembies $B$, $C$ preceding
+  $A$, both contravariant or both covariant, such that $A$ is $XBC$;
+  if $B$ and $C$ are both contravariant (resp. covariant) $A$ is
+  contravariant (resp. covariant).
+\end{enumerate}
 
 \section*{Species of structures and structures.}
 
@@ -58,7 +146,9 @@ when we have:
 \begin{enumerate}
 \item A certain number of distinct variables $x_1, \dots, x_n, s_1,
   \dots, s_p$ besides the constants of $\C$.
-\item
+\item The \emph{echelons} $T_1, T_2, \dots, T_p$ of an \emph{echelon
+    construction} on $n$ letters $x_1, \dots, x_n$, equal in number to
+  the letters $s_j$, distinct or not.
 \item A relation $R\{x_1, \dots, x_n, s_1, \dots, s_p\}$ of the theory
   $\C$, of the form
   \begin{multline*}
@@ -67,8 +157,15 @@ when we have:
     s_p \subset T_p(x_1, \dots, x_n) \text{ and } R'\{x_1, \dots, x_n,
     s_1, \dots, s_p\}
   \end{multline*}
-\end{enumerate}
-\end{enumerate}
+  so that the following relationship is a theorem of $\C$:
 
+(IS) $(R\{x_1, \dots, x_n, s_1, \dots, s_p\}$ and $f_1$ is a
+bijection of $x_1$ onto $y_1$ and \dots and $f_n$ is a bijection of
+$x_n$ onto $y_n) \implies R\{y_1, \dots, y_n, s_1', \dots s_p'\}$, where
+$y_1, \dots, y_n$ are variables distinct from the constants of $\C$
+and from all the variables appearing in $R\{x_1, \dots, x_n, s_1,
+\dots, s_p\}$, and where we set \[ s_j' = T_j\langle f_1, \dots,
+f_n\rangle \langle s_j \rangle \] for $1 \leq j \leq p$.
+\end{enumerate}
 
 \end{document}

@@ -325,7 +325,15 @@ of Sydney.
 \label{sec:species-of-structures}
 
 There already exists a precise concept of species of structures
-\citep[Chap.\ 4]{bourbaki1968elements}. Describing a particular species
+\citep[Chap.\ 4]{bourbaki1968elements}.
+\begin{commentary}
+  Bourbaki's definition of species of structure is really quite a
+  horrible mess.  If one squints at it, one can make out the general
+  idea; Joyal's definition really encapsulates all of its essence in a
+  much more elegant and economical way.  Interested readers can see
+  Bourbaki's definition in \pref{sec:appendix-bourbaki}.
+\end{commentary}
+Describing a particular species
 is often done by specifying the conditions which a structure must
 satisfy to belong to the species.  This description may take the form
 of an axiomatic theory of the species being considered. A key part of
@@ -1353,5 +1361,60 @@ F(A_R)[n] &= F(A_R)[n-1] \\
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}
+
+\appendix
+\section{Bourbaki's definition of species}
+\label{sec:appendix-bourbaki}
+
+\begin{commentary}
+  This appears on page 6 of \emph{\'El\'ements de math\'ematique},
+  Book 1 (Theory of Sets), Chapter 4, available from
+  \url{http://sites.mathdoc.fr/archives-bourbaki/PDF/180_nbr_083.pdf}.
+  \todo{cite}
+
+\begingroup \itshape
+We say that we have defined, in a theory $\mathcal{C}$ at least as
+strong as set theory, a \emph{species of structure} when we have:
+
+\begin{enumerate}
+\item A certain number of distinct variables $x_1, \dots, x_n, s_1,
+  \dots, s_p$ besides the constants of $\mathcal{C}$.
+\item The \emph{echelons} $T_1, T_2, \dots, T_p$ of an \emph{echelon
+    construction} on $n$ letters $x_1, \dots, x_n$, equal in number to
+  the letters $s_j$, distinct or not.
+\item A relation $R\{x_1, \dots, x_n, s_1, \dots, s_p\}$ of the theory
+  $\mathcal{C}$, of the form
+  \begin{multline*}
+    s_1 \subset T_1(x_1, \dots, x_n) \text{ and } s_2 \subset T_2(x_1,
+    \dots, x_n) \text{ and \dots and } \\
+    s_p \subset T_p(x_1, \dots, x_n) \text{ and } R'\{x_1, \dots, x_n,
+    s_1, \dots, s_p\}
+  \end{multline*}
+  so that the following relationship is a theorem of $\mathcal{C}$:
+
+  (IS) $(R\{x_1, \dots, x_n, s_1, \dots, s_p\}$ and $f_1$ is a
+  bijection of $x_1$ onto $y_1$ and \dots and $f_n$ is a bijection of
+  $x_n$ onto $y_n) \implies R\{y_1, \dots, y_n, s_1', \dots s_p'\}$,
+  where $y_1, \dots, y_n$ are variables distinct from the constants of
+  $\mathcal{C}$ and from all the variables appearing in $R\{x_1,
+  \dots, x_n, s_1, \dots, s_p\}$, and where we set \[ s_j' =
+  T_j\langle f_1, \dots, f_n\rangle \langle s_j \rangle \] for $1 \leq
+  j \leq p$.
+\end{enumerate}
+\endgroup
+
+The basic idea is that the variables $x_1, \dots, x_n$ represent sets
+containing labels, and the variables $s_1, \dots, s_p$ represent
+structures.  The relation $R\{x_1, \dots, x_n, s_1, \dots, s_p\}$
+holds precisely when the $s_j$ are all the (multi-sorted) structures
+that can be built out of the labels in the $x_i$.  Condition (IS)
+ensures that we can bijectively swap out the label sets $x_i$ for
+different ones.
+
+Functoriality is embedded in the definition of an \emph{echelon
+  construction} on page 2:
+
+\begingroup
+\end{commentary}
 
 \end{document}
