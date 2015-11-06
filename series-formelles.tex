@@ -219,7 +219,7 @@ step I ran it through the tesseract OCR engine
 \newpage
 
 \section*{Introduction}
-\label{intro}
+\label{sec:meta-intro}
 
 \begin{itemize}
 \item Combinatorial classes (with examples).
@@ -233,7 +233,10 @@ step I ran it through the tesseract OCR engine
   \item Applied theory to novel results, and very concise derivations
     of celebrated results (Cayley, Lagrange inversion)
   \end{itemize}
-
+\item Necessary background:
+  \begin{itemize}
+  \item Very basic category theory (categories, functors)
+  \end{itemize}
 \end{itemize}
 
 \newpage
@@ -246,8 +249,6 @@ Montreal, Quebec H30 3P8, Canada}
 \address{Department of Mathematics and Computer Science \\ Hendrix
   College \\ 1600 Washington Ave \\ Conway, Arkansas, 72032 \\ United
   States of America}
-
-\maketitle
 
 \begin{abstract}
   This paper presents a combinatorial theory of formal power
@@ -263,6 +264,8 @@ Montreal, Quebec H30 3P8, Canada}
   with general considerations on the use of coalgebras in
   combinatorics.
 \end{abstract}
+
+\maketitle
 
 \section{Introduction}
 \label{sec:introduction}
@@ -333,17 +336,14 @@ There already exists a precise concept of species of structures
   horrible mess.  If one squints at it, one can make out the general
   idea; Joyal's definition really encapsulates all of its essence in a
   much more elegant and economical way.  Interested readers can see
-  Bourbaki's definition in \pref{sec:appendix-bourbaki}.
+  Bourbaki's definition in Appendix~\ref{sec:appendix-bourbaki}.
 \end{commentary}
-Describing a particular species
-is often done by specifying the conditions which a structure must
-satisfy to belong to the species.  This description may take the form
-of an axiomatic theory of the species being considered. A key part of
-the concept is the transport of structures.
-
+Describing a particular species is often done by specifying the
+conditions which a structure must satisfy to belong to the species.
+This description may take the form of an axiomatic theory of the
+species being considered. A key part of the concept is the transport
+of structures.
 \begin{commentary}
-  \todo{definition of species}
-
   See \citet[pp. 6--7]{bll} for some examples of ``axiomatic theories
   of species''. The main point here is about \emph{transport} of
   species, that is, the ability to ``swap out'' the labels in a
@@ -352,7 +352,6 @@ the concept is the transport of structures.
   be verified after each definition; Joyal's insight is to make
   transport itself the central defining feature of species.
 \end{commentary}
-
 We will abstract the concept of species so that the transport of
 structures is the main aspect. Moreover, as we only deal
 with the problems of counting and finite enumeration, we will confine ourselves
@@ -362,28 +361,30 @@ to finitary species, unless otherwise noted.
 \label{sec:species-and-cardinality}
 
 \begin{defn}
-  A (finitary) species is an endofunctor $M: \B \to \B$
-  on the groupoid $\B$ of finite sets and bijections.
+  A (finitary) species is an endofunctor $M: \B \to \B$ on the
+  groupoid $\B$ of finite sets and bijections.
 \end{defn}
 
-If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
-the species $M$ on $E$. We say that $E$ is the \term{underlying} set
-of $s \in M[E]$, or also that it is \term{supported} by $E$. We say
-also, in an abuse of language, that $s$ is an \term{element} of $M$
-($s \in M$) and that it is an \term{$M$-structure}.
-
 \begin{commentary}
-  Commentary explaining $\B$.  Remind what a groupoid is.  Show what
-  $\B$ looks like.  Note that any groupoid in fact looks like a disjoint
-  union of cliques. (Can probably steal a bunch of the above from my
-  dissertation.)
+  Recall that a \emph{groupoid} is a category where all the morphisms
+  are ``invertible'', that is, each $m : A \to B$ has a corresponding
+  $m^{-1} : B \to A$ such that $m^{-1} \comp m = \id_A$ and $m \comp
+  m^{-1} = \id_B$.  $\B$ is the category whose objects are
+  \emph{finite} sets and whose morphisms are bijections, that is,
+  functions which are both injective and surjective.  Since bijections
+  are invertible, $\B$ is not just a category but a groupoid.
 
-  The fact that a species is a \emph{functor} corresponds to the idea
-  of ``baking in'' the notion of \emph{transport}: functors send not
-  only objects to objects (in this case, sets of labels to sets of
-  structures) but also morphisms to morphisms (in this case,
-  bijections between label sets to bijections between labelled
-  structures).
+  It is always possible to make a bijection between any two finite
+  sets of the same size; conversely, there are no bijections between
+  finite sets of different sizes.  Thus, $\B$ can be thought of as the
+  disjoint union of a number of connected components, one for each
+  natural number size.
+
+  Recall that an endofunctor $\B \to \B$ has two components: a map XXX
+  and XXX, satisfying some laws.  objects to objects (in this case,
+  sets of labels to sets of structures) and morphisms to
+  morphisms (in this case, bijections between label sets to bijections
+  between labelled structures). Intuitively, we think of XXX
 
   \todo{Give some simple examples.}
 
@@ -396,11 +397,31 @@ also, in an abuse of language, that $s$ is an \term{element} of $M$
   are introduced later, in \pref{sec:category-of-species}.
 \end{commentary}
 
+If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
+the species $M$ on $E$. We say that $E$ is the \term{underlying} set
+of $s \in M[E]$, or also that it is \term{supported} by $E$. We say
+also, in an abuse of language, that $s$ is an \term{element} of $M$
+($s \in M$) and that it is an \term{$M$-structure}.
+
 If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the
 structure on $F$ obtained by \term{transport along $u$}. The bijection
 $u$ is an \term{isomorphism} between $s$ and $t$:
 \[ u : s \to t. \]
 \begin{commentary}
+  The fact that a species is a \emph{functor} (as opposed to just a
+  mapping from sets of labels to sets of structures) corresponds to
+  the idea of ``baking in'' the notion of \emph{transport}, mentioned
+  earlier.  Here we see that the functorial mapping from a bijection
+  on label sets to a bijection on sets of structures is exactly what
+  allows us to ``transport'' some structures along a bijection of
+  labels to get new, relabelled structures.
+
+  XXX crux of the idea.  No complicated structural definition.  Just
+  defining species in terms of \emph{behavior}: create sets of
+  structures.  Those structures ``contain'' labels not in a direct,
+  structural sense, but in the sense that they can be relabelled
+  functorially.
+
   Note that $u : s \to t$ is a mild abuse of notation; $u$ is, of
   course, a bijection between label sets $E$ and $F$.  The point is
   that, via transport, $u$ induces a bijection between the sets of
