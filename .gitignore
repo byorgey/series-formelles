@@ -13,4 +13,5 @@ Shake
 *.fls
 diagrams/
 .cabal-sandbox/
+cabal.sandbox.config
 .diagrams_cache/
