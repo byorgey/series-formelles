@@ -73,6 +73,8 @@
 
 \newcommand{\bij}{\stackrel{\sim}{\rightarrow}}
 \newcommand{\inj}{\hookrightarrow}
+\newcommand{\comp}{\circ}
+\newcommand{\id}{\mathit{id}}
 
 \DeclareMathOperator{\Card}{Card}
 \DeclareMathOperator{\Aut}{Aut}
@@ -150,43 +152,45 @@ In his classic 1981 paper \emph{Une th\'eorie combinatoire des
 introduces the notion of \term{(combinatorial) species}, which has had
 a wide-ranging influence on combinatorics. \todo{elaborate?}
 
-During the course of researching my PhD dissertation on the
-intersection of combinatorial species and programming languages, I
-read a lot of secondary literature on species, but not Joyal's
-original paper---it is written in French, which I do not read. I
-didn't think this would be a great loss, since I supposed the material
-in his paper would be well-covered elsewhere, for example in the
-textbook by \citet{bll} (which thankfully \emph{has} been translated
-into English). However, I eventually came across some questions to
-which I could not find answers, only to be told that the answers were
-already in Joyal's paper!  Somewhat reluctantly I found a copy and
-began trying to read it, whereupon I discovered several surprising
-things.
+During the course of researching my PhD thesis on the intersection of
+combinatorial species and programming languages, I read a lot of
+secondary literature on species, but not Joyal's original paper---it
+is written in French, which I do not read. I didn't think this would
+be a great loss, since I supposed the material in his paper would be
+well-covered elsewhere, for example in the textbook by \citet{bll}
+(which thankfully \emph{has} been translated into English). However, I
+eventually came across some questions to which I could not find
+answers, only to be told that the answers were already in Joyal's
+paper!\footnote{\url{http://mathoverflow.net/questions/171452/examples-of-functors-mathbfset-to-mathbfset-which-are-not-analytic}}
+Somewhat reluctantly, I found a copy and began trying to read it,
+whereupon I discovered several surprising things.
 
 First, armed with a dictionary and Google Translate, reading
 mathematical French is not too difficult (even for someone who does
 not know any French!)---though it certainly helps if one already
 understands the math.  Second, it turns out that Joyal's paper makes
-for excellent reading, and is full of insights and examples which do
-not appear in any of the secondary literature.
+for excellent reading, and is full of insights and examples which, as
+far as I know, do not appear in any of the secondary literature.  The
+paper (and the theory of species more generally) has a lot to offer to
+computer science, and to functional programming in particular.
 
-\todo{some sort of transition saying why/when I decided to do this}
+My initial joy at being able to read the paper was quickly tempered,
+however, by the knowledge that there are still formidable barriers
+preventing it from being more widely accessible within the functional
+programming community. The language barrier is the obvious one, for
+those who cannot read French; even armed with Google translate it is
+still very slow going.  The second, more serious barrier is that the
+paper assumes background knowledge---in mathematics in general, and
+combinatorics in particular---which many in the programming languages
+community may not have (even those who can read French).
 
-Joyal's paper (and the theory of species more generally) has a lot to
-offer to computer science, and to functional programming in
-particular, but there are two primary barriers preventing it from
-being widely accessible in that context. The language barrier is the
-obvious one, which is easily enough addressed by a translation.  The
-second, more serious barrier is that the paper assumes background
-knowledge (in mathematics in general and combinatorics in particular)
-which many in the programming languages community may not have.  To
-address this barrier I have added commentary, examples, and code that
-help to explain and illuminate the content to a wider audience.  The
-commentary is typeset like this:
+I have therefore decided to produce an English translation,
+accompanied by my own additional commentary, examples, and code which
+attempt to explain and illuminate the content to a wider audience.
+The commentary is typeset like this:
 \begin{commentary}
   This is some commentary.
 \end{commentary}
-
 This is a long-term project; I do not know how long it will take to
 finish, but plan to work on it slowly and steadily.  Collaboration and
 contributions are welcome!  Things I could particularly use help with include:
@@ -214,7 +218,15 @@ suitable one, please let me know!
 
 The original paper is available only in a scanned form, so as a first
 step I ran it through the tesseract OCR engine
-(\url{https://github.com/tesseract-ocr/tesseract}). \todo{Google translation toolkit. LaTeX. diagrams.}
+(\url{https://github.com/tesseract-ocr/tesseract}), which does an
+excellent job with the text, although naturally it completely mangles
+the diagrams and equations.  From there I have loaded the resulting
+text document into the Google Translator Toolkit, and use that to do
+the bulk of the translating.  The result gets pasted into a \LaTeX\
+document, at which point I re-add equations and diagrams, proofread,
+and add my own commentary.  The diagrams are all produced using the
+\texttt{diagrams} vector graphics framework
+(\url{http://projects.haskell.org/diagrams/}).
 
 \newpage
 
