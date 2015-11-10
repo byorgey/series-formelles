@@ -82,6 +82,8 @@
 \DeclareMathOperator{\Aut}{Aut}
 \newcommand{\Mon}{\mathrm{Mon}}
 \newcommand{\unl}[1]{\tilde{#1}}
+\newcommand{\Simp}{\mathcal{S}}
+\newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
 
 \newcommand{\term}[1]{\emph{#1}}
 
@@ -163,9 +165,9 @@ well-covered elsewhere, for example in the textbook by \citet{bll}
 (which thankfully \emph{has} been translated into English). However, I
 eventually came across some questions to which I could not find
 answers, only to be told that the answers were already in Joyal's
-paper!\footnote{\url{http://mathoverflow.net/questions/171452/examples-of-functors-mathbfset-to-mathbfset-which-are-not-analytic}}
-Somewhat reluctantly, I found a copy and began trying to read it,
-whereupon I discovered several surprising things.
+paper \citep{trimble-not-analytic}. Somewhat reluctantly, I found a
+copy and began trying to read it, whereupon I discovered two
+surprising things.
 
 First, armed with a dictionary and Google Translate, reading
 mathematical French is not too difficult (even for someone who does
@@ -258,10 +260,30 @@ Things to include in the introduction:
   \end{itemize}
 \item Necessary background:
   \begin{itemize}
-  \item Very basic category theory (categories, functors)
+  \item Very basic category theory (categories, functors, groupoids.
+    Show functors preserve isomorphisms)
   \end{itemize}
 \end{itemize}
 }
+
+\todoin{
+Some text to use in background section\dots
+
+A \emph{groupoid} is a category where all the morphisms are
+``invertible'', that is, each $m : A \to B$ has a corresponding
+$m^{-1} : B \to A$ such that $m^{-1} \comp m = \id_A$ and $m \comp
+m^{-1} = \id_B$.  $\B$ is the category whose objects are \emph{finite}
+sets and whose morphisms are bijections, that is, functions which are
+both injective and surjective.  Since bijections are invertible, $\B$
+is not just a category but a groupoid.
+
+It is always possible to make a bijection between any two finite sets
+of the same size; conversely, there are no bijections between finite
+sets of different sizes.  Thus, $\B$ can be thought of as the disjoint
+union of a number of connected components, one for each natural number
+size.
+}
+
 
 \newpage
 
@@ -374,14 +396,13 @@ of structures.
   See \citet[pp. 6--7]{bll} for some examples of ``axiomatic theories
   of species''. The main point here is \emph{transport} of species,
   that is, the ability to ``swap out'' the labels in a structure for
-  some other labels.  Apparently, in (most?) previous treatments this
-  was taken as something secondary, a desideratum to be verified after
-  each definition; Joyal's insight is to make transport itself the
-  central defining feature of species.
+  some other labels.  Joyal's insight is to make transport itself the
+  central defining feature of species; there will be more to say on
+  this later.
 \end{commentary}
 We will abstract the concept of species so that the transport of
-structures is the main aspect. Moreover, as we only deal
-with the problems of counting and finite enumeration, we will confine ourselves
+structures is the main aspect. Moreover, as we only deal with the
+problems of counting and finite enumeration, we will confine ourselves
 to finitary species, unless otherwise noted.
 
 \subsection{Species and cardinality}
@@ -393,35 +414,15 @@ to finitary species, unless otherwise noted.
 \end{defn}
 
 \begin{commentary}
-  Recall that a \emph{groupoid} is a category where all the morphisms
-  are ``invertible'', that is, each $m : A \to B$ has a corresponding
-  $m^{-1} : B \to A$ such that $m^{-1} \comp m = \id_A$ and $m \comp
-  m^{-1} = \id_B$.  $\B$ is the category whose objects are
-  \emph{finite} sets and whose morphisms are bijections, that is,
-  functions which are both injective and surjective.  Since bijections
-  are invertible, $\B$ is not just a category but a groupoid.
-
-  It is always possible to make a bijection between any two finite
-  sets of the same size; conversely, there are no bijections between
-  finite sets of different sizes.  Thus, $\B$ can be thought of as the
-  disjoint union of a number of connected components, one for each
-  natural number size.
-
-  Recall that an endofunctor $\B \to \B$ has two components: a map XXX
-  and XXX, satisfying some laws.  objects to objects (in this case,
-  sets of labels to sets of structures) and morphisms to
-  morphisms (in this case, bijections between label sets to bijections
-  between labelled structures). Intuitively, we think of XXX
-
-  \todo{Give some simple examples.}
-
-  Many modern treatments define species as functors $\B \to \E$, where
-  $\E$ is the category of (finite) sets and total functions (not
-  bijections) \todo{cite some thing(s)}.  Note, however, that functors
-  necessarily preserve isomorphisms, so every bijection in $\B$ must
-  actually map to a bijection in $\E$.  Thus, for most purposes the
-  distinction is not an important one.  In fact, functors $\B \to \E$
-  are introduced later, in \pref{sec:category-of-species}.
+  As a quick aside, it's worth pointing out that most subsequent
+  publications (even by Joyal himself) actually define species as
+  functors $\B \to \E$, where $\E$ is the category of (finite) sets
+  and total functions, rather than bijections \citep{joyal86, bll}.
+  However, functors necessarily preserve isomorphisms, so every
+  bijection in $\B$ must actually map to a bijection in $\E$.  Thus,
+  for most purposes the distinction is not an important one.  In fact,
+  Joyal introduces functors $\B \to \E$ later, in
+  \pref{sec:category-of-species}.
 \end{commentary}
 
 If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
@@ -430,11 +431,40 @@ of $s \in M[E]$, or also that it is \term{supported} by $E$. We say
 also, in an abuse of language, that $s$ is an \term{element} of $M$
 ($s \in M$) and that it is an \term{$M$-structure}.
 
+\begin{commentary}
+  Recall that an endofunctor $M : \B \to \B$ has two components, an
+  object mapping and a morphism mapping.  This first paragraph after
+  the definition sets up some terminology related to the object
+  mapping, which sends finite sets (that is, objects of $\B$) to finite
+  sets.  In particular, one should think of $M$ as sending finite sets
+  of \emph{labels} to finite sets of \emph{labelled structures}.
+
+  For example, \todo{Give a simple example, with pictures.  Say how
+    Joyal's terminology relates to the example \& pictures.}
+\end{commentary}
+
 If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the
 structure on $F$ obtained by \term{transport along $u$}. The bijection
 $u$ is an \term{isomorphism} between $s$ and $t$:
 \[ u : s \to t. \]
 \begin{commentary}
+  Second, there is a morphism mapping, sending morphisms to morphisms;
+  in this case, it sends bijections between label sets
+  (\term{relabellings}) to bijections between sets of labelled
+  structures (with each structure corresponding to its relabelled
+  version).
+
+  $u : s \to t$ is a mild abuse of notation; $u$ is in fact a
+  bijection between label sets $E$ and $F$, and $s$ and $t$ are not
+  even sets.  The point is that, via transport, $u$ induces a
+  bijection between the sets of structures $M[E]$ and $M[F]$.  If this
+  bijection relates $s \in M[E]$ and $t \in M[F]$, then we say that
+  $s$ and $t$ are isomorphic, as witnessed by $u$, and write $u : s
+  \to t$.
+
+  A concrete example should help to clarify the idea.  \todo{example
+    here of isomorphic trees, as well as non-isomorphic trees.}
+
   The fact that a species is a \emph{functor} (as opposed to just a
   mapping from sets of labels to sets of structures) corresponds to
   the idea of ``baking in'' the notion of \emph{transport}, mentioned
@@ -443,36 +473,26 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
   allows us to ``transport'' some structures along a bijection of
   labels to get new, relabelled structures.
 
-  XXX crux of the idea.  No complicated structural definition.  Just
+  \todoin{crux of the idea.  No complicated structural definition.  Just
   defining species in terms of \emph{behavior}: create sets of
   structures.  Those structures ``contain'' labels not in a direct,
   structural sense, but in the sense that they can be relabelled
-  functorially.
+  functorially.}
 
-  Note that $u : s \to t$ is a mild abuse of notation; $u$ is, of
-  course, a bijection between label sets $E$ and $F$.  The point is
-  that, via transport, $u$ induces a bijection between the sets of
-  structures $M[E]$ and $M[F]$.  If $s \in M[E]$ and $t \in M[F]$ are
-  related by this bijection then we say that $s$ and $t$ are
-  isomorphic.
-
-  A concrete example should help to make the idea clear.  \todo{example
-  here of isomorphic trees, as well as non-isomorphic trees.}
+  \todo{Insert here commentary from section 3.2.1 of thesis.}
 \end{commentary}
 We denote by $\el (M)$ the category whose objects are the $M$-structures and
 whose morphisms are isomorphisms of $M$-structures; it is the
 groupoid of \term{elements} of $M$.
 
-There is a \term{forgetful}
-functor $U: \el (M) \to \B$ whose
-value on $s \in M$ is the \term{underlying} set of the structure $s$. The concept
-of isomorphism of structures defines an equivalence relation whose
-classes are the \term{types} of structures of the species M; these classes are
-the \term{connected components} of the groupoid $\el (M)$. We use the notation
-$\pi_0 (M)$ to denote the set of types (of structures) of the species $M$. If
-$s \in M$, we denote the \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
-
-\newcommand{\Simp}{\mathcal{S}}
+There is a \term{forgetful} functor $U: \el (M) \to \B$ whose value on
+$s \in M$ is the \term{underlying} set of the structure $s$. The
+concept of isomorphism of structures defines an equivalence relation
+whose classes are the \term{types} of structures of the species M;
+these classes are the \term{connected components} of the groupoid $\el
+(M)$. We use the notation $\pi_0 (M)$ to denote the set of types (of
+structures) of the species $M$. If $s \in M$, we denote the
+\term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
 
 \begin{ex}
   Recall that a \emph{simplicial scheme} structure on $E$ is a set
@@ -661,7 +681,7 @@ of graphs. On the other hand, the species $GO$ of \emph{oriented
   $T_M : \el (M) \to \E$.
 \end{defn}
 
-\todo{Ugh, this paragraph will need a lot of commentary and/or some
+\todo{This paragraph will need a lot of commentary and/or some
   nice pictures.}
 Given $T_M$, one can construct a species $T$
 equipped with a morphism $T \to^p M$: set $T [E] = \{(s, \alpha) \mid
@@ -723,8 +743,6 @@ dia = drawEnrichedTree (layoutEnrichedTree figure0) # frame 0.5
 
 \section{The Combinational Operations}
 \label{sec:combinatorial-operations}
-
-\newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
 
 The category of species is rich in various operations. In this
 section, we describe several operations of which three are binary.
@@ -1383,7 +1401,7 @@ F(A_R)[n] &= F(A_R)[n-1] \\
 \end{align*}
 \end{proof}
 
-
+\todo{Translate Section 3 and onwards.}
 
 % XXX SECTION 3. ENUMERATION OF TYPES OF STRUCTURES
 
