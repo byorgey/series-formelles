@@ -61,6 +61,8 @@
 
 \presetkeys{todonotes}{backgroundcolor=yellow!20!white,inline}{}
 
+\newcommand\todoin[2][]{\todo[inline, caption={todo}, #1]{\begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Math formatting
 
@@ -187,13 +189,16 @@ community may not have (even those who can read French).
 I have therefore decided to produce an English translation,
 accompanied by my own additional commentary, examples, and code which
 attempt to explain and illuminate the content to a wider audience.
-The commentary is typeset like this:
+The commentary is typeset using inset boxes with a grey background,
+like this:
 \begin{commentary}
   This is some commentary.
 \end{commentary}
+
 This is a long-term project; I do not know how long it will take to
 finish, but plan to work on it slowly and steadily.  Collaboration and
-contributions are welcome!  Things I could particularly use help with include:
+contributions are welcome! \todo{link to git repo} Things I could
+particularly use help with include:
 \begin{itemize}
 \item Translation.  If you know both French and English well, I would
   love to have your eyes on the translation.  There are particular
@@ -228,10 +233,16 @@ and add my own commentary.  The diagrams are all produced using the
 \texttt{diagrams} vector graphics framework
 (\url{http://projects.haskell.org/diagrams/}).
 
+A git repository containing the latest state of this project can be
+found at \todo{link to git repo}.
+
 \newpage
 
 \section*{Introduction}
 \label{sec:meta-intro}
+
+\todoin{
+Things to include in the introduction:
 
 \begin{itemize}
 \item Combinatorial classes (with examples).
@@ -250,6 +261,7 @@ and add my own commentary.  The diagrams are all produced using the
   \item Very basic category theory (categories, functors)
   \end{itemize}
 \end{itemize}
+}
 
 \newpage
 
@@ -347,8 +359,11 @@ There already exists a precise concept of species of structures
   Bourbaki's definition of species of structure is really quite a
   horrible mess.  If one squints at it, one can make out the general
   idea; Joyal's definition really encapsulates all of its essence in a
-  much more elegant and economical way.  Interested readers can see
-  Bourbaki's definition in Appendix~\ref{sec:appendix-bourbaki}.
+  much more elegant and economical way.  This seems to be due in large
+  part to Bourbaki's insistence on using formal set theory as a
+  foundation; Joyal's definition benefits tremendously from using
+  category theory instead.  Interested and/or masochistic readers can
+  see Bourbaki's definition in Appendix~\ref{sec:appendix-bourbaki}.
 \end{commentary}
 Describing a particular species is often done by specifying the
 conditions which a structure must satisfy to belong to the species.
@@ -357,12 +372,12 @@ species being considered. A key part of the concept is the transport
 of structures.
 \begin{commentary}
   See \citet[pp. 6--7]{bll} for some examples of ``axiomatic theories
-  of species''. The main point here is about \emph{transport} of
-  species, that is, the ability to ``swap out'' the labels in a
-  structure for some other labels.  Apparently, in (most?) previous
-  treatments this was taken as something secondary, a desideratum to
-  be verified after each definition; Joyal's insight is to make
-  transport itself the central defining feature of species.
+  of species''. The main point here is \emph{transport} of species,
+  that is, the ability to ``swap out'' the labels in a structure for
+  some other labels.  Apparently, in (most?) previous treatments this
+  was taken as something secondary, a desideratum to be verified after
+  each definition; Joyal's insight is to make transport itself the
+  central defining feature of species.
 \end{commentary}
 We will abstract the concept of species so that the transport of
 structures is the main aspect. Moreover, as we only deal
@@ -1438,16 +1453,17 @@ strong as set theory, a \emph{species of structure} when we have:
 \end{enumerate}
 \endgroup
 
-The basic idea is that the variables $x_1, \dots, x_n$ represent sets
-containing labels, and the variables $s_1, \dots, s_p$ represent
-structures.  The relation $R\{x_1, \dots, x_n, s_1, \dots, s_p\}$
-holds precisely when the $s_j$ are all the (multi-sorted) structures
-that can be built out of the labels in the $x_i$.  Condition (IS)
-ensures that we can bijectively swap out the label sets $x_i$ for
-different ones.
+The basic idea seems to be that the variables $x_1, \dots, x_n$
+represent sets containing labels, and the variables $s_1, \dots, s_p$
+represent structures.  The relation $R\{x_1, \dots, x_n, s_1, \dots,
+s_p\}$ holds precisely when the $s_j$ are all the (multi-sorted)
+structures that can be built out of the labels in the $x_i$.
+Condition (IS) ensures that we can bijectively swap out the label sets
+$x_i$ for different ones.
 
 Functoriality is embedded in the definition of an \emph{echelon
   construction} on page 2:
+\todo{Translate echelon construction definition with commentary.}
 
 \end{commentary}
 
