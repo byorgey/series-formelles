@@ -218,26 +218,27 @@ particularly use help with include:
   the translation and commentary, and let me know of any parts you
   find confusing or unclear---a signal that the commentary needs to be
   clarified, or more commentary added.
+\item I am also interested to eventually publish this somehow---if you
+  represent an interested publisher, or have a recommendation of a
+  suitable one, please let me know!
 \end{itemize}
 
-I am also interested to eventually publish this somehow---if you
-represent an interested publisher, or have a recommendation of a
-suitable one, please let me know!
 
 \subsection*{Technical details}
 \label{sec:tech-details}
 
-The original paper is available only in a scanned form, so as a first
-step I ran it through the tesseract OCR engine
-(\url{https://github.com/tesseract-ocr/tesseract}), which does an
-excellent job with the text, although naturally it completely mangles
-the diagrams and equations.  From there I have loaded the resulting
-text document into the Google Translator Toolkit, and use that to do
-the bulk of the translating.  The result gets pasted into a \LaTeX\
-document, at which point I re-add equations and diagrams, proofread,
-and add my own commentary.  The diagrams are all produced using the
-\texttt{diagrams} vector graphics framework
-(\url{http://projects.haskell.org/diagrams/}).
+The original paper is available only in scanned form, so as a first
+step I ran it through the \texttt{tesseract} OCR
+engine.\footnote{\url{https://github.com/tesseract-ocr/tesseract}}
+\texttt{tesseract} does an excellent job with the text, although
+naturally it completely mangles the diagrams and equations.  From
+there I have loaded the resulting text document into the Google
+Translator Toolkit, and use that to aid in the translating process,
+also typing up equations as I go.  The result gets pasted into a
+\LaTeX\ document, after which I proofread and add diagrams
+(all produced using the \texttt{diagrams} vector graphics
+framework\footnote{\url{http://projects.haskell.org/diagrams/}}) and
+commentary.
 
 A git repository containing the latest state of this project can be
 found at \todo{link to git repo}.
@@ -452,8 +453,9 @@ structure on $F$ obtained by \term{transport along $u$}. The bijection
 $u$ is an \term{isomorphism} between $s$ and $t$:
 \[ u : s \to t. \]
 \begin{commentary}
-  Second, there is a morphism mapping, sending morphisms to morphisms;
-  in this case, it sends bijections between label sets
+  These next sentences have to do with the second component of a
+  functor, the morphism mapping which sends morphisms to morphisms.
+  In this case, $M$ sends bijections between label sets
   (\term{relabellings}) to bijections between sets of labelled
   structures (with each structure corresponding to its relabelled
   version).
