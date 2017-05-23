@@ -172,11 +172,12 @@ surprising things.
 First, armed with a dictionary and Google Translate, reading
 mathematical French is not too difficult (even for someone who does
 not know any French!)---though it certainly helps if one already
-understands the math.  Second, it turns out that Joyal's paper makes
-for excellent reading, and is full of insights and examples which, as
-far as I know, do not appear in any of the secondary literature.  The
-paper (and the theory of species more generally) has a lot to offer to
-computer science, and to functional programming in particular.
+understands the mathematics.  Second, it turns out that Joyal's paper
+makes for excellent reading, and is full of insights and examples
+which, as far as I know, do not appear in any of the secondary
+literature.  The paper (and the theory of species more generally) has
+a lot to offer to computer science, and to functional programming in
+particular.
 
 My initial joy at being able to read the paper was quickly tempered,
 however, by the knowledge that there are still formidable barriers
@@ -209,11 +210,14 @@ particularly use help with include:
   am sure about other parts does not mean I am right! All of the
   translation would benefit from checking for accuracy and style.
 \item Commentary. I would of course be happy to receive contributions
-  of additional commentary. But even (especially!) if you are not an
-  expert, an incredibly helpful way you can contribute is simply to
-  try reading the translation and commentary, and let me know of any
-  parts you find confusing or unclear---a signal that the
-  commentary needs to be clarified, or more commentary added.
+  of additional commentary, especially from those who are more deeply
+  versed in the relevant mathematics or history than I am, or from
+  those with a different perspective to offer.
+\item Feedback. Even (especially!) if you are not an expert, an
+  incredibly helpful way you can contribute is simply to try reading
+  the translation and commentary, and let me know of any parts you
+  find confusing or unclear---a signal that the commentary needs to be
+  clarified, or more commentary added.
 \end{itemize}
 
 I am also interested to eventually publish this somehow---if you
@@ -300,7 +304,7 @@ Montreal, Quebec H30 3P8, Canada}
   This paper presents a combinatorial theory of formal power
   series. The combinatorial interpretation of formal power series is
   based on the concept of species of structures. A categorical
-  approach is used to formulate it. A new proof of Cayley’s formula
+  approach is used to formulate it. A new proof of Cayley's formula
   for the number of labelled trees is given as well as a new
   combinatorial proof (due to G. Labelle) of Lagrange's inversion
   formula. Polya's enumeration theory of isomorphism classes of
@@ -456,11 +460,11 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
 
   $u : s \to t$ is a mild abuse of notation; $u$ is in fact a
   bijection between label sets $E$ and $F$, and $s$ and $t$ are not
-  even sets.  The point is that, via transport, $u$ induces a
-  bijection between the sets of structures $M[E]$ and $M[F]$.  If this
-  bijection relates $s \in M[E]$ and $t \in M[F]$, then we say that
-  $s$ and $t$ are isomorphic, as witnessed by $u$, and write $u : s
-  \to t$.
+  even sets.  The point is that, via transport, $u : E \to F$ induces
+  a bijection between the sets of structures $M[E]$ and $M[F]$.  If
+  this bijection relates $s \in M[E]$ and $t \in M[F]$, then we say
+  that $s$ and $t$ are isomorphic, as witnessed by $u$, and write
+  $u : s \to t$.
 
   A concrete example should help to clarify the idea.  \todo{example
     here of isomorphic trees, as well as non-isomorphic trees.}
@@ -481,15 +485,14 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
 
   \todo{Insert here commentary from section 3.2.1 of thesis.}
 \end{commentary}
-We denote by $\el (M)$ the category whose objects are the $M$-structures and
-whose morphisms are isomorphisms of $M$-structures; it is the
-groupoid of \term{elements} of $M$.
-
-There is a \term{forgetful} functor $U: \el (M) \to \B$ whose value on
-$s \in M$ is the \term{underlying} set of the structure $s$. The
-concept of isomorphism of structures defines an equivalence relation
-whose classes are the \term{types} of structures of the species M;
-these classes are the \term{connected components} of the groupoid $\el
+We denote by $\el (M)$ the category whose objects are the
+$M$-structures and whose morphisms are isomorphisms of $M$-structures;
+it is the groupoid of \term{elements} of $M$.  There is a
+\term{forgetful} functor $U: \el (M) \to \B$ whose value on $s \in M$
+is the \term{underlying} set of the structure $s$. The concept of
+isomorphism of structures defines an equivalence relation whose
+classes are the \term{types} of structures of the species M; these
+classes are the \term{connected components} of the groupoid $\el
 (M)$. We use the notation $\pi_0 (M)$ to denote the set of types (of
 structures) of the species $M$. If $s \in M$, we denote the
 \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
