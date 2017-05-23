@@ -15,3 +15,4 @@ diagrams/
 .cabal-sandbox/
 cabal.sandbox.config
 .diagrams_cache/
+.shake
