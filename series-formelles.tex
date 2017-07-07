@@ -16,6 +16,7 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{soul}
+\usepackage{caption}
 
 \usepackage[backend=pgf,extension=pgf,input,outputdir=diagrams]{diagrams-latex}
 
@@ -44,7 +45,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Commentary environment
 
-\newmdenv[skipabove=1em, skipbelow=1em, innermargin=1.5em, outermargin=1.5em, backgroundcolor=black!10, linecolor=black!10]{commentary}
+\newmdenv[skipabove=1em, skipbelow=1em, innermargin=1.5em, outermargin=1.5em, backgroundcolor=black!8, linecolor=black!10]{commentary}
 
 %% XXX use a different font for commentary?  Or a different font for
 %% original paper?
@@ -443,6 +444,42 @@ also, in an abuse of language, that $s$ is an \term{element} of $M$
   mapping, which sends finite sets (that is, objects of $\B$) to finite
   sets.  In particular, one should think of $M$ as sending finite sets
   of \emph{labels} to finite sets of \emph{labelled structures}.
+
+  \begin{center}
+  \begin{diagram}[width=200]
+import SpeciesDiagrams
+
+permStructures
+  = centerXY
+  . hcat' (with & sep .~ 1)
+  . map drawPerm
+  $ [[[1],[0,2]], [[2],[0,1]]]  -- $
+
+dia = permStructures
+  # lwO 0.7
+  # frame 0.5
+  \end{diagram}
+  % \caption{Two permutations with the same form}
+  % \label{fig:same-form-perms}
+
+% \begin{figure}
+%   \centering
+%   \begin{diagram}[width=200]
+% import SpeciesDiagrams
+
+% permStructures
+%   = centerXY
+%   . hcat' (with & sep .~ 1)
+%   . map drawPerm
+%   $ [[[1],[0,2]], [[0,1,2]]]  -- $
+
+% dia = permStructures
+%   # lwO 0.7
+%   # frame 0.5
+%   \end{diagram}
+%   \caption{Two permutations with different forms}
+%   \label{fig:different-form-perms}
+% \end{figure}
 
   For example, \todo{Give a simple example, with pictures.  Say how
     Joyal's terminology relates to the example \& pictures.}
