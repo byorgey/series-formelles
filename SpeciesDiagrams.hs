@@ -3,8 +3,11 @@
 {-# LANGUAGE FlexibleInstances         #-}
 {-# LANGUAGE GADTs                     #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE PartialTypeSignatures     #-}
 {-# LANGUAGE TypeFamilies              #-}
 {-# LANGUAGE TypeSynonymInstances      #-}
+
+{-# OPTIONS_GHC -fno-warn-partial-type-signatures #-}
 
 module SpeciesDiagrams where
 
@@ -20,7 +23,7 @@ import           Diagrams.Backend.PGF.CmdLine
 import           Diagrams.Core.Points
 import           Diagrams.Prelude              hiding (Empty, parts)
 import           Diagrams.TwoD.Layout.Tree
-import           Graphics.SVGFonts.ReadFont
+import           Graphics.SVGFonts
 import qualified Math.Combinatorics.Multiset   as MS
 
 colors :: [Colour Double]
@@ -31,7 +34,7 @@ labR     = 0.3
 arrowGap = 0.2
 
 aLabels :: [Diagram B]
-aLabels = map (sized (Dims (4*labR) (4*labR)))
+aLabels = map (sized (dims2D (4*labR) (4*labR)))
   [ circle 1
   , triangle 1
   , square 1
@@ -62,10 +65,13 @@ labSty :: Int -> Maybe EdgeLabel
 labSty i = Just (sLabels !! i)
 
 leafData :: Int -> Diagram B
-leafData i = (aLabels !! i) # sized (Dims2D labR labR) # fc black <> square (labR*1.5) # fc white
+leafData i = (aLabels !! i) # sized (dims2D labR labR) # fc black <> square (labR*1.5) # fc white
+
+-- text' :: Double -> String -> Diagram B
+-- text' d s = (stroke $ textSVG' (TextOpts lin INSIDE_H KERN False d d) s) # fc black # lw none
 
 text' :: Double -> String -> Diagram B
-text' d s = (stroke $ textSVG' (TextOpts s lin INSIDE_H KERN False d d)) # fc black # lw none
+text' d s = text ("$" ++ s ++ "$") # fontSizeL d
 
 labT :: Int -> Diagram B
 labT n = text' 1.5 (show n) # scale labR <> lab n
@@ -73,7 +79,7 @@ labT n = text' 1.5 (show n) # scale labR <> lab n
 lab :: Int -> Diagram B
 lab n = lab' (colors !! n)
 
-lab' :: (TrailLike b, Transformable b, HasStyle b, V b ~ V2) => Colour Double -> b
+lab' :: (TrailLike b, Transformable b, HasStyle b, V b ~ V2, N b ~ Double) => Colour Double -> b
 lab' c = circle labR
        # fc white
        # lc c
@@ -82,7 +88,7 @@ lab' c = circle labR
 cyc :: [Int] -> Double -> Diagram B
 cyc labs r = cyc' (map lab labs) r
 
-cyc' :: (Monoid' a, TrailLike a, Transformable a, HasStyle a, HasOrigin a, V a ~ V2) => [a] -> Double -> a
+cyc' :: (Monoid' a, TrailLike a, Transformable a, HasStyle a, HasOrigin a, V a ~ V2, N a ~ Double) => [a] -> Double -> a
 cyc' labs r
   = mconcat
   . zipWith (\l (p,a) -> l # moveTo p <> a) labs
@@ -93,17 +99,17 @@ cyc' labs r
   n = length labs
   mkLink _ = ( origin # translateX r
              ,
-               ( arc startAngle endAngle
+               ( arc (angleDir startAngle) arcAngle
                  # scale r
                  <>
                  eqTriangle 0.1
                  # translateX r
-                 # rotate endAngle
+                 # rotate (startAngle ^+^ arcAngle)
                  # fc black
                )
              )
-  startAngle = (labR + arrowGap)/r @@ rad
-  endAngle   = (tau/fromIntegral n @@ rad) ^-^ startAngle
+  startAngle = ((labR + arrowGap)/r) @@ rad
+  arcAngle   = ((tau/fromIntegral n) @@ rad) ^-^ (2 *^ startAngle)
 
 
 newtype Cyc a = Cyc {getCyc :: [a]}
@@ -118,7 +124,7 @@ instance Drawable (QDiagram PGF V2 Double Any) where
   draw = id
 
 instance Drawable a => Drawable (Cyc a) where
-  draw (Cyc ls) = cyc' (map draw ls # sized (Width (labR*2))) 1
+  draw (Cyc ls) = cyc' (map draw ls # sized (mkWidth (labR*2))) 1
 
 instance Drawable a => Drawable [a] where
   draw ls = centerX . hcat' (with & sep .~ 0.1)
@@ -182,7 +188,7 @@ drawSpN' _  (Leaf Nothing)  = circle (labR/2) # fc black
 drawSpN' _  (Leaf (Just d)) = d
 drawSpN' _  Hole              = circle (labR/2) # lwG (labR / 10) # fc white
 drawSpN' tr Point             = drawSpN' tr (Leaf Nothing) <> drawSpN' tr Hole # scale 1.7
-drawSpN' tr (Sp s f) = ( arc ((3/4 @@ turn) ^-^ f^/2) ((3/4 @@ turn) ^+^ f^/2) # scale 0.3
+drawSpN' tr (Sp s f) = ( arc (angleDir ((3/4 @@ turn) ^-^ f^/2)) ((3/4 @@ turn) ^+^ f^/2) # scale 0.3
                        |||
                        strutX 0.1
                        |||
@@ -230,7 +236,7 @@ linOrd ls =
   . hcat' (with & sep .~ 0.5)
   $ map labT ls & _head %~ named "head" & _last %~ named "last"
 
-unord :: (Monoid' b, Semigroup b, TrailLike b, Alignable b, Transformable b, HasStyle b, Juxtaposable b, HasOrigin b, Enveloped b, V b ~ V2) => [b] -> b
+unord :: _ => [b] -> b
 unord [] = circle 1 # lc gray
 unord ds = elts # centerXY
            <> roundedRect w (mh + s*2) ((mh + s*2) / 5)
@@ -244,13 +250,15 @@ unord ds = elts # centerXY
     maximum' _ xs = maximum xs
 
 enRect' :: (Semigroup a, TrailLike a, Alignable a, Enveloped a, HasOrigin a, V a ~ V2, N a ~ Double) => Double -> a -> a
-enRect' o d = roundedRect (w+o) (h+o) o <> d # centerXY
-  where (w,h) = size2D d
+enRect' o d = roundedRect (width d + o) (height d + o) o <> d # centerXY
 
 enRect :: (Semigroup a, TrailLike a, Alignable a, Enveloped a, HasOrigin a, V a ~ V2, N a ~ Double) => a -> a
 enRect = enRect' 0.5
 
-txt x = text x # fontSizeO 10 <> square 1 # lw none
+-- txt x = text x # fontSizeO 10 <> square 1 # lw none
+txt = txt' 10
+
+txt' d x = text ("$" ++ x ++ "$") # fontSizeO d <> square 1 # lw none
 
 ------------------------------------------------------------
 -- Some specific constructions

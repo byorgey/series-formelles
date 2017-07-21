@@ -426,7 +426,9 @@ to finitary species, unless otherwise noted.
   and total functions, rather than bijections \citep{joyal86, bll}.
   However, functors necessarily preserve isomorphisms, so every
   bijection in $\B$ must actually map to a bijection in $\E$.  Thus,
-  for most purposes the distinction is not an important one.  In fact,
+  for most purposes the distinction is not an important one; the
+  category of functors $\B \to \B$ is equivalent to that of functors
+  $\B \to \E$.  In fact,
   Joyal introduces functors $\B \to \E$ later, in
   \pref{sec:category-of-species}.
 \end{commentary}
@@ -438,51 +440,48 @@ also, in an abuse of language, that $s$ is an \term{element} of $M$
 ($s \in M$) and that it is an \term{$M$-structure}.
 
 \begin{commentary}
-  Recall that an endofunctor $M : \B \to \B$ has two components, an
-  object mapping and a morphism mapping.  This first paragraph after
-  the definition sets up some terminology related to the object
-  mapping, which sends finite sets (that is, objects of $\B$) to finite
-  sets.  In particular, one should think of $M$ as sending finite sets
-  of \emph{labels} to finite sets of \emph{labelled structures}.
+  Recall that a functor has two components, a mapping from objects to
+  objects and a mapping from morphisms to morphisms.  This first
+  paragraph after the definition sets up some terminology related to
+  the object mapping, which sends finite sets (that is, objects of
+  $\B$) to finite sets.  In particular, one should think of $M$ as
+  sending finite sets of \emph{labels} to finite sets of
+  \emph{labelled structures}.
 
-  \begin{center}
-  \begin{diagram}[width=200]
+  For example, consider the functor $L : \B \to \B$ which sends each
+  finite set of labels to the set of all linear orderings on the
+  labels, as illustrated below for a particular set of labels:
+    \begin{center}
+    \begin{diagram}[width=300]
 import SpeciesDiagrams
+import Data.List
+import Data.List.Split
 
-permStructures
-  = centerXY
-  . hcat' (with & sep .~ 1)
-  . map drawPerm
-  $ [[[1],[0,2]], [[2],[0,1]]]  -- $
-
-dia = permStructures
+dia =
+  hcat' (with & sep .~ 0.5)
+  [ unord (map labT [0..2]) === txt' 8 "E"
+  , mkArrow 2 (txt "L")
+  , enRect listStructures === txt' 8 "L[E]"
+  ]
+  # centerXY
+  # pad 1.1
   # lwO 0.7
-  # frame 0.5
-  \end{diagram}
-  % \caption{Two permutations with the same form}
-  % \label{fig:same-form-perms}
 
-% \begin{figure}
-%   \centering
-%   \begin{diagram}[width=200]
-% import SpeciesDiagrams
-
-% permStructures
-%   = centerXY
-%   . hcat' (with & sep .~ 1)
-%   . map drawPerm
-%   $ [[[1],[0,2]], [[0,1,2]]]  -- $
-
-% dia = permStructures
-%   # lwO 0.7
-%   # frame 0.5
-%   \end{diagram}
-%   \caption{Two permutations with different forms}
-%   \label{fig:different-form-perms}
-% \end{figure}
-
-  For example, \todo{Give a simple example, with pictures.  Say how
-    Joyal's terminology relates to the example \& pictures.}
+listStructures
+  = centerXY
+  . hcat' (with & sep .~ 0.7)
+  . map (vcat' (with & sep .~ 0.5))
+  . chunksOf 2
+  . map (drawList' labT)
+  . permutations
+  $ [0..2]
+    \end{diagram}
+    %$
+  \end{center}
+  If the set on the left is $E = \{0,1,2\}$, then the set on the right
+  is $L[E]$, the set of all $L$-structures supported by $E$.  Each
+  linear order $s \in L[E]$ is called an $L$-structure, or element of
+  $L$, and has $E = \{0,1,2\}$ as its underlying set.
 \end{commentary}
 
 If $u: E \to F$ is a bijection, the element $t = M [u] (s)$ is the
@@ -490,20 +489,75 @@ structure on $F$ obtained by \term{transport along $u$}. The bijection
 $u$ is an \term{isomorphism} between $s$ and $t$:
 \[ u : s \to t. \]
 \begin{commentary}
-  These next sentences have to do with the second component of a
-  functor, the morphism mapping which sends morphisms to morphisms.
-  In this case, $M$ sends bijections between label sets
-  (\term{relabellings}) to bijections between sets of labelled
-  structures (with each structure corresponding to its relabelled
-  version).
+  These next sentences have to do with the second component of the
+  functor, the mapping from morphisms to morphisms.  In this case,
+  morphisms in the source category are bijections between label sets
+  (which one can think of as \term{relabellings}), which are sent to
+  bijections between sets of labelled structures (with each structure
+  corresponding to its relabelled version).
+
+  XXX example with picture using the letters M, u, s, t, E, F
+
+  \begin{diagram}[width=300]
+import           Data.Char                      (ord)
+import           Data.Maybe                     (fromMaybe)
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
+
+t :: BTree Int
+t = BNode 1 (leaf 0) (BNode 2 (leaf 3) (leaf 4))
+
+sig :: Int -> Char
+sig = ("acebd"!!)
+
+mkNamedNode :: IsName n => (Int -> n) -> (Int -> String) -> Int -> Diagram B
+mkNamedNode name sh n = (text (sh n) # scale labR <> lab n) # named (name n)
+
+mkNamedTree :: IsName n => (Int -> n) -> (Int -> String) -> BTree Int -> BTree (Diagram B)
+mkNamedTree name sh = fmap (mkNamedNode name sh)
+
+t1 = drawBinTreeWide . mkNamedTree id show $ t
+t2 = drawBinTreeWide . mkNamedTree sig ((:[]) . sig) $ t
+
+linkedTrees = hcat' (with & sep .~ 0.5) [t1, t2]
+  # applyAll (map conn [0..4 :: Int])
+  where
+    conn i = connectOutside'
+      (with & arrowShaft .~ selectShaft i
+            & shaftStyle %~ dashingG [0.05,0.05] 0
+            & arrowHead .~ noHead
+      )
+      i (sig i)
+    selectShaft i | i `elem` [0,3] = theArc # reverseTrail
+                  | i `elem` [2,4] = theArc
+    selectShaft _ = hrule 1
+    theArc = arc xDir (75 @@ deg)
+
+drawSig :: Int -> (Int -> Char) -> Diagram B
+drawSig n sig = hcat' (with & sep .~ 0.1) (setlabs : map drawOne [0..(n-1)])
+  where
+    setlabs = vsep 0.5 [txt' 8 "E", txt' 8 "F"]
+    drawOne i = vcat
+      [ mkNamedNode id show i
+      , vrule 1 # dashingG [0.05,0.05] 0
+      , mkNamedNode sig ((:[]) . sig) i ]
+
+dia = hcat' (with & sep .~ 3)
+  [ drawSig 5 sig # centerXY # named "sig"
+  , linkedTrees   # centerXY # named "trees"
+  ]
+  # connectOutside' (with & gap .~ local 0.5) "sig" "trees"
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
 
   $u : s \to t$ is a mild abuse of notation; $u$ is in fact a
-  bijection between label sets $E$ and $F$, and $s$ and $t$ are not
-  even sets.  The point is that, via transport, $u : E \to F$ induces
-  a bijection between the sets of structures $M[E]$ and $M[F]$.  If
-  this bijection relates $s \in M[E]$ and $t \in M[F]$, then we say
-  that $s$ and $t$ are isomorphic, as witnessed by $u$, and write
-  $u : s \to t$.
+  bijection between label sets $E$ and $F$, and $s$ and $t$ are
+  elements of $M[E]$ and $M[F]$ respectively, not sets.  The point is
+  that, via transport, $u : E \to F$ induces a bijection $M[u]$
+  between the sets of structures $M[E]$ and $M[F]$.  If this bijection
+  relates $s \in M[E]$ and $t \in M[F]$, then we say that $s$ and $t$
+  are isomorphic, as witnessed by $u$, and write $u : s \to t$.
 
   A concrete example should help to clarify the idea.  \todo{example
     here of isomorphic trees, as well as non-isomorphic trees.}
