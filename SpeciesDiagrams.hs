@@ -469,3 +469,12 @@ fun x y = hcat' (with & sep .~ 1)
   , arrow 3
   , y # centerY
   ]
+
+------------------------------------------------------------
+
+mkNamedNode :: IsName n => (Int -> n) -> (Int -> String) -> Int -> Diagram B
+mkNamedNode name sh n = (text (sh n) # scale labR <> lab n) # named (name n)
+
+mkNamedTree :: IsName n => (Int -> n) -> (Int -> String) -> BTree Int -> BTree (Diagram B)
+mkNamedTree name sh = fmap (mkNamedNode name sh)
+

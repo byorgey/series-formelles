@@ -496,9 +496,20 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
   bijections between sets of labelled structures (with each structure
   corresponding to its relabelled version).
 
-  XXX example with picture using the letters M, u, s, t, E, F
+  The diagram below shows an example, where $M$ is some species of
+  labelled binary trees. $u$ is a bijection between the label sets
+  $E = \{0, \dots, 4\}$ and $F = \{a, \dots, e\}$; so $M[u]$ is a
+  bijection between the set $M[E]$ of trees labelled by $E$ and $M[F]$
+  of trees labelled by $F$.  The diagram shows a particular
+  $s \in M[E]$ and its image $t = M[u](s)$ under the relabelling $u$;
+  notice how each label in the structure has simply been replaced by
+  its corresponding label under $u$.
 
+  \begin{center}
   \begin{diagram}[width=300]
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE FlexibleContexts #-}
+
 import           Data.Char                      (ord)
 import           Data.Maybe                     (fromMaybe)
 import           Diagrams.TwoD.Layout.Tree
@@ -510,16 +521,10 @@ t = BNode 1 (leaf 0) (BNode 2 (leaf 3) (leaf 4))
 sig :: Int -> Char
 sig = ("acebd"!!)
 
-mkNamedNode :: IsName n => (Int -> n) -> (Int -> String) -> Int -> Diagram B
-mkNamedNode name sh n = (text (sh n) # scale labR <> lab n) # named (name n)
-
-mkNamedTree :: IsName n => (Int -> n) -> (Int -> String) -> BTree Int -> BTree (Diagram B)
-mkNamedTree name sh = fmap (mkNamedNode name sh)
-
 t1 = drawBinTreeWide . mkNamedTree id show $ t
 t2 = drawBinTreeWide . mkNamedTree sig ((:[]) . sig) $ t
 
-linkedTrees = hcat' (with & sep .~ 0.5) [t1, t2]
+linkedTrees s t = hsep 0.8 [t1 === txt' 8 s, t2 === txt' 8 t]
   # applyAll (map conn [0..4 :: Int])
   where
     conn i = connectOutside'
@@ -531,36 +536,78 @@ linkedTrees = hcat' (with & sep .~ 0.5) [t1, t2]
     selectShaft i | i `elem` [0,3] = theArc # reverseTrail
                   | i `elem` [2,4] = theArc
     selectShaft _ = hrule 1
-    theArc = arc xDir (75 @@ deg)
+    theArc = arc xDir (65 @@ deg)
 
-drawSig :: Int -> (Int -> Char) -> Diagram B
-drawSig n sig = hcat' (with & sep .~ 0.1) (setlabs : map drawOne [0..(n-1)])
+drawSig :: String -> String -> String -> Int -> (Int -> Char) -> Diagram B
+drawSig e f u n sig = vcat
+  [ hsep 0.2 [txt' 8 e, unord (map (mkNamedNode id show) [0..n-1])]
+  , txt' 8 u # translateX 0.5
+  , hsep 0.2 [txt' 8 f, unord (map (mkNamedNode sig ((:[]).sig)) [0..n-1])]
+  ]
+  # applyAll [ connectOutside' opts x y | x <- [0 :: Int .. n-1], let y = sig x ]
   where
-    setlabs = vsep 0.5 [txt' 8 "E", txt' 8 "F"]
-    drawOne i = vcat
-      [ mkNamedNode id show i
-      , vrule 1 # dashingG [0.05,0.05] 0
-      , mkNamedNode sig ((:[]) . sig) i ]
+    opts = with & arrowHead .~ noHead & shaftStyle %~ dashingG [0.05,0.05] 0
+
+-- XXX eventually this should be moved into diagrams-lib
+connectEnvelope'
+  :: (TypeableFloat n, Renderable (Path V2 n) b, IsName n1, IsName n2)
+  => ArrowOpts n -> QDiagram b V2 n Any -> n1 -> n2 -> QDiagram b V2 n Any -> QDiagram b V2 n Any
+connectEnvelope' opts label n1 n2 =
+  withName n1 $ \b1 ->
+  withName n2 $ \b2 ->
+    let v = location b2 .-. location b1
+        midpoint = location b1 .+^ (v ^/ 2)
+        s' = fromMaybe (location b1) $ envelopePMay v b1
+        e' = fromMaybe (location b2) $ envelopePMay (negated v) b2
+    in
+      atop (arrowBetween' opts s' e' <> label # moveTo midpoint)
 
 dia = hcat' (with & sep .~ 3)
-  [ drawSig 5 sig # centerXY # named "sig"
-  , linkedTrees   # centerXY # named "trees"
+  [ drawSig "E" "F" "u" 5 sig     # centerXY # named "sig"
+  , linkedTrees "s" "t = M[u](s)" # centerXY # named "trees"
   ]
-  # connectOutside' (with & gap .~ local 0.5) "sig" "trees"
+  # connectEnvelope' (with & gap .~ local 0.5)
+      (txt' 8 "M[u]" # translateY 0.4) "sig" "trees"
   # frame 0.5
   # lwO 0.7
   \end{diagram}
+  \end{center}
 
-  $u : s \to t$ is a mild abuse of notation; $u$ is in fact a
-  bijection between label sets $E$ and $F$, and $s$ and $t$ are
-  elements of $M[E]$ and $M[F]$ respectively, not sets.  The point is
-  that, via transport, $u : E \to F$ induces a bijection $M[u]$
-  between the sets of structures $M[E]$ and $M[F]$.  If this bijection
-  relates $s \in M[E]$ and $t \in M[F]$, then we say that $s$ and $t$
-  are isomorphic, as witnessed by $u$, and write $u : s \to t$.
+  Joyal writes $u : s \to t$, which is a mild abuse of notation; $u$
+  is in fact a bijection between label sets $E$ and $F$, and $s$ and
+  $t$ are elements of $M[E]$ and $M[F]$ respectively, not sets.  The
+  point is that, via transport, $u : E \to F$ induces a bijection
+  $M[u]$ between the sets of structures $M[E]$ and $M[F]$.  If this
+  bijection relates $s \in M[E]$ and $t \in M[F]$, then we say that
+  $s$ and $t$ are isomorphic, as witnessed by $u$, and write
+  $u : s \to t$.
 
-  A concrete example should help to clarify the idea.  \todo{example
-    here of isomorphic trees, as well as non-isomorphic trees.}
+  A concrete example should help to clarify the idea. The trees $s$
+  and $t$ shown above are isomorphic, as witnessed by the relabelling
+  $u$.  Any other tree $t'$ of the ``same shape'' would also be
+  isomorphic to $s$, as long as there exists some bijection $u'$ which
+  swaps out the labels of $s$ for the corresponding labels in $t'$.
+  As an example of non-isomorphic tree structures, however, consider
+  the diagram below: there is no way to turn $s$ into $t$ merely by
+  permuting labels.
+
+  \begin{center}
+  \begin{diagram}[width=150]
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
+
+s, t :: BTree Int
+s = BNode 1 (leaf 0) (BNode 2 (leaf 3) (leaf 4))
+t = BNode 1 (BNode 2 (leaf 3) (leaf 4)) (leaf 0)
+
+dia = hsep 0.8
+  [ (drawBinTreeWide . mkNamedTree id show) s === txt' 8 "s"
+  , (drawBinTreeWide . mkNamedTree id show) t === txt' 8 "t"
+  ]
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
+  \end{center}
 
   The fact that a species is a \emph{functor} (as opposed to just a
   mapping from sets of labels to sets of structures) corresponds to
