@@ -501,7 +501,7 @@ $u$ is an \term{isomorphism} between $s$ and $t$:
   $E = \{0, \dots, 4\}$ and $F = \{a, \dots, e\}$; so $M[u]$ is a
   bijection between the set $M[E]$ of trees labelled by $E$ and $M[F]$
   of trees labelled by $F$.  The diagram shows a particular
-  $s \in M[E]$ and its image $t = M[u](s)$ under the relabelling $u$;
+  $s \in M[E]$ and its image $t = M[u](s)$ under the relabelling $M[u]$;
   notice how each label in the structure has simply been replaced by
   its corresponding label under $u$.
 
@@ -576,11 +576,14 @@ dia = hcat' (with & sep .~ 3)
   Joyal writes $u : s \to t$, which is a mild abuse of notation; $u$
   is in fact a bijection between label sets $E$ and $F$, and $s$ and
   $t$ are elements of $M[E]$ and $M[F]$ respectively, not sets.  The
-  point is that, via transport, $u : E \to F$ induces a bijection
-  $M[u]$ between the sets of structures $M[E]$ and $M[F]$.  If this
+  point is that $u : E \to F$ induces a bijection
+  $M[u]$ between the sets of structures $M[E]$ and $M[F]$; if this
   bijection relates $s \in M[E]$ and $t \in M[F]$, then we say that
   $s$ and $t$ are isomorphic, as witnessed by $u$, and write
-  $u : s \to t$.
+  $u : s \to t$.  That is, whereas $u : E \to F$ is pronounced ``$u$
+  is a function from $E$ to $F$'', $u : s \to t$ is pronounced ``$u$
+  is a relabelling which, via transport, sends the structure $s$ to
+  the structure $t$''.
 
   A concrete example should help to clarify the idea. The trees $s$
   and $t$ shown above are isomorphic, as witnessed by the relabelling
@@ -614,7 +617,7 @@ dia = hsep 0.8
   the idea of ``baking in'' the notion of \emph{transport}, mentioned
   earlier.  Here we see that the functorial mapping from a bijection
   on label sets to a bijection on sets of structures is exactly what
-  allows us to ``transport'' some structures along a bijection of
+  allows us to ``transport'' structures along a bijection of
   labels to get new, relabelled structures.
 
   \todoin{crux of the idea.  No complicated structural definition.  Just
@@ -1577,11 +1580,10 @@ F(A_R)[n] &= F(A_R)[n-1] \\
 \section{Bourbaki's definition of species}
 \label{sec:appendix-bourbaki}
 
-\begin{commentary}
-  This appears on page 6 of \emph{\'El\'ements de math\'ematique},
-  Book 1 (Theory of Sets), Chapter 4, available from
-  \url{http://sites.mathdoc.fr/archives-bourbaki/PDF/180_nbr_083.pdf}.
-  \todo{cite}
+This appears on page 6 of \emph{\'El\'ements de math\'ematique},
+Book 1 (Theory of Sets), Chapter 4, available from
+\url{http://sites.mathdoc.fr/archives-bourbaki/PDF/180_nbr_083.pdf}.
+\todo{cite}
 
 \begingroup \itshape
 We say that we have defined, in a theory $\mathcal{C}$ at least as
@@ -1625,7 +1627,5 @@ $x_i$ for different ones.
 Functoriality is embedded in the definition of an \emph{echelon
   construction} on page 2:
 \todo{Translate echelon construction definition with commentary.}
-
-\end{commentary}
 
 \end{document}
