@@ -594,7 +594,7 @@ dia = hcat' (with & sep .~ 3)
   corresponding labels in $t'$.  As an example of non-isomorphic tree
   structures, however, consider the diagram below: there is no way to
   turn $s$ into $t$ merely by permuting labels.  These two tree
-  structure are fundamentally different.
+  structures are fundamentally different.
 
   \begin{center}
   \begin{diagram}[width=150]
@@ -648,6 +648,16 @@ classes are the \term{connected components} of the groupoid $\el
 (M)$. We use the notation $\pi_0 (M)$ to denote the set of types (of
 structures) of the species $M$. If $s \in M$, we denote the
 \term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
+
+\begin{commentary}
+  $\el (M)$ is of course a \term{groupoid} because isomorphisms
+  between $M$-structures are invertible: if $u : s \to t$, that is, if
+  $u$ is a bijection between label sets such that relabelling the
+  structure $s$ by $u$ yields $t$, then we necessarily have
+  $u^{-1} : t \to s$.
+
+  \todo{Show examples of types}
+\end{commentary}
 
 \begin{ex}
   Recall that a \emph{simplicial scheme} structure on $E$ is a set
