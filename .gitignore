@@ -16,3 +16,4 @@ diagrams/
 cabal.sandbox.config
 .diagrams_cache/
 .shake
+*~
