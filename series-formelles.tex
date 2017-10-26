@@ -652,17 +652,53 @@ structures) of the species $M$. If $s \in M$, we denote the
   This definition of structure \emph{types} is an important one, and
   worth unpacking a bit.  A \emph{type} of structures is formally
   defined as an equivalence class of structures under isomorphism,
-  that is, under relabelling.  Intuitively, a type is a \emph{shape}
-  devoid of any labels.
+  that is, under relabelling.  For example, all the labelled trees
+  shown below are isomorphic, since any two of them are related by a
+  relabelling.
+  \begin{center}
+  \begin{diagram}[width=200]
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
 
-  For example, XXX use example related to trees $s$ and $t$ from
-  before.  Show a bunch of trees isomorphic to $s$ and show
+s :: BTree Int
+s = BNode 1 (leaf 0) (BNode 2 (leaf 3) (leaf 4))
 
-  Intuitively, we can think of types in terms of these pictures of
-  ``shapes'' with nondescript dots in place of labels.  This isn't
-  always good enough---for exampe, XXX---so it's good to be able to
-  return to the formal definition in terms of equivalence classes of
-  labelled structures.
+applyPerm p n = p !! n
+
+dia = hsep 0.8
+  [ (drawBinTreeWide . mkNamedTree id show) s
+  , (drawBinTreeWide . mkNamedTree id show) (s # fmap (applyPerm [0,1,2,4,3]))
+  , (drawBinTreeWide . mkNamedTree id show) (s # fmap (applyPerm [2,4,0,1,3]))
+  , (drawBinTreeWide . mkNamedTree id show) (s # fmap (applyPerm [1,2,3,4,0]))
+  ]
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
+  \end{center}
+  The collection of all such trees (there are infinitely many, since
+  we could use \emph{any} set of labels, not just $\{0\dots 4\}$)
+  forms a \emph{type}. (I often use the word ``shape'' to mean the
+  same thing.) We can visually represent this type/shape like so:
+  \begin{center}
+  \begin{diagram}[width=50]
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
+
+s :: BTree Int
+s = BNode 1 (leaf 0) (BNode 2 (leaf 3) (leaf 4))
+
+dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
+  \end{center}
+
+  That is, intuitively, we can often think of types in terms of these
+  pictures of ``unlabelled shapes'' with nondescript dots in place of
+  labels.  This isn't always good enough---we'll see some examples
+  later where it breaks down---so it's good to be able to return to
+  the formal definition in terms of equivalence classes of labelled
+  structures.
 \end{commentary}
 
 \begin{ex}
