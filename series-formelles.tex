@@ -677,8 +677,8 @@ dia = hsep 0.8
   \end{center}
   The collection of all such trees (there are infinitely many, since
   we could use \emph{any} set of labels, not just $\{0\dots 4\}$)
-  forms a \emph{type}. (I often use the word ``shape'' to mean the
-  same thing.) We can visually represent this type/shape like so:
+  forms a \emph{type}. I also tend to use the word ``shape'' to mean the
+  same thing. We can visually represent this type/shape like so:
   \begin{center}
   \begin{diagram}[width=50]
 import           Diagrams.TwoD.Layout.Tree
@@ -692,13 +692,13 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   # lwO 0.7
   \end{diagram}
   \end{center}
-
   That is, intuitively, we can often think of types in terms of these
-  pictures of ``unlabelled shapes'' with nondescript dots in place of
-  labels.  This isn't always good enough---we'll see some examples
-  later where it breaks down---so it's good to be able to return to
-  the formal definition in terms of equivalence classes of labelled
-  structures.
+  pictures of ``unlabelled shapes'' with indistinguishable dots in
+  place of labels.  However, thinking of shapes as structures with
+  indistinguishable labels isn't always good enough---we'll see some
+  examples later where it breaks down---so it's good to be able to
+  return to the formal definition in terms of equivalence classes of
+  labelled structures.
 \end{commentary}
 
 \begin{ex}
@@ -721,6 +721,53 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   \emph{forests} is that of graphs \emph{without cycles}, the species
   of \emph{trees} is that of connected forests, etc.
 \end{ex}
+
+\begin{commentary}
+  XXX Explain what a simplex is.  Point, line, triangle,
+  tetrahedron\dots
+
+  \begin{center}
+  \begin{diagram}[width=200]
+dia = hsep 1
+  [ pt
+  , (pt <> hrule 1 # alignL) # alignR <> pt
+  , mconcat
+    [ foldMap (place pt) (triangle 1 :: [P2 Double])
+    , triangle 1 # fc lightblue
+    ]
+  ]
+  # frame 0.5
+  # lwO 0.7
+  where
+    pt = circle 0.08 # fc black
+  \end{diagram}
+  \end{center}
+
+  Simplicial scheme on a set of vertices $E$ is a set of non-empty
+  subsets; we think of each subset as specifying that the vertices in
+  the subset are all connected by an appropriate simplex.  For
+  example, \dots  The condition that every subset of some element of
+  $\Simp$ is also in $\Simp$ is just saying that a simplex must
+  contain all its faces.  XXX explain this better.
+
+  \begin{center}
+  \begin{diagram}[width=100]
+dia = mconcat
+  [ mconcat
+    [ foldMap (place pt) (triangle 1 :: [P2 Double])
+    , triangle 1 # fc lightblue
+    ]
+  , (hrule 1 # alignL <> pt) # alignR # rotate (20 @@ deg)
+  ]
+  # frame 0.5
+  # lwO 0.7
+  where
+    pt = circle 0.08 # fc black
+  \end{diagram}
+  \end{center}
+
+  XXX talk about specific subspecies he gives.
+\end{commentary}
 
 \begin{ex} \label{ex:endofunctions}
   The transport of an endofunction $a : E \to E$ along a bijection $u
