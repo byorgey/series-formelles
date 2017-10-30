@@ -720,15 +720,25 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   example, connectedness is such an invariant property. The species of
   \emph{forests} is that of graphs \emph{without cycles}, the species
   of \emph{trees} is that of connected forests, etc.
-\end{ex}
 
 \begin{commentary}
-  XXX Explain what a simplex is.  Point, line, triangle,
-  tetrahedron\dots
-
+  This whole business with \emph{simplicial schemes} is unnecessarily
+  general in some sense, but it is a nice observation.  Geometrically,
+  \term{simplices} are what we get when we start with a single point
+  (a ``$0$-simplex''), and then repeatedly add points, each time
+  connecting the new point to all the previous points (and also
+  ``filling in'' the interior).  For example, a $1$-simplex is a
+  line segment between two points; a $2$-simplex is a (filled in)
+  triangle; a $3$-simplex is a solid tetrahedron; and after that they
+  get harder to visualize, but conceptually are just like
+  ``$n$-dimensional tetrahedra''.  Notice that an $n$-simplex has a
+  ``boundary'' which consists of $n-1$ simplices: a line segment has
+  two endpoints; a triangle has three edges; a tetrahedron has four
+  triangular faces. (And yes, a four-dimensional $4$-simplex has five
+  tetrahedral ``faces''.)
   \begin{center}
   \begin{diagram}[width=200]
-dia = hsep 1
+dia =
   [ pt
   , (pt <> hrule 1 # alignL) # alignR <> pt
   , mconcat
@@ -736,12 +746,21 @@ dia = hsep 1
     , triangle 1 # fc lightblue
     ]
   ]
+  # map alignB
+  # hsep 1
   # frame 0.5
   # lwO 0.7
   where
     pt = circle 0.08 # fc black
   \end{diagram}
   \end{center}
+
+
+  A \term{simplicial complex}, intuitively, is just a bunch of
+  simplices glued together in some way.
+
+  Often we don't care about the actual geometry, but only the way in
+  which
 
   Simplicial scheme on a set of vertices $E$ is a set of non-empty
   subsets; we think of each subset as specifying that the vertices in
@@ -768,6 +787,7 @@ dia = mconcat
 
   XXX talk about specific subspecies he gives.
 \end{commentary}
+\end{ex}
 
 \begin{ex} \label{ex:endofunctions}
   The transport of an endofunction $a : E \to E$ along a bijection $u
