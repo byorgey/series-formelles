@@ -727,15 +727,15 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   \term{simplices} are what we get when we start with a single point
   (a ``$0$-simplex''), and then repeatedly add points, each time
   connecting the new point to all the previous points (and also
-  ``filling in'' the interior).  For example, a $1$-simplex is a
-  line segment between two points; a $2$-simplex is a (filled in)
-  triangle; a $3$-simplex is a solid tetrahedron; and after that they
-  get harder to visualize, but conceptually are just like
-  ``$n$-dimensional tetrahedra''.  Notice that an $n$-simplex has a
-  ``boundary'' which consists of $n-1$ simplices: a line segment has
-  two endpoints; a triangle has three edges; a tetrahedron has four
-  triangular faces. (And yes, a four-dimensional $4$-simplex has five
-  tetrahedral ``faces''.)
+  ``filling in'' the interior).  For example, a $1$-simplex is a line
+  segment between two points; a $2$-simplex is a (filled in) triangle;
+  a $3$-simplex is a solid tetrahedron; and after that they get harder
+  to visualize, but conceptually are just the natural generalization
+  of triangles and tetrahedra to $n$ dimensions. Notice that an
+  $n$-simplex has a ``boundary'' which consists of ($n-1$)-simplices: a
+  line segment has two endpoints; a triangle has three edges; a
+  tetrahedron has four triangular faces. (And yes, a four-dimensional
+  $4$-simplex has five tetrahedral ``faces''.)
   \begin{center}
   \begin{diagram}[width=200]
 dia =
