@@ -760,18 +760,22 @@ the vertices of one of the $n$-dimensional faces.  Of course the
 same is true of the faces in turn, that is, every size $n-1$ subset of
 the vertices is a simplex which is the face of a face, and so on.
 
+This explains what the geometric idea of simplices has to do with the
+abstract set-based definition given above.  In the present context we
+do not actually care about the geometry of simplices, but only their
+combinatorial structure.  In this case, we just identify a simplex
+with its set of vertices.  A \term{simplicial complex} $\Simp$ is a
+collection of sets which we think of as a collection of simplices; the
+requirement that every non-empty subset of an element of $\Simp$ also
+belongs to $\Simp$ just means that whenever we have a simplex in our
+collection, all its faces, faces of faces, and so on, are also
+simplices in our collection.  
 
-
-  A \term{simplicial complex}, intuitively, is just a bunch of
-  simplices glued together in some way.
-
-  Simplicial scheme on a set of vertices $E$ is a set of non-empty
-  subsets; we think of each subset as specifying that the vertices in
-  the subset are all connected by an appropriate simplex.  For
-  example, \dots  The condition that every subset of some element of
-  $\Simp$ is also in $\Simp$ is just saying that a simplex must
-  contain all its faces.  XXX explain this better.
-
+The fact that the simplices in $\Simp$ are all built from some
+underlying set of labels $E$ means that they can share vertices, so
+$\Simp$ is not just a collection of independent, disjoint simplices,
+but in general they can be glued together in various ways along their
+faces. For example,
   \begin{center}
   \begin{diagram}[width=100]
 dia = mconcat
@@ -787,7 +791,8 @@ dia = mconcat
     pt = circle 0.08 # fc black
   \end{diagram}
   \end{center}
-
+  XXX this is a graphical representation of the simplicial scheme XXX ...
+  
   XXX talk about specific subspecies he gives.
 \end{commentary}
 \end{ex}
