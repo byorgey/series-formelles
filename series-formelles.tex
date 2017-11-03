@@ -731,11 +731,7 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   segment between two points; a $2$-simplex is a (filled in) triangle;
   a $3$-simplex is a solid tetrahedron; and after that they get harder
   to visualize, but conceptually are just the natural generalization
-  of triangles and tetrahedra to $n$ dimensions. Notice that an
-  $n$-simplex has a ``boundary'' which consists of ($n-1$)-simplices: a
-  line segment has two endpoints; a triangle has three edges; a
-  tetrahedron has four triangular faces. (And yes, a four-dimensional
-  $4$-simplex has five tetrahedral ``faces''.)
+  of triangles and tetrahedra to $n$ dimensions.
   \begin{center}
   \begin{diagram}[width=200]
 dia =
@@ -753,14 +749,21 @@ dia =
   where
     pt = circle 0.08 # fc black
   \end{diagram}
-  \end{center}
+\end{center}
+Notice that every $n$-simplex has a ``boundary'' which consists of
+simplices one dimension smaller: a line segment has two endpoints; a
+triangle has three edges; a tetrahedron has four triangular faces, and
+so on (yes, a $4$-simplex has five tetrahedral ``faces''.)  In fact,
+if we label the vertices of an $n$-simplex with elements from some
+finite set of size $n+1$, \emph{every} size $n$ subset corresponds to
+the vertices of one of the $n$-dimensional faces.  Of course the
+same is true of the faces in turn, that is, every size $n-1$ subset of
+the vertices is a simplex which is the face of a face, and so on.
+
 
 
   A \term{simplicial complex}, intuitively, is just a bunch of
   simplices glued together in some way.
-
-  Often we don't care about the actual geometry, but only the way in
-  which
 
   Simplicial scheme on a set of vertices $E$ is a set of non-empty
   subsets; we think of each subset as specifying that the vertices in
