@@ -420,17 +420,33 @@ to finitary species, unless otherwise noted.
 \end{defn}
 
 \begin{commentary}
-  As a quick aside, it's worth pointing out that most subsequent
-  publications (even by Joyal himself) actually define species as
-  functors $\B \to \E$, where $\E$ is the category of (finite) sets
-  and total functions, rather than bijections \citep{joyal86, bll}.
-  However, functors necessarily preserve isomorphisms, so every
-  bijection in $\B$ must actually map to a bijection in $\E$.  Thus,
-  for most purposes the distinction is not an important one; the
-  category of functors $\B \to \B$ is equivalent to that of functors
-  $\B \to \E$.  In fact,
-  Joyal introduces functors $\B \to \E$ later, in
+  It's worth pointing out that most subsequent publications (even by
+  Joyal himself) actually define species as functors $\B \to \E$,
+  where $\E$ is the category of (finite) sets and total functions,
+  rather than bijections \citep{joyal86, bll}.  In fact, Joyal
+  introduces functors $\B \to \E$ later, in
   \pref{sec:category-of-species}.
+
+  When considering an individual species, the distinction does not
+  seem important: since functors necessarily preserve isomorphisms,
+  every bijection in $\B$ must actually map to a bijection in $\E$, so
+  the image of any functor $\B \to \E$ actually lies in $\B$.
+  However, considering the whole collection of species as a category,
+  the distinction is an important one: the functor categories $\B^\B$
+  and $\E^\B$ are not equivalent.  Although these two categories have
+  essentially the same collection of \emph{objects} (namely, functors
+  $\B \to \B$ or $\B \to \E$), they do not have the same
+  \emph{morphisms} (namely, natural transformations).  Any natural
+  transformation between functors $\B \to \B$ is an isomorphism, so
+  the functor category $\B^\B$ is a rather impoverished groupoid,
+  without things like products or coproducts.  Natural transformations
+  between functors $\B \to \E$, on the other hand, need not be
+  isomorphisms, and the functor category $\E^\B$ indeed admits nice
+  constructions such as products and coproducts, which turn out to
+  correspond to sensible operations on species.  Hence $\B \to \E$
+  really seems to be the ``right'' notion of species to use.  (I am
+  grateful to Ian Price for pointing out this fact to me, which I had
+  somehow missed even after many years of thinking about such things!)
 \end{commentary}
 
 If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
@@ -837,9 +853,31 @@ dia = mconcat
   which is ultimately constant.
 
   \begin{commentary}
-    Illustrate transport for endofunctions?  XXX pictures illustrating
-    permutations, connected endofunctions, circular permutations,
-    contraction.  Need facility for drawing labelled graphs!
+    If $\phi$ is an endofunction on the set of labels $E$, and $u$ is
+    a bijection $E \bij F$, the situation can be pictured as below:
+    \[ \xymatrix{E
+        \ar@{<->}[r]^{u} \ar[d]_{\phi} & F \ar@{.>}[d]^{u \phi u^{-1}} \\
+        E \ar@{<->}[r]^{u} & F } \] ``Transporting $\phi$ along $u$''
+    means using the bijection $u$ between $E$ and $F$ to turn $\phi$
+    from an endofunction on $E$ into an endofunction on $F$.  The way
+    to do this can be read off from the picture: the $\phi$ on the
+    left side of the square turns into the dotted arrow on the right
+    side of the square, formed by following three sides of the square
+    around.  First run $u^{-1}$, to turn $F$ back into $E$; then
+    perform $\phi$; then run $u$ to get back to $F$ again.  Note that
+    $u \cdot \id \cdot u^{-1} = u \cdot u^{-1} = \id$, and $(u \cdot
+    \phi \cdot u^{-1}) \cdot (u \cdot \psi \cdot u^{-1}) = u \cdot
+    (\phi \cdot \psi) \cdot u^{-1}$, so this defines a valid functor
+
+    Functional programmers are not used to thinking of a definition
+    like $\mathbf{End}(E) = E \to E$ as a functor, since $E$ occurs
+    both positively and negatively.  But since we are lifting
+    \emph{bijections} $u$, we can deal just as easily with negative
+    occurrences as positive, by making use of the inverse $u^{-1}$.
+
+    XXX pictures illustrating permutations, connected endofunctions,
+    circular permutations, contraction.  Need facility for drawing
+    labelled graphs!
   \end{commentary}
 \end{ex}
 
