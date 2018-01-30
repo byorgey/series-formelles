@@ -201,7 +201,8 @@ like this:
 
 This is a long-term project; I do not know how long it will take to
 finish, but plan to work on it slowly and steadily.  Collaboration and
-contributions are welcome! \todo{link to git repo} Things I could
+contributions are welcome---see the public git repository hosted at
+\url{https://github.com/byorgey/series-formelles}. Things I could
 particularly use help with include:
 \begin{itemize}
 \item Translation.  If you know both French and English well, I would
@@ -242,7 +243,7 @@ framework\footnote{\url{http://projects.haskell.org/diagrams/}}) and
 commentary.
 
 A git repository containing the latest state of this project can be
-found at \todo{link to git repo}.
+found at \begin{quote}\url{https://github.com/byorgey/series-formelles}.\end{quote}
 
 \newpage
 
@@ -592,7 +593,7 @@ dia = hcat' (with & sep .~ 3)
   corresponding labels in $t'$.  As an example of non-isomorphic tree
   structures, however, consider the diagram below: there is no way to
   turn $s$ into $t$ merely by permuting labels.  These two tree
-  structure are fundamentally different.
+  structures are fundamentally different.
 
   \begin{center}
   \begin{diagram}[width=150]
@@ -698,6 +699,12 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   examples later where it breaks down---so it's good to be able to
   return to the formal definition in terms of equivalence classes of
   labelled structures.
+
+  $\el (M)$ is of course a \term{groupoid} because isomorphisms
+  between $M$-structures are invertible: if $u : s \to t$, that is, if
+  $u$ is a bijection between label sets such that relabelling the
+  structure $s$ by $u$ yields $t$, then we necessarily have
+  $u^{-1} : t \to s$.
 \end{commentary}
 
 \begin{ex}
@@ -821,6 +828,55 @@ dia = mconcat
   simplicial schemes implies about self-loops, multiple edges, etc.)
 \end{commentary}
 \end{ex}
+
+\begin{commentary}
+  Essentially, simplicial schemes can be thought of as a
+  generalization of graphs which allows not only for points $\{u\}$
+  (0-dimensional simplices) and edges $\{u,v\}$ (1-dimensional
+  simplices) but also ``filled-in'' triangles $\{u,v,w\}$, tetrahedra,
+  and so on.  These really don't come up again in the paper; the
+  important point is that we have a species of graphs (undirected,
+  with labelled vertices and unlabelled edges), as well as a species
+  of forests (graphs with no cycles) and a species of trees (connected
+  forests).  An example graph structure is shown below. Removing the
+  2---4 edge would make it a forest; then adding another edge, say,
+  4---3, would make it a tree.
+
+  \begin{center}
+    \begin{diagram}[width=100]
+      import           SpeciesDiagrams
+      import qualified Data.Map as M
+      dia = drawGraph labT
+         ( M.fromList
+           [ (0, 3 ^& (-1))
+           , (1, 8 ^& 0)
+           , (2, origin)
+           , (3, 8 ^& 2)
+           , (4, 4 ^& 2)
+           , (5, 3 ^& (-3))
+           ] # scale 0.6
+         , [(2,0), (2,4), (0,4), (3,1), (0,5)]
+         )
+    \end{diagram}
+  \end{center}
+
+  It is important to point out that the term \term{tree} is used here
+  in the common mathematical sense of a connected graph without
+  cycles, rather than in the computer science sense of an inductive
+  data structure with a root and children and so on.  The difference
+  is that a mathematical ``tree'' has undirected edges, and no
+  privileged root node; adjacent nodes in the tree are just
+  ``neighbors'', rather than parent and child.  A computer-science
+  tree is what mathematicians would call a \term{rooted} tree, since
+  one can obtain a rooted tree from a tree just by picking a
+  distinguished root node; this will be explored in much more detail
+  later.
+
+  This example also implicitly defines the term \term{subspecies},
+  which means just what one would expect: $F$ is a subspecies of $G$
+  if the set of $F$-structures (on any given underlying set of labels)
+  is a subset of the set of $G$-structures.
+\end{commentary}
 
 \begin{ex} \label{ex:endofunctions}
   The transport of an endofunction $a : E \to E$ along a bijection $u

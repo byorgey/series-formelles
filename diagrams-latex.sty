@@ -1,1 +1,261 @@
-/home/brent/src/diagrams/builder/latex/diagrams-latex.sty
+%% To use, simply create diagram environments with code, being sure to
+%% declare something named 'dia' in each, which will be rendered.  For example:
+%%
+%% \begin{diagram}[width=200]
+%% import Data.List
+%% dia = hcat . map circle . sort $ [4,8,9,2,3,6]
+%% \end{diagram}
+
+
+%% diagrams-latex.sty
+%% Copyright (c) 2011-2012, Ryan Yates
+%% 
+%% Large portions copied from dot2texi.sty
+%%
+%% Copyright (c) 2007-2008, Kjell Magne Fauske
+%%
+%% Author: Kjell Magne Fauske <km@fauskes.net>
+%%                             http://www.fauskes.net
+%%
+
+%% Copyright (c) 2005, Lars Kotthoff <metalhead@metalhead.ws>
+%%
+%% Large portions copied from pdftex,
+%% Copyright (c) 2001-3, Radhakrishnan CV <cvr@river-valley.com>
+%%                       Rajagopal CV <cvr3@river-valley.com>
+%%                       http://www.river-valley.com
+%%
+%% River Valley Technologies, Floor III, SJP Buildings, Cotton Hills
+%% Trivandrum, India 695014
+%%
+%% Tel: +91 471 233 7501
+%%
+%%                     Antoine Chambert-Loir
+%%                     <chambert@math.polytechnique.fr>
+%%                     http://www.math.polytechnique.fr/\protect \unhbox \voidb@x \penalty \@M \ {}chambert
+%%
+%% Ecole polytechnique, Palaiseau Cedex, France
+%%
+%% This program is free software; you can redistribute it and/or
+%% modify it under the terms of the GNU General Public License
+%% as published by the Free Software Foundation; either version 2
+%% of the License, or (at your option) any later version.
+%%
+%% This program is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU General Public License for more details.
+%%
+%% You should have received a copy of the GNU General Public License
+%% along with this program (gpl.txt); if not, write to the Free
+%% Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+%% MA  02111-1307, USA.
+%%
+
+%% Copyright (C) 2007 by Will Robertson & Johannes Große
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{diagrams-latex}[2012/04/07 v0.1 Generate diagrams embedded within LaTeX]
+\RequirePackage{moreverb}
+\RequirePackage{xkeyval}[2005/02/22]
+\RequirePackage{ifthen}
+
+\newif\ifdtt@ShellEscape
+%\newif\ifmiktex \miktexfalse
+\newif\ifdtt@ForceShellEscape \dtt@ForceShellEscapefalse
+\newif\ifdtt@debug \dtt@debugfalse
+\newif\ifdtt@autosize \dtt@autosizefalse
+% Options related to shell escape
+\DeclareOptionX{shell}{\dtt@ShellEscapetrue}
+\DeclareOptionX{noshell}{\dtt@ShellEscapefalse}
+\DeclareOptionX{forceshell}{\dtt@ForceShellEscapetrue\dtt@ShellEscapetrue}
+\DeclareOptionX{miktex}{} % dummy (for backwards compatability)
+
+% Options for setting output size
+\DeclareOptionX{width}[]{\def\dtt@width{-w #1}}
+\def\dtt@width{} % default output width
+\DeclareOptionX{height}[]{\def\dtt@height{-h #1}}
+\def\dtt@height{} % default output height
+
+% Option for setting an output directory
+\DeclareOptionX{outputdir}[]{\def\dtt@outputdir{#1}}
+\def\dtt@outputdir{diagrams}
+\DeclareOptionX{debug}{\dtt@debugtrue}
+
+\newcommand\setoutputdir[1]{\def\dtt@outputdir{#1}}
+
+% Options for setting backend
+\DeclareOptionX{backend}[]{\def\dtt@backend{#1}}
+\def\dtt@backend{cairo}  % use cairo as the default backend
+\DeclareOptionX{extension}[]{\def\dtt@extension{#1}}
+\newif\ifdtt@input \dtt@inputfalse
+\DeclareOptionX{input}{\dtt@inputtrue}
+\DeclareOptionX{noinput}{\dtt@inputfalse}
+
+\ExecuteOptionsX{shell}
+
+\ProcessOptionsX\relax
+
+%% Handle option defaults for backends
+
+\ifthenelse{\equal{\dtt@backend}{cairo} \and \isundefined{\dtt@extension}}
+  {\def\dtt@extension{pdf}}{}
+\ifthenelse{\equal{\dtt@backend}{pgf} \and \isundefined{\dtt@extension}}
+  {\def\dtt@extension{pgf}}{}
+\ifthenelse{\equal{\dtt@backend}{ps} \and \isundefined{\dtt@extension}}
+  {\def\dtt@extension{eps}}{}
+
+\ifthenelse{\equal{\dtt@backend}{pgf}}{\dtt@inputtrue}{}
+
+%% The platform detection code is copied from the ifplatform package
+%% avaialable from: http://tug.ctan.org/tex-archive/macros/latex/contrib/ifplatform/
+%% Copyright (C) 2007 by Will Robertson & Johannes Große
+\newif\ifdtt@ShellEscapeEnabled
+\newif\ifwindows
+\edef\ip@file{\jobname.w18}
+\edef\ip@sig{write18-test-\the\year\the\month\the\day\the\time}
+\edef\ip@win{'\ip@sig'}
+\def\ip@read@file{%
+  \newread\instream
+  \openin\instream=\ip@file
+  \@tempcnta=\endlinechar
+  \endlinechar=-1
+  \read\instream to\@tempa
+  \endlinechar=\@tempcnta
+  \closein\instream}
+\immediate\write18{echo \ip@win >"\ip@file"}
+\IfFileExists{\ip@file}{\dtt@ShellEscapeEnabledtrue}{\dtt@ShellEscapeEnabledfalse}
+\ifdtt@ShellEscapeEnabled
+    \ip@read@file
+    \ifx\@tempa\ip@sig
+    \windowsfalse
+    \else
+    \ifx\@tempa\ip@win
+        \windowstrue
+    \fi
+    \fi
+    \immediate\write18{\ifwindows del \else rm -- \fi "\ip@file"}
+\fi
+
+\ifdtt@ForceShellEscape
+    \PackageInfo{diagrams-latex}
+    {ForceShellEscape enabled}
+\fi
+
+\ifdtt@ShellEscapeEnabled
+    \PackageInfo{diagrams-latex}
+    {XXX}
+\else
+    \PackageWarningNoLine{diagrams-latex}
+        {Shell escape not enabled.\MessageBreak
+        You'll need to compile the diagrams yourself.}
+\fi
+\newcounter{dtt@fignum}
+\def\dtt@figname{\dtt@outputdir/\jobname-diagrams-latex-fig\thedtt@fignum}
+
+
+%%%%%%%%%%%%%%%%% diagrams-latex code
+% Most of the code is from dot2texi.sty
+
+% Options
+\define@key{dtt}{width}[]{%
+    \def\dtt@width{-w #1}
+}
+\define@key{dtt}{height}[]{%
+    \def\dtt@height{-h #1}
+}
+
+\define@key{dtt}{outputdir}[]{%
+    \def\dtt@outputdir{#1}
+}
+\define@key{dtt}{file}[]{%
+    \def\dtt@figname{\dtt@outputdir/#1}
+}
+\define@key{dtt}{backend}[]{%
+    \def\dtt@backend{#1}
+}
+\define@key{dtt}{extension}[]{%
+    \def\dtt@extension{#1}
+}
+
+\define@key{dtt}{shell}[]{\dtt@ShellEscapetrue}
+\define@key{dtt}{noshell}[]{\dtt@ShellEscapefalse}
+
+\newif\ifdtt@writetofile \dtt@writetofiletrue
+
+\newwrite\verbatim@out
+\def\diagramslatexverbatimwrite#1{%
+    \def\BeforeStream{
+        \message{Opening diagrams-latex stream #1
+        }%
+    }%
+    \@bsphack
+    \immediate\openout \verbatim@out #1
+    \BeforeStream%
+    \let\do\@makeother\dospecials
+    \catcode`\^^M\active
+    \def\verbatim@processline{%
+        \immediate\write\verbatim@out
+        {\the\verbatim@line}}%
+    \verbatim@start%
+}
+
+\def\enddiagramslatexverbatimwrite{%
+    \immediate\closeout\verbatim@out
+    \@esphack
+        \catcode`\\0
+        \catcode`\{1
+        \catcode`\}2
+        \catcode`\$3
+        \catcode`\&4
+        \catcode`\^^M5
+        \catcode`\#6
+        \catcode`\^7
+        \catcode`\_8
+        \catcode`\~9% Added this one
+        \catcode`\ 10
+        \catcode`\%14}
+
+\newenvironment{diagram}[1][]{\stepcounter{dtt@fignum}%
+    \setkeys{dtt}{#1}
+    \ifdtt@ForceShellEscape
+        \dtt@ShellEscapetrue
+    \fi
+    \ifwindows
+      \immediate\write18{if not exist \dtt@outputdir\space mkdir \dtt@outputdir}
+    \else
+      \immediate\write18{mkdir -p \dtt@outputdir}
+    \fi
+    \xdef\diagramslatexCutFile{\dtt@figname.hs}
+    \diagramslatexverbatimwrite{\diagramslatexCutFile}}
+    {\enddiagramslatexverbatimwrite%
+    \diagramslatexgraphicsinclude}
+
+\long\gdef\diagramslatexgraphicsprocess{%
+    \ifdtt@ShellEscape
+        \IfFileExists{\dtt@figname.hs}{%
+            \immediate\write18{diagrams-builder-\dtt@backend\space -o \dtt@figname.\dtt@extension\space
+                \dtt@width\space
+                \dtt@height\space
+                \dtt@figname.hs\space }%
+            \IfFileExists{\dtt@figname.\dtt@extension}{%
+                \PackageInfo{diagrams-latex}{\dtt@figname.hs converted}
+            }
+            {\PackageWarningNoLine{diagrams-latex}
+                {Conversion of \dtt@figname.hs failed}}}{}
+            \fi
+}
+
+\long\gdef\diagramslatexgraphicsinclude{\diagramslatexgraphicsprocess%
+    \IfFileExists{\dtt@figname.\dtt@extension}{
+      \ifdtt@input
+        {\input{\dtt@figname.\dtt@extension}}
+      \else
+        {\includegraphics{\dtt@figname.\dtt@extension}}
+      \fi
+    }
+    {\PackageWarningNoLine{diagrams-latex}
+            {Please convert \dtt@figname.hs manually}}
+}
+
+\endinput
