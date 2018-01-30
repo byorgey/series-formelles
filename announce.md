@@ -8,6 +8,8 @@ title: "A (work in progress) translation of Joyal's paper introducing species"
     tags = combinatorics, species, French, English, translation, commentary, writing
     categories = combinatorics, species, writing, projects
 
+TODO before publishing: write up instructions on building.
+
 **tl;dr**: I'm [working on an English translation, with additional
 commentary](http://github.com/byorgey/series-formelles), of Joyal's
 1981 paper introducing the concept of combinatorial species.
@@ -62,4 +64,3 @@ I'm really "done", and some people may find it helpful or interesting
 before it gets to that point.  Second, I would welcome collaboration,
 whether in the form of help with the translation itself, editing or
 extending the commentary, or simply offering feedback on early drafts.
-
