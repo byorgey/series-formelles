@@ -728,17 +728,16 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
 
 \begin{commentary}
   This whole business with \emph{simplicial schemes} is unnecessarily
-  general in some sense, but the point is that this allows Joyal to
-  deal in one fell swoop with a large collection of common species
-  (graphs, forests, trees\dots) which can all be seen as special cases
-  of the species of simplicial schemes, and also incidentally to have
-  a relevant motivation for introducing the concept of subspecies.  It
-  would be tedious to go through each slight variant on the concept of
-  a graph and show that it defines a valid species, but unsatisfying
-  to just wave our hands and say things like ``this case is
-  similar\dots''  By moving up a notch in abstraction, we get a
-  rigorous yet economical definition that handles many similar cases
-  at once.
+  general in some sense, but it allows Joyal to deal in one fell swoop
+  with a large collection of common species (graphs, forests,
+  trees\dots) which can all be seen as special cases of the species of
+  simplicial schemes. It also incidentally provides a relevant
+  motivation for introducing the concept of subspecies.  It would be
+  tedious to go through each slight variant on the concept of a graph
+  and show that it defines a valid species, but unsatisfying to just
+  wave our hands and say things like ``this case is similar\dots'' By
+  moving up a notch in abstraction, we get a rigorous yet economical
+  definition that handles many similar cases at once.
 
   Geometrically, \term{simplices} are what we get when we start with a
   single point (a ``$0$-simplex''), and then repeatedly add points,
@@ -825,16 +824,9 @@ dia = mconcat
 
   XXX talk about specific subspecies he gives.  graphs (notice what
   simplicial schemes implies about self-loops, multiple edges, etc.)
-\end{commentary}
-\end{ex}
 
-\begin{commentary}
-  Essentially, simplicial schemes can be thought of as a
-  generalization of graphs which allows not only for points $\{u\}$
-  (0-dimensional simplices) and edges $\{u,v\}$ (1-dimensional
-  simplices) but also ``filled-in'' triangles $\{u,v,w\}$, tetrahedra,
-  and so on.  These really don't come up again in the paper; the
-  important point is that we have a species of graphs (undirected,
+  \todo{merge the following text in}
+  we have a species of graphs (undirected,
   with labelled vertices and unlabelled edges), as well as a species
   of forests (graphs with no cycles) and a species of trees (connected
   forests).  An example graph structure is shown below. Removing the
@@ -868,7 +860,7 @@ dia = mconcat
   ``neighbors'', rather than parent and child.  A computer-science
   tree is what mathematicians would call a \term{rooted} tree, since
   one can obtain a rooted tree from a tree just by picking a
-  distinguished root node; this will be explored in much more detail
+  distinguished root node; this will be explored in more detail
   later.
 
   This example also implicitly defines the term \term{subspecies},
@@ -876,6 +868,8 @@ dia = mconcat
   if the set of $F$-structures (on any given underlying set of labels)
   is a subset of the set of $G$-structures.
 \end{commentary}
+\end{ex}
+
 
 \begin{ex} \label{ex:endofunctions}
   The transport of an endofunction $a : E \to E$ along a bijection $u
@@ -913,9 +907,9 @@ dia = mconcat
     \emph{bijections} $u$, we can deal just as easily with negative
     occurrences as positive, by making use of the inverse $u^{-1}$.
 
-    XXX pictures illustrating permutations, connected endofunctions,
+    \todo{pictures illustrating permutations, connected endofunctions,
     circular permutations, contraction.  Need facility for drawing
-    labelled graphs!
+    labelled graphs!}
   \end{commentary}
 \end{ex}
 
@@ -1009,9 +1003,9 @@ sets and \emph{functions} (by composing with the inclusion $\B \inj
   $\B \to \E$ actually lies in $\B$.
 
   However, considering the whole collection of species as a category,
-  the distinction is an important one: the functor categories $\B^\B$
-  and $\E^\B$ are not equivalent.  Although we have seen above that
-  these two categories have essentially the same collection of
+  the distinction is an important one, since the functor categories
+  $\B^\B$ and $\E^\B$ are not equivalent.  Although we have seen above
+  that these two categories have essentially the same collection of
   \emph{objects} (namely, functors $\B \to \B$ or $\B \to \E$), they
   do not have the same \emph{morphisms} (namely, natural
   transformations).  A natural transformation between two functors
@@ -1026,12 +1020,12 @@ sets and \emph{functions} (by composing with the inclusion $\B \inj
   Categorically, having only isomorphisms also means the category
   can't have things like products and coproducts.  This, then, is what
   Joyal means by saying it is ``desirable to have a larger class of
-  morphisms than that of isomorphisms'' (something of an
-  understatement).  Hence $\B \to \E$ really seems to be the ``right''
-  notion of species to use.  (I am grateful to Ian Price for pointing
-  out this fact to me, which I had somehow missed even after many
-  years of thinking about such things!  And of course, it was in Joyal
-  all along.)
+  morphisms than that of isomorphisms'' (which turns out to be
+  rather an understatement).  Hence $\B \to \E$ really seems to
+  be the ``right'' notion of species to use.  (I am grateful to Ian
+  Price for pointing out this fact to me, which I had somehow missed
+  even after many years of thinking about such things!  And of course,
+  it was in Joyal's original paper all along.)
 \end{commentary}
 
 \begin{defn}
