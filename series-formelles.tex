@@ -424,32 +424,12 @@ to finitary species, unless otherwise noted.
   Joyal himself) actually define species as functors $\B \to \E$,
   where $\E$ is the category of (finite) sets and total functions,
   rather than bijections \citep{joyal86, bll}.  In fact, Joyal
-  introduces functors $\B \to \E$ later, in
-  \pref{sec:category-of-species}.
-
-  When considering an individual species, the distinction does not
-  seem important: since functors necessarily preserve isomorphisms,
-  every bijection in $\B$ must actually map to a bijection in $\E$, so
-  the image of any functor $\B \to \E$ actually lies in $\B$.
-  However, considering the whole collection of species as a category,
-  the distinction is an important one: the functor categories $\B^\B$
-  and $\E^\B$ are not equivalent.  Although these two categories have
-  essentially the same collection of \emph{objects} (namely, functors
-  $\B \to \B$ or $\B \to \E$), they do not have the same
-  \emph{morphisms} (namely, natural transformations).  Any natural
-  transformation between functors $\B \to \B$ is an isomorphism, so
-  the functor category $\B^\B$ is a rather impoverished groupoid,
-  without things like products or coproducts.  \todo{Expand this
-    explanation.  Natural transformations have to satisfy naturality
-    square, every side of which is an arrow in $\B$, so only natural
-    isomorphisms.}  Natural transformations between functors
-  $\B \to \E$, on the other hand, need not be isomorphisms, and the
-  functor category $\E^\B$ indeed admits nice constructions such as
-  products and coproducts, which turn out to correspond to sensible
-  operations on species.  Hence $\B \to \E$ really seems to be the
-  ``right'' notion of species to use.  (I am grateful to Ian Price for
-  pointing out this fact to me, which I had somehow missed even after
-  many years of thinking about such things!)
+  introduces functors $\B \to \E$ later in this very paper, in
+  \pref{sec:category-of-species}.  It may not seem to make much
+  difference when considering an individual species, but the
+  \emph{category} of species ends up being much richer if we define
+  species as functors $\B \to \E$.  For more details, see the
+  commentary on \pref{sec:category-of-species}.
 \end{commentary}
 
 If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
@@ -961,6 +941,43 @@ class of morphisms than that of isomorphisms, it is best to consider a
 species as a functor $M: \B \to \E$ to the category $\E$ of finite
 sets and \emph{functions} (by composing with the inclusion $\B \inj
 \E$).
+
+\begin{commentary}
+  When considering an individual species, the distinction between a
+  functor $\B \to \B$ and a functor $\B \to \E$ does not seem
+  important: of course any functor $\B \to \B$ can easily be turned
+  into a functor $\B \to \E$ (by composing with the canonical
+  inclusion $\B \inj \E$), but we can actually convert the other way
+  too.  Since functors necessarily preserve isomorphisms, every
+  bijection in $\B$ must actually map to a \emph{bijection} in $\E$
+  under the action of any functor, so the image of a functor
+  $\B \to \E$ actually lies in $\B$.
+
+  However, considering the whole collection of species as a category,
+  the distinction is an important one: the functor categories $\B^\B$
+  and $\E^\B$ are not equivalent.  Although we have seen above that
+  these two categories have essentially the same collection of
+  \emph{objects} (namely, functors $\B \to \B$ or $\B \to \E$), they
+  do not have the same \emph{morphisms} (namely, natural
+  transformations).  A natural transformation between two functors
+  $\mathcal{C} \to \mathcal{D}$ consists of a collection of morphisms
+  in $\mathcal{D}$; if all the morphisms of $\mathcal{D}$ are
+  isomorphisms, then every natural transformation between functors
+  $\mathcal{C} \to \mathcal{D}$ is necessarily an isomorphism as well.
+  But this won't do: we certainly want to be able to talk about
+  morphisms between species which are \emph{not} isomorphisms, for
+  example, the morphism that sends the species of nonempty lists to
+  the species of cycles by ``forgetting'' which element comes first.
+  Categorically, having only isomorphisms also means the category
+  can't have things like products and coproducts.  This, then, is what
+  Joyal means by saying it is ``desirable to have a larger class of
+  morphisms than that of isomorphisms'' (something of an
+  understatement).  Hence $\B \to \E$ really seems to be the ``right''
+  notion of species to use.  (I am grateful to Ian Price for pointing
+  out this fact to me, which I had somehow missed even after many
+  years of thinking about such things!  And of course, it was in Joyal
+  all along.)
+\end{commentary}
 
 \begin{defn}
   A \emph{morphism} $\alpha : M \to N$ is a natural transformation
