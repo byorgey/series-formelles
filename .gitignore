@@ -17,3 +17,4 @@ cabal.sandbox.config
 .diagrams_cache/
 .shake
 *~
+.stack-work
