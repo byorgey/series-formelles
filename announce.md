@@ -1,14 +1,13 @@
 ---
-title: "A (work in progress) translation of Joyal's paper introducing species"
+title: "A (work in progress) translation of Joyal's original paper on species"
 ---
 
     [BLOpts]
     profile = wp
     postid = 2090
+    publish = true
     tags = combinatorics, species, French, English, translation, commentary, writing
     categories = combinatorics, species, writing, projects
-
-TODO before publishing: write up instructions on building.
 
 **tl;dr**: I'm [working on an English translation, with additional
 commentary](http://github.com/byorgey/series-formelles), of Joyal's
@@ -37,30 +36,40 @@ formelles*, and *Foncteurs analytiques et espèces de structures*), and
 found out that it was actually possible since (a) they are mathematics
 papers, not high literature; (b) I already understand a lot of the
 mathematics; and (c) these days, there are many easily accessible
-tools to help with the task of translation.
+digital tools to help with the task of translation.
 
 However, although it was *possible* for me to read them, it was still
 *hard work*, and for someone without my background in combinatorics it
 would be very tough going---which is a shame since the papers are
-really very beautiful.  So, I decided to do something about it! I'm
+really very beautiful.  So I decided to do something to help make the
+papers and their ideas more widely accessible.  In particular, I'm
 [making an English translation of the
-papers](http://github.com/byorgey/series-formelles)---or at least of
-the first one, for now---interspersed with my own commentary to fill
-in more background, give additional examples, make connections to
-computation and type theory, or offer additional perspective. (And
-yes, I checked carefully, and this is explicitly allowed by the
-copyright holder, Elsevier.)  I hope it will be valuable to those in the
-English-speaking mathematics and computer science communities who want
-to learn more about species or gain more appreciation for a beautiful
-piece of mathematical history.
+papers](http://github.com/byorgey/series-formelles)^[And yes, I
+checked carefully, and this is [explicitly
+allowed](https://www.elsevier.com/about/our-business/policies/open-access-licenses/elsevier-user-license)
+by the copyright holder (Elsevier) as long as I put certain notices on
+the first page.]---or at least of the first one, for
+now---interspersed with my own commentary to fill in more background,
+give additional examples, make connections to computation and type
+theory, or offer additional perspective.  I hope it will be valuable
+to those in the English-speaking mathematics and computer science
+communities who want to learn more about species or gain more
+appreciation for a beautiful piece of mathematical history.
 
 This is a long-term project, and not a high priority at the moment; I
 plan to work on it slowly but steadily.  I've only worked on the first
 paper so far, and I'm at least far enough along that I'm not
-completely embarrassed to publicize it, but not much more than that.
+completely embarrassed to publicize it (but not much more than that).
 I decided to publicize my effort now, instead of waiting until I'm
 done, for several reasons: first, it may be a very long time before
 I'm really "done", and some people may find it helpful or interesting
 before it gets to that point.  Second, I would welcome collaboration,
 whether in the form of help with the translation itself, editing or
-extending the commentary, or simply offering feedback on early drafts.
+extending the commentary, or simply offering feedback on early drafts
+or fixing typos. You can find an [automatically updated PDF with the
+latest draft
+here](http://ozark.hendrix.edu/~yorgey/pub/series-formelles.pdf), and
+the [github repo is here](http://github.com/byorgey/series-formelles).
+There are also simple instructions for compiling the paper yourself
+(using [stack](https://docs.haskellstack.org/en/stable/README/))
+should you want to do that.
