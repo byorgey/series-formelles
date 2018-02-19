@@ -260,7 +260,34 @@ before Joyal's paper.  The basic idea is of a set of ``shapes'' or
 (Functional programmers should think of an algebraic data type with a
 type parameter, although this does not capture the full sense.)  As an
 example, the combinatorial class of \term{rooted binary trees}
-consists of things like \todo{picture} (To start, we will suppose that
+consists of things like
+  \begin{center}
+  \begin{diagram}[width=150]
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
+import           Diagrams.Prelude hiding (Empty)
+
+bnode = BNode ()
+leafU = leaf ()
+
+s1 :: BTree ()
+s1 = bnode (bnode (bnode leafU leafU) Empty) (bnode leafU (bnode Empty leafU))
+
+s2 :: BTree ()
+s2 = bnode Empty leafU
+
+s3 :: BTree ()
+s3 = bnode Empty (bnode Empty (bnode (bnode Empty (bnode leafU leafU)) leafU))
+
+dia :: Diagram B
+dia = [s1, s3, s2]
+  # map (drawBinTreeWide . fmap (const (circle labR # fc black)))
+  # hsep 1
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
+  \end{center}
+(To start, we will suppose that
 the ``atoms''---indicated by dots in the diagram above---are
 indistinguishable; there will be much more to say about this later.)
 
