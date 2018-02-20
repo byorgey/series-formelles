@@ -287,22 +287,41 @@ dia = [s1, s3, s2]
   # lwO 0.7
   \end{diagram}
   \end{center}
-(To start, we will suppose that
-the ``atoms''---indicated by dots in the diagram above---are
-indistinguishable; there will be much more to say about this later.)
+  (To start, we will suppose that the ``atoms''---indicated by dots in
+  the diagram above---are indistinguishable; there will be much more
+  to say about this later.)
 
-Combinatorial classes can be combined in various algebraic ways.  For
-example, the \emph{product} of two classes consists of the set of all
-\emph{ordered pairs} of structures from the two classes; the
-\emph{sum} consists of the disjoint union of the two sets of
-structures; and so on.  If there are a finite number of structures in
-each class, such operations correspond to \todo{continue}
+Combinatorial classes can be combined in various algebraic ways.
+Two of the most prominent and familiar are sum
+(disjoint union) and product (pairing):
+\begin{itemize}
+\item The \term{sum} $F + G$ of two classes $F$ and $G$ consists of
+  the disjoint union of the two sets of structures.
+\item The \term{product} $F \cdot G$ of two classes $F$ and $G$ consists of
+  the class of all \term{ordered pairs} of structures from the two
+  classes, that is, \[ F \cdot G = \{ (f,g) \mid f \in F, g \in G \}. \]
+\end{itemize}
+
+Calling these operations \term{sum} and \term{product} can be
+initially justified by thinking about \emph{finite} combinatorial
+classes.  In the case that $F$ and $G$ are finite, one can verify that
+\begin{align*}
+  |F + G| &= |F| + |G| \qquad \text{and} \\
+  |F \cdot G| &= |F| \cdot |G|,
+\end{align*}
+where we use $|F|$ to denote the size (\ie number of structures) of a
+finite combinatorial class.  That is, the size of a disjoint union
+$F+G$ is the sum of the sizes $F$ and of $G$, and the size of a
+product $F \cdot G$ is the product of the sizes.
+
+However, considering only finite combinatorial classes is much too
+restrictive.  For example, we have previously seen the class of binary
+trees, but the set of all binary trees is countably infinite.
 
 \todoin{
 Things to include in the introduction:
 
 \begin{itemize}
-\item Combinatorial classes (with examples).
 \item Generating functions.  Examples, references.
 \item Joyal's paper turns GFs into combinatorial objects in their own
   right via categorification.
