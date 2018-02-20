@@ -256,7 +256,7 @@ every time I record a commit) can be downloaded from \url{http://ozark.hendrix.e
 The informal notion of a \term{combinatorial class} or
 \term{combinatorial family} had already been around for quite a while
 before Joyal's paper.  The basic idea is of a set of ``shapes'' or
-``structures'' containing some sort of ``atoms'' or ``elements''.
+``structures'' containing some sort of ``atoms''.
 (Functional programmers should think of an algebraic data type with a
 type parameter, although this does not capture the full sense.)  As an
 example, the combinatorial class of \term{rooted binary trees}
@@ -287,9 +287,9 @@ dia = [s1, s3, s2]
   # lwO 0.7
   \end{diagram}
   \end{center}
-  (To start, we will suppose that the ``atoms''---indicated by dots in
+  To start, we will suppose that the ``atoms''---indicated by dots in
   the diagram above---are indistinguishable; there will be much more
-  to say about this later.)
+  to say about this later.
 
 Combinatorial classes can be combined in various algebraic ways.
 Two of the most prominent and familiar are sum
@@ -309,14 +309,36 @@ classes.  In the case that $F$ and $G$ are finite, one can verify that
   |F + G| &= |F| + |G| \qquad \text{and} \\
   |F \cdot G| &= |F| \cdot |G|,
 \end{align*}
-where we use $|F|$ to denote the size (\ie number of structures) of a
-finite combinatorial class.  That is, the size of a disjoint union
-$F+G$ is the sum of the sizes $F$ and of $G$, and the size of a
-product $F \cdot G$ is the product of the sizes.
+where we use $|F|$ to denote the size (that is, the number of
+structures) of a finite combinatorial class.  That is, the size of a
+disjoint union $F+G$ is the sum of the sizes $F$ and of $G$, and the
+size of a product $F \cdot G$ is the product of the sizes.  Describing
+a combinatorial class algebraically (in terms of sums and products of
+more primitive classes) gives us a corresponding algebraic handle on
+its size; this is one of the key ideas of combinatorics.
 
 However, considering only finite combinatorial classes is much too
 restrictive.  For example, we have previously seen the class of binary
-trees, but the set of all binary trees is countably infinite.
+trees, but the set of all binary trees is certainly not finite.  XXX How
+can we continue to do meaningful combinatorics?
+
+XXX Idea: define \term{size} of a structure = number of atoms.  Now
+restrict to \term{finitary} classes, which have a finite number
+\emph{of each size} (but may be infinite overall).  Then keep track
+not of total number of structures, but number of structures of each
+size, $|F|_n$.
+\begin{itemize}
+\item Number of structures of |F + G| of size $n$ = number of size-$n$
+  $F$ plus number of size-$n$ $G$.
+\item What about number of structures of $|F \cdot G|$ of size $n$?  To
+  get a structure of size $n$, we need to pair an $F$ structure of
+  size $k$ and a $G$ structure of size $n-k$.  Hence \[ |F \cdot G|_n
+    = \sum_{0 \leq k \leq n} |F|_n G_{n-k}. \]
+\end{itemize}
+Bring in theory of generating functions.  Clothesline for hanging
+sequence of numbers.  Polynomial arithmetic gives us above equations
+for sum and product.
+
 
 \todoin{
 Things to include in the introduction:
