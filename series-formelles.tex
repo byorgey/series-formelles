@@ -524,7 +524,7 @@ to finitary species, unless otherwise noted.
 
 If $E$ is a finite set, $M [E]$ is the set of all \term{structures} of
 the species $M$ on $E$. We say that $E$ is the \term{underlying} set
-of $s \in M[E]$, or also that it is \term{supported} by $E$. We say
+of $s \in M[E]$, or also that it is \term{carried} by $E$. We say
 also, in an abuse of language, that $s$ is an \term{element} of $M$
 ($s \in M$) and that it is an \term{$M$-structure}.
 
@@ -568,7 +568,7 @@ listStructures
     %$
   \end{center}
   If the set on the left is $E = \{0,1,2\}$, then the set on the right
-  is $L[E]$, the set of all $L$-structures supported by $E$.  Each
+  is $L[E]$, the set of all $L$-structures carried by $E$.  Each
   linear order $s \in L[E]$ is called an $L$-structure, or element of
   $L$, and has $E = \{0,1,2\}$ as its underlying set.
 \end{commentary}
@@ -1021,7 +1021,7 @@ dia = mconcat
 \subsubsection{}
 The group $E!$ of permutations of $E$ acts on $M [E]$ by transport
 of structures. The set $\pi_0 (M [E])$ of \emph{orbits} is identified
-with the set of types of $M$-structures supported by sets equipotent
+with the set of types of $M$-structures carried by sets equipotent
 with $E$. We identify the orbit of $s \in M[E]$ with its type
 $|s|$. The \emph{stabilizer} subgroup of an element $s \in M [E]$ is
 the group $\Aut (s)$ of \emph{automorphisms} of $s$. We have the
@@ -1590,10 +1590,10 @@ obtains $n^2 a_n = n^n$ $(n \geq 1)$.
 \pref{thm:card-subst} suggests adopting the notation $M (X)$ to
 designate a species $M$. The variable $X$ is interpreted as the
 \emph{singleton} species: there is only a single structure of the
-species $X$ (up to isomorphism) and it is \trans{supported by the
-  singletons}{port\'ee par les singletons}.  The result $M (X)$ of the
+species $X$ (up to isomorphism) and it is carried by singletons.
+The result $M (X)$ of the
 substitution of $X$ in $M$ is isomorphic to $M$. For some species we
-adopt a \trans{frankly}{franchement} algebraic notation if it does not
+shall adopt readily algebraic notation if it does not
 create ambiguity. Thus, $\exp (X)$ or $e^X$ designate the uniform
 species, $X e^X$ the species of pointed sets, $e^X - 1$ the uniform
 nonempty species, $\cosh (X)$ and $\sinh (X)$ the uniform even and odd
@@ -1607,7 +1607,7 @@ of circular permutations, \etc
   A preorder relation $\leq$ on $E$ determines an equivalence
   relation: $x \equiv y$ if and only if one has $x \leq y$ and $y \leq
   x$.  The preorder relation induced on the quotient $E / \equiv$ is
-  an \trans{order relation}{relation d'ordre}, and conversely.  This
+  an order relation. Conversely, this
   shows that the species of preorders is obtained by substituting the
   species $e^X - 1$ in the species of order relations. In particular,
   the species of total preorders is
@@ -1730,8 +1730,7 @@ the reader the pleasure of demonstrating this.
 \begin{ex} \label{ex:trees-vertebrates}
 To illustrate the combinatorial differential calculus,
 consider the equation satisfied by the species $A$ of rooted trees:
-\[ A = X \cdot e^A. \] The operation of ``pointing'' \trans{is a
-  derivation}{est une d\'erivation}:
+\[ A = X \cdot e^A. \] The ``pointing'' operation is differentiation:
 \[ \pointed A = \pointed X \cdot e^A + X \cdot e^A \pointed A. \]
 Pointed, rooted trees are vertebrates:
 \begin{align*}
@@ -1793,7 +1792,7 @@ another proof of the inversion formula.
   Recall (\pref{ex:rooted-trees-eqn}) that $A_R$ satisfies the
   equation
 \[ A_R = X \cdot R (A_R). \]
-This leads to the derivation
+This leads, by differentiation, to
 \begin{align*}
 A_R' &= R(A_R) + X \cdot R'(A_R) A_R' \\
 &= R (A_R) + C_R A_R'
@@ -1819,8 +1818,7 @@ such replacement combinatorially.
   into two parts: $\{x_0\} + E - \{x_0\}$. On the second part, there
   is the structure of an $R'$-assembly of $A_R$-structures as seen in
   \pref{fig:Rprime-AR} (the loop explains the presence of the
-  derivative in the formula $C_R = X \cdot R'(A_R)$). \emph{And
-    conversely.}
+  derivative in the formula $C_R = X \cdot R'(A_R)$).
 \end{proof}
 
 \begin{figure}
@@ -1829,6 +1827,8 @@ such replacement combinatorially.
   \caption{XXX}
   \label{fig:Rprime-AR}
 \end{figure}
+
+\emph{Conversely}, we have:
 
 \begin{lem}[Labelle] The result of the substitution of $C_R$ in the
   species $S$ of permutations coincides with the species $D_R$ of
@@ -1878,7 +1878,7 @@ F(A_R)' &= F'(A_R) A_R' \\
   forest of $R$-enriched rooted trees where the set of roots is
   equipped with a $G$-structure $\gamma$. Let $E_1$ be the set of
   these roots, and let $E_2$ be its complement. This forest of rooted
-  trees, together with the endofunction $f$, defines an R-enriched
+  trees, together with the endofunction $f$, defines an $R$-enriched
   function $\lambda : E_2 \to E$. (See
   \pref{fig:endo-plus-forest-rooted}.) Conversely, starting from $(E_1,
   E_2, \gamma, \lambda)$, we first recover $F_1$ as the set of all
