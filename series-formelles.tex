@@ -479,27 +479,28 @@ There already exists a precise concept of species of structures
   idea; Joyal's definition really encapsulates all of its essence in a
   much more elegant and economical way.  This seems to be due in large
   part to Bourbaki's insistence on using formal set theory as a
-  foundation; Joyal's definition benefits tremendously from using
-  category theory instead.  Interested and/or masochistic readers can
-  see Bourbaki's definition in Appendix~\ref{sec:appendix-bourbaki}.
+  foundation; as we will see, Joyal's definition benefits tremendously
+  from using category theory instead.  Interested and/or masochistic
+  readers can read Bourbaki's definition in
+  Appendix~\ref{sec:appendix-bourbaki}.
 \end{commentary}
 Describing a particular species is often done by specifying the
 conditions which a structure must satisfy to belong to the species.
 This description may take the form of an axiomatic theory of the
 species being considered. A key part of the concept is the transport
-of structures.
+of structures.  We will abstract the concept of species so that the
+transport of structures is the main aspect. Moreover, as we only deal
+with the problems of counting and finite enumeration, we will confine
+ourselves to finitary species, unless otherwise noted.
+
 \begin{commentary}
-  See \citet[pp. 6--7]{bll} for some examples of ``axiomatic theories
-  of species''. The main point here is \emph{transport} of species,
-  that is, the ability to ``swap out'' the labels in a structure for
-  some other labels.  Joyal's insight is to make transport itself the
-  central defining feature of species; there will be more to say on
-  this later.
+  See \citet[pp. 6--7]{bll} for some examples of ``axiomatic
+  theories'' for particular species. The main point here is
+  \emph{transport} of species, that is, the ability to ``swap out''
+  the labels in a structure for some other labels.  Joyal's insight is
+  to make transport itself the central defining feature of species;
+  there will be much more to say on this later.
 \end{commentary}
-We will abstract the concept of species so that the transport of
-structures is the main aspect. Moreover, as we only deal with the
-problems of counting and finite enumeration, we will confine ourselves
-to finitary species, unless otherwise noted.
 
 \subsection{Species and cardinality}
 \label{sec:species-and-cardinality}
@@ -721,9 +722,11 @@ dia = hsep 0.8
   behavior, that is, what we can \emph{do} with them, not by what they
   \emph{are}: species are precisely those things which generate a set
   of structures from a set of labels and which can be functorially
-  relabelled.
+  relabelled.  This is what Joyal is referring to in the introduction
+  when he writes ``The emphasis is placed on the transport of
+  structures rather than on their properties.''
 
-  \todo{Insert here commentary from section 3.2.1 of thesis?}
+  % \todo{Insert here commentary from section 3.2.1 of thesis?}
 \end{commentary}
 We denote by $\el (M)$ the category whose objects are the
 $M$-structures and whose morphisms are isomorphisms of $M$-structures;
@@ -742,7 +745,7 @@ structures) of the species $M$. If $s \in M$, we denote the
   worth unpacking a bit.  A \emph{type} of structures is formally
   defined as an equivalence class of structures under isomorphism,
   that is, under relabelling.  For example, all the labelled trees
-  shown below are isomorphic, since any two of them are related by a
+  shown below are isomorphic, since any two of them are related by some
   relabelling.
   \begin{center}
   \begin{diagram}[width=200]
@@ -823,10 +826,11 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   simplicial schemes. It also incidentally provides a relevant
   motivation for introducing the concept of subspecies.  It would be
   tedious to go through each slight variant on the concept of a graph
-  and show that it defines a valid species, but unsatisfying to just
-  wave our hands and say things like ``this case is similar\dots'' By
-  moving up a notch in abstraction, we get a rigorous yet economical
-  definition that handles many similar cases at once.
+  and show that it defines a valid species, but at the same time, it
+  is unsatisfying to just wave our hands and say things like ``this
+  case is similar\dots''. By moving up a notch in abstraction, we get a
+  rigorous yet economical definition that handles many similar cases
+  at once.
 
   Geometrically, \term{simplices} are what we get when we start with a
   single point (a ``$0$-simplex''), and then repeatedly add points,
@@ -908,8 +912,9 @@ dia = mconcat
 
   Simplicial schemes, seeing as they consist simply of collections of
   subsets of the underlying label type
-  $E$, can clearly be functorially relabelled---just apply the
-  relabelling to every subset.
+  $E$, can be relabelled by applying a relabelling to every subset.
+  We can check this is functorial: XXX Therefore simplicial schemes
+  form a valid species.
 
   XXX talk about specific subspecies he gives.  graphs (notice what
   simplicial schemes implies about self-loops, multiple edges, etc.)
