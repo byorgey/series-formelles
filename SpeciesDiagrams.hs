@@ -12,7 +12,6 @@
 module SpeciesDiagrams where
 
 import           Control.Arrow                 (first, second)
-import           Control.Lens                  (_head, _last)
 import           Data.Colour.Palette.BrewerSet
 import           Data.List                     (intersperse, permutations)
 import           Data.List.Split
@@ -20,7 +19,6 @@ import qualified Data.Map                      as M
 import           Data.Maybe                    (fromJust, fromMaybe)
 import           Data.Tree
 import           Diagrams.Backend.PGF.CmdLine
-import           Diagrams.Core.Points
 import           Diagrams.Prelude              hiding (Empty, parts)
 import           Diagrams.TwoD.Layout.Tree
 import           Graphics.SVGFonts

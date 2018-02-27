@@ -912,21 +912,30 @@ dia = mconcat
 
   Simplicial schemes, seeing as they consist simply of collections of
   subsets of the underlying label type
-  $E$, can be relabelled by applying a relabelling to every subset.
-  We can check this is functorial: XXX Therefore simplicial schemes
+  $E$, can be relabelled just by applying the relabelling to every
+  subset.  We can check this is functorial: the identity relabelling
+  acts as the identity on a simplicial scheme, and if we do one
+  relabelling followed by another, it is the same as applying the
+  composition of the two relabellings.  Therefore simplicial schemes
   form a valid species.
 
-  XXX talk about specific subspecies he gives.  graphs (notice what
-  simplicial schemes implies about self-loops, multiple edges, etc.)
+  Joyal then defines \term{graphs} as simplicial schemes with
+  simplices of dimension $\leq 1$.  Hence graphs consist only of
+  vertices (dimension 0 simplices, that is, singleton sets) and edges
+  (dimension 1 simplices, that is, sets of size $2$), so this is an
+  abstract way of defining what should be a familiar concept.  Note
+  that this definition corresponds to graphs in which
+  \begin{itemize}
+  \item the edges are undirected, since edges are represented by
+    \emph{sets} of vertices, which have no inherent order;
+  \item there are no self-loops, since there cannot be a set
+    containing two copies of the same vertex; and
+  \item there is at most one edge between any two given vertices.
+  \end{itemize}
+  Other types of graphs relaxing some or all of these restrictions can
+  also be defined as species.
 
-  \todo{merge the following text in}
-  we have a species of graphs (undirected,
-  with labelled vertices and unlabelled edges), as well as a species
-  of forests (graphs with no cycles) and a species of trees (connected
-  forests).  An example graph structure is shown below. Removing the
-  2---4 edge would make it a forest; then adding another edge, say,
-  4---3, would make it a tree.
-
+  An example graph structure is shown in the figure below.
   \begin{center}
     \begin{diagram}[width=100]
       import           SpeciesDiagrams
@@ -944,29 +953,45 @@ dia = mconcat
          )
     \end{diagram}
   \end{center}
+  A \term{subspecies} of a species $S$ is then defined as a subset of
+  $S$ (thought of as the collection of its structures) which is also a
+  species.  Joyal points out that a valid subspecies results from
+  restricting to any subset defined by a property which is not
+  affected by relabelling (an \term{equivariant} property), since in
+  that case relabelling a structure in the subset will always result
+  in another structure in the subset.  The property of
+  \term{dimension} is not affected by relabelling (since relabellings
+  are bijections, they cannot change the size of a set), and hence
+  graphs are a subspecies of simplicial schemes.
+
+  As a non-example of a subspecies, consider the subset ``simplicial
+  schemes containing the simplex $\{0,1,2\}$''.  This property is not
+  preserved by relabelling (for example, consider the relabelling that
+  sends $0 \mapsto a$, $1 \mapsto b$, and $2 \mapsto c$), and hence
+  this subset is not a valid subspecies of simplicial schemes.
+
+  Using this same technique of carving out a subspecies via an
+  equivariant property, Joyal defines the species of forests (graphs
+  with no cycles) and trees (connected forests).  For example,
+  removing the 2---4 edge from the example shown above would make it a
+  forest; then adding another edge, say, 4---3, would make it a tree.
 
   It is important to point out that the term \term{tree} is used here
   in the common mathematical sense of a connected graph without
-  cycles, rather than in the computer science sense of an inductive
-  data structure with a root and children and so on.  The difference
+  cycles, rather than in the common computer science sense of an
+  inductive data structure with a root and children.  The difference
   is that a mathematical ``tree'' has undirected edges, and no
   privileged root node; adjacent nodes in the tree are just
-  ``neighbors'', rather than parent and child.  A computer-science
-  tree is what mathematicians would call a \term{rooted} tree, since
-  one can obtain a rooted tree from a tree just by picking a
-  distinguished root node; this will be explored in more detail
-  later.
-
-  This example also implicitly defines the term \term{subspecies},
-  which means just what one would expect: $F$ is a subspecies of $G$
-  if the set of $F$-structures (on any given underlying set of labels)
-  is a subset of the set of $G$-structures.
+  ``neighbors'', rather than parent and child.  A computational
+  ``tree'' is what mathematicians would call a \term{rooted} tree,
+  since one can obtain a rooted tree from a tree just by picking a
+  distinguished root node; this will be explored in more detail later.
 \end{commentary}
 \end{ex}
 
 
 \begin{ex} \label{ex:endofunctions}
-  The transport of an endofunction $a : E \to E$ along a bijection $u
+  The transport of an endofunction $\phi : E \to E$ along a bijection $u
   : E \bij F$ is by \emph{conjugation}: $\phi \mapsto u \phi
   u^{-1}$. The species of \emph{permutations} is a subspecies of the
   species of endofunctions. If we require that the graph of an
@@ -979,8 +1004,12 @@ dia = mconcat
   which is ultimately constant.
 
   \begin{commentary}
-    If $\phi$ is an endofunction on the set of labels $E$, and $u$ is
-    a bijection $E \bij F$, the situation can be pictured as below:
+    The first sentence of \pref{ex:endofunctions} both introduces the
+    class of \term{endofunctions} $\phi : E \to E$ over some set $E$,
+    and explains why it is a valid species.  To show that it is a
+    valid species, we are required to say how to functorially relabel
+    an endofunction $\phi : E \to E$ given a bijection (relabelling)
+    $u : E \bij F$. The situation can be pictured as below:
     \[ \xymatrix{E
         \ar@{<->}[r]^{u} \ar[d]_{\phi} & F \ar@{.>}[d]^{u \phi u^{-1}} \\
         E \ar@{<->}[r]^{u} & F } \] ``Transporting $\phi$ along $u$''
@@ -989,17 +1018,23 @@ dia = mconcat
     to do this can be read off from the picture: the $\phi$ on the
     left side of the square turns into the dotted arrow on the right
     side of the square, formed by following three sides of the square
-    around.  First run $u^{-1}$, to turn $F$ back into $E$; then
-    perform $\phi$; then run $u$ to get back to $F$ again.  Note that
-    $u \cdot \id \cdot u^{-1} = u \cdot u^{-1} = \id$, and $(u \cdot
-    \phi \cdot u^{-1}) \cdot (u \cdot \psi \cdot u^{-1}) = u \cdot
-    (\phi \cdot \psi) \cdot u^{-1}$, so this defines a valid functor
+    around.  That is, first run $u^{-1}$, to turn $F$ back into $E$;
+    then perform $\phi$; then run $u$ to get back to $F$ again.  Note
+    that $u \cdot \id \cdot u^{-1} = u \cdot u^{-1} = \id$, and
+    $(u \cdot \phi \cdot u^{-1}) \cdot (u \cdot \psi \cdot u^{-1}) = u
+    \cdot (\phi \cdot \psi) \cdot u^{-1}$, so this defines a valid
+    functor.
 
     Functional programmers are not used to thinking of a definition
     like $\mathbf{End}(E) = E \to E$ as a functor, since $E$ occurs
-    both positively and negatively.  But since we are lifting
-    \emph{bijections} $u$, we can deal just as easily with negative
+    both positively and negatively.  And indeed, given a
+    \emph{function} $u : E \to F$ it is not possible to turn
+    $\phi : E \to E$ into an endofunction $F \to F$. But since $u$ is
+    a \emph{bijection}, we can deal just as easily with negative
     occurrences as positive, by making use of the inverse $u^{-1}$.
+    Intuitively, (almost\footnote{As long as it is \term{finitary}.})
+    \emph{any} type built out of products, coproducts, and functions
+    will define a valid species. \todo{mention HoTT transport}
 
     \todo{pictures illustrating permutations, connected endofunctions,
     circular permutations, contraction.  Need facility for drawing
