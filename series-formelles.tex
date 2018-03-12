@@ -984,8 +984,9 @@ dia = mconcat
   privileged root node; adjacent nodes in the tree are just
   ``neighbors'', rather than parent and child.  A computational
   ``tree'' is what mathematicians would call a \term{rooted} tree,
-  since one can obtain a rooted tree from a tree just by picking a
-  distinguished root node; this will be explored in more detail later.
+  since one can obtain an inductive parent-child tree from a
+  mathematical tree just by picking a distinguished root node; this
+  will be explored in more detail later.
 \end{commentary}
 \end{ex}
 
@@ -1032,9 +1033,17 @@ dia = mconcat
     $\phi : E \to E$ into an endofunction $F \to F$. But since $u$ is
     a \emph{bijection}, we can deal just as easily with negative
     occurrences as positive, by making use of the inverse $u^{-1}$.
-    Intuitively, (almost\footnote{As long as it is \term{finitary}.})
-    \emph{any} type built out of products, coproducts, and functions
-    will define a valid species. \todo{mention HoTT transport}
+    Intuitively, almost \emph{any} type built out of products,
+    coproducts, and functions will define a valid species. (The word
+    ``almost'' is necessary since the type must be \term{finitary},
+    that is, have only finitely many structures of any given
+    size.)
+
+    For those who are familiar with homotopy type theory, note that
+    this situation matches up nicely with the notion of transport
+    along a path.  Indeed, one can define species in HoTT in such a
+    way that transport of species is literally given by transport
+    along paths \citep{yorgey2014combinatorial}.
 
     \todo{pictures illustrating permutations, connected endofunctions,
     circular permutations, contraction.  Need facility for drawing
