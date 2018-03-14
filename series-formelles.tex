@@ -991,13 +991,13 @@ dia = mconcat
 \end{ex}
 
 
-\begin{ex} \label{ex:endofunctions}
-  The transport of an endofunction $\phi : E \to E$ along a bijection $u
-  : E \bij F$ is by \emph{conjugation}: $\phi \mapsto u \phi
-  u^{-1}$. The species of \emph{permutations} is a subspecies of the
-  species of endofunctions. If we require that the graph of an
-  endofunction is connected, we obtain the subspecies of
-  \emph{connected endofunctions} and, likewise, that of \emph{circular
+\begin{ex} \label{ex:endofunctions} The transport of an endofunction
+  $\phi : E \to E$ along a bijection $u : E \bij F$ is by
+  \emph{conjugation}: $\phi \mapsto u \phi u^{-1}$. The species of
+  \emph{permutations} is a subspecies of the species of
+  endofunctions. If we require that the graph of an endofunction is
+  connected, we obtain the subspecies of \emph{connected
+    endofunctions} and, likewise, that of \emph{circular
     permutations}. An important concept is that of \emph{contraction}:
   an endofunction $\phi : E \to E$ is a contraction if there exists
   $x_0 \in E$ such that for every $x \in E$ we have $\phi^n(x) = x_0$
@@ -1045,9 +1045,17 @@ dia = mconcat
     way that transport of species is literally given by transport
     along paths \citep{yorgey2014combinatorial}.
 
-    \todo{pictures illustrating permutations, connected endofunctions,
-    circular permutations, contraction.  Need facility for drawing
-    labelled graphs!}
+    \term{Permutations} are endofunctions which are invertible;
+    invertibility is invariant under relabelling, so permutations are
+    a subspecies of endofunctions; likewise connected endofunctions,
+    connected permutations (which must consist of one single cycle),
+    and contractions.  Typical structures of these species are
+    illustrated in \todo{illustration}.
+
+    Joyal claims that \term{contractions} are important, but note that
+    this is not because they were already important (as far as I
+    know), but simply because they will play an important role later
+    in the paper.
   \end{commentary}
 \end{ex}
 
