@@ -156,20 +156,18 @@
 In his classic 1981 paper \emph{Une th\'eorie combinatoire des
   s\'eries formelles (A combinatorial theory of formal series)}, Joyal
 introduces the notion of \term{(combinatorial) species}, which has had
-a wide-ranging influence on combinatorics. \todo{elaborate?}
-
-During the course of researching my PhD thesis on the intersection of
-combinatorial species and programming languages, I read a lot of
-secondary literature on species, but not Joyal's original paper---it
-is written in French, which I do not read. I didn't think this would
-be a great loss, since I supposed the material in his paper would be
-well-covered elsewhere, for example in the textbook by \citet{bll}
-(which thankfully \emph{has} been translated into English). However, I
-eventually came across some questions to which I could not find
-answers, only to be told that the answers were already in Joyal's
-paper \citep{trimble-not-analytic}. Somewhat reluctantly, I found a
-copy and began trying to read it, whereupon I discovered two
-surprising things.
+a wide-ranging influence on combinatorics.  During the course of
+researching my PhD thesis on the intersection of combinatorial species
+and programming languages, I read a lot of secondary literature on
+species, but not Joyal's original paper---it is written in French,
+which I do not read. I didn't think this would be a great loss, since
+I supposed the material in his paper would be well-covered elsewhere,
+for example in the textbook by \citet{bll} (which thankfully
+\emph{has} been translated into English). However, I eventually came
+across some questions to which I could not find answers, only to be
+told that the answers were already in Joyal's paper
+\citep{trimble-not-analytic}. Somewhat reluctantly, I found a copy and
+began trying to read it, whereupon I discovered two surprising things.
 
 First, armed with a dictionary and Google Translate, reading
 mathematical French is not too difficult (even for someone who does
@@ -250,8 +248,8 @@ every time I record a commit) can be downloaded from \url{http://ozark.hendrix.e
 
 \newpage
 
-\section*{Introduction}
-\label{sec:meta-intro}
+\section*{Background}
+\label{sec:background}
 
 The informal notion of a \term{combinatorial class} or
 \term{combinatorial family} had already been around for quite a while
@@ -288,8 +286,8 @@ dia = [s1, s3, s2]
   \end{diagram}
   \end{center}
   To start, we will suppose that the ``atoms''---indicated by dots in
-  the diagram above---are indistinguishable; there will be much more
-  to say about this later.
+  the diagram above---are indistinguishable (there will be much more
+  to say about this later!).
 
 Combinatorial classes can be combined in various algebraic ways.
 Two of the most prominent and familiar are sum
@@ -319,14 +317,21 @@ its size; this is one of the key ideas of combinatorics.
 
 However, considering only finite combinatorial classes is much too
 restrictive.  For example, we have previously seen the class of binary
-trees, but the set of all binary trees is certainly not finite.  XXX How
-can we continue to do meaningful combinatorics?
+trees, which is certainly not finite.  But how can we continue to do
+meaningful combinatorics with infinite classes?  Combinatorics has
+\emph{counting} at its heart, after all, but counting to infinity is
+not very informative (nor much fun).
 
-XXX Idea: define \term{size} of a structure = number of atoms.  Now
-restrict to \term{finitary} classes, which have a finite number
-\emph{of each size} (but may be infinite overall).  Then keep track
-not of total number of structures, but number of structures of each
-size, $|F|_n$.
+The simple resolution comes from a slight change in perspective:
+although there are infinitely many binary trees, there are only a
+finite number \emph{of any given size}, where the \term{size} of a
+structure is defined (informally, for now) as the number of atoms it
+contains.
+
+XXX Now restrict to \term{finitary} classes, which have
+a finite number \emph{of each size} (but may be infinite overall).
+Then keep track not of total number of structures, but number of
+structures of each size, $|F|_n$.
 \begin{itemize}
 \item Number of structures of |F + G| of size $n$ = number of size-$n$
   $F$ plus number of size-$n$ $G$.
