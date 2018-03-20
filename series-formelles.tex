@@ -326,20 +326,40 @@ The simple resolution comes from a slight change in perspective:
 although there are infinitely many binary trees, there are only a
 finite number \emph{of any given size}, where the \term{size} of a
 structure is defined (informally, for now) as the number of atoms it
-contains.
+contains.  XXX for example.
+So it makes good sense to count binary trees if we focus on
+counting how many there are of each size.  If $T$ represents the set
+of all binary trees we will write $|T|_n$ to denote the number of
+trees of size $n$.
 
-XXX Now restrict to \term{finitary} classes, which have
-a finite number \emph{of each size} (but may be infinite overall).
-Then keep track not of total number of structures, but number of
-structures of each size, $|F|_n$.
+Combinatorial classes with this property---having only finitely many
+structures of each given size---are called \term{finitary}.  The
+cardinality of a finite class is just a single natural number;
+generalizing to finitary classes, we can say that the ``cardinality''
+of a finitary class is an \emph{infinite sequence} of natural numbers,
+one for each natural number size (or, instead of a sequence, we can
+equivalently think of it as a function $\N \to \N$).
+
+Let's now reconsider the combinatorial operations of sum and product,
+and see what operations they correspond to on generalized
+cardinalities of finitary classes.
 \begin{itemize}
-\item Number of structures of |F + G| of size $n$ = number of size-$n$
-  $F$ plus number of size-$n$ $G$.
-\item What about number of structures of $|F \cdot G|$ of size $n$?  To
-  get a structure of size $n$, we need to pair an $F$ structure of
-  size $k$ and a $G$ structure of size $n-k$.  Hence \[ |F \cdot G|_n
-    = \sum_{0 \leq k \leq n} |F|_n G_{n-k}. \]
+\item Since an $F + G$ structure is either an $F$ structure or a $G$
+  structure, the number of $F+G$ structures of size $n$ is just the
+  sum of the number of $F$ structures of size $n$ and the number of
+  $G$ structures of size $n$.  That is, \[ |F+G|_n = |F|_n + |G|_n. \]
+\item What about the number of structures of $|F \cdot G|$ of size
+  $n$?  An $F \cdot G$ structure is a pair of an $F$ structure and a
+  $G$ structure, whose total size is the sum of the sizes of the
+  component structures.  Thus, to get a structure of size $n$, we need
+  to pair an $F$ structure of size $k$ and a $G$ structure of size
+  $n-k$.  For each $k$, the number of ways to pick an appropriate pair
+  is the product of the number of choices for an $F$ structure of size
+  $k$ and the number of choices for a $G$ structure of size $n-k$.
+  That is, formally,
+  \[ |F \cdot G|_n = \sum_{0 \leq k \leq n} |F|_n G_{n-k}. \]
 \end{itemize}
+
 Bring in theory of generating functions.  Clothesline for hanging
 sequence of numbers.  Polynomial arithmetic gives us above equations
 for sum and product.
