@@ -12,6 +12,8 @@ Shake
 *.fdb_latexmk
 *.fls
 *.out
+*.ptb
+*.tex
 diagrams/
 .cabal-sandbox/
 cabal.sandbox.config

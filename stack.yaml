@@ -14,6 +14,7 @@ extra-deps:
 - SVGFonts-1.6.0.3
 - shake-0.16
 - diagrams-builder-0.8.0.2
+- lhs2tex-1.20
 
 flags:
   diagrams-builder:

@@ -1,6 +1,8 @@
 %% -*- mode: LaTeX; compile-command: "./build.sh" -*-
 \documentclass{amsart}
 
+%include polycode.fmt
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 
@@ -118,6 +120,12 @@
 \newcommand{\pref}[1]{\prettyref{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Haskell formatting
+
+%format :+: = "\mathbin{:\!\!+\!\!:}"
+%format :*: = "\mathbin{:\!\!*\!\!:}"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Other formatting
 
 \setcounter{figure}{-1}
@@ -198,6 +206,9 @@ like this:
   This is some commentary.
 \end{commentary}
 
+\todo{Say something about language used for code examples, and how it
+  fits/what background you need}
+
 This is a long-term project; I do not know how long it will take to
 finish, but plan to work on it slowly and steadily.  Collaboration and
 contributions are welcome---see the public git repository hosted at
@@ -258,7 +269,7 @@ before Joyal's paper.  The basic idea is of a set of ``shapes'' or
 (Functional programmers should think of an algebraic data type with a
 type parameter, although this does not capture the full sense.)  As an
 example, the combinatorial class of \term{rooted binary trees}
-consists of things like:
+consists of things like this:
   \begin{center}
   \begin{diagram}[width=150]
 import           Diagrams.TwoD.Layout.Tree
@@ -296,32 +307,24 @@ Two of the most prominent and familiar are sum
 \item The \term{sum} $F + G$ of two classes $F$ and $G$ consists of
   the disjoint union of the two sets of structures.  In other words,
   an $F+G$ structure consists of \emph{either} an $F$ structure or a
-  $G$ structure (along with a tag saying which).
-
-  In Haskell, this corresponds to a definition like so:
-\begin{verbatim}
-data (f :+: g) u where
-  L :: f u -> (f :+: g) u
-  R :: g u -> (f :+: g) u
-\end{verbatim}
-\item The \term{product} $F \cdot G$ of two classes $F$ and $G$ consists of
-  the class of all \term{ordered pairs} of structures from the two
-  classes, that is, \[ F \cdot G = \{ (f,g) \mid f \in F, g \in G
-    \}. \]
-\begin{verbatim}
-data (f :*: g) u where
-  P :: f u -> g u -> (f :*: g) u
-\end{verbatim}
+  $G$ structure (along with a tag saying which).  This corresponds to
+  a sum type, for example, |Either F G| in Haskell.
+\item The \term{product} $F \cdot G$ of two classes $F$ and $G$
+  consists of the class of all \term{ordered pairs} of structures from
+  the two classes, that is,
+  \[ F \cdot G = \{ (f,g) \mid f \in F, g \in G \}. \] This
+  corresponds to a product or pair type, for example, |(F,G)| in
+  Haskell.
 \end{itemize}
 
 Calling these operations \term{sum} and \term{product} can be
 initially justified by thinking about \emph{finite} combinatorial
 classes.  In the case that $F$ and $G$ are finite, one can verify that
 \begin{align*}
-  |F + G| &= |F| + |G| \qquad \text{and} \\
-  |F \cdot G| &= |F| \cdot |G|,
+  ||F + G|| &= ||F|| + ||G|| \qquad \text{and} \\
+  ||F \cdot G|| &= ||F|| \cdot ||G||,
 \end{align*}
-where we use $|F|$ to denote the size (that is, the number of
+where we use $||F||$ to denote the size (that is, the number of
 structures) of a finite combinatorial class.  That is, the size of a
 disjoint union $F+G$ is the sum of the sizes $F$ and of $G$, and the
 size of a product $F \cdot G$ is the product of the sizes.  Describing
@@ -344,16 +347,31 @@ contains.  For example, the rooted binary tree structures shown above
 have sizes $9$, $8$, and $2$, respectively.  So it makes good sense to
 count binary trees if we focus on counting \emph{how many there are of
   each size}.  If $T$ represents the set of all binary trees, we will
-write $|T|_n$ to denote the number of trees of size $n$.
+write $||T||_n$ to denote the number of trees of size $n$.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
 cardinality of a finite set is just a single natural number;
 generalizing to finitary combinatorial classes, we can say that the
 ``cardinality'' of a finitary class is an \emph{infinite sequence} of
-natural numbers, one for each natural number size (or, instead of a
-sequence, we can equivalently think of it as a function $\N \to \N$
-which tells us how many structures there are of each size).
+natural numbers \[ ||F||_0, ||F||_1, ||F||_2, \dots, \] describing the
+number of structures of each size.
+
+Alternatively, instead of an infinite sequence, we can think of a
+function $\N \to \N$, which takes a size as input and ouputs the
+number of structures of that size.  Computationally, this is a nicer
+representation in many ways, and turns out to be the proper
+perspective from which to later generalize to the notion of species.
+We can encode this in Haskell by
+\begin{spec}
+type Card = Integer -> Integer
+
+data HasCard a where
+  card :: proxy a -> Card
+\end{spec}
+\todo{consider doing this in Agda or Idris instead of Haskell?  Could
+  directly e.g. encode a type universe, write functions over it...}
+\todo{note |Integer| instead of |Nat|?}
 
 Let's now reconsider the combinatorial operations of sum and product,
 and see what operations they correspond to on generalized
@@ -362,8 +380,12 @@ cardinalities of finitary classes.
 \item Since an $F + G$ structure is either an $F$ structure or a $G$
   structure, the number of $F+G$ structures of size $n$ is just the
   sum of the number of $F$ structures of size $n$ and the number of
-  $G$ structures of size $n$.  That is, \[ |F+G|_n = |F|_n + |G|_n. \]
-\item What about the number of structures of $|F \cdot G|$ of size
+  $G$ structures of size $n$.  That is, \[ ||F+G||_n = ||F||_n +
+    ||G||_n. \]
+
+  \todo{Code to compute cardinality}
+
+\item What about the number of structures of $||F \cdot G||$ of size
   $n$?  An $F \cdot G$ structure is a pair of an $F$ structure and a
   $G$ structure, whose total size is the sum of the sizes of the
   component structures.  Thus, to get a structure of size $n$, we need
@@ -372,7 +394,10 @@ cardinalities of finitary classes.
   is the product of the number of choices for an $F$ structure of size
   $k$ and the number of choices for a $G$ structure of size $n-k$.
   That is, formally,
-  \[ |F \cdot G|_n = \sum_{0 \leq k \leq n} |F|_n G_{n-k}. \]
+  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_n G_{n-k}. \]
+
+  \todo{Code to compute cardinality}
+
 \end{itemize}
 
 Bring in theory of generating functions.  Clothesline for hanging
@@ -663,10 +688,10 @@ linkedTrees s t = hsep 0.8 [t1 === txt' 8 s, t2 === txt' 8 t]
             & arrowHead .~ noHead
       )
       i (sig i)
-    selectShaft i | i `elem` [0,3] = theArc # reverseTrail
-                  | i `elem` [2,4] = theArc
+    selectShaft i || i `elem` [0,3] = theArc # reverseTrail
+                  || i `elem` [2,4] = theArc
     selectShaft _ = hrule 1
-    theArc = arc xDir (65 @@ deg)
+    theArc = arc xDir (65 @@@@ deg)
 
 drawSig :: String -> String -> String -> Int -> (Int -> Char) -> Diagram B
 drawSig e f u n sig = vcat
@@ -674,7 +699,7 @@ drawSig e f u n sig = vcat
   , txt' 8 u # translateX 0.5
   , hsep 0.2 [txt' 8 f, unord (map (mkNamedNode sig ((:[]).sig)) [0..n-1])]
   ]
-  # applyAll [ connectOutside' opts x y | x <- [0 :: Int .. n-1], let y = sig x ]
+  # applyAll [ connectOutside' opts x y || x <- [0 :: Int .. n-1], let y = sig x ]
   where
     opts = with & arrowHead .~ noHead & shaftStyle %~ dashingG [0.05,0.05] 0
 
@@ -778,7 +803,7 @@ classes are the \term{types} of structures of the species M; these
 classes are the \term{connected components} of the groupoid $\el
 (M)$. We use the notation $\pi_0 (M)$ to denote the set of types (of
 structures) of the species $M$. If $s \in M$, we denote the
-\term{type} of $s$ by the notation $|s| \in \pi_0 (M)$.
+\term{type} of $s$ by the notation $||s|| \in \pi_0 (M)$.
 
 \begin{commentary}
   This definition of structure \emph{types} is an important one, and
@@ -1052,8 +1077,8 @@ dia = mconcat
     an endofunction $\phi : E \to E$ given a bijection (relabelling)
     $u : E \bij F$. The situation can be pictured as below:
     \[ \xymatrix{E
-        \ar@{<->}[r]^{u} \ar[d]_{\phi} & F \ar@{.>}[d]^{u \phi u^{-1}} \\
-        E \ar@{<->}[r]^{u} & F } \] ``Transporting $\phi$ along $u$''
+        \ar@@{<->}[r]^{u} \ar[d]_{\phi} & F \ar@@{.>}[d]^{u \phi u^{-1}} \\
+        E \ar@@{<->}[r]^{u} & F } \] ``Transporting $\phi$ along $u$''
     means using the bijection $u$ between $E$ and $F$ to turn $\phi$
     from an endofunction on $E$ into an endofunction on $F$.  The way
     to do this can be read off from the picture: the $\phi$ on the
@@ -1120,9 +1145,9 @@ The group $E!$ of permutations of $E$ acts on $M [E]$ by transport
 of structures. The set $\pi_0 (M [E])$ of \emph{orbits} is identified
 with the set of types of $M$-structures supported by sets equipotent
 with $E$. We identify the orbit of $s \in M[E]$ with its type
-$|s|$. The \emph{stabilizer} subgroup of an element $s \in M [E]$ is
+$||s||$. The \emph{stabilizer} subgroup of an element $s \in M [E]$ is
 the group $\Aut (s)$ of \emph{automorphisms} of $s$. We have the
-well-known formula \[ \Card |s| = \frac{n!}{\Card \Aut(s)}. \]
+well-known formula \[ \Card ||s|| = \frac{n!}{\Card \Aut(s)}. \]
 
 One of the fundamental problems of enumerative combinatorics is to
 evaluate the two infinite sequences of numbers
@@ -1260,7 +1285,7 @@ we say that $M$ and $N$ are \emph{equipotent} species, and we write $M
 
 \subsubsection{} A morphism of species $M \to N$ determines a functor
 $\el (M) \to \el (N)$ between the corresponding groupoids. Note that
-this functor commutes with the forgetful functors \[ \xymatrix@C=0.7em{\el(M)
+this functor commutes with the forgetful functors \[ \xymatrix@@C=0.7em{\el(M)
   \ar[rr] \ar[dr]_U & & \el(N) \ar[dl]^U \\ & B.} \]
 It is not true that a functor $\el (M) \to \el (N)$ is always induced
 by a morphism of species $M \to N$. For example, if $M$ is the species
@@ -1310,9 +1335,9 @@ that $p'\ u = p$.
 
 \begin{prop}
   The constructions described above define a equivalence between the
-  category of species relative to $M$ and the category $E \|X\|/_M$ of
+  category of species relative to $M$ and the category $E \||X\||/_M$ of
   species over $M$. \emph{(See \pref{sec:combinatorial-operations} for the
-  notation $E\|X\|$.)}
+  notation $E\||X\||$.)}
 \end{prop}
 
 Suppose $T_M: \el (M) \to E$ is given. We often say that $(s, \alpha)
@@ -1443,7 +1468,7 @@ and therefore
   \caption{$S = S_0 \cdot U$}
   \label{fig:permutation}
 \end{figure}
-\todo{add 2-cycle to \pref{fig:permutation}.  Function for placing arrowhead @
+\todo{add 2-cycle to \pref{fig:permutation}.  Function for placing arrowhead @@
   midpoint of arbitrary path?}
 
 \begin{ex}
