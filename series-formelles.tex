@@ -258,7 +258,7 @@ before Joyal's paper.  The basic idea is of a set of ``shapes'' or
 (Functional programmers should think of an algebraic data type with a
 type parameter, although this does not capture the full sense.)  As an
 example, the combinatorial class of \term{rooted binary trees}
-consists of things like
+consists of things like:
   \begin{center}
   \begin{diagram}[width=150]
 import           Diagrams.TwoD.Layout.Tree
@@ -294,10 +294,24 @@ Two of the most prominent and familiar are sum
 (disjoint union) and product (pairing):
 \begin{itemize}
 \item The \term{sum} $F + G$ of two classes $F$ and $G$ consists of
-  the disjoint union of the two sets of structures.
+  the disjoint union of the two sets of structures.  In other words,
+  an $F+G$ structure consists of \emph{either} an $F$ structure or a
+  $G$ structure (along with a tag saying which).
+
+  In Haskell, this corresponds to a definition like so:
+\begin{verbatim}
+data (f :+: g) u where
+  L :: f u -> (f :+: g) u
+  R :: g u -> (f :+: g) u
+\end{verbatim}
 \item The \term{product} $F \cdot G$ of two classes $F$ and $G$ consists of
   the class of all \term{ordered pairs} of structures from the two
-  classes, that is, \[ F \cdot G = \{ (f,g) \mid f \in F, g \in G \}. \]
+  classes, that is, \[ F \cdot G = \{ (f,g) \mid f \in F, g \in G
+    \}. \]
+\begin{verbatim}
+data (f :*: g) u where
+  P :: f u -> g u -> (f :*: g) u
+\end{verbatim}
 \end{itemize}
 
 Calling these operations \term{sum} and \term{product} can be
@@ -317,7 +331,7 @@ its size; this is one of the key ideas of combinatorics.
 
 However, considering only finite combinatorial classes is much too
 restrictive.  For example, we have previously seen the class of binary
-trees, which is certainly not finite.  But how can we continue to do
+trees, which is certainly not finite.  How can we continue to do
 meaningful combinatorics with infinite classes?  Combinatorics has
 \emph{counting} at its heart, after all, but counting to infinity is
 not very informative (nor much fun).
@@ -326,19 +340,20 @@ The simple resolution comes from a slight change in perspective:
 although there are infinitely many binary trees, there are only a
 finite number \emph{of any given size}, where the \term{size} of a
 structure is defined (informally, for now) as the number of atoms it
-contains.  XXX for example.
-So it makes good sense to count binary trees if we focus on
-counting how many there are of each size.  If $T$ represents the set
-of all binary trees we will write $|T|_n$ to denote the number of
-trees of size $n$.
+contains.  For example, the rooted binary tree structures shown above
+have sizes $9$, $8$, and $2$, respectively.  So it makes good sense to
+count binary trees if we focus on counting \emph{how many there are of
+  each size}.  If $T$ represents the set of all binary trees, we will
+write $|T|_n$ to denote the number of trees of size $n$.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
-cardinality of a finite class is just a single natural number;
-generalizing to finitary classes, we can say that the ``cardinality''
-of a finitary class is an \emph{infinite sequence} of natural numbers,
-one for each natural number size (or, instead of a sequence, we can
-equivalently think of it as a function $\N \to \N$).
+cardinality of a finite set is just a single natural number;
+generalizing to finitary combinatorial classes, we can say that the
+``cardinality'' of a finitary class is an \emph{infinite sequence} of
+natural numbers, one for each natural number size (or, instead of a
+sequence, we can equivalently think of it as a function $\N \to \N$
+which tells us how many structures there are of each size).
 
 Let's now reconsider the combinatorial operations of sum and product,
 and see what operations they correspond to on generalized
