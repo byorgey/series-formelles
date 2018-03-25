@@ -343,11 +343,35 @@ The simple resolution comes from a slight change in perspective:
 although there are infinitely many binary trees, there are only a
 finite number \emph{of any given size}, where the \term{size} of a
 structure is defined (informally, for now) as the number of atoms it
-contains.  For example, the rooted binary tree structures shown above
-have sizes $9$, $8$, and $2$, respectively.  So it makes good sense to
-count binary trees if we focus on counting \emph{how many there are of
-  each size}.  If $T$ represents the set of all binary trees, we will
-write $||T||_n$ to denote the number of trees of size $n$.
+contains.  For example, \pref{fig:trees-by-size} shows all binary
+trees with up to 3 atoms, grouped by size.
+\begin{figure}
+  \centering
+  \begin{diagram}[width=150]
+import           Diagrams.TwoD.Layout.Tree
+import           SpeciesDiagrams
+import           Diagrams.Prelude hiding (Empty)
+
+allTrees :: Int -> [BTree ()]
+allTrees 0 = Empty
+allTrees n = [0 .. n-1] >>= \k -> BNode () <$> allTrees k <*> allTrees (n-k-1)  -- $
+
+dia :: Diagram B
+dia = [0 .. 3]
+  # map allTrees
+  # map (map (drawBinTreeWide . fmap (const (circle labR # fc black))))
+  # map (hsep 1)
+  # vsep 2
+  # frame 0.5
+  # lwO 0.7
+  \end{diagram}
+  \caption{All binary trees with up to 3 atoms}
+  \label{fig:trees-by-size}
+\end{figure}
+So it makes good sense to count binary trees if we focus on
+counting how many there are of each size.  If $T$ represents the set
+of all binary trees we will write $|T|_n$ to denote the number of
+trees of size $n$.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
