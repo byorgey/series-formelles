@@ -21,3 +21,4 @@ cabal.sandbox.config
 .shake
 *~
 .stack-work
+*.agdai

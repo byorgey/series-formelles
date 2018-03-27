@@ -418,7 +418,7 @@ cardinalities of finitary classes.
   is the product of the number of choices for an $F$ structure of size
   $k$ and the number of choices for a $G$ structure of size $n-k$.
   That is, formally,
-  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_n G_{n-k}. \]
+  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_k G_{n-k}. \]
 
   \todo{Code to compute cardinality}
 
