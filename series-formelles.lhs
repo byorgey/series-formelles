@@ -126,6 +126,11 @@
 %format :*: = "\mathbin{:\!\!*\!\!:}"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Agda formatting
+
+%format Nat = "\mathbb{N}"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Other formatting
 
 \setcounter{figure}{-1}
@@ -347,55 +352,42 @@ contains.  For example, \pref{fig:trees-by-size} shows all binary
 trees with up to 3 atoms, grouped by size.
 \begin{figure}
   \centering
-  \begin{diagram}[width=150]
+  \begin{diagram}[width=200]
 import           Diagrams.TwoD.Layout.Tree
 import           SpeciesDiagrams
 import           Diagrams.Prelude hiding (Empty)
 
 allTrees :: Int -> [BTree ()]
-allTrees 0 = Empty
+allTrees 0 = [Empty]
 allTrees n = [0 .. n-1] >>= \k -> BNode () <$> allTrees k <*> allTrees (n-k-1)  -- $
 
 dia :: Diagram B
-dia = [0 .. 3]
+dia = [0 .. 4]
   # map allTrees
   # map (map (drawBinTreeWide . fmap (const (circle labR # fc black))))
-  # map (hsep 1)
+  # map (alignL . hsep 1)
   # vsep 2
   # frame 0.5
   # lwO 0.7
   \end{diagram}
-  \caption{All binary trees with up to 3 atoms}
+  \caption{All nonempty binary trees with up to 4 atoms}
   \label{fig:trees-by-size}
 \end{figure}
 So it makes good sense to count binary trees if we focus on
 counting how many there are of each size.  If $T$ represents the set
-of all binary trees we will write $|T|_n$ to denote the number of
+of all binary trees we will write $||T||_n$ to denote the number of
 trees of size $n$.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
 cardinality of a finite set is just a single natural number;
 generalizing to finitary combinatorial classes, we can say that the
-``cardinality'' of a finitary class is an \emph{infinite sequence} of
-natural numbers \[ ||F||_0, ||F||_1, ||F||_2, \dots, \] describing the
-number of structures of each size.
-
-Alternatively, instead of an infinite sequence, we can think of a
-function $\N \to \N$, which takes a size as input and ouputs the
-number of structures of that size.  Computationally, this is a nicer
-representation in many ways, and turns out to be the proper
-perspective from which to later generalize to the notion of species.
-We can encode this in Haskell by
-\begin{spec}
-type Card = Integer -> Integer
-
-data HasCard a where
-  card :: proxy a -> Card
-\end{spec}
-\todo{consider doing this in Agda or Idris instead of Haskell?  Could
-  directly e.g. encode a type universe, write functions over it...}
-\todo{note |Integer| instead of |Nat|?}
+``cardinality'' of a finitary class is a (countably) infinite sequence
+of natural numbers \[ ||F||_0, ||F||_1, ||F||_2, \dots, \] describing
+the number of structures of each size.  Famously, the generalized
+cardinality of the class of binary trees is the sequence of
+\term{Catalan numbers} \todo{cite}, which begins
+\[ 1, 1, 2, 5, 14, 42, 132 \dots \]
 
 Let's now reconsider the combinatorial operations of sum and product,
 and see what operations they correspond to on generalized
@@ -404,30 +396,54 @@ cardinalities of finitary classes.
 \item Since an $F + G$ structure is either an $F$ structure or a $G$
   structure, the number of $F+G$ structures of size $n$ is just the
   sum of the number of $F$ structures of size $n$ and the number of
-  $G$ structures of size $n$.  That is, \[ ||F+G||_n = ||F||_n +
+  $G$ structures of size $n$.  That is, \[  ||F+G||_n = ||F||_n +
     ||G||_n. \]
 
-  \todo{Code to compute cardinality}
-
-\item What about the number of structures of $||F \cdot G||$ of size
-  $n$?  An $F \cdot G$ structure is a pair of an $F$ structure and a
-  $G$ structure, whose total size is the sum of the sizes of the
-  component structures.  Thus, to get a structure of size $n$, we need
-  to pair an $F$ structure of size $k$ and a $G$ structure of size
-  $n-k$.  For each $k$, the number of ways to pick an appropriate pair
-  is the product of the number of choices for an $F$ structure of size
-  $k$ and the number of choices for a $G$ structure of size $n-k$.
-  That is, formally,
-  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_k G_{n-k}. \]
-
-  \todo{Code to compute cardinality}
-
+\item What about the number of structures of $F \cdot G$ of size
+  $n$?  This turns out to be a bit more interesting.  An $F \cdot G$
+  structure is a pair of an $F$ structure and a $G$ structure, whose
+  total size is the sum of the sizes of the component structures.
+  Thus, to get a structure of size $n$, we need to pair an $F$
+  structure of size $k$ and a $G$ structure of size $n-k$.  For each
+  $k$, the number of ways to pick an appropriate pair is the product
+  of the number of choices for an $F$ structure of size $k$ and the
+  number of choices for a $G$ structure of size $n-k$.  That is,
+  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}. \]
 \end{itemize}
 
-Bring in theory of generating functions.  Clothesline for hanging
-sequence of numbers.  Polynomial arithmetic gives us above equations
-for sum and product.
+These generalized cardinalities lead directly to the theory of
+\term{generating functions} \todo{cite some things, further reading
+  etc.}.  The observation is that we can encode sequences
+$||F||_0, ||F||_1, ||F||_2, \dots$ as the coefficients of infinite
+power series, \[ ||F||_0 + ||F||_1 x + ||F||_2 x^2 + \dots =
+  \sum_{n \geq 0} ||F||_n x^n. \]  This is much more than a gimmick,
+because sum and product of power series corresponds exactly to sum
+and product of combinatorial classes:
+\begin{itemize}
+\item To add two power series, just add coefficients of like powers,
+  that is,
+  \[ \left(\sum_{n \geq 0} ||F||_n x^n \right) + \left(\sum_{n \geq 0}
+      ||G||_n x^n \right) = \sum_{n \geq 0} (||F||_n + ||G||_n)
+    x^n, \] which \todo{explain}, $||F+G||_n = ||F||_n + ||G||_n$.
+\item When multiplying two power series, \todo{explain}
+  \[ \left(\sum_{n \geq 0} ||F||_n x^n \right)
+    \left(\sum_{n \geq 0} ||G||_n x^n \right) = \sum_{n \geq 0}
+    \left(\sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}\right) x^n. \]
+\end{itemize}
 
+Clothesline for hanging
+sequence of numbers.
+
+To make this more concrete, consider the following Agda \todo{cite}
+code which implements these ideas.  We encode the coefficients of a
+generating function not as a literally infinite sequence, but as a
+function $\N \to \N$, which takes a size as input and ouputs the
+number of structures of that size.  Computationally, this is a nicer
+representation in many ways, and also turns out to be the proper
+perspective from which to later generalize to the notion of species.
+
+\todo{Include Agda code with typesetting. Will need to include Agda in
+stack.yaml so it is available to typecheck and syntax highlight.  See \url{https://agda.readthedocs.io/en/v2.5.3/tools/generating-latex.html}}
 
 \todoin{
 Things to include in the introduction:
