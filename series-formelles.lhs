@@ -420,11 +420,13 @@ power series, \[ ||F||_0 + ||F||_1 x + ||F||_2 x^2 + \dots =
 because sum and product of power series corresponds exactly to sum
 and product of combinatorial classes:
 \begin{itemize}
-\item To add two power series, just add coefficients of like powers,
+\item To add two power series, one adds coefficients of like powers,
   that is,
   \[ \left(\sum_{n \geq 0} ||F||_n x^n \right) + \left(\sum_{n \geq 0}
-      ||G||_n x^n \right) = \sum_{n \geq 0} (||F||_n + ||G||_n)
-    x^n, \] which \todo{explain}, $||F+G||_n = ||F||_n + ||G||_n$.
+      ||G||_n x^n \right) = \sum_{n \geq 0} \left(||F||_n + ||G||_n \right)
+    x^n. \] On the right-hand side we get $||F||_n + ||G||_n$ as the
+  coefficient of $x^n$, which as we have previously seen, is in fact
+  the number of $F + G$ structures of size $n$.  So adding the power series
 \item When multiplying two power series, \todo{explain}
   \[ \left(\sum_{n \geq 0} ||F||_n x^n \right)
     \left(\sum_{n \geq 0} ||G||_n x^n \right) = \sum_{n \geq 0}
