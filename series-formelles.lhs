@@ -426,15 +426,28 @@ and product of combinatorial classes:
       ||G||_n x^n \right) = \sum_{n \geq 0} \left(||F||_n + ||G||_n \right)
     x^n. \] On the right-hand side we get $||F||_n + ||G||_n$ as the
   coefficient of $x^n$, which as we have previously seen, is in fact
-  the number of $F + G$ structures of size $n$.  So adding the power series
-\item When multiplying two power series, \todo{explain}
+  the number of $F + G$ structures of size $n$.  So adding the
+  generating functions for $F$ and $G$ yields the generating function
+  for $F+G$.
+\item Now consider multiplying two power series.  Each term in the
+  output will be the product of two terms, one from each input.
+  Powers add when multiplying, so each $x^n$ term in the output will
+  arise from the product of some term $x^k$ and some $x^{n-k}$ term.
+  In particular, multiplying $ax^k$ and $bx^{n-k}$ results in $abx^n$.
+  Once we collect up like terms in the result, the coefficient of
+  $x^n$ will therefore be the sum of the products of coefficients of
+  every possible pair of terms whose powers add up to $n$.  Symbolically:
   \[ \left(\sum_{n \geq 0} ||F||_n x^n \right)
     \left(\sum_{n \geq 0} ||G||_n x^n \right) = \sum_{n \geq 0}
     \left(\sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}\right) x^n. \]
+  Once again, we see that the coefficient of $x^n$ in the result is
+  exactly the expression which we previously argued counts the number
+  of $F \cdot G$ structures of size $n$.  That is, multiplying the
+  generating functions for $F$ and $G$ yields the generating function
+  for $F \cdot G$.
 \end{itemize}
 
-Clothesline for hanging
-sequence of numbers.
+\todo{Clothesline for hanging sequence of numbers.}
 
 To make this more concrete, consider the following Agda \todo{cite}
 code which implements these ideas.  We encode the coefficients of a
