@@ -432,7 +432,7 @@ and product of combinatorial classes:
 \item Now consider multiplying two power series.  Each term in the
   output will be the product of two terms, one from each input.
   Powers add when multiplying, so each $x^n$ term in the output will
-  arise from the product of some term $x^k$ and some $x^{n-k}$ term.
+  arise from the product of some $x^k$ term and some $x^{n-k}$ term.
   In particular, multiplying $ax^k$ and $bx^{n-k}$ results in $abx^n$.
   Once we collect up like terms in the result, the coefficient of
   $x^n$ will therefore be the sum of the products of coefficients of
@@ -442,7 +442,7 @@ and product of combinatorial classes:
     \left(\sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}\right) x^n. \]
   Once again, we see that the coefficient of $x^n$ in the result is
   exactly the expression which we previously argued counts the number
-  of $F \cdot G$ structures of size $n$.  That is, multiplying the
+  of $F \cdot G$ structures of size $n$.  Therefore, multiplying the
   generating functions for $F$ and $G$ yields the generating function
   for $F \cdot G$.
 \end{itemize}
