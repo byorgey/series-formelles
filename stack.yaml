@@ -15,6 +15,7 @@ extra-deps:
 - shake-0.16
 - diagrams-builder-0.8.0.2
 - lhs2tex-1.20
+- Agda-2.5.3
 
 flags:
   diagrams-builder:
