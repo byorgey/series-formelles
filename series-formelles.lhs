@@ -23,6 +23,9 @@
 
 \usepackage[backend=pgf,extension=pgf,input,outputdir=diagrams]{diagrams-latex}
 
+\usepackage{latex/agda}
+\usepackage{catchfilebetweentags}
+
 \usepackage[authoryear]{natbib}
 \usepackage{bibentry}
 \nobibliography*
@@ -456,6 +459,8 @@ function $\N \to \N$, which takes a size as input and ouputs the
 number of structures of that size.  Computationally, this is a nicer
 representation in many ways, and also turns out to be the proper
 perspective from which to later generalize to the notion of species.
+
+\ExecuteMetaData[latex/Code.tex]{nat}
 
 \todo{Include Agda code with typesetting. Will need to include Agda in
 stack.yaml so it is available to typecheck and syntax highlight.  See \url{https://agda.readthedocs.io/en/v2.5.3/tools/generating-latex.html}}
