@@ -456,7 +456,11 @@ To make this more concrete, consider the following Agda \todo{cite}
 code which implements these ideas.  We encode the coefficients of a
 generating function not as a literally infinite sequence, but as a
 function $\N \to \N$, which takes a size as input and ouputs the
-number of structures of that size.  Computationally, this is a nicer
+number of structures of that size.
+
+\ExecuteMetaData[latex/SeriesFormelles.tex]{
+
+Computationally, this is a nicer
 representation in many ways, and also turns out to be the proper
 perspective from which to later generalize to the notion of species.
 
