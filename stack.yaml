@@ -6,8 +6,6 @@ extra-deps:
 - multiset-comb-0.2.4.1
 - texrunner-0.0.1.1
 - palette-0.1.0.5
-- split-0.2.3.3
-- containers-0.5.11.0
 - diagrams-core-1.4.0.1
 - diagrams-lib-1.4.2
 - diagrams-contrib-1.4.1
