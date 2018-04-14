@@ -21,12 +21,12 @@ ZERO : GF
 ZERO = λ _ → 0
 
 ONE  : GF
-ONE 0 = 1
-ONE _ = 0
+ONE 0  = 1
+ONE _  = 0
 
 X : GF
-X 1 = 1
-X _ = 0
+X 1  = 1
+X _  = 0
 \end{code}
 %</PrimGF>
 
