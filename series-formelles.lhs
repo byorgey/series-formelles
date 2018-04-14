@@ -454,19 +454,26 @@ and product of combinatorial classes:
 
 \todo{Clothesline for hanging sequence of numbers.}
 
-To make this more concrete, consider the following Agda \todo{cite}
-code which implements these ideas.  We encode the coefficients of a
-generating function not as a literally infinite sequence, but as a
-function $\N \to \N$, which takes a size as input and ouputs the
-number of structures of that size.
+To make this more concrete, consider the following Agda
+\citep{norell2007towards} code which implements these ideas.  We
+encode the coefficients of a generating function not as a literally
+infinite sequence, but as a function $\N \to \N$, which takes a size
+as input and ouputs the number of structures of that
+size. Computationally, this is a nicer representation in many ways,
+and also turns out to be the proper perspective from which to later
+generalize to the notion of species.
 
 \ExecuteMetaData[latex/SeriesFormelles.tex]{GF}
 
+Let's write down a few primitive generating functions which will come
+in handy: the constantly zero generating function $f(x) = 0$ has all
+coefficients zero; the constantly $1$ generating function $f(x) = 1$
+has a zeroth coefficient of $1$ and all the rest zero
+($f(x) = 1 + 0x + 0x^2 + \dots$), and finally $f(x)$ has only a $1$
+coefficient for $x^1$.
+
 \ExecuteMetaData[latex/SeriesFormelles.tex]{PrimGF}
 
-Computationally, this is a nicer
-representation in many ways, and also turns out to be the proper
-perspective from which to later generalize to the notion of species.
 
 \todoin{
 Things to include in the introduction:
