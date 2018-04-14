@@ -217,6 +217,8 @@ like this:
 \todo{Say something about language used for code examples, and how it
   fits/what background you need}
 
+\todo{Note \url{https://agda.readthedocs.io/en/v2.5.3/tools/generating-latex.html}}
+
 This is a long-term project; I do not know how long it will take to
 finish, but plan to work on it slowly and steadily.  Collaboration and
 contributions are welcome---see the public git repository hosted at
@@ -465,9 +467,6 @@ number of structures of that size.
 Computationally, this is a nicer
 representation in many ways, and also turns out to be the proper
 perspective from which to later generalize to the notion of species.
-
-\todo{Include Agda code with typesetting. Will need to include Agda in
-stack.yaml so it is available to typecheck and syntax highlight.  See \url{https://agda.readthedocs.io/en/v2.5.3/tools/generating-latex.html}}
 
 \todoin{
 Things to include in the introduction:
