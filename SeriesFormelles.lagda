@@ -1,3 +1,4 @@
+\begin{code}
 open import Data.Empty
 open import Data.Unit
 open import Data.Nat
@@ -5,10 +6,17 @@ open import Data.List
 open import Data.List.Properties
 
 open import Relation.Binary.PropositionalEquality using ( _≡_; refl )
+\end{code}
 
+%<*GF>
+\begin{code}
 GF : Set
 GF = ℕ → ℕ
+\end{code}
+%</GF>
 
+%<*PrimGF>
+\begin{code}
 ZERO : GF
 ZERO = λ _ → 0
 
@@ -19,6 +27,8 @@ ONE _ = 0
 X : GF
 X 1 = 1
 X _ = 0
+\end{code}
+%</PrimGF>
 
 _⊕_ : GF → GF → GF
 (f ⊕ g) n = f n + g n

@@ -458,13 +458,13 @@ generating function not as a literally infinite sequence, but as a
 function $\N \to \N$, which takes a size as input and ouputs the
 number of structures of that size.
 
-\ExecuteMetaData[latex/SeriesFormelles.tex]{
+\ExecuteMetaData[latex/SeriesFormelles.tex]{GF}
+
+\ExecuteMetaData[latex/SeriesFormelles.tex]{PrimGF}
 
 Computationally, this is a nicer
 representation in many ways, and also turns out to be the proper
 perspective from which to later generalize to the notion of species.
-
-\ExecuteMetaData[latex/Code.tex]{nat}
 
 \todo{Include Agda code with typesetting. Will need to include Agda in
 stack.yaml so it is available to typecheck and syntax highlight.  See \url{https://agda.readthedocs.io/en/v2.5.3/tools/generating-latex.html}}
