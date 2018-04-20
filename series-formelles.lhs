@@ -26,6 +26,10 @@
 \usepackage{latex/agda}
 \usepackage{catchfilebetweentags}
 
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{autofe}
+
 \usepackage[authoryear]{natbib}
 \usepackage{bibentry}
 \nobibliography*
@@ -132,6 +136,19 @@
 %% Agda formatting
 
 %format Nat = "\mathbb{N}"
+
+\newcommand{\AD}{\AgdaDatatype}
+\newcommand{\AF}{\AgdaFunction}
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@@dotminus}}}
+
+\newcommand{\@@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@@th-$\cr}%
+}
+\makeatother
+
+\DeclareUnicodeCharacter{8760}{\ensuremath{\dotminus}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Other formatting
@@ -391,8 +408,10 @@ generalizing to finitary combinatorial classes, we can say that the
 of natural numbers \[ ||F||_0, ||F||_1, ||F||_2, \dots, \] describing
 the number of structures of each size.  Famously, the generalized
 cardinality of the class of binary trees is the sequence of
-\term{Catalan numbers} \todo{cite}, which begins
-\[ 1, 1, 2, 5, 14, 42, 132 \dots \]
+\term{Catalan numbers} \citep{stanley2015catalan}, which begins
+\[ 1, 1, 2, 5, 14, 42, 132 \dots \] (the rows of
+\pref{fig:trees-by-size} show the $1$, $2$, $5$, and $14$ trees of
+sizes $1$--$4$).
 
 Let's now reconsider the combinatorial operations of sum and product,
 and see what operations they correspond to on generalized
@@ -452,28 +471,44 @@ and product of combinatorial classes:
   for $F \cdot G$.
 \end{itemize}
 
-\todo{Clothesline for hanging sequence of numbers.}
+\todo{Cite Wilf, ``Clothesline for hanging sequence of numbers.''}
 
 To make this more concrete, consider the following Agda
 \citep{norell2007towards} code which implements these ideas.  We
 encode the coefficients of a generating function not as a literally
-infinite sequence, but as a function $\N \to \N$, which takes a size
-as input and ouputs the number of structures of that
-size. Computationally, this is a nicer representation in many ways,
-and also turns out to be the proper perspective from which to later
-generalize to the notion of species.
+infinite sequence, but as a function $\N \to \N$, which takes a
+natural number $n$ as input and ouputs the coefficient of $x^n$, that
+is, the number of structures of size $n$. Computationally, this is a
+nicer representation in many ways, and also turns out to be the proper
+perspective from which to later generalize to the notion of species.
+
+In Agda, we can define the type of generating functions \AD{GF}
+literally as the function space $\N \to \N$:
 
 \ExecuteMetaData[latex/SeriesFormelles.tex]{GF}
 
-Let's write down a few primitive generating functions which will come
-in handy: the constantly zero generating function $f(x) = 0$ has all
-coefficients zero; the constantly $1$ generating function $f(x) = 1$
-has a zeroth coefficient of $1$ and all the rest zero
-($f(x) = 1 + 0x + 0x^2 + \dots$), and finally $f(x)$ has only a $1$
+We now encode a few primitive generating functions which will come in
+handy: the constantly zero generating function $f(x) = 0$ has all
+coefficients zero; the constantly $1$ generating function
+$f(x) = 1 = 1 + 0x + 0x^2 + \dots$ has an $x^0$ coefficient of
+$1$ and all the rest zero; and finally $f(x) = x$ has only a $1$
 coefficient for $x^1$.
 
 \ExecuteMetaData[latex/SeriesFormelles.tex]{PrimGF}
 
+Next we can define the operations of sum and product for generating
+functions, according to the discussion above.  Generating function sum
+just adds corresponding coefficients:
+
+\ExecuteMetaData[latex/SeriesFormelles.tex]{SumGF}
+
+We can define generating function product using the standard library
+function \AF{applyUpTo}, which applies the given function to each
+natural number in the list $[0, 1, \dots, n]$.
+
+\ExecuteMetaData[latex/SeriesFormelles.tex]{ProdGF}
+
+\todo{Write down universe type and prove relationship to GF?}
 
 \todoin{
 Things to include in the introduction:
