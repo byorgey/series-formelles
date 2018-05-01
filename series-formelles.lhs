@@ -508,8 +508,6 @@ natural number in the list $[0, 1, \dots, n]$.
 
 \ExecuteMetaData[latex/SeriesFormelles.tex]{ProdGF}
 
-\todo{Write down universe type and prove relationship to GF?}
-
 \todoin{
 Things to include in the introduction:
 
