@@ -15,41 +15,41 @@ open RawMonad (monad {Level.zero})  -- List monad/applicative
 open import Relation.Binary.PropositionalEquality using ( _≡_; refl; sym; cong; module ≡-Reasoning )
 \end{code}
 
-%<*GF>
+%<*OGF>
 \begin{code}
-GF : Set
-GF = ℕ → ℕ
+OGF : Set
+OGF = ℕ → ℕ
 \end{code}
-%</GF>
+%</OGF>
 
-%<*PrimGF>
+%<*PrimOGF>
 \begin{code}
-ZERO : GF
+ZERO : OGF
 ZERO _ = 0
 
-ONE  : GF
+ONE  : OGF
 ONE 0  = 1
 ONE _  = 0
 
-X : GF
+X : OGF
 X 1  = 1
 X _  = 0
 \end{code}
-%</PrimGF>
+%</PrimOGF>
 
-%<*SumGF>
+%<*SumOGF>
 \begin{code}
-_⊕_ : GF → GF → GF
+_⊕_ : OGF → OGF → OGF
 (f ⊕ g) n = f n + g n
 \end{code}
-%</SumGF>
+%</SumOGF>
 
-%<*ProdGF>
+%<*ProdOGF>
 \begin{code}
-_⊙_ : GF → GF → GF
+_⊙_ : OGF → OGF → OGF
 (f ⊙ g) n = sum (applyUpTo (λ k → f k * g (n ∸ k)) (suc n))
 \end{code}
-%</ProdGF>
+%</ProdOGF>
 
 \begin{code}
 data U : Set where

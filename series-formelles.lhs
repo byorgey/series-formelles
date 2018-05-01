@@ -395,17 +395,17 @@ dia = [0 .. 4]
   \caption{All nonempty binary trees with up to 4 atoms}
   \label{fig:trees-by-size}
 \end{figure}
-So it makes good sense to count binary trees if we focus on
-counting how many there are of each size.  If $T$ represents the set
-of all binary trees we will write $||T||_n$ to denote the number of
-trees of size $n$.
+So it makes good sense to count binary trees if we focus on counting
+how many there are of each size.  If $T$ represents the set of all
+binary trees we will write $T_n$ to denote the set of binary trees of
+size $n$, and $||T_n||$ its size.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
 cardinality of a finite set is just a single natural number;
 generalizing to finitary combinatorial classes, we can say that the
 ``cardinality'' of a finitary class is a (countably) infinite sequence
-of natural numbers \[ ||F||_0, ||F||_1, ||F||_2, \dots, \] describing
+of natural numbers \[ ||F_0||, ||F_1||, ||F_2||, \dots, \] describing
 the number of structures of each size.  Famously, the generalized
 cardinality of the class of binary trees is the sequence of
 \term{Catalan numbers} \citep{stanley2015catalan}, which begins
@@ -420,8 +420,8 @@ cardinalities of finitary classes.
 \item Since an $F + G$ structure is either an $F$ structure or a $G$
   structure, the number of $F+G$ structures of size $n$ is just the
   sum of the number of $F$ structures of size $n$ and the number of
-  $G$ structures of size $n$.  That is, \[  ||F+G||_n = ||F||_n +
-    ||G||_n. \]
+  $G$ structures of size $n$.  That is, \[  ||(F+G)_n|| = ||F_n|| +
+    ||G_n||. \]
 
 \item What about the number of structures of $F \cdot G$ of size
   $n$?  This turns out to be a bit more interesting.  An $F \cdot G$
@@ -432,23 +432,24 @@ cardinalities of finitary classes.
   $k$, the number of ways to pick an appropriate pair is the product
   of the number of choices for an $F$ structure of size $k$ and the
   number of choices for a $G$ structure of size $n-k$.  That is,
-  \[ ||F \cdot G||_n = \sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}. \]
+  \[ ||(F \cdot G)_n|| = \sum_{0 \leq k \leq n} ||F_k|| ||G_{n-k}||. \]
 \end{itemize}
 
 These generalized cardinalities lead directly to the theory of
-\term{generating functions} \todo{cite some things, further reading
-  etc.}.  The observation is that we can encode sequences
-$||F||_0, ||F||_1, ||F||_2, \dots$ as the coefficients of infinite
-power series, \[ ||F||_0 + ||F||_1 x + ||F||_2 x^2 + \dots =
-  \sum_{n \geq 0} ||F||_n x^n. \]  This is much more than a gimmick,
-because sum and product of power series corresponds exactly to sum
-and product of combinatorial classes:
+\term{(ordinary) generating functions}
+\citep{wilf2005generatingfunctionology}.  The observation is that we
+can encode sequences $||F_0||, ||F_1||, ||F_2||, \dots$ as the
+coefficients of infinite power series,
+\[ ||F_0|| + ||F_1|| x + ||F_2|| x^2 + \dots = \sum_{n \geq 0} ||F_n||
+  x^n. \] This is much more than a gimmick, because sum and product of
+power series corresponds exactly to sum and product of combinatorial
+classes:
 \begin{itemize}
 \item To add two power series, one adds coefficients of like powers,
   that is,
-  \[ \left(\sum_{n \geq 0} ||F||_n x^n \right) + \left(\sum_{n \geq 0}
-      ||G||_n x^n \right) = \sum_{n \geq 0} \left(||F||_n + ||G||_n \right)
-    x^n. \] On the right-hand side we get $||F||_n + ||G||_n$ as the
+  \[ \left(\sum_{n \geq 0} ||F_n|| x^n \right) + \left(\sum_{n \geq 0}
+      ||G_n|| x^n \right) = \sum_{n \geq 0} \left(||F_n|| + ||G_n|| \right)
+    x^n. \] On the right-hand side we get $||F_n|| + ||G_n||$ as the
   coefficient of $x^n$, which as we have previously seen, is in fact
   the number of $F + G$ structures of size $n$.  So adding the
   generating functions for $F$ and $G$ yields the generating function
@@ -461,9 +462,9 @@ and product of combinatorial classes:
   Once we collect up like terms in the result, the coefficient of
   $x^n$ will therefore be the sum of the products of coefficients of
   every possible pair of terms whose powers add up to $n$.  Symbolically:
-  \[ \left(\sum_{n \geq 0} ||F||_n x^n \right)
-    \left(\sum_{n \geq 0} ||G||_n x^n \right) = \sum_{n \geq 0}
-    \left(\sum_{0 \leq k \leq n} ||F||_k ||G||_{n-k}\right) x^n. \]
+  \[ \left(\sum_{n \geq 0} ||F_n|| x^n \right)
+    \left(\sum_{n \geq 0} ||G_n|| x^n \right) = \sum_{n \geq 0}
+    \left(\sum_{0 \leq k \leq n} ||F_k|| ||G_{n-k}||\right) x^n. \]
   Once again, we see that the coefficient of $x^n$ in the result is
   exactly the expression which we previously argued counts the number
   of $F \cdot G$ structures of size $n$.  Therefore, multiplying the
@@ -482,10 +483,10 @@ is, the number of structures of size $n$. Computationally, this is a
 nicer representation in many ways, and also turns out to be the proper
 perspective from which to later generalize to the notion of species.
 
-In Agda, we can define the type of generating functions \AD{GF}
+In Agda, we can define the type of ordinary generating functions \AD{OGF}
 literally as the function space $\N \to \N$:
 
-\ExecuteMetaData[latex/SeriesFormelles.tex]{GF}
+\ExecuteMetaData[latex/SeriesFormelles.tex]{OGF}
 
 We now encode a few primitive generating functions which will come in
 handy: the constantly zero generating function $f(x) = 0$ has all
@@ -494,25 +495,29 @@ $f(x) = 1 = 1 + 0x + 0x^2 + \dots$ has an $x^0$ coefficient of
 $1$ and all the rest zero; and finally $f(x) = x$ has only a $1$
 coefficient for $x^1$.
 
-\ExecuteMetaData[latex/SeriesFormelles.tex]{PrimGF}
+\ExecuteMetaData[latex/SeriesFormelles.tex]{PrimOGF}
 
 Next we can define the operations of sum and product for generating
 functions, according to the discussion above.  Generating function sum
 just adds corresponding coefficients:
 
-\ExecuteMetaData[latex/SeriesFormelles.tex]{SumGF}
+\ExecuteMetaData[latex/SeriesFormelles.tex]{SumOGF}
 
 We can define generating function product using the standard library
 function \AF{applyUpTo}, which applies the given function to each
 natural number in the list $[0, 1, \dots, n]$.
 
-\ExecuteMetaData[latex/SeriesFormelles.tex]{ProdGF}
+\ExecuteMetaData[latex/SeriesFormelles.tex]{ProdOGF}
+
+So far, we have focused on combinatorial classes of structures with
+indistinguishable atoms.  When we consider \emph{distinguishable}
+atoms, things become a bit more interesting.  As a concrete example,
+consider the combinatorial class of \emph{cycles}.
 
 \todoin{
 Things to include in the introduction:
 
 \begin{itemize}
-\item Generating functions.  Examples, references.
 \item Joyal's paper turns GFs into combinatorial objects in their own
   right via categorification.
 \item Important contributions:
