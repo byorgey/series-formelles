@@ -512,7 +512,25 @@ natural number in the list $[0, 1, \dots, n]$.
 So far, we have focused on combinatorial classes of structures with
 indistinguishable atoms.  When we consider \emph{distinguishable}
 atoms, things become a bit more interesting.  As a concrete example,
-consider the combinatorial class of \emph{cycles}.
+consider the combinatorial class $\mathcal{C}$ of \emph{cycles},
+illustrated below.
+
+XXX illustration
+
+There is only one cycle structure with $n$ indistinguishable atoms,
+but with distinguishable atoms there are $(n-1)!$ distinct cycle
+structures (there are $n!$ distinct sequences of $n$ atoms, but this
+counts each cycle $n$ times, once for each of the $n$ positions at
+which we could ``cut open'' a cycle to make it into a sequence).
+
+Taking the sum of two combinatorial classes with distinguishable atoms
+is straightforward: once again, the number of $F + G$ structures of
+size $n$ is just the sum of the number of $F$ structures of size $n$
+and $G$ structures of size $n$.
+
+Product is more interesting.  As an example, consider the product
+$C \cdot C$, which consits of ordered pairs of cycles.  How many
+different pairs of cycles are there of a given size?
 
 \todoin{
 Things to include in the introduction:
