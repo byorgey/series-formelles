@@ -509,13 +509,20 @@ natural number in the list $[0, 1, \dots, n]$.
 
 \ExecuteMetaData[latex/SeriesFormelles.tex]{ProdOGF}
 
-So far, we have focused on combinatorial classes of structures with
-indistinguishable atoms.  When we consider \emph{distinguishable}
-atoms, things become a bit more interesting.  As a concrete example,
-consider the combinatorial class $\mathcal{C}$ of \emph{cycles},
-illustrated below.
+\todo{somewhere mention terminology ``labelled'' vs ``unlabelled''}
 
-XXX illustration
+So far, we have focused on combinatorial classes of structures with
+indistinguishable atoms.  What about structures with
+\emph{distinguishable} atoms?  Taking the sum of two combinatorial
+classes with distinguishable atoms is straightforward: once again, the
+number of $F + G$ structures of size $n$ is just the sum of the number
+of $F$ structures of size $n$ and $G$ structures of size $n$.
+
+Product, on the other hand, is more interesting.  As a concrete
+example, consider the combinatorial class $\mathcal{C}$ of
+\emph{cycles}, illustrated below.
+
+\todo{illustration}
 
 There is only one cycle structure with $n$ indistinguishable atoms,
 but with distinguishable atoms there are $(n-1)!$ distinct cycle
@@ -523,14 +530,43 @@ structures (there are $n!$ distinct sequences of $n$ atoms, but this
 counts each cycle $n$ times, once for each of the $n$ positions at
 which we could ``cut open'' a cycle to make it into a sequence).
 
-Taking the sum of two combinatorial classes with distinguishable atoms
-is straightforward: once again, the number of $F + G$ structures of
-size $n$ is just the sum of the number of $F$ structures of size $n$
-and $G$ structures of size $n$.
+The product $C \cdot C$ consits of \emph{ordered pairs} of cycles.
+How many different pairs of cycles are there of a given size?  The
+reason the atoms make a difference is that when forming a pair of
+cycles with some set of atoms, it matters how we distribute the atoms
+between the two cycles---this doesn't matter if the atoms are
+indistinguishable.
 
-Product is more interesting.  As an example, consider the product
-$C \cdot C$, which consits of ordered pairs of cycles.  How many
-different pairs of cycles are there of a given size?
+To count the number of $C \cdot C$ structures of size $n$ we can
+imagine the choices that lead to one such structure as follows:
+
+\begin{itemize}
+\item We must first choose a $k \in \{1,n-1\}$; to get a structure of
+  size $n$ overall we must pair a $k$-cycle with an $(n-k)$-cycle
+  (note there are no size-$0$ cycles which explains why we do not
+  choose $k \in \{0,n\}$).
+\item Next, we decide how to partition the $n$ atoms between the two
+  cycles.  There are $\binom n k$ ways to choose $k$ of the $n$ atoms
+  to go in the $k$-cycle.
+\item Finally, we pick any of the $(k-1)!$ available $k$-cycles on the
+  $k$ chosen atoms, and likewise we pick one of the $(n-k-1)!$ cycles
+  on the remaining atoms.
+\end{itemize}
+All told, then, the number of pairs of cycles on $n$ distinguishable
+labels is \[ \sum_{1 \leq k \leq n-1} \binom n k (k-1)!(n-k-1)!. \]
+
+Generalizing, we can see that for arbitrary combinatorial classes $F$
+and $G$, the number of $F \cdot G$ structures on $n$ distinguishable
+labels is \[ ||(F \cdot G)_n|| = \sum_{0 \leq k \leq n} \binom n k
+  ||F_k|| ||G_{n-k}||, \] assuming that $F_n$ is the set of $F$
+structures on $n$ distinguishable labels, and similarly for $G_n$.
+This is the same as the formula for indistinguishable atoms, except
+for the extra factor of $\binom n k$.
+
+Magically, it turns out counting structures with distinguishable
+labels is also captured by XXX.
+
+\[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \]
 
 \todoin{
 Things to include in the introduction:
