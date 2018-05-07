@@ -511,6 +511,9 @@ natural number in the list $[0, 1, \dots, n]$.
 
 \todo{somewhere mention terminology ``labelled'' vs ``unlabelled''}
 
+\todo{example application illustrating the power of the generating
+  function approach?}
+
 So far, we have focused on combinatorial classes of structures with
 indistinguishable atoms.  What about structures with
 \emph{distinguishable} atoms?  Taking the sum of two combinatorial
@@ -530,21 +533,22 @@ structures (there are $n!$ distinct sequences of $n$ atoms, but this
 counts each cycle $n$ times, once for each of the $n$ positions at
 which we could ``cut open'' a cycle to make it into a sequence).
 
-The product $C \cdot C$ consits of \emph{ordered pairs} of cycles.
-How many different pairs of cycles are there of a given size?  The
-reason the atoms make a difference is that when forming a pair of
-cycles with some set of atoms, it matters how we distribute the atoms
-between the two cycles---this doesn't matter if the atoms are
-indistinguishable.
+The product $\mathcal{C} \cdot \mathcal{C}$ consists of \emph{ordered
+  pairs} of cycles.  How many different pairs of cycles are there of a
+given size?  The reason the atoms make a difference is that when
+forming a pair of cycles with some set of atoms, it matters how we
+distribute the atoms between the two cycles---this doesn't matter if
+the atoms are indistinguishable.  For example, \todo{show example}
 
-To count the number of $C \cdot C$ structures of size $n$ we can
-imagine the choices that lead to one such structure as follows:
+To count the number of $\mathcal{C} \cdot \mathcal{C}$ structures of
+size $n$, we can imagine the choices we could make to pick one
+particular such structure as follows:
 
 \begin{itemize}
-\item We must first choose a $k \in \{1,n-1\}$; to get a structure of
-  size $n$ overall we must pair a $k$-cycle with an $(n-k)$-cycle
-  (note there are no size-$0$ cycles which explains why we do not
-  choose $k \in \{0,n\}$).
+\item We must first choose some $k \in \{1, 2, \dots, n-1\}$; to get a
+  structure of size $n$ overall we must pair a $k$-cycle with an
+  $(n-k)$-cycle (note there are no size-$0$ cycles which explains why
+  we do not choose $k = 0$ or $n$).
 \item Next, we decide how to partition the $n$ atoms between the two
   cycles.  There are $\binom n k$ ways to choose $k$ of the $n$ atoms
   to go in the $k$-cycle.
@@ -553,58 +557,99 @@ imagine the choices that lead to one such structure as follows:
   on the remaining atoms.
 \end{itemize}
 All told, then, the number of pairs of cycles on $n$ distinguishable
-labels is \[ \sum_{1 \leq k \leq n-1} \binom n k (k-1)!(n-k-1)!. \]
+atoms is \[ \sum_{1 \leq k \leq n-1} \binom n k (k-1)!(n-k-1)!. \]
 
 Generalizing, we can see that for arbitrary combinatorial classes $F$
 and $G$, the number of $F \cdot G$ structures on $n$ distinguishable
-labels is \[ ||(F \cdot G)_n|| = \sum_{0 \leq k \leq n} \binom n k
+atoms is \[ ||(F \cdot G)_n|| = \sum_{0 \leq k \leq n} \binom n k
   ||F_k|| ||G_{n-k}||, \] assuming that $F_n$ is the set of $F$
-structures on $n$ distinguishable labels, and similarly for $G_n$.
+structures on $n$ distinguishable atoms, and similarly for $G_n$.
 This is the same as the formula for indistinguishable atoms, except
 for the extra factor of $\binom n k$.
 
 Magically, it turns out counting structures with distinguishable
-labels is also captured by XXX.
+atoms is captured by a different kind of generating function.  In
+particular, we define the \term{exponential generating function} (egf)
+by  \[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \]
+The $n!$ may seem a bit magical, but hopefully it is at least
+plausible: it corresponds to the $n!$ different ways a set of $n$
+distinguishable atoms can be permuted.
 
-\[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \]
+Let's check that multiplying two such egf's yields the egf for the
+product.  Once again, an $x^n$ term in the result will come from the
+product of an $x^k$ term from the first egf (with a coefficient of
+$||F_k||/k!$) and an $x^{n-k}$ term from the second (with a
+coefficient of $||G_{n-k}||/(n-k)!$).  The trick is that to make the
+result into another egf, we must massage each term into the form of
+some coefficient times $(x^n/n!)$:
+\begin{align*}
+  \left( \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \right)   \left(
+  \sum_{n \geq 0} ||G_n|| \frac{x^n}{n!} \right)
+  &= \sum_{n \geq 0} \left( \sum_{0 \leq k \leq n} \frac{||F_k||}{k!}
+    \frac{||G_{n-k}||}{(n-k)!} x^n\right) \\
+  &= \sum_{n \geq 0} \left( \sum_{0 \leq k \leq n} \frac{||F_k||}{k!}
+    \frac{||G_{n-k}||}{(n-k)!} \frac{n!}{n!} x^n\right) \\
+  &= \sum_{n \geq 0} \left( \sum_{0 \leq k \leq n}
+    \frac{n!}{k!(n-k)!}||F_k|| ||G_{n-k}||\right) \frac{x^n}{n!} \\
+  &= \sum_{n \geq 0} \left( \sum_{0 \leq k \leq n}
+    \binom{n}{k} ||F_k|| ||G_{n-k}||\right) \frac{x^n}{n!}
+\end{align*}
+Once again, we see that the coefficient of $x^n/n!$ is exactly the
+same as the formula we already derived for the number of $(F \cdot G)$
+structures with $n$ distinguishable atoms; the binomial coefficient
+$\binom n k$ falls out of the extra $n!$ in the denominator of the egf
+terms.
 
-\todoin{
-Things to include in the introduction:
+\subsection*{Basic category theory}
 
-\begin{itemize}
-\item Joyal's paper turns GFs into combinatorial objects in their own
-  right via categorification.
-\item Important contributions:
-  \begin{itemize}
-  \item First to apply CT to combinatorics
-  \item Unified and generalized known collection of GF techniques
-  \item Applied theory to novel results, and very concise derivations
-    of celebrated results (Cayley, Lagrange inversion)
-  \end{itemize}
-\item Necessary background:
-  \begin{itemize}
-  \item Very basic category theory (categories, functors, groupoids.
-    Show functors preserve isomorphisms)
-  \end{itemize}
-\end{itemize}
-}
+I assume that the reader is already familiar with the basic
+definitions of category theory: categories, functors, and ideally
+natural transformations (though you may be able to get away with
+learning a bit about natural transformations from this document).
 
-\todoin{
-Some text to use in background section\dots
-
-A \emph{groupoid} is a category where all the morphisms are
-``invertible'', that is, each $m : A \to B$ has a corresponding
-$m^{-1} : B \to A$ such that $m^{-1} \comp m = \id_A$ and $m \comp
-m^{-1} = \id_B$.  $\B$ is the category whose objects are \emph{finite}
-sets and whose morphisms are bijections, that is, functions which are
-both injective and surjective.  Since bijections are invertible, $\B$
-is not just a category but a groupoid.
+The concept of a \emph{groupoid} comes up quite a bit, and in
+particular the groupoid $\B$.  A \emph{groupoid} is a category where
+all the morphisms are ``invertible'', that is, each $m : A \to B$ has
+a corresponding $m^{-1} : B \to A$ such that $m^{-1} \comp m = \id_A$
+and $m \comp m^{-1} = \id_B$.  $\B$ is the category whose objects are
+\emph{finite} sets and whose morphisms are bijections, that is,
+functions which are both injective and surjective.  Since bijections
+are invertible, $\B$ is not just a category but a groupoid.
 
 It is always possible to make a bijection between any two finite sets
 of the same size; conversely, there are no bijections between finite
 sets of different sizes.  Thus, $\B$ can be thought of as the disjoint
 union of a number of connected components, one for each natural number
 size.
+
+A good check of your understanding of the necessary basic category
+theory is to prove that functors preserve isomorphisms: that is, if a
+morphism $m : A \to B$ in the category $\mathbb{C}$ is invertible,
+then any functor $F : \mathbb{C} \to \mathbb{D}$ must necessarily send
+$m$ to an invertible morphism in $\mathbb{D}$.
+
+\subsection*{Categorification}
+
+\todo{Start with arithmetic: natural numbers with addition,
+  multiplication, exponentiation.  Turn natural numbers into finite
+  sets with functions, get a category with coproducts, products,
+  function spaces.  Usual arithmetic laws e.g. x*(y+z) = x*y + x*z,
+  x^(y+z) = x^y * x^z, etc. all turn into theorems expressing
+  isomorphisms bewteen sets.  If you take this process and lift it to
+  act on generating functions, you get species.}
+
+\subsection*{Contributions}
+
+\mbox{}
+\todo{Joyal's paper turns GFs into combinatorial objects in their own
+  right via categorification.}
+
+\todoin{  \begin{itemize}
+  \item First to apply CT to combinatorics
+  \item Unified and generalized known collection of GF techniques
+  \item Applied theory to novel results, and very concise derivations
+    of celebrated results (Cayley, Lagrange inversion)
+  \end{itemize}
 }
 
 
