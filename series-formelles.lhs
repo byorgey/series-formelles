@@ -633,8 +633,8 @@ $m$ to an invertible morphism in $\mathbb{D}$.
 \todo{Start with arithmetic: natural numbers with addition,
   multiplication, exponentiation.  Turn natural numbers into finite
   sets with functions, get a category with coproducts, products,
-  function spaces.  Usual arithmetic laws e.g. x*(y+z) = x*y + x*z,
-  x^(y+z) = x^y * x^z, etc. all turn into theorems expressing
+  function spaces.  Usual arithmetic laws e.g. $x*(y+z) = x*y + x*z$,
+  $x^(y+z) = x^y * x^z$, etc. all turn into theorems expressing
   isomorphisms bewteen sets.  If you take this process and lift it to
   act on generating functions, you get species.}
 
