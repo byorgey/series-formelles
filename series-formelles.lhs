@@ -332,10 +332,10 @@ Two of the most prominent and familiar are sum
 (disjoint union) and product (pairing):
 \begin{itemize}
 \item The \term{sum} $F + G$ of two classes $F$ and $G$ consists of
-  the disjoint union of the two sets of structures.  In other words,
-  an $F+G$ structure consists of \emph{either} an $F$ structure or a
-  $G$ structure (along with a tag saying which).  This corresponds to
-  a sum type, for example, |Either F G| in Haskell.
+  the disjoint union of the classes.  In other words, an $F+G$
+  structure consists of \emph{either} an $F$ structure or a $G$
+  structure (along with a tag saying which).  This corresponds to a
+  sum type, for example, |Either F G| in Haskell.
 \item The \term{product} $F \cdot G$ of two classes $F$ and $G$
   consists of the class of all \term{ordered pairs} of structures from
   the two classes, that is,
@@ -398,7 +398,7 @@ dia = [0 .. 4]
 So it makes good sense to count binary trees if we focus on counting
 how many there are of each size.  If $T$ represents the set of all
 binary trees we will write $T_n$ to denote the set of binary trees of
-size $n$, and $||T_n||$ its size.
+size $n$, and $||T_n||$ its cardinality.
 
 Combinatorial classes with this property---having only finitely many
 structures of each given size---are called \term{finitary}.  The
@@ -567,13 +567,13 @@ structures on $n$ distinguishable atoms, and similarly for $G_n$.
 This is the same as the formula for indistinguishable atoms, except
 for the extra factor of $\binom n k$.
 
-Magically, it turns out counting structures with distinguishable
-atoms is captured by a different kind of generating function.  In
-particular, we define the \term{exponential generating function} (egf)
-by  \[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \]
-The $n!$ may seem a bit magical, but hopefully it is at least
-plausible: it corresponds to the $n!$ different ways a set of $n$
-distinguishable atoms can be permuted.
+Somewhat magically, it turns out counting structures with
+distinguishable atoms is captured by a different kind of generating
+function.  In particular, we define the \term{exponential generating
+  function} (egf) by \[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \] The
+$n!$ may seem like a rabbit out of a hat at this point, but hopefully
+it is at least plausible: it corresponds to the $n!$ different ways a
+set of $n$ distinguishable atoms can be permuted.
 
 Let's check that multiplying two such egf's yields the egf for the
 product.  Once again, an $x^n$ term in the result will come from the
@@ -629,6 +629,50 @@ then any functor $F : \mathbb{C} \to \mathbb{D}$ must necessarily send
 $m$ to an invertible morphism in $\mathbb{D}$.
 
 \subsection*{Categorification}
+
+The process of \emph{categorification} attempts to take mathematical
+objects and find a way to see them as ``shadows'' of objects in some
+richer category, in such a way that operations and theorems we care
+about are also ``shadows'' of (richer/more complex/more informative)
+operations and theorems on the category.  As we will see in the case
+of species, this approach often yields great insight into the original
+class of objects.
+
+\todo{Look up/recall how Baez talks about categorification}
+
+As a (particularly germane) example, consider the set of natural
+numbers $\N = \{0, 1, 2, \dots\}$, ordered by the usual $\leq$
+relation, along with the usual binary operations of addition,
+multiplication, and exponentiation.  Our goal is to find a category
+such that
+\begin{itemize}
+\item the natural numbers can be seen as ``shadows'' of the objects of
+  the category;
+\item the $\leq$ relation can be seen as the shadow of morphisms in
+  the category; and
+\item addition, multiplication, and exponentiation are shadows of
+  suitable categorical constructions.
+\end{itemize}
+
+One category that fits the bill is the category of \emph{finite sets
+  and injections}: \todo{Check this.  Finite sets and injections seems
+  like it actually doesn't have products or coproducts.}
+\begin{itemize}
+\item Each natural number $n$ can be seen as the ``shadow'' of all the
+  finite sets having cardinality $n$.  The natural number $n$ should
+  be thought of as a sort of ``degenerate finite set'' where we have
+  forgotten the identity of the set's elements, and remember only its
+  size.
+\item There is an injection $S \inj T$ if and only if $||S|| \leq
+  ||T||$, so the ``shadow'' of a morphism is indeed a $\leq$ relation
+  between the cardinalities of the sets.  Put another way, if we have
+  an injection $S \inj T$ but then forget the identities of the
+  elements of $S$ and $T$, the only thing we can remember about the
+  injection is the fact that the cardinality of $S$ must be $\leq$ the
+  cardinality of $T$.
+\item Addition of natural numbers is the shadow of coproducts
+  (disjoint unions) of sets.  That is,
+\end{itemize}
 
 \todo{Start with arithmetic: natural numbers with addition,
   multiplication, exponentiation.  Turn natural numbers into finite
