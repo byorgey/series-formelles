@@ -371,7 +371,7 @@ although there are infinitely many binary trees, there are only a
 finite number \emph{of any given size}, where the \term{size} of a
 structure is defined (informally, for now) as the number of atoms it
 contains.  For example, \pref{fig:trees-by-size} shows all binary
-trees with up to 3 atoms, grouped by size.
+trees with up to 4 atoms, grouped by size.
 \begin{figure}
   \centering
   \begin{diagram}[width=200]
