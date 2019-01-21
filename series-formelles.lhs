@@ -630,15 +630,17 @@ $m$ to an invertible morphism in $\mathbb{D}$.
 
 \subsection*{Categorification}
 
-The process of \emph{categorification} attempts to take mathematical
-objects and find a way to see them as ``shadows'' of objects in some
-richer category, in such a way that operations and theorems we care
-about are also ``shadows'' of (richer/more complex/more informative)
-operations and theorems on the category.  As we will see in the case
-of species, this approach often yields great insight into the original
-class of objects.
+The process of \emph{categorification} cannot be defined rigorously.
+It attempts to take mathematical objects and find a way to see them as
+``shadows'' of objects in some richer category, in such a way that
+operations and theorems we care about are also ``shadows'' of
+(richer/more complex/more informative) operations and theorems on the
+category.  As we will see in the case of species, this approach often
+yields great insight into the original class of objects.
 
-\todo{Look up/recall how Baez talks about categorification}
+\todo{Look up/recall how Baez talks about categorification.  I looked
+  it up and realized that it is specifically about moving from sets to
+  categories.}
 
 As a (particularly germane) example, consider the set of natural
 numbers $\N = \{0, 1, 2, \dots\}$, ordered by the usual $\leq$
@@ -654,9 +656,10 @@ such that
   suitable categorical constructions.
 \end{itemize}
 
-One category that fits the bill is the category of \emph{finite sets
-  and injections}: \todo{Check this.  Finite sets and injections seems
-  like it actually doesn't have products or coproducts.}
+One category that fits the bill is the category whose objects are
+\emph{finite sets} with morphisms being arbitrary (total)
+\emph{functions} between sets.  \todo{XXX injection vs arbitrary
+  function?  Baez \& Dolan mention FinSet with finite sets and functions.}
 \begin{itemize}
 \item Each natural number $n$ can be seen as the ``shadow'' of all the
   finite sets having cardinality $n$.  The natural number $n$ should
