@@ -1183,7 +1183,7 @@ triangle has three edges; a tetrahedron has four triangular faces, and
 so on (yes, a $4$-simplex has five tetrahedral ``faces''.)  In fact,
 if we label the vertices of an $n$-simplex with elements from some
 finite set of size $n+1$, \emph{every} size $n$ subset corresponds to
-the vertices of one of the $n$-dimensional faces.  Of course the
+the vertices of one of the $(n-1)$-dimensional faces.  Of course the
 same is true of the faces in turn, that is, every size $n-1$ subset of
 the vertices is a simplex which is the face of a face, and so on.
 
