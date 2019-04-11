@@ -1392,6 +1392,27 @@ dia = mconcat
   connected components of the groupoid $\el (S)$ is therefore
   naturally identified with the set $\Mon(x)$ of all monomials in the
   variables $x_1, x_2, x_3, \dots$
+
+  \begin{commentary}
+    The objects of $\el(S)$ are $S$-structures, that is, permutations
+    on specific sets, and the morphisms are isomorphisms between
+    $S$-structures.  Unpacking definitions a bit, recall that two
+    structures are isomorphic if one can be relabelled (\ie
+    ``transported'') into the other.  So an isomorphism between a
+    permutation $\sigma_E$ on the set $E$ and a permutation $\sigma_F$
+    on the set $F$ is a relabelling $u : E \bij F$ such that
+    relabelling $\sigma_E$ by $u$ results in $\sigma_F$; from the
+    previous example we know that relabelling $\sigma_E$ by $u$ should
+    be defined by $u \sigma_E u^{-1}$.  If $u \sigma_E u^{-1} =
+    \sigma_F$, we can compose both sides by $u$ on the right to obtain
+    $u \sigma_E = \sigma_F u$.
+
+    The rest of the example simply observes that relabelling can't
+    change the structure of a permutation at all: it necessarily
+    preserves the number and size of the cycles.  So $I$, which maps
+    each permutation to a monomial representing the number of cycles
+    of each given size, is invariant under isomorphism.
+  \end{commentary}
 \end{ex}
 
 \subsubsection{}
