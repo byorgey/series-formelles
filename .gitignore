@@ -21,5 +21,6 @@ cabal.sandbox.config
 .shake
 *~
 .stack-work
+stack.yaml.lock
 *.agdai
 latex/
