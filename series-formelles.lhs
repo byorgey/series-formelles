@@ -23,11 +23,12 @@
 
 \usepackage[backend=pgf,extension=pgf,input,outputdir=diagrams]{diagrams-latex}
 
+\usepackage{textgreek}
 \usepackage{latex/agda}
 \usepackage{catchfilebetweentags}
 
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8, utf8x]{inputenc}
 \usepackage{autofe}
 
 \usepackage[authoryear]{natbib}
@@ -97,6 +98,7 @@
 \newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
 
 \newcommand{\term}[1]{\emph{#1}}
+\newcommand{\ie}{\term{i.e.}\xspace}
 
 \newcommand{\union}{\cup}
 \newcommand{\intersect}{\cap}
@@ -148,7 +150,11 @@
 }
 \makeatother
 
-\DeclareUnicodeCharacter{8760}{\ensuremath{\dotminus}}
+\DeclareUnicodeCharacter{2238}{\ensuremath{\dotminus}}
+\DeclareUnicodeCharacter{2115}{\ensuremath{\mathbb{N}}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\to}}
+\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+\DeclareUnicodeCharacter{2299}{\ensuremath{\odot}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Other formatting
@@ -1402,10 +1408,10 @@ dia = mconcat
     permutation $\sigma_E$ on the set $E$ and a permutation $\sigma_F$
     on the set $F$ is a relabelling $u : E \bij F$ such that
     relabelling $\sigma_E$ by $u$ results in $\sigma_F$; from the
-    previous example we know that relabelling $\sigma_E$ by $u$ should
-    be defined by $u \sigma_E u^{-1}$.  If $u \sigma_E u^{-1} =
-    \sigma_F$, we can compose both sides by $u$ on the right to obtain
-    $u \sigma_E = \sigma_F u$.
+    previous example we know that the relabelling of $\sigma_E$ by $u$
+    is defined as $u \sigma_E u^{-1}$.  If
+    $u \sigma_E u^{-1} = \sigma_F$, we can compose both sides by $u$
+    on the right to obtain $u \sigma_E = \sigma_F u$.
 
     The rest of the example simply observes that relabelling can't
     change the structure of a permutation at all: it necessarily
@@ -1437,6 +1443,15 @@ We define two generating functions. The first is a series of Hurwitz
 \begin{equation}
   M(x) = \sum_{n \geq 0} \Card M[n] \frac{x^n}{n!}.
 \end{equation}
+
+\begin{commentary}
+  As mentioned in the introduction, this is also known as an
+  \emph{exponential} generating function.  Again, this type of
+  generating function (with an $n!$ in the denominator) turns out to
+  be exactly the right thing to count \emph{labelled} structures.
+  Intuitively, dividing by $n!$ accounts for the $n!$ different ways
+  to permute a set of $n$ labels.
+\end{commentary}
 
 The second is a power series with integer coefficients (without
 factorial):
