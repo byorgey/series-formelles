@@ -606,6 +606,10 @@ structures with $n$ distinguishable atoms; the binomial coefficient
 $\binom n k$ falls out of the extra $n!$ in the denominator of the egf
 terms.
 
+\subsection*{Basic group theory}
+
+\todo{explain what algebra background is necessary.}
+
 \subsection*{Basic category theory}
 
 I assume that the reader is already familiar with the basic
@@ -991,14 +995,14 @@ dia = hcat' (with & sep .~ 3)
   Joyal writes $u : s \to t$, which is a mild abuse of notation; $u$
   is in fact a bijection between label sets $E$ and $F$, and $s$ and
   $t$ are elements of $M[E]$ and $M[F]$ respectively, not sets.  The
-  point is that $u : E \to F$ induces a bijection
-  $M[u]$ between the sets of structures $M[E]$ and $M[F]$; if this
-  bijection relates $s \in M[E]$ and $t \in M[F]$, then we say that
-  $s$ and $t$ are isomorphic, as witnessed by $u$, and write
-  $u : s \to t$.  That is, whereas $u : E \to F$ is pronounced ``$u$
-  is a function from $E$ to $F$'', $u : s \to t$ is pronounced ``$u$
-  is a relabelling which, via transport, sends the structure $s$ to
-  the structure $t$''.
+  point is that $u : E \to F$ induces a bijection $M[u]$ between the
+  sets of structures $M[E]$ and $M[F]$; if this bijection relates
+  $s \in M[E]$ and $t \in M[F]$, then we say that $s$ and $t$ are
+  isomorphic, as witnessed by $u$, and write $u : s \to t$.  That is,
+  whereas $u : E \to F$ is pronounced ``$u$ is a function from $E$ to
+  $F$'', $u : s \to t$ is pronounced ``$u$ relabels $s$ to $t$'', that
+  is, $u$ is a relabelling which transports the structure $s$ to the
+  structure $t$.
 
   A concrete example should help to clarify the idea. The trees $s$
   and $t$ shown in the example above are isomorphic, as witnessed by
@@ -1092,10 +1096,9 @@ dia = hsep 0.8
   # lwO 0.7
   \end{diagram}
   \end{center}
-  The collection of all such trees (there are infinitely many, since
-  we could use \emph{any} set of labels, not just $\{0\dots 4\}$)
-  forms a \emph{type}. I also tend to use the word ``shape'' to mean the
-  same thing. We can visually represent this type/shape like so:
+  The collection of all such trees forms a \emph{type}. I also tend to
+  use the word ``shape'' to mean the same thing. We can visually
+  represent this type/shape like so:
   \begin{center}
   \begin{diagram}[width=50]
 import           Diagrams.TwoD.Layout.Tree
@@ -1117,10 +1120,17 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   return to the formal definition in terms of equivalence classes of
   labelled structures.
 
+  It's worth pointing out that this definition of structure types,
+  while simple, is actually rather profligate: an equivalence class of
+  structures under relabelling contains structures labelled by
+  \emph{every possible finite set}.  Hence a type is at least as big
+  as the collection of all finite sets.  A more manageable way to get
+  at the same concept is defined in \pref{sec:orbits}.
+
   $\el (M)$ is a \term{groupoid} because all its morphisms are
-  invertible: if $u : s \to t$, that is, if $u$ is a bijection between
-  label sets such that relabelling the structure $s$ by $u$ yields
-  $t$, then we necessarily have $u^{-1} : t \to s$.
+  invertible: if $u : s \to t$, that is, if $u$ is a relabelling
+  witnessing the isomorphism of $s$ and $t$, then we necessarily have
+  $u^{-1} : t \to s$.
 \end{commentary}
 
 \begin{ex}
@@ -1152,10 +1162,10 @@ dia = (drawBinTreeWide . fmap (const (circle labR # fc black))) s
   motivation for introducing the concept of subspecies.  It would be
   tedious to go through each slight variant on the concept of a graph
   and show that it defines a valid species, but at the same time, it
-  is unsatisfying to just wave our hands and say things like ``this
-  case is similar\dots''. By moving up a notch in abstraction, we get a
-  rigorous yet economical definition that handles many similar cases
-  at once.
+  would be unsatisfying to just wave our hands and say things like
+  ``this case is similar\dots''. By moving up a notch in abstraction,
+  we get a rigorous yet economical definition that handles many
+  similar cases at once.
 
   Geometrically, \term{simplices} are what we get when we start with a
   single point (a ``$0$-simplex''), and then repeatedly add points,
@@ -1238,11 +1248,11 @@ dia = mconcat
   Simplicial schemes, seeing as they consist simply of collections of
   subsets of the underlying label type
   $E$, can be relabelled just by applying the relabelling to every
-  subset.  We can check this is functorial: the identity relabelling
-  acts as the identity on a simplicial scheme, and if we do one
-  relabelling followed by another, it is the same as applying the
-  composition of the two relabellings.  Therefore simplicial schemes
-  form a valid species.
+  subset.  We can check that this is functorial: the identity
+  relabelling acts as the identity on a simplicial scheme, and if we
+  do one relabelling followed by another, it is the same as applying
+  the composition of the two relabellings.  Therefore simplicial
+  schemes form a valid species.
 
   Joyal then defines \term{graphs} as simplicial schemes with
   simplices of dimension $\leq 1$.  Hence graphs consist only of
@@ -1276,6 +1286,7 @@ dia = mconcat
            ] # scale 0.6
          , [(2,0), (2,4), (0,4), (3,1), (0,5)]
          )
+         # frame 0.3
     \end{diagram}
   \end{center}
   A \term{subspecies} of a species $S$ is then defined as a subset of
@@ -1421,7 +1432,7 @@ dia = mconcat
   \end{commentary}
 \end{ex}
 
-\subsubsection{}
+\subsubsection{} \label{sec:orbits}
 The group $E!$ of permutations of $E$ acts on $M [E]$ by transport
 of structures. The set $\pi_0 (M [E])$ of \emph{orbits} is identified
 with the set of types of $M$-structures supported by sets equipotent
@@ -1429,6 +1440,19 @@ with $E$. We identify the orbit of $s \in M[E]$ with its type
 $||s||$. The \emph{stabilizer} subgroup of an element $s \in M [E]$ is
 the group $\Aut (s)$ of \emph{automorphisms} of $s$. We have the
 well-known formula \[ \Card ||s|| = \frac{n!}{\Card \Aut(s)}. \]
+
+\begin{commentary}
+  There is quite a lot to unpack in this paragraph!  Recall that a
+  \emph{type} is an equivalence class of labelled structures under
+  isomorphism. As noted previously, however, such an equivalence class
+  is unmanageably large, since it contains structures labelled by
+  every possible finite set. \todo{Observation of this para: instead
+    of looking at all finite sets and bijections, it's
+    sufficient to look at a \emph{single} chosen finite set $E$ and
+    consider permutations.}
+
+  \todo{Permutations, group actions, orbits, etc.}
+\end{commentary}
 
 One of the fundamental problems of enumerative combinatorics is to
 evaluate the two infinite sequences of numbers
