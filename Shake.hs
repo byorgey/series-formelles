@@ -34,5 +34,6 @@ main = shake shakeOptions $ do
       let input = output -<.> "tex"
       agdaFiles <- getDirectoryFiles "" ["*.lagda"]
       need (map (\f -> "latex" </> (f -<.> "tex")) agdaFiles)
-      need [input, output -<.> "bbl"]
+      need [input]
+      need [output -<.> "bbl"]
       cmd pdflatex $ ["--enable-write18", input]
