@@ -96,6 +96,7 @@
 \newcommand{\unl}[1]{\tilde{#1}}
 \newcommand{\Simp}{\mathcal{S}}
 \newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
+\newcommand{\MPoly}[2]{#1 \{\!\{ #2 \}\!\} }
 
 \newcommand{\term}[1]{\emph{#1}}
 \newcommand{\ie}{\term{i.e.}\xspace}
@@ -1499,7 +1500,7 @@ computing the cardinality of the \emph{associated} species $\unl M$.
   $\sigma$ is an automorphism of $s \in M$.
 \end{defn}
 
-\begin{prop}
+\begin{prop} \label{prop:unl}
   We have
   \[ \unl M (x) = \Card {\unl M}. \]
 \end{prop}
@@ -2364,17 +2365,48 @@ other words, we want to identify the generating series
 
 \[ \unl M (x) = \sum_{n \geq 0} \Card \pi_0(M[n]) x^n. \]
 
-% It is often impossible to describe $\unl M (x)$ explicitly. However, if
-% we have a functional equation, we can calculate the coefficients
-% of $\unl M (x)$ by induction. The current (XXX ???) technique for calculating the number of
-% isomorphism classes is due to P\'olya. It makes use of a certain
-% polynomial indicating \emph{cycles} (Polya [26 XXX]). Instead, we calculate a
-% \term{index series} $Z_M$.  We obtain a substitution theorem for the
-% index series. This result often allows us to calculate the coefficients
-% of $Z_M$ by \emph{induction}. We will follow a path less algebraic and
-% more combinatorial than P\'olya. In this way, we hope to show
-% the direct link between the problem of enumeration of structures and that of
-% enumeration of \emph{types} of structures.
+It is often impossible to describe $\unl M (x)$ explicitly. However,
+if we have a functional equation, we can calculate the coefficients of
+$\unl M (x)$ by induction. The current technique for calculating the
+number of isomorphism classes is due to P\'olya. It makes use of a
+certain polynomial indicating \emph{cycles}
+\citep{polya1937kombinatorische}. Instead, we calculate an \term{index
+  series} $Z_M$.  We obtain a substitution theorem for index
+series. This result often allows us to calculate the coefficients of
+$Z_M$ by \emph{induction}. We will follow a path less algebraic and
+more combinatorial than P\'olya. In this way, we hope to show the
+direct link between the problem of enumeration of structures and that
+of enumeration of \emph{types} of structures.
+
+Recall that calculating $\unl M(x)$ amounts to calculating the
+cardinalty of an \emph{associated species} $\unl M$ (\pref{prop:unl}):
+\[ \unl M(x) = \Card \unl M. \]
+The elements of $\unl M[E]$ are the pairs $(\sigma, s)$, where $s \in
+M[E]$ and $\sigma \in E!$ is an automorphism of $s$.  One notes easily
+that the relation $P = M + N$ implies $\unl P = \unl M + \unl N$ and
+also that $P = M \cdot N$ implies $\unl P = \unl M \unl N$.  Now
+suppose that $P = M(N)$; what can we say about $\unl P$?  For example,
+we have the following obvious result:
+\begin{prop}
+  If $P = 1/(1 - N)$ then \[ \unl P = \frac{1}{1 - \unl N}. \]
+\end{prop}
+We also have a well known result \citep{harary1973graphical}:
+\begin{prop}
+  If $P = \exp(N)$ then \[ \unl P = \exp \left[ \sum_{n \geq 1}
+      \frac{\unl N(x^n)}{n} \right]. \]
+\end{prop}
+We will demonstrate:
+\begin{prop}
+  Let $S$ be the species of permutations.  If $P = S(N)$ then \[ \unl
+    P(x) = \prod_{n \geq 1} \frac{1}{1 - \unl N(x^n)}. \]
+\end{prop}
+
+The difficulty resits in the fact that the relation
+$\widetilde{M(N)}(x) = \unl M(\unl N(x))$ is false.  Examples show
+that the nature of the answer depends strongly on the interal structure
+of the thing being substituted and very little on its cardinality. We
+will develope a concept finer than cardinality:
+\[ Z : \Poly \E X \to \MPoly \Z x \]
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}
