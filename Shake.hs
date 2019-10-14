@@ -25,15 +25,9 @@ main = shake shakeOptions $ do
       need [input]
       cmd lhs2TeX $ ["-o", output, input]
 
-  "*.bbl" %> \output -> do
-      let input = output -<.> "bib"
-      need [input]
-      cmd bibtex $ [dropExtension input]
-
   "*.pdf" %> \output -> do
       let input = output -<.> "tex"
       agdaFiles <- getDirectoryFiles "" ["*.lagda"]
       need (map (\f -> "latex" </> (f -<.> "tex")) agdaFiles)
-      need [input]
-      need [output -<.> "bbl"]
-      cmd pdflatex $ ["--enable-write18", input]
+      need [input, output -<.> "bib"]
+      cmd rubber $ ["-d", "--unsafe", input]
