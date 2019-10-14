@@ -2353,19 +2353,16 @@ F(A_R)[n] &= F(A_R)[n-1] \\
 \end{align*}
 \end{proof}
 
-\todo{Translate Section 3 and onwards.}
+\section{Enumeration of Types of Structures}
+\label{sec:types}
 
-% XXX SECTION 3. ENUMERATION OF TYPES OF STRUCTURES
+In this chapter, we will try to solve the problem of enumeration of
+\emph{types} of structures of a given species $M$. It will suffice to
+calculate, for each $n \in \N$, the cardinality of the set
+$\pi_0(M[n])$ of the orbits of $M [n]$ under the action of $[n]!$. In
+other words, we want to identify the generating series
 
-% 3.0. In this chapter, we will try to solve the problem of
-% enumeration of \emph{types} of structures of a given species $M$. It will suffice
-% to calculate, for each $n \in \N$, the cardinality of the set $\pi_0(M[n])$ of the
-% orbits of $M [n]$ under the action of $[n]!$. In other words, we want to identify
-% the generating series
-
-% \[ \unl M (x) = \sum_{n \geq 0} \Card \pi_0(M[n]) x^n. \]
-
-
+\[ \unl M (x) = \sum_{n \geq 0} \Card \pi_0(M[n]) x^n. \]
 
 % It is often impossible to describe $\unl M (x)$ explicitly. However, if
 % we have a functional equation, we can calculate the coefficients
