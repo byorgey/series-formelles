@@ -1446,7 +1446,13 @@ well-known formula \[ \Card ||s|| = \frac{n!}{\Card \Aut(s)}. \]
   \emph{type} is an equivalence class of labelled structures under
   isomorphism. As noted previously, however, such an equivalence class
   is unmanageably large, since it contains structures labelled by
-  every possible finite set. \todo{Observation of this para: instead
+  every possible finite set.  One of the main observations of the
+  above paragraph is that we still have all the relevant information
+  if we consider just \emph{one particular} set of each given size,
+  and permutations on that set, rather than considering \emph{all}
+  sets of a given size and bijections between them.
+
+  \todo{Observation of this para: instead
     of looking at all finite sets and bijections, it's
     sufficient to look at a \emph{single} chosen finite set $E$ and
     consider permutations.}
