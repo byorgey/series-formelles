@@ -1540,8 +1540,9 @@ sets and \emph{functions} (by composing with the inclusion $\B \inj
   that these two categories have essentially the same collection of
   \emph{objects} (namely, functors $\B \to \B$ or $\B \to \E$), they
   do not have the same \emph{morphisms} (namely, natural
-  transformations).  A natural transformation between two functors
-  $\mathcal{C} \to \mathcal{D}$ consists of a collection of morphisms
+  transformations).  If $\mathcal{C}$ and $\mathcal{D}$ are
+  categories, a natural transformation between two functors from
+  $\mathcal{C}$ to $\mathcal{D}$ consists of a collection of morphisms
   in $\mathcal{D}$; if all the morphisms of $\mathcal{D}$ are
   isomorphisms, then every natural transformation between functors
   $\mathcal{C} \to \mathcal{D}$ is necessarily an isomorphism as well.
@@ -1552,12 +1553,12 @@ sets and \emph{functions} (by composing with the inclusion $\B \inj
   Categorically, having only isomorphisms also means the category
   can't have things like products and coproducts.  This, then, is what
   Joyal means by saying it is ``desirable to have a larger class of
-  morphisms than that of isomorphisms'' (which turns out to be
-  rather an understatement).  Hence $\B \to \E$ really seems to
-  be the ``right'' notion of species to use.  (I am grateful to Ian
-  Price for pointing out this fact to me, which I had somehow missed
-  even after many years of thinking about such things!  And of course,
-  it was in Joyal's original paper all along.)
+  morphisms than that of isomorphisms'' (which turns out to be rather
+  an understatement).  Hence $\B \to \E$ really seems to be the
+  ``right'' notion of species to use.  (I am grateful to Ian Price for
+  pointing out this fact to me, which I had somehow missed even after
+  many years of thinking about such things!  And of course, it was in
+  Joyal's original paper all along.)
 \end{commentary}
 
 \begin{defn}
