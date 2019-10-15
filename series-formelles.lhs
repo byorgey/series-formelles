@@ -2452,15 +2452,46 @@ into cycles.  We will begin by supposing that $\sigma/R$ is circular.
 
 \begin{proof}
   We first show how, from an element of $\unl N(X^n)$, we can
-  construct a crown.  An element $l$ of $\unl N(X^n)[E]$ is an $\unl
-  N$-assembly of linear orders with cardinality $n$.  This element $l$
-  defines a partition $P$ on $E$; the set $E/P$ of classes is equipped
-  with an $\unl N$-structure $(\tau, t)$ and each class is a linear
-  order of cardinality $n$.  For $1 \leq i \leq n$ let $C_i$ be the
-  set of all the elements of rank $i$ in these linear orders.  If we
-  send each element to its sucessor, we obtain bijections $\sigma_i :
-  C_i \to C_{i+1}$ for $1 \leq i \leq n-1$.  We have a chain \[ C_1
-    \to C_2 \to C_3 \dots \to C_n. \]
+  construct a crown.  An element $l$ of $\unl N(X^n)[E]$ is an
+  $\unl N$-assembly of linear orders with cardinality $n$.  This
+  element $l$ defines a partition $P$ on $E$; the set $E/P$ of classes
+  is equipped with an $\unl N$-structure $(\tau, t)$ and each class is
+  a linear order of cardinality $n$.  For $1 \leq i \leq n$ let $C_i$
+  be the set of all the elements of rank $i$ in these linear orders.
+  If we send each element to its sucessor, we obtain bijections
+  $\sigma_i : C_i \to C_{i+1}$ for $1 \leq i \leq n-1$.  We have a
+  chain \[ C_1 \to C_2 \to C_3 \dots \to C_n. \] \trans{Just
+    as}{Comme} every $C_i$ is a system of representatives of the
+  partition $P$, we have a structure $t_i$ on $C_i$ by transporting
+  the $N$-structure $t$ of the assembly. We also have an automorphism
+  $\tau_1$ of $t_1$ by transporting $\tau$ on $C_1$. We will
+  circularly close the chain of isomorphisms of $N$-structures
+  \[ (C_1,t_1) \xrightarrow{\sigma_1} (C_2, t_2) \dots
+    \xrightarrow{\sigma_{n-1}} (C_n, t_n) \] by defining an
+  isomorphism $\sigma_n: (C_n,t_n) \to (C_1, t_1)$. Just take
+  $\sigma_n = \tau_1(\sigma_{n-1} \dots \sigma_1)^{-1}$. We obtain a
+  \term{crown} $(\sigma, h)$ of length $n$ on $E$.  Moreover, in this
+  crown, there is an \emph{initial} $N$-structure $(C_1,
+  t_1)$. Conversely, suppose we have a crown
+  $(\sigma, h) \in C_n(N)[E]$ \emph{marked} with an initial
+  $N$-structure $(C_1, t_1)$. Taking successive images of $(C_1, t_1)$
+  by $\sigma$ we obtain a chain
+  \[ (C_1,t_1) \xrightarrow{\sigma_1} (C_2,t_2) \dots
+    \xrightarrow{\sigma_{n-1}} (C_n, t_n). \] Each element
+  $x_1 \in C_1$ is the first element of a linear order
+  $\{x_1 < \sigma x_1 < \dots < \sigma^{n-1}x_1\}$.  This gives us a
+  partition $P$ whose classes are linear orders of size $n$. The set
+  $E/P$ of classes is equipped with an $N$-structure $t$ isomorphic to
+  $t_1$ (or $t_i$). To obtain a automorphism $\tau$ of $t$, it
+  suffices to transport on $E / P$ the automorphism $\tau_1$ of $C_1$
+  obtained by making a complete tour of the crown:
+  \[ \tau_1 = \sigma^n \mid C_1. \] It has therefore been shown that
+  an $\unl N (X^n)$ structure is equivalent to a crown of length $n$
+  \emph{marked} with an initial member. Since there are $n$ possible
+  choices for this initial member, we have
+  \[ n \times \Card C_n(N) = \unl N(x^n). \]
+
+
 \end{proof}
 
 \bibliographystyle{plainnat}
