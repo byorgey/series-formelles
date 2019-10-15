@@ -2369,7 +2369,7 @@ It is often impossible to describe $\unl M (x)$ explicitly. However,
 if we have a functional equation, we can calculate the coefficients of
 $\unl M (x)$ by induction. The current technique for calculating the
 number of isomorphism classes is due to P\'olya. It makes use of a
-certain polynomial indicating \emph{cycles}
+certain polynomial indicator of \emph{cycles}
 \citep{polya1937kombinatorische}. Instead, we calculate an \term{index
   series} $Z_M$.  We obtain a substitution theorem for index
 series. This result often allows us to calculate the coefficients of
