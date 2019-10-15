@@ -38,15 +38,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Theorem-like environments
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{cor}[thm]{Corollary}
-\newtheorem{conj}[thm]{Conjecture}
+% \newtheorem{conj}[thm]{Conjecture}
 
 \theoremstyle{definition}
 
-\newtheorem{defn}[thm]{Definition}
+\newtheorem{defn}{Definition}
 \newtheorem{ex}{Example}
 
 \theoremstyle{remark}
@@ -739,7 +739,7 @@ Montreal, Quebec H30 3P8, Canada}
 
 \maketitle
 
-\section{Introduction}
+\section*{Introduction}
 \label{sec:introduction}
 
 The aim of this work is simultaneously to explain, clarify, and unify
@@ -2357,7 +2357,7 @@ F(A_R)[n] &= F(A_R)[n-1] \\
 \section{Enumeration of Types of Structures}
 \label{sec:types}
 
-In this chapter, we will try to solve the problem of enumeration of
+\subsection{} In this chapter, we will try to solve the problem of enumeration of
 \emph{types} of structures of a given species $M$. It will suffice to
 calculate, for each $n \in \N$, the cardinality of the set
 $\pi_0(M[n])$ of the orbits of $M [n]$ under the action of $[n]!$. In
