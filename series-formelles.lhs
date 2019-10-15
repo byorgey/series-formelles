@@ -1737,7 +1737,7 @@ which $M_i[E] \neq \varnothing$ is finite.  We set
 \[ \left( \sum_{i \in I} M_i \right) [ E ] = \sum_{i \in I} M_i[E]. \]
 It is clear that $\Card$ preserves sum. We now turn to the definition
 of the \term{product} $M \cdot N$ of two species $M$ and $N$. Define
-first a \term{partition} of a set $E$ into two \term{parts} is a pair
+first a \term{partition} of a set $E$ into two \term{parts} as a pair
 $(E_1, E_2)$ such that $E_1 \union E_2 = E$ and $E_1 \intersect E_2 =
 \varnothing$. One defines in the same way the concept of a partition
 of $E$ into $n$ pieces ($n \in \N$): we write $E = E_ + \dots + E_n$
@@ -2401,7 +2401,7 @@ We will demonstrate:
     P(x) = \prod_{n \geq 1} \frac{1}{1 - \unl N(x^n)}. \]
 \end{prop}
 
-The difficulty resits in the fact that the relation
+The difficulty rests in the fact that the relation
 $\widetilde{M(N)}(x) = \unl M(\unl N(x))$ is false.  Examples show
 that the nature of the answer depends strongly on the interal structure
 of the thing being substituted and very little on its cardinality. We
