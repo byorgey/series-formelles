@@ -1,0 +1,3721 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body><pre>ADVANCES IN MATHEMATICS 42, 1-82 (1981)
+
+A combinatorial theory of formal series
+
+ANDRE JoYAL *
+
+Department of Mathematics, University of Quebec at Montreal,
+Montreal, Quebec H30 3P8, Canada
+
+This paper presents a combinatorial theory of forma] power series. Tea
+combinatorial interpretation of formal power series is based on the concept of
+species of structures. A categorical approach is used to formulate it. A new proof of
+Cayley's formula for the number of labels
+combinatorial proof (due to G. Labelle) of Lagrangäs inversion formula. polya's
+enumeration theory of isomorphism classes de structures
+Recursive methods for computing cycle_ index polynomials are described. AT
+combinatorial version of the implicit function theorem is stated and proved. Tea
+paper ends with general considerations on the use of coalgebras in combinatorics.
+
+Contents. Introduction. 1. Species of structures. 2. Operations
+Combinatorial. 3. Enumeration of types of structures. 4. Linear species. 5.
+Species on several variables. 6. Weighted species. 7. Some aspects
+General. 8. References.
+
+INTRODUCTION
+
+The purpose of this work is to expose, clarify and unify the subject.
+The usefulness of formal series in combinatorial calculations is well established.
+The combinatorial interpretation of the substitution operation was the subject of
+fairly recent work (Bender and Goldman [1], Doubilet et al. [8], Foata and
+Schützenberger [12], Garsia and Joni [13], Gessel [l4]). The first
+(probabilistic) interpretation of power series substitution dates back to
+Watson (Kendall [18]) (in cascading process theory).
+
+The main feature of the theory presented here is its degree of
+generality and simplicity. In this theory, combinatorial objects
+corresponding to the formal series are the species of structures. The accent is
+put on the transport of structures rather than on their properties. This point
+of view is not without evoking that of Ehresmann [9] and contrasts with that of
+of Bourbaki [2]. Combinatorial operations on formal series
+
+* The author is grateful for the financial support of the Australian Research Grants
+Committee "and the" Ministry of Education of the Government of Quebec, FCAC, Eq 1608. "
+
+1
+0001 -8708/8 l / IOOOOI-SZSOOO / O
+
+Copyright © 1981 by Academy Press, Inc.
+All rights of reproduction in any form reserved.
+
+2 ANDRÉ JOYAL
+
+correspond operations on the species of structures. Identities
+algebraic expressions between formal expressions often correspond to identities
+Combinatorial. Intuition and calculation can then play on two levels
+in a dialogue that resembles the one maintained by algebra and
+geometry. The result is a kind of combinatorial algebra analogous to algebra
+Geometric Grassman (and Leibniz). The simplicity of the theory is in
+largely due to the use it makes of the concepts of the theory of
+categories [23] (previous theories using mainly the theory of
+ordered sets and partitions). Moreover, it highlights the fact
+fundamental fact that a very large number of bijections are
+natural resources, that is to say that they do not depend on a system of coordination
+data introduced by means of an arbitrary enumeration.
+
+The work contains some combinatorial innovations like the concept
+of vertebrate and a new demonstration of Cayley's result on the
+number of trees. There is also a new combinatorial demonstration
+of the Lagrange inversion theorem. Polya's theory is entirely
+redone and this results in a method that often makes it possible to calculate
+recurrence the coefficients of the polynomials indicators of the cycles.
+
+The theory presented here is partial. Several fundamental aspects
+not been addressed. So, there is a very general categorical theory of
+Surrogacy (Kelly [l7]). Subsequent developments
+will probably require such a degree of generality. We are
+limited to the most appropriate aspects (in the opinion of the author) to capture the
+a reader unfamiliar with the concepts of
+categories.
+
+I am especially grateful to G. Labelle for showing interest
+for the questions of the author and to whom I have the proof of the theorem
+inversion of Lagrange presented here. I also owe to J. Beck, F. W.
+Lawvere, P. Leroux, J. Labelle and S. Schanuel for having conversations
+stimulating on the possible relations between combinatorics and the theory of
+categories. I thank G.-C. Rota for encouraging me to write this
+job. I also thank Cathy Kicinski for her typing work.
+Finally, this work, drafted under the Australian spring sun, would not have
+never saw the light of day without the hospitality of Max Kelly at Sydney University.
+
+1. SPECIES OF STRUCTURES
+
+1.0. There is already a precise concept of species of structures (Bourbaki
+[2]). The description of a particular species is often made by specifying the
+conditions which a structure must satisfy to belong to this species.
+This description can take the form of an axiomatic theory of the species
+considered. An essential aspect of the concept is the transport of structures.
+
+A COMBINATORY THEORY 3
+
+We will abstract the concept of species by considering that the transport of
+structures is the main aspect. Moreover, as we will only deal with
+counting and enumeration problems, we are going to confine ourselves
+to fi nitarian species, unless otherwise stated.
+
+1.1. Species and cardinality
+
+DEFINITION 1. A species (finite) is an endo-functor M: B-r B of the
+groupoid B of fi nite sets and bijections.
+
+If E is a finite set, M [E] is the set of all structures
+species M on E. We will say that E is the underlying set to a
+structure sEM [E] or that it is carried by E. We will say
+also, by misnomer, that s is an element of M (s E M) and that it is a
+M-structure.
+
+If u: E - + F is a bijection, the element t = M [u] (s) is the structure on F
+obtained by transporting s along u. The bijection u is an isomorphism
+between s and t:
+
+u: s-&gt; t.
+
+We will note el (M) the category whose objects are the M-structures and
+whose morphisms are the isomorphisms of M-structures; it's the
+groupoid of the elements of M. We have a functor forgetting U: el (M) -&gt; B whose
+the value in M ​​is the set underlying the structure s. The concept
+isomorphism of structures defines an equivalence relation whose
+classes are the types of species structures M; these classes are the
+related components of the groupoid el (M). We will use the notation
+n0 (M) to designate all types (structures) of species M. Si
+s E M, we will designate the type of s by the notation [s] e no (M).
+
+EXAMPLE 1. Remember that a simplicial schema structure on E is
+a set Y of non-empty portions of E such that (i) any non-empty part
+contained in an element of V belongs to .9 ', (ii) singletons {x} to
+x E E belong to .5 '. The elements of .5 'are the simplexes. The
+dimension of a simplex is its least cardinality. A graph is a
+simplicial diagram whose simplexes are of dimension &lt;1. If u: E - + F is
+a bijection, it is clear that u (.9 ') = {u (S)] S E V} is also a structure
+simplicial diagram on F. We can therefore consider the species of the schemas
+simplicial. It is also clear that if .5 'is a graph then u (.5') is one;
+the species of the graphs is obtained, it is a subspecies of the species of the schemas
+simplicial. More generally, any property P, applying to the schemas
+simpliciaux, and whose satisfaction is invariant by isomorphism,
+determines a subspecies of the species of simplicial schemes. So the
+
+4 ANDRÉ JOYAL
+
+connexity is an invariant property. The forest species is that of
+graphs without cycles, the species of trees is that of the associated forests, etc.
+
+EXAMPLE 2 The transport of an endofunction has: E-&gt; E along a
+bijection u: E zF is done by conjugation: oi-&gt; uou ".
+permutations is a subspecies of endofunctions. If it is required that
+the graph of an endofunction is related, we obtain the subspecies of the
+related endofunctions and also that of circular permutations. A
+important concept is that of contraction: an endofunction d: E- + E is
+a contraction if there exists x0 E E such that for all x E E we have gzi "(x) = x0
+as soon as n is big enough. In other words, a contraction is a
+endofunction ultimately constant.
+
+EXAMPLE 3 Let S be the species of permutations. Consider the groupoid
+el (S) elements of S. The objects of el (S) are the sets E E B provided
+of a permutation 0E E S [E]. The morphimes (E, 0E) -&gt; (F, oF) are the
+bijections u: E -&gt; F such that uoE = oFu. Let x [, x ,, x3, ... be an unlimited sequence
+dïndéterminées. Put I (o, _.) = X'f 'n-xf ", where n = CardE and where d, is the
+number of cycles of length i of 0E. Two objects (E, a5) and (F, 0E) of el (S)
+are isomorphic if and only if I (oE) = I (o,). The set n0 (S) of the
+related components of the groupoid el (S) therefore naturally identifies itself with
+the set My (x) of all the monomials in indeterminates x1, x2, x ,, ....
+
+1.1.1. Group E 1 of permutations of E acts on M [E] by transport
+of structures. The set n0 (M [E]) of the orbits is identified with all the
+types of M-structures carried by equipotent sets at E. We identify
+Let s 6M [E] orbit be of its type [s]. The stabilizing subgroup
+of an element s E M [E] is the group Aut (s) of the automorphisms of s. We have
+the well-known formula
+
+not!
+
+CaYd | S] = - ËI_'a - '/ At -'- IG5.
+
+One of the fundamental problems of enumerative combinatorics is
+to evaluate the two innate sequences of numbers
+
+CardMln1, n&gt; 0 (l "l = i1929 '- 9n)) 9 ​​(1)
+
+Card n0 (M [n]), n 2 O. (2)
+
+We define two generating series, the first is a series of Hurwitz
+
+(Comtet [6]):
+
+M (x) = z CardM [n] Î1-T, V (1)
+
+n&gt; 0
+
+A COMBINATORY THEORY 5
+
+the second is a series of powers with integer coefficients (without factorial):
+
+M (x) = 2 Card no (M [n]) x ". (2)
+n&gt; 0
+We will say that M (x) is the cardinality of M. Let's see immediately that
+
+the calculation of M (x) is reduced to calculating the cardinality of an associated species
+Mr.
+
+DEFINITION 2. A species structure M is a pair (a, s) where o is a
+automorphism of s e M.
+
+PROPOSAL 1. We have
+M (x) = Card M.
+
+Proof. The Burnside lemma is used: if a fi nite group G acts on a
+finite set X, then the cardinality of the set n ,, (X) of the orbits of X is
+equal to that of the set {(o, x) | a € G, xEX, o-x = ​​x} divided by
+Card G. (See Burnside [3].)
+
+1.2. Category of species
+
+Species are categorized: they are functors, we can
+take as morphisms the natural transformations. As he is
+desirable to have a larger class of morphisms than
+isomorphisms, it is better to consider that a species is a functor
+M: B -&gt; E to category E finite sets and functions (in component
+with the inclusion B C "E).
+
+DEFINITION 3. A morphism a: M - + N is a natural transformation
+from M to N considered as functors from B to E.
+
+One can interpret as follows: one has a construction a
+to produce an N (output) species structure from a
+species structure M (input), and for any bijection u: E -&gt; F the rectangle
+
+M [E] - "-'-" N [E]
+jMlul [NM
+M [F] 1. N [F]
+
+is commutative; which means that the construction is equivariant (or
+invariant): it does not change if we simultaneously transport the input and
+
+6 ANDRÉ JOYAL
+
+the output along the same bijection; the vast majority of
+mathematical constructions have this property.
+
+If oE is invertible whatever E, the morphism a is an isomorphism
+between M and N. In this case, we will write M EN or more simply (by
+misuse of notation) M = N. If M and N satisfy the weaker condition
+Card M = Card N, we will say that M and N are equipotent species and
+we will write M to N.
+
+EXAMPLE 4. The construction of the transitive closure of a graph
+determines a morphism of the species of the graphs towards the species of the partitions.
+
+EXAMPLE 5. A tree is a tree with a root (this is a
+arbitrary peak of the underlying set). We usually orient the
+edges of a tree in the direction of the root. If we add a
+loop at the root we obtain the graph of a contraction (Ex. 2). There is
+isomorphism between tree species and contractions.
+
+EXAMPLE 6. The species of linear orders, permutations,
+permutations with a fixed point, circular permutations with
+of an automorphism are equipotent with each other, without being isomorphic.
+
+1.2.1. A morphism of species M - + N determines a functor
+el (M) -&gt; el (N) between the corresponding groupoids. Note that this
+functor switches with forgetting functors
+
+el (M) ---&gt; el (N)
+B.
+
+It is not true that a functor el (M) -&gt; el (N) is always induced by a
+morphism of species M -&gt; N. For example, if M is the species of pre-orders and
+N the kind of orders, the usual construction of a relationship of order to
+from a pre-order (on a quotient from the underlying set to the pre-order)
+determines a functor el (M) -&gt; el (N) which does not come from a morphism
+M -&gt; N. However, it is easy to check that any functor
+el (M) -&gt; el (N) commuting with the forgetting functors U, is induced by a and
+a single morphism of species M -&gt; N.
+
+1.3. Relative expenses
+
+We want to examine the concept of relative species. Let's start with one
+example. Let G be the species of graphs. The concept of guidance gives us
+
+A COMBINATORY THEORY 7
+
+a functor 0: el (G) -&gt; E, because we can transport a graph orientation
+along an isomorphism of graphs. The kind of orientations (graph)
+is relative to that of the graphs. On the other hand, the G0 species of graphs
+oriented is provided with a projection G0 -&gt; G.
+
+DEFINITION 4. Let M be a species. A species relating to M is a
+TM functor: el (M) "E.
+
+Given TM we can build a species T with a morphism
+T- + "M: we put T [E] = {(s, a)] s E M [E], a 6E TM [s]}.
+(s, a) E T [E] along a bijection u: E -&gt; F, we begin by transporting
+s to get t = M [u] (s), which first gives an isomorphism
+s - + "tE el (M), and then, 8: TM [u] (a); we put T [u] (s, a): (t, fi). The
+morphism p: T- + M is the projection p (s, a) = s. Conversely, if we
+gives a morphism T -&gt; "M, we can construct TM: if s € M [E], we have
+pE: T [E] -&gt; M [E] and put TM [s] = pg '{s} AND [E]. The naturalness of p
+lets us check that if u: E -&gt; F is an isomorphism between s E M [E]
+and tEM [F] then T [u] transforms pEI '{s} into pE' {t}, which gives
+TM [u]: TM [s] -&gt; M [t]. There is, in fact, a definite proposition: a species
+above M is a species T with a morphism T-v "M. A morphism
+(T, p) -&gt; (T ', p') between species above M is a T -&gt; "T" arrow such that
+
+p'u = p.
+
+PROPOSAL 2. The constructions described above define a
+equivalence between the category of species relating to M and the category
+E | [X H / M species above M. (See 2.0 for swimming E HXH.)
+
+Suppose that TM: el (M) -&gt; E is given. We will often say that
+(s, a) E T [E] is an M-structure with an element a6 T M [s]. By
+For example, a directed graph is a graph with an orientation. A
+Species Structure M (Def 2) is an M-structure with an automorphism.
+Etc.
+
+We will sometimes use the term "enriched" rather than "fitted."
+let R be any species, we will say that an endofunction o: E -&gt; E is
+R-enriched if each of its fibers p "{x}, xEE, is provided with a R-
+structure. Similarly, either has a tree structure on E. The fiber has "{x} of a
+vertex xeE is the set of vertices of a connected to x by an edge
+leading to x (for the orientation of a tree as described in
+Example 5). We will say that a is R-enriched if each of its fibers is
+equipped with an R-structure. (Not forgetting the empty fibers.)
+
+In graphical representations of endofunctions or
+R-enriched trees it is often convenient to think that the R-
+The structures on the fibers are located on all the edges of these fibers.
+For example, an R-enriched tree can be represented as on the
+
+8 ANDRÉ JOYAL
+
+&nbsp;
+
+FIGURE 0
+
+Fig. 0 where a circular arc intersecting transversely the edges of a fiber
+denotes an R-structure. We must not forget the leaves.
+
+2. COMBINATION OPERATIONS
+
+2.0. The category of species is rich in various operations. In this
+section, we will describe several operations of which three are binary. The
+first two are the sum (disjoint) and the product. With these two
+operations, the category of species becomes a kind of semi-ring. Of
+more precisely, let R be a commutative ring, denote by R fl x fl
+The ring of the Hurwitz series with coefficients in R: these are the series
+melles
+
+where n&gt; 0, a ,, R.
+
+The
+n&gt; 0
+
+The analogy pursued here is that the category of species would be the semi-
+EHXH ring of the Hurwitz series, but with coefficients in category E
+finite sets. The concept of cardinality induces a homomorphism
+
+Card E] | X] | -&gt; Z || x] |.
+
+Moreover, the evaluation M l-&gt; M [0] is a functor preserving the sum and the
+product
+
+EllXll-rE
+
+whose core J is an ideal on which we will describe operations of
+divided powers (Cartan [4])
+
+EIIXII (n20)
+
+A COMBINATORY THEORY 9
+
+so that we have
+M (x) "
+
+Card y ,, (M) = m
+
+(n&gt; 0) -
+
+Using these divided power operations we will then describe
+the substitution operation of one species in another. We will finish this
+by introducing the differential calculus of species and giving a
+combinatorial demonstration of the Lagrange inversion formula.
+
+2.1. Sum and product
+
+The disjoint sum of two species M and N is the co-product in the
+category of species:
+(M + N) [E] = M [E] + N [E].
+
+More generally, an arbitrary family of species (M,), E, ​​is summable if
+for any finite set E, the set of indices iE I for which
+M, [E] 9e 0, is finite. We pose
+
+(Z M) [E1 = Z Mm.
+
+hey!
+
+It is obvious that Card preserves the sum. Let's move on to the de fi nition of the product
+M - N of two species M and N. Let us first say that a sharing of a set
+E in two pieces is a pair (E ,, E2) such that E, UE1 = E and
+E, NE, = z. Similarly, the concept of sharing of E, in n pieces, is de fi ned.
+(n E N): we write E = E, + + E ,, to indicate that (E ,, ..., E ,,) is
+a division of E into n pieces.
+
+DEFINITION 5. A species structure M - N on E E B is a
+quadruplet (E ,, E2, s, t), where E = El + E, and (s, t) E M [E,] X N [E2].
+
+PROPOSAL 3. We have
+Card (M - N) = Card (M) - Card (N).
+Proof. We have de fi nition
+
+(M - N11E1 = 2 M1151]&gt; &lt;NiEzi.
+
+E] + E2 = E
+
+If CardE = net0 &lt;k &lt;noa (Z) sharesE = E, + E, with CardE, = k.
+Which leads to
+
+Card (M N) [n] =) card M [k] Card N [n - k].
+
+10 ANDRÉ JOYAL
+
+The uniform species is a species with only one structure on each
+together; we can give various representations: the structures of
+graphs, chaotic topologies and identical applications
+uniform species.
+
+EXAMPLE 7 Let S be the species of permutations, S0 that of
+permutations without a fixed point and U the uniform species, we have: S = S0- U
+(Fig. 1) taking cardinalities, we obtain:
+
+1 X
+l_x = S0 (x) e
+and so
+ex
+S0 (x) = 1_x.
+
+EXAMPLE 8 Let D be the species of endofunctions, D0 the species of
+endofunctions with a fixed point and the species of trees, we have
+
+D0 = A .1).
+
+Indeed, we can share the domain E of an endofunction o equipped with a
+fixed point x0 in two pieces E = E 1 + E2. The first E 1 consists of
+all points ultimately transformed to x0 by o. On E 2, induced a
+contraction (Chapter 1, Ex 2), which is equivalent to a tree structure. On the
+second piece E2, induces an arbitrary endofunction (Fig. 2).
+
+The product M =] '[f'zlM, of a finite sequence of species is explained as
+follows: a species structure M on E is a partition E = E, + + E ,, whose
+each piece E 2. (possibly empty) is provided with a species structure M, ..
+
+&nbsp;
+
+A COMBINATORY THEORY 11
+
+summer
+
+FIGURE 2
+
+The N5 power of an N species can also be described by a finite set
+S: a species structure N 'on E is a function x: E-&gt; S each
+fiber is provided with a species structure N; in other words, it's a function
+N-enriched.
+
+EXAMPLE 9 (Joyal) A vertebrate is a tree bipointed by a couple
+(p0, 17,) vertices. We'll say that p0 is the tail vertex and p, the
+top of the head. The shortest way from the top of the tail to the top of the head
+is the spine. The vertices in Linear Order on the column
+vertebral are the vertebrae. For each vertex p is v (p) the vertebra the
+closer to p. The function v is idempotent and there is a structure of ar-
+borescence on each fiber of v. The roots of these trees are the
+vertebrae. So a vertebrate on E determines a variable length split
+E = E2 + En, of which each piece E, - is provided with a structure of Ar-
+borescence, and vice versa. We have the identity:
+
+V = A + A '+ A' +
+
+Where V is the species of vertebrates and that of trees (Fig. 3).
+
+EXAMPLE 10. Let L be the species of linear orders and S a set
+fi ned. A species structure L 'on E is a function E-&gt; S each
+fi ber is equipped with a linear order. The number l (n, s) of these objects (if
+n = Card E and s = Card S) is therefore the coef fi cient of x "/ n! in the series
+(1-x) ". Which shows that
+
+l (n, s) = s (s + 1) --- (s + n-1).
+
+12 ANDRÉ JOYAL
+
+V (P)
+
+P
+
+FIGURE 3
+
+Subsequently, we will often consider that a finite set A
+determines a species by posing
+
+A [E] = A if E = 0
+= O otherwise.
+
+With this convention the category E acts as a ring of coefficients
+for the EUX I] because the disjoint sum and the Cartesian product of sets
+then confuse with the sum and the product of the species as described more
+early.
+
+2.2. Split Powers and Substitution
+
+DEFINITION 6. Let N be a species such that N [0]: 9 and let E be a
+together fi nished. An assembly of species structures N on E is a partition
+of E each class of which has a species structure N. A member
+of an assembly is a class with the corresponding N-structure. The
+divided power y ,, (N) is the species of assemblies of N-structures having
+exactly n members. Exp (N) is the species of all
+assemblies of N-structures.
+
+PROPOSAL 4. We have -
+
+N (x) "
+not!
+
+Card y ,, (N) =
+
+Card exp (N) = exp (N (x)).
+
+Proof. It is obviously enough to demonstrate the first identity.
+Note first that a species structure N "on E determines a
+share E = E 1 + + In non-empty (and distinct) pieces: indeed, E i
+has an N-structure and hypothesizes N [0] = z. If we forget the order
+linear between pieces we have a partition {E,, ..., E ,,} of which each class
+
+A COMBINATORY THEORY 13
+
+is equipped with an N structure. It has been shown that a N "-structure is nothing
+other than an N-assembly whose members have been placed in order
+linear:
+
+Card N "= n! Card y ,, (N).
+
+For a large number of species, we can indicate a concept of connectivity
+and demonstrate that any structure consists of a partition of which
+each class has a related structure. In these circumstances, a
+species M will be isomorphic to the species of assemblies of related structures:
+M = exp (MC).
+
+EXAMPLE 11. Forests are tree assemblies. Forests
+borescences are tree assemblies. Permutations are
+circular permutation assemblies. The scores are assemblies of
+single-class partitions, etc.
+
+The substitution operation of one species in another is the richest in
+opportunities.
+
+DEFINITION 7. Let R and N be species and suppose that N [0]: 0.
+The species R (N) is that of the pairs (a, p), where a is an assembly of R-
+structures and p is an R-structure on all members of a.
+
+We will say that R (N) is the result of the substitution of N in R. We
+say that an element of R (N) is an R-assembly (of N-structures). note
+immediately that, exp (N) is the result of the substitution of N in
+the uniform species (Ex. 7).
+
+THEOREM 1. Assuming that N [O] = z we have
+Card R (N) = R (N (x)).
+
+Proof. For each integer n to 0 is R ,, the species of R-structures of which
+the underlying set is of cardinality n. We have a decomposition
+disjoint sum
+
+R = z R ",
+n&gt; 0
+
+inducing a decomposition of the R-assemblies according to the number of
+members:
+
+R (N) = 2 R. &lt;N).
+
+n&gt; 0
+
+14 ANDRÉ JOYAL
+
+An element of R ,, (N) is an assembly of n members with a R-
+Structure. So we have
+
+Card R ,, (N) = Card y ,, (N) X Card R [n],
+
+which leads to
+
+CardR (N) = z Cardmax
+n&gt; 0 '
+R = (N (x)). C.Q.F.D.
+
+Notes. In order to be able to think of a combination, it is necessary to
+to give oneself visual representations. To grasp the nature of a species is to be
+able to represent the general form of its structures. The shape of a
+Structure is invariant by isomorphism. What needs to happen to
+to represent first is the general type of structures of a given species.
+This type is independent of labeling or enumeration of vertices
+of the underlying set. For example, suppose we want to
+represent the general type of species structures R (N) knowing that we have
+already a representation for R and N. What we can do is truly
+substitute instead and place for each vertex of an R-structure, N-
+arbitrarily chosen structures. For this, we can imagine that the
+vertices of the R-structure inflate into cells harboring N-structures.
+The underlying set of a cellular con fi guration is the sum of
+underlying sets of structures contained in the cells. So, if we
+substitute the species of circular permutations in the species of trees,
+gets a species whose general type can be represented as on the
+Figure 4.
+
+This representation is not the only one and it is convenient to adapt it to
+peculiarities of a species. For example, suppose that species N is
+pointed, that is to say provided with a morphism N -&gt; "B or B is the species of
+"Vertices" (B [E] = E for E 6B). Each SEN structure has
+then a base point p (s) E E. We can use the base points for
+give another representation of the R (N) -structures: for each vertex
+of an R-structure one chooses an N-structure and one makes coincide this vertex
+with the base point of the chosen N-structure. For example, the base point
+a tree is the root; if we substitute species A for trees
+in that of the linear orders (not empty) we obtain the species of vertebrates
+(Ex 9). When N is pointed, we can de fi ne the substitution as follows:
+R (N) -structure on E is a triplet (v, aHB), where
+
+(1) v is an indempotent function E -&gt; E,
+(2) a is a function that chooses for each x E Im (v) a structure
+
+A COMBINATORY THEORY 15
+
+FIGURE 4
+
+a (x) EN [v "{x}] so that the base point of a (x) coincides with
+x E v "'{x},
+(3) fi is an R-structure on Im (v).
+
+EXAMPLE 12 Let D be the species of endofunctions, S that of
+permutations and to that of the trees. We have the decomposition
+
+D = sp4).
+
+Indeed, either of D [E]. A point x E E is periodic if there is an integer
+n to 1 such that a "(x) = x The function has the points between them
+periodicals. For each x E E let v (x) be the first periodic point in the
+continuation x, Mx), d (x), .... The function v is idempotent and its image is the
+seems periodic points. For each x6 Im (v) the fiber v "{x} is
+provided with a tree structure of which x is the root. Conversely, if we
+gives itself an assembly of trees and a permutation of all
+roots, it is clear that a corresponding endofunction can be constructed
+danted (Fig. 5).
+
+507/42 / 1-2
+
+16 ANDRÉ JOYAL
+
+X
+
+FIGURE 5
+
+Examples 9 and 12 give us a simple proof of the theorem
+of Cayley: the number of trees on a set of cardinality n 2l is
+No. 2. In fact, the number of vertebrates (bipointed tree) is equal to nzan.
+Example 9 shows that vertebrates are linear assemblies
+of trees. Example 10 shows that the endofunctions are
+permutated assemblies of trees. As the number of linear order
+coincides with the number of permutations, nia "= n" (n to 1) is obtained.
+
+Theorem 1 suggests adopting the notation M (X) to designate a
+species M. The variable X is interpreted as the singleton species: there is a
+the only structure of species X (with isomorphism) and is carried by
+singletons. The result M (X) of the substitution of X in M ​​is isomorphic to
+M. For some species we will adopt a notation frankly
+algebraic if it does not create ambiguity. So, exp (X) or e 'will designate
+the uniform species, XeX the species of the pointed sets, ex-1 the species
+non-empty uniform, cosh (X) and sinh (X) the uniform pairs and
+odd, 1/1 -X the species of linear orders, etc. However, we keep
+we will see the notation S (X) to denote the kind of permutations in order to avoid
+to confuse it with l / 1-X. Similarly, we will use the notation C (X)
+rather than log 1/1-X to denote the species of circular permutations,
+etc.
+
+EXAMPLE 13. A pre-order relationship g on E determines a relationship
+equivalence: x2 y if and only if we have x4 y and y gx. The relation of
+preordering induced on the E / E quotient is a relation of order. Conversely.
+This shows that the species of preorders is obtained by substituting the species
+ex -1 in the case of order relations. In particular, the species of
+total preorders is 1 1
+
+ÎXÎÎÏÎËÎ '
+
+COMBINATION THEORY 17
+
+&nbsp;
+
+FIGURE 6
+
+EXAMPLE 14. In a graph, two vertices are doubly connected
+if we can connect them by a path avoiding any chosen ridge
+beforehand. The vertices of a graph share in doubled components
+related. Let G be the species of the connected graphs and G2 ', that of
+doubly related graphs pointed. We have the relationship
+
+G: = GuXeGPO ").
+
+In fact, in a connected graph, let's consider the component
+double doubling H of base point; for each vertex x let v (x) the
+closest vertex in component H. It is easy to verify that v
+is well de fi ned. It is a idempotent function whose fibers are provided
+of a species structure X - e ° "" "; the image of v coincides with the graph
+doubly connected pointed H (Fig. 6).
+
+EXAMPLE 15 (Polya [26]) Consider species A trees.
+We have the identity (Fig. 7)
+
+A = X - exp (A).
+
+ 
+
+FIGURE 7
+
+18 ANDRÉ JOYAL
+
+FIGURE 8
+
+More generally, the AE species of the R-enriched trees satisfies
+Equation (see 1.3, Fig. 0)
+
+AE = X-R (AE).
+
+2.3. Differential calculation
+
+For any fi nal set E, let E * be the set obtained by adding to E
+an additional point *:
+
+E + = E + {*}.
+
+DEFINITION 8. The derived species M 'of a species M is de fi ned as
+follows:
+M [E] = M [E *].
+
+EXAMPLE 16 The Derivative of the C (X) Species of Circular Permutations
+is the species of linear orders (Fig. 8):
+1
+
+"(Xlñîî
+
+FIGURE 9
+
+A COMBINATORY THEORY 19
+
+ 
+
+FIGURE 10
+
+EXAMPLE 17. The derivative of the tree species is that of
+borescences (Fig. 9).
+
+EXAMPLE 18. Remember that a graph is even if the number of edges
+joining each vertex is even. The derivative of the species of even graphs is
+the kind of graphs (Fig. 10). (Harary and Palmer [15].)
+
+EXAMPLE 19. The derivative of the species of linear orders 1 / (1-X) is
+equal to (1 / (1-X)) - (1 / (1-X)).
+
+Recall that a pointed structure of species M on E is an element of
+E X M [E]. We will note M 'the species of the pointed M-structures.
+
+PROPOSAL 5 .. We have relations
+
+M '= X. M '
+(M + N) '= M' + N ',
+(M-N) '= M' -N + M-N ',
+M (N) '= M' (N) n '.
+These identities are not just relationships between quantities
+
+digital but true combinatorial identities. We leave it to
+reader the pleasure of demonstrating them.
+
+20 ANDRÉ JOYAL
+
+EXAMPLE 20. To illustrate the combinatorial differential calculus
+consider the equation satisfied by species A of trees:
+
+A = X-e. "
+
+The "pointing" operation is a derivation:
+A ° = X ° -e "+ X- e" A °,
+The pointed trees are vertebrates:
+V = A ° = X-e "+ X-e" V
+= A + A - V
+= A + A '+ A' +.
+
+Vertebrates have been shown to be linear (non-empty) assemblies of
+borescences. (See 2.1, Ex. 9.)
+
+2.4. The inversion formula of Lagrange
+
+2.4.1. The methods of analysis sometimes leave traces in
+the restricted universe of formal series. An example is the residue theory
+(at point 0) of a meromorphic formal series. The property of variance
+residual by invertible change x = w (t) of parameter is an identity
+fundamental algebraic:
+
+Res f (x) dx = Res f (u (t)) u '(t) dt.
+
+This identity is equivalent to the Lagrange inversion formula. This
+formula gives the coefficient c ,, of x "in the series g (v (x)) when v (x)
+satisfies the equation v (x) = xR (v (x)):
+
+1
+c = Î X coeff of t "" in g '(t) R (t) ".
+
+To demonstrate this, it is sufficient to note that this coef fi cient is equal to the residual
+at the origin of g (v (x)) / fi ". Notice further that u (t) = t / R (t) is the series
+inverse of u. Performing parameter change x = u (t) and using the
+property of invariance, we get
+
+u '(t)
+
+u (t) n +
+
+c "= Res g (t) dt
+
+COMBINATION THEORY 2l
+
+g (t) d
+
+AND?'
+
+l Res dt
+
+= Res
+
+1
+= 1 X coeff of t "" in g '(t) R (t) ".
+
+Since the calculations are reversible, the equivalence between the inversion formula
+and the property of difference is clear.
+
+2.4.2. Since Pôlya [26], the inversion formula is often used in
+combinatorics to calculate the coefficients of certain generating series
+(The canonical example is that of species A of trees that satisfies
+the equation A = X - exp (A), see Moon [24]).
+
+There is already a purely combinatorial proof of the formula of
+version (Raney [27]). This demonstration is based on different concepts
+of those that will be used in the following demonstration. In chapter 4,
+we will give another proof of the inversion formula.
+
+THEOREM 2 (Inversion of Lagrange). Let R and F be species and be
+A E the species of R-enriched trees. We have for n to 1:
+
+F (AE) [n] 2F'R "[n -1]
+(the sign E means equipotence).
+Proof. Recall (Ex. 15) that A satisfies the equation
+A E = X - R (A E).
+Which leads by derivation
+Have. = R (A) + X - RIAaAI.
+= R (AE) + CEA],
+and by iteration (CE = X - R '(AR))
+
+= R (A ,,) (1 + C ,, + C). + ---)
+
+1
+
+= R A ----.
+
+<.> 1 _ CR
+
+At this point, we want to replace 1 / (1 - CE) with S (CE), where S is
+
+the kind of permutations. We need to interpret combinatorially
+the result of this replacement.
+
+22 ANDRÉ JOYAL
+
+ 
+
+FIGURE 1 1
+
+Lemma 1 (G. Labelle [20]). The species CE = X -R '(AR) coincides with
+that of R-enriched contractions. (See 1.3 and Ex. 5.)
+
+Indeed, consider an R-enriched contraction b: E -> E. Let x0 be the point
+of convergence of a. We can share E in two pieces: E =
+{x0} + E - {x0}. On the second piece, there is a R'-assembly structure
+of AR-strueture as shown in Figure 11 (this is the loop that
+explains the presence of the derivative in the formula CR = X - R '(AR)). inverted
+ment.
+
+LEMME 2 (G. Labelle). The result of the substitution of CE in
+species S of permutations coincides with the species DE of endofunctions R-
+enriched.
+
+Proof. The lemma states that we have S (CR) = DR. Let's use the decom-
+position of an endofunction in permutations and trees such as
+
+ 
+
+FIGURE 12
+
+A COMBINATORY THEORY 23
+
+described in Example 12. Let's replace the trees in this decom-
+position by contractions. If we compare, at each point, the fiber of
+the endofunction with the fiber of contraction "containing" this point, we
+realizes that they are in bijection (they coincide if the point is not
+periodic). We can then transport the R-structures along these
+bijections. This shows that R-enriched endofunctions are in bijection
+canonical with permuted assemblies of R-enriched contractions.
+
+We continue the proof of the theorem taking the derivative of F (AE):
+
+Crazy) '= FIAnAI
+= F '(A ..) R <A> T' - CI
+EF (AE) R (CA).
+
+LEMME 3 (G. Labelle) (Lemma of the repartage). Let G be a species
+any. A species structure G (AE) DE on a set E can
+to be interpreted as the data of a partition E = El + E2, the first of which
+piece E 1 is provided with a G-structure y and the second piece E2 is provided with
+an R-enriched function Â: E2 -> E.
+
+Proof. Let (F ,, F2, g, f) be a species structure G (AE) - DE on E. On
+E = F, + F2. We can describe g as- a tree forest R-
+enriched whose whole set of roots is provided with a G-structure y. Let E,
+all these roots and E2 the complementary. This forest of ar-
+borescence, joined at the endofunction f, de fi nes an R-enriched function
+: E2 -> E. (See Fig. 13.) Conversely, starting from (E "E2, y, Â), we find
+first F, as the set of all points of E that are ultimately
+transformed in E, by l. We complete the demonstration by meditating on the
+figure 13.
+
+F
+
+îêmrjkxs
+.5 o <
+pg <IZGI ° to
+
+1 E
+
+2
+
+FIGURE 13
+
+24 ANDRÉ JOYAL
+
+We will now use this lemma to compute the cardinality of
+(G (AE) RE) [n]. Indeed, the R-enriched functions Â: E2- + E coincide with
+the R-enriched functions Â: E2-v [n] in the case where E = [n] (see
+note above Example 9). So we have
+
+(G (AR) DR) ini = (G 'R ") l" l-
+
+Finally, note that we want to calculate F (AE) [n] and if
+n to 1, we have
+
+F (Ar) lnl = F (AR) ln - 1l
+EFI (AR) R (AR) DRin -1l
+a (F'R) R "" [n-- 1]
+= F'R "[n -1] C.Q.F.D.
+
+3. NUMBERING OF TYPES OF STRUCTURES
+
+3.0. In this chapter, we will seek to solve the problem of
+enumeration of the types of structures of a given species M. It will suffice
+to calculate, for each n E N, the cardinality of the set n0 (M [n]) of
+orbits of M [n] sounds Faction of [n] !. In other words, we want to identify
+the generator series
+
+M (x) = z Card n0 (M [n]) x ".
+
+n> 0
+
+It is often impossible to describe M (x) explicitly. However, if we
+has a functional equation, we can calculate the coefficients of
+M (x) by induction. The current technique for calculating the number of
+classes of isomorphisms is due to Polya. It makes use of a certain
+polynomial indicator of cycles (Polya [26]). We will instead calculate a
+indicator series Z M. We will obtain a substitution theorem for the
+indicator series. This result will often allow us to calculate the coefficients
+ZM by recurrence. We will follow a less algebraic path and
+more combinatory than that of Polya. In this way, we hope to show
+the direct link between the problem of enumeration of structures and that of
+count of types of structures.
+
+Recall that calculating M (x) amounts to calculating the cardinality of a species
+Associate M (Prop. 1):
+
+M (x) = Card M.
+
+A COMBINATORY THEORY 25
+
+The elements of M [E] are the pairs (a, s), where s 6 M [E] and o E E! is a
+automorphism of s. It is easy to see that the relation P = M + N
+leads P = M + N and also P = M "N implies P = MN. Suppose
+now that P = M (N), what can be said of P? For example, we have the
+next result which is obvious:
+
+PROPOSITION 6. If P = 1 / (1-N) then
+
+1
+P =.
+l fi
+We also have a well-known result (Harary and Palmer [15]):
+
+PROPOSITION 7. If P = exp (N) then
+
+f (x) = exp z fl ot ")
+
+n> 1 n
+
+We will demonstrate that:
+
+PROPOSITION 8. Let S be the species of permutations. If P = S (N) then
+1
+fi °° = Ü ere
+
+n> l
+
+The difficulty lies in the fact that the relation AIN (x) = M (1V (x)) is
+false. Examples show that the nature of the response depends strongly
+of the internal structure of the substituent and very little of its cardinality. We
+let's develop a finer concept of cardinality:
+
+zîEllXll-rlllxl}
+
+value in a ring Z {{x}} of formal series with an infinity of inde-
+mined {x ,, x2, ...}. This ring is provided with a substitution operation: if
+
+f = f (x ,, ...) and g = g (x ,, ...) then
+fl a) = f (gr, gp-u),
+or '
+81: 805i »x2Is ---) -
+We will demonstrate a substitution theorem:
+
+ZMIN) = M (ZN)
+
+26 ANDRÉ JOYAL
+
+In addition, we will have
+M (x) = ZM (x, 0, 0, ...),
+M (x) = ZM (x, x2, x3, ...)
+
+and we will get the following result:
+
+PROPOSITION 9. If P = M (N) then
+
+I7 (x) = ZM (N (x), N (x2), ...).
+
+We could give complete combinatorial demonstrations of
+results of this chapter, but at the cost of a heavy categorical artillery.
+We chose an intermediate approach that will use some algebra
+as the principle of the extension of algebraic identities. This gives a
+reading text easier.
+
+3.2. The problem is to calculate the cardinality of M / (N). For this, we
+we will try to understand its combinatorial structure. An element of
+Mn) [E] is a pair (o, h), where h is an element of M (N) [E] and o is a
+automorphism of h. Assembly h determines an equivalence relation R
+on E. o is an automorphism of R, which means that o is compatible
+with R. The quotient E / R is thus provided with an induced permutation a / R. This
+permutation breaks down into cycles. We will start by assuming that
+o / R is circular.
+
+DEFINITION 9. A crown of N-structures is an assembly
+hEexp (N) provided with an automorphism o permutant cicularily its
+members. The length of a crown is the number of members of
+the assembly. Let C ,, (N) be the species of crowns (of N-structures) whose
+length is n.
+
+PROPOSAL 10.
+
+Card C ,, (N) = N (x ") / n.
+
+Proof. Let us first show how, from an element of N (X "), we
+can make a crown. An element 1 of 1 \ 7 (X ") [E] is an N-assembly
+linear orders of cardinality n. This element defines a partition P of E;
+the E / P set of classes is provided with an N-structure (r, t) and each class
+is a linear order of cardinality n. For 1 gi is C, the set of
+all the elements of rank i in these linear orders. If we send each
+
+A COMBINATORY THEORY 27
+
+v- "N
+
+i_z /
+'L
+l
+
+FIGURE 14
+
+element in its successor, one obtains bijections a2: C, - + C, + 2 for
+1 <i <n-1.0n aune string
+
+C1-C2-C3-Cn.
+
+Like every C, is a system of representatives of the partition P, we have
+a structure t, on C, by transporting the N-structure t of the assembly. We have
+also an automorphism r2 of t2 by carrying r on C2. We will
+circularly close the chain of isomorphisms of N-structures
+
+(CI »ti)" ï "(C29 t2) (Cree you)
+
+by de fi ning an isomorphism on: (C ,,, t ,,) -> (C2, t2). Just take
+0 ,, = r2 (o ,, _ 2 a2). "A ring (o, h) of length n on E.
+Moreover, in this ring, there is an initial N-structure (C2, t2). inverted
+[Assume that we have a crown (o, h) € C, 2 (N) [E] marked
+an initial N-structure (C2, t2). Taking the successive images of (C2, t2)
+where we get a string
+
+(Cis [EYE-ÿ (Cza t2) (Cnitn)
+
+Each element x2 E C2 is the first element of a linear order
+{x2 <ox2 <<o "" 'x2}. Which gives us a partition P whose
+classes are linear orders of magnitude n. The E / P set of classes
+
+ 
+
+28 ANDRE JOYAL
+
+is equipped with an N-structure t isomorphic to t2 (or t2). To obtain a
+automorphism r of t, it suffices to carry on the E / P the automorphism r2 of
+C2 obtained by making a complete turn of the crown:
+
+r2 = a "| C2.
+
+It has therefore been shown that an N (X ") structure is equivalent to a ring of
+length n marked with an initial member. Since there are n possible choices
+for this initial member, we have
+
+n x Card C ,, (N) = lŸ (x ").
+
+COROLLARY 1. Suppose that N [0] = o. The species of N wreaths
+structures has for cardinality
+
+No. ")
+
+not
+
+5.01)]
+
+Consider now an element (o, h) E ex / p '(1 / V) [E]. The element h is
+an assembly of N-structures; it induces an equivalence relation R on E.
+The automorphism o induces an o / R permutation of E / R. This permutation
+o / R decomposes E into an assembly of crowns of N-structures. So we have
+
+COROLLARY 2. Suppose N [0] = Q). We have
+
+Card CXRÎV) = exp [E: N0 ")
+n> 1
+
+Notice that this corollary leads to the proposition 7. Let now S
+the kind of permutations. Consider the category el (S) of the elements of S.
+The objects of el (S) are the pairs (E, oE), where oE E S [E]. We have already described
+(Ex. 3) The cycle indicator I (oE) = x3 "x fi". The set 7I0 (S)
+related components of the groupoid el (S) identify with the set
+My (x) monomials in the indeterminate x2, x2, x2, .... Moreover, if I (oE) =
+x = x '{"1 --- xi", the cardinality of the group of automorphisms of the object (E, oE)
+is e
+
+aut (x) = 1d12d1 n "" d2! dnl.
+
+Consider now an element (o, h) EexI (IV) [E]. We know that h
+determines an equivalence relation R on E compatible with o. We'll say
+that (o, h) is of class x = xfn mxfln if we have I (o / R) = x, where o / R is the
+permutation induced by o on the quotient E / R. In particular (o, h) is
+class x "if and only if it is a crown the length n.
+Conventions, we have:
+
+COMBINATION THEORY 29
+
+PROPOSAL l1. The species of crown assemblies (of N-
+structures) of class x = xi "- - - fi" a for cardinality
+
+1
+aut (x)
+
+lV (x) "'N (x')" 1 --- N (x ")" '".
+
+Proof. Indeed this species expresses itself as the product of the powers
+divided
+Vd 2 (Cl (N 7d 2 (C 2 (N)) 742 (c) (1)
+
+Its cardinality is
+
+gi 1000), "1 <N (xz)) of L <1V (>,".)) I.
+
+v2! 2 'd "! N
+
+3.2.1. Note now that M is a species with a
+projection M -> S. Which implies that M de fi nes a functor M): el (S) -r E
+(see 1.3). The value of M 'in (E, 0E) is the set of elements t E M [E]
+left unchanged by 0E. Now consider an "arbitrary functor
+W: el (S) - + E. It is clear that the expression Card W [x] has a meaning for
+x E My (x). Let
+
+x
+Z0, = xenänm Card W [x] ---- auî (x).
+
+ZW = ZW (x2, x2, ...) is a formal series. For any species N such that
+N [0] = z, we are going to define a substitution W {N} so that if W = M
+we are
+
+Mn) = M '{N}.
+
+DEFINITION 10. A species structure W {N} on E is the data of
+
+(1) an assembly h of N-structures on E,
+(2) an automorphism 0 of h,
+
+(3) a W-structure on (P, O 2), where P is set of h members
+and 0 ,. is the permutation of P induced by 0.
+
+It is clear that we have
+Ai '{N} = Ai (7')
+
+for if W = M1 the W-structure on (P, 02.), in the de fi nition above, is a
+M-structure left invariant by 02 ..
+
+30 ANDRÉ JOYAL
+
+PROPOSAL 12. With the above assumptions, we have
+Card W {N} = 2.20m), N (x2), ...).
+
+Proof. We have a decomposition
+
+W = Z W2,
+xeMomx)
+
+where W, 'is the species of W-structures carried by objects (E, 0E) of type x.
+This decomposition induces decompositions
+
+W {N} = v WxlNl,
+
+Have
+xeMon (x)
+
+2 ,, = V ZWX.
+
+Mid
+xeMon (x)
+
+It will suffice to show that Card W2 {N} = ZWx (N (x), N (x2), ...). But the
+proposition 1l shows that if x = x2 "xi", then
+
+1
+aut (x)
+
+Card W2 = Card W [x]> <N (x) "'N (x") ""
+
+which completes the proof since we have de fi nition
+
+xdl ... xd "
+ZWX = Card
+
+COROLLARY. Card MnN) = Z25) (N (x), N (x2), ...).
+Proof. We successively
+Card MIV) = Card Ai '{N}
+= 22;) (N (x), N (x2), ...).
+
+To make this corollary effective (Proposition 9) it is necessary to be able to calculate Z 25).
+We will give three formulas to calculate Z 2;). As this does not
+create no ambiguities, we will write Z M rather than Z 25).
+
+For each 0 E [n] 1, let pM (a) be the number of M-structures left fixed
+by 0. This number depends only on the isomorphism class x = I (0). We
+can write pM (x) without ambiguity. On the other hand, let n0 (M) be the set
+types of structures of species M. For each tE 7t0 (M), let G be the group
+automorphisms of a typet structure (any one, they are
+all isomorphous).
+
+A COMBINATORY THEORY 31
+
+PROPOSAL 13. The formal series ZM = Z, 5) has all three
+following expressions:
+
+X
+Pédänîr "l
+z 1 = z 3; z Hands). <2)
+n> 0 'aelnll
+1
+
+This proposition is the consequence of a well-known lemma that follows. Let G
+a finite group acting on a finite set X. For each x E X, goit G, the
+subgroup stabilizer of x. For each a E G let p2. (0) the number of
+X points left unchanged by o. Let f: X 4R be an invariant function
+under the action of G and u: G-æ R an invariant function by conjugation.
+
+LEMMA. We have the identities
+
+l Zr <x) = Z J-i
+
+Card G m, 252.0 Card G2
+1 1
+Card 0 (e), Card 0 ,, 2.5202 m)
+
+or summation in the second limbs is performed on a complete system
+of representatives of the X / G set of X's orbits.
+
+Proof of the proposal. Expression (1) is de fi ned as Z25).
+If we apply the first identity of the lemma to the case G = [n] !, X = [n]!
+(the action being by conjugation) and f (o) = p, 5 (0) 1 (0), we obtain the equivalence
+between expressions (1) and (2). Finally, if we apply the second identity
+from the lemma to the case G = [n] !, X = M [n] and u (0) = I (0), we see that the
+expressions (2) and (3) coincide.
+
+Any species M is obviously the sum of its connected components:
+
+M = z M2.
+teno (M)
+The previous proposal shows that we have
+1
+
+ = P "
+
+607/42/1 -3
+
+32 ANDRÉ JOYAL
+
+We will often take the notation Z, to designate this polynomial. It's the
+polynomial indicator of type t cycles.
+
+EXAMPLE 21 If M = exp (X) we have n0 (exp) = N and
+
+1
+Zn = - z,
+"i oêln]!
+
+which entails (see Chapter 6, Ex.
+
+x "
+ZE20 = exp
+
+n> l n
+
+EXAMPLE 22. Let C be the species of circular permutations. We have
+fl o (C) = N-10)
+
+1
+Z. = -n- M M0263 ",
+dfn
+
+where is the function of Euler. As a result,
+
+2C: Z In 1
+
+D2 n 1-x ,,
+
+EXAMPLE 23. If S is the species of permutations, formula (1)
+given
+X
+
+Zs: Z PSO ')
+
+xeMon (x) 5 (7)
+As we have more
+
+PSU ') = autÜ')
+this entails that
+1
+
+l-x ,, '
+
+Z5: I]
+n> 1
+
+3.2.2. We will show how, in some cases, we can establish
+a functional equation allowing to calculate the coef fi cients of Z M by
+recurrence. Consider the ring Z {{x}} of the formal series
+
+f = f (xl'x2'x3 "")
+Z flxl-L
+
+_ xeMontx) auqx),
+
+COMBINATORY THEORY 33
+
+where the coef fi cients f [x] E Z. Let f (0) = f (0, 0, 0, ...). We will de fi ne
+the substitution g (f) of g, f E Z {{x}} in the case where f (0) = 0. Posons
+
+fi = f (xis x fi sm)
+
+DEFINITION 11. The result g (f) of the substitution of f in g is the
+Formal series g (f) = g (f'2, 13, ...)
+
+This substitution operation has many of the properties of the
+ordinary substitution of one-variable formal series; it is associative
+and the substitution of f de fi nes an endomorphism gI -> g (f) of Panel
+Z {x {}}. Moreover, if one poses
+
+0113.
+
+g (f) '= g' (f) f'-
+
+THEOREM 3. The transformation Z: E || X [[-> Z {{x}} has the properties
+following:
+
+ZM (x, O, O, ...) = M (x), (1)
+ZM (x, x ', ...) = M (x), (2)
+ZM + N = ZM + ZN9 (3)
+ZM.N = Z25-ZN, (4)
+
+ZMW) = ZM (ZN) a (5)
+
+ZM '= Zim l (5)
+
+Z, = x2, l (7)
+ZMXN = ZMXZN. (8)
+
+In the last row (8) we have included the Cartesian product M XN
+(this friend forgot). The right-hand side of (8) should be interpreted as the
+produced from the two series coefficients by coefficient. All these identities are
+either trivial or already proven except for (5):
+
+PROPOSITION 14. If P = M (N) then
+
+Z2, = ZM (t2, t2, ...),
+
+34 ANDRÉ .l0YAL
+or
+t2-: ZnÇXÏ, X220 ...)
+
+We will give a demonstration using the extension principle
+algebraic identities. Let R be an arbitrary species (R [0] = o). compute
+P (R). We have, by virtue of the corollary of proposition l1, equalities
+
+13D? xx) = z. <1 i <x) .1 i (x 2) ....)
+and also
+Wuoxx) = zMuvTxx). NII) <x ") ....)
+On the other hand, we have
+z fi xx ") = ZN (Ë (x") .R (x2 ") ...-)
+= t ,, (Ii (x), Ii (x2), ...).
+Which leads, by substitution
+Ffxx) = z .. (t ((x)). z. (ä (x) ....). m).
+
+Since the variables R (x ") (n 2 1) are sufficiently general, the result is
+demonstrated.
+
+Note. We will say that Z22 is the indicator series of M.
+
+EXAMPLE 24. Let R be a species. Suppose we want to calculate the
+Z 22 indicator series of species A of R-enriched trees. We have
+
+A = xnRm)
+which leads to
+Z22 = x2Z22 (Z22).
+We will see in 3.3 that this equation is sufficient to determine
+
+fully Z A if we already know the coef fi cients of Z22. If we search
+only to calculate Â (x), we find
+
+Â (x) = xZ22 (Â (x), Â (x2), ...).
+
+EXAMPLE 25. Suppose B satisfies the equation
+
+B = X + TOE)
+
+A COMBINATORY THEORY 35
+or
+Tl0l = Tl1l = 0-
+We obtain
+Z3 = x. + ZT (ZB) 9
+
+Ë (x) = x + Z, (Ë (x), ((x2), ...)
+
+which is still sufficient to determine Z, and E (x) if we know Z,
+explicitly.
+
+EXAMPLE 26. This time, a particular example: determine the series
+indicator Z ,, of the kind of commutative parentheses. We have
+
+P (X) = X + P (X)
+Zx1 / 2x = Ë ​​(xi + x2) -
+Which gives the equation
+Z ,, (x,, x ,, ...) = x1 +% (Z ​​,, (x1, ...) '+ Z ,, (x2, ...)).
+
+We check that the series
+
+Z ,, (x,, x2, O, ..., 0, x,. », O, ..., xlm, 0,
+also satisfies this equation. As the solution is unique (Theorem 4),
+this shows that Z, depends only on the variables x2, (i; 0) (the groups
+
+of automorphisms of P-structures are 2-groups). Let's put y, - = x2, -
+(20) -
+
+Zp = 2m, Jar "),
+2 ,, = z (y0, y, ..., y ", 0, 0, ...).
+We have
+
+Zi. - 22 .. + Zyo + z ..- 1 (y1, y; y ") = 0-
+
+Let z = u / (x) be the solution of the equation
+
+z2-2z + 2x = O.
+
+36 ANDRÉ JOYAL
+
+We have serial development
+xk
+x // (x) = x + Z 1.3 -. (Zk-IAEA
+k> 2 -
+and recurrence
+zn = V / (yo +% zn-1 (y1a "'! J6." -
+
+Which give
+
+Z0 = W (yo) e
+z1 = v / (yo + äv / (yû),
+z; = v / (yo + u / (y; + u / (yzn),
+
+Z11 = W (x1 +% W (x2 'the to V / (xa' l '
+We will obviously
+P x) = v / (x + w) (x '+ to wc' + D).
+
+3.2.3. The Implicit Function Theorem for Indicator Series.
+
+To calculate an indicator series we can often use an equation
+functional theory and the implicit function theorem. We want to
+stating and demonstrating this theorem of implicit functions. Not to
+not unnecessarily increase the complexity of the statement and the demonstration,
+we will restrict ourselves to the case of only two variables.
+
+Let R {{x, y}} be the ring of formal series with the double infinity of inde-
+mined {x1. y ,, x ,, y ,, ...}. Let R {{x, y}} be
+
+f = f (x, y)
+= f (xh ylsxzs 36v ") -
+Let
+
+f (0, 0) = f (0, 0, 0r- °) s
+
+Ï_ÊÂ
+äx-'ôx,
+___ êf a_f_
+a) 'ayl,
+
+f: = f (xi9 yis x21 ".V2is ---) -
+
+A COMBINATORY THEORY 37
+
+Now let u, v E RHx, y}}. If u (0, 0) = v (O, O) = 0, we define the
+substitution f (u, v) as follows:
+
+f (u9 v) = f (uh v]! "z: 029W)
+
+Suppose that j; ge R {{x, y}} satisfy the conditions
+
+f (0,0) = g (0,0) = o, (1)
+olf
+
+at; gy- (0 0) 9 & 0 (2)
+: 95 es: '
+
+ây
+
+THEOREM 4. If the previous conditions are satisfied, then there is
+one and only one pair (u, v) of elements of R {{x, y}} such that u (0,0) = 0,
+v (0, O) = 0 and
+
+x z / '(us v)'
+y = 804, v) -
+
+(Equality x = f (u, v) must be interpreted as x, = f (u, v);
+implies that x, = f (u ,, 0,) for all i; 1.)
+
+To demonstrate the result we will adopt vector notation:
+
+Z1: (x19 yt)
+h = (fi g),
+W: = ("i9 Ut) -
+We have
+h = h (z) = h (z,, z2, ...),
+w = w (z) = w (z ,, z ,, ...),
+w, = w (z ,, zw ...)
+and the system to solve is written
+z, = h (w,, w ,, ...). (I)
+
+Suppose the system already solved and substitute 22: 0, z, = 0, .... On
+get:
+
+z, = h (.w, (z,, 0, 0, ...), 0, 0, ...).
+
+38 ANDRÉ JOYAL
+
+Given the hypothesis of the Jacobian determinant, this shows that
+w, (z,, O, 0, ...) is only determined.
+More generally, let's pose
+
+w "= w (z,, ..., z", 0, 0, ...)
+
+= W "(z,, ..., z").
+
+If we make the substitutions 2H, = 0, z "+2 = 0, ... equation (I) becomes
+z1 = h (w "(z,, ..., 2,1), a2, ..., an, 0, 0, ...),
+or
+
+_ ln / 'l
+a, - w '(z, -, z2i, ..., zIn / i ").
+
+Assuming that w 'are known for 1 <r <n, we see that this
+last equation takes the form
+
+21: k (w ", z2, ..., z")
+
+which results in the existence of a single solution w "= w" (z ,, ..., z ,,) because the
+Jacobian of k (z ,, z2, ..., z ,,) with respect to z, coincides with the Jacobian of h
+relative to z, (originally z, = 0). The uniqueness of w "" implies that
+
+w "(z1, ..., z ,, _ ,, O) = w" ".
+
+The extension w = lim w "is the unique solution of the system (I).
+
+Naco
+
+4. LINEAR SPECIES
+
+4.0. In this chapter, we will study one of the possible variations of the
+concept of species: the concept of linear species. We continued
+previously an analogy between the category of species and the ring of
+formal series of Hurwitz. To do this, we used the notation
+E IIXH. The analogy that we will pursue now will be between the ring of
+ordinary formal series and the category of linear species; we
+let us denote this one by the notation EllX We will see that EIIXI} is in one
+sense a sub-ring of E HXH. After a quick tour of the properties
+elementary of E | IX 1], we will demonstrate, in this context, the formula of
+version of Lagrange. This demonstration is a variation of the one already
+given in 2.4; non-canonical bijection between the species of linear orders
+and that of permutations no longer plays a role in this one.
+
+A COMBINATORY THEORY 39
+
+4.1. De fi nitions, elementary properties, examples.
+
+Let L denote the category of linear orders fi nis and bijections
+growing.
+
+DEFINITION 12. A linear species is a functor F: L - »E.
+
+Any finite linear order is isomorphic to a single interval
+[n] and only one. The category L is therefore equivalent to the discrete category N:
+the data of a species F is equivalent to the data of a series of sets
+(n l-r F [n]). This reduction is sometimes useful, but we prefer to think
+that F [L] is the set of structures of species F on L E L: this way of
+seeing is more realistic, as the reader will have the opportunity to be convinced.
+
+EXAMPLE 27 A part A c: L E L is split if it does not contain any
+pair of successive vertices. All the scattered parts are a species
+linear.
+
+EXAMPLE 28. A walk (on Z) is a function e: L -> {-l, +1}.
+A loop is a walk such as
+
+z e (x) = O.
+xeL
+All walks (or loops) is a linear species.
+The cardinality of a linear species F is the series
+
+F (x) = CardF = z Card (F [n]) x ".
+
+neN
+
+We will often adopt the notation F (X) to designate a species F and
+also the notation EIX] to designate the category of linear species.
+
+4.2. Combinatorial operations
+
+In this part, we will describe combinatorial operations on
+linear species.
+
+A cut of L e L is a partition L = L1 + L, of which the first
+piece L1 is a lower segment of L and the second piece L, is a
+upper segment of L. It will also say initial and terminal rather than inferior
+and higher.
+
+The product F - G of two species is defined as follows:
+
+DEFINITION 13. An F-G species structure on L E L is a
+quadruplet (L ,, Lz, fi g), where (L ,, L2) is a cut L = L, + L2 and where
+(fig) EFlLIl> <GlLzl-
+
+40 ANDRÉ JOYAL
+PROPOSAL 15. For F, G E E [[X] | we have: CardF-G = Card FCard G.
+
+EXAMPLE 29. Let P be the species of walks, B the species of loops and
+R that of the walks without return (s: L - + {-l, 1} is without return if L al: o
+and if 2x <, e (x) 3 ': O for all L). We have a decomposition P: B "R.
+
+EXAMPLE 30 Let f: L-> L be an endofunction. We will say that f is
+ordinate if x <y implies f (x) <f (y). We will say that f is rising
+(resp., descendant) if we have x <f (x) (respectively f (x) <x) for all xEL.
+Let C denote the species of ordered contractions (see Ex. 2) and by C "
+(resp., C ') that of ascending ordered contractions (respectively descending).
+We have a decomposition X - C = C + - C '(Fig. 15).
+
+Define the substitution F (G) in the case where G [0] = Q.
+
+DEFINITION 14. A species structure F (G) on L E L is the data:
+(1) of a partition L = L, + + L, in non-empty segments, each of them
+being equipped with a G-structure; (2) a species structure F on the whole
+ordered segments {L1 <L, <<L,}.
+
+PROPOSITION 16. Card F (G) = F (G (x)).
+
+Note. In the description of the substitution F (G), it is often
+convenient to adapt the choice of support for the F-structure to the conditions
+of a situation: thus, we could have "placed" the structure
+species F on all the first elements of the segments of the partition.
+Etc ...
+
+EXAMPLE 31 The domain of an ordered endofunction f: L-> L is
+uniquely shares L = L, + + L, in L segments, - on each
+from which f induces an ordered contraction (Fig. 16). We share
+analogue of upward ordering endofunctions.
+
+EXAMPLE 32 The preceding example generalizes. Let R be a species
+
+linear. We will say that an increasing function f: L-> L 'is R-enriched if
+each of the fiber segments f * '{l'} (l '6L') is provided with an R-structure.
+
+ 
+/ \ / Ax "has
+
+FIGURE 15
+
+COMBINATION THEORY 41
+
+Â \ K \ / '\
+
+U Ù U
+
+FIGURE 16
+Note F, the species of R-enriched ordered endofunctions. Let's note more
+C, the species of ordered contractions R-enriched. We have
+
+_ I
+"I-c '
+
+F.
+EXAMPLE 33. Species C * rising contractions
+satisfies the equation
+
+1
+
++ S
+C "I-c +
+
+-X.
+
+Indeed, let f: L -> L be an element of C *. Let m E L be the point of convergence
+of f (this is also the maximum element of L). Consider the segment (Fig. 17)
+
+f '' lm} - {ml = {I1 lrl '
+
+Move l, at the terminal end of the segment
+
+IF: U f- "llli
+n> l
+f "induces" a contraction structure rising on L, = S, + {l,}.
+
+EXAMPLE 34. The preceding example can be generalized to the enriched case.
+However, this requires replacing the concept of contraction with that
+
+ 
+
+
+
+FIGURE 17
+
+42 ANDRÉ JOYAL
+
+Tree (1.2, Ex.5). To obtain a tree of a contraction.
+it suffices to eliminate the convergence point loop. The concepts of ar
+ordered, rising and falling borescences are quite
+to those of ordered contractions, rising and falling. The concepts
+enriched because of the absence of the loop at the root of the ar-
+cal tree. Let A j be the species of upward ordered trees R-
+enriched. We have
+
+A; = R (A;) - X.
+
+If we want to add an additional point s to a linear order L. we must
+indicate the relative position of> l <in L, which is done by a break
+L = L "+ L + in lower and upper segments:
+
+boy Wut. __._/*boy Wut-\,____/
+The I?
+
+FIGURE 18
+
+We will say that the linear order L '+ {*} + L * is an increase of L.
+We are now in a position to describe the derived species M 'of a
+linear species M.
+
+DEFINITION 15. An element of M '[L] is an augmentaion
+L + {> I <} + L * with a species structure M.
+
+We can also point a linear species M. A species structure M 'on
+L is an element of L X M [L]. We have an isomorphism M '= X - M'.
+
+PROPOSAL 17. We have
+Card M '= M (x)'.
+
+All operations de fi ned to date are functorial. The
+usual relations between these operations are checked. They have a meaning
+combinatorics.
+
+4.3. InversI'on de Lagrange
+
+It is a question of calculating F (A (X)) knowing that A is solution of the equation
+A (X) = X - R (A (X)).
+
+THEOREM 5 (Inversion of Lagrange for linear species). For
+whole n 2 1 we have a bijection
+
+[n]> <F (A) [n] to F'R "[n - l].
+
+COMBINATION THEORY 43
+
+Proof. Note that species A identifies with species A
+R-enriched upward ordered arrays (see Ex 34). A little of
+differential calculus (as in 2.4) shows us that
+
+1
+FA '= F' R -------.
+() (A) (A), _X ,,,,,,,)
+LEMME 1. Species X - R '(A) coincides with species C, contractions
+ordered R-enriched.
+
+Proof. It will suffice to examine carefully the following three figures. The
+first illustrates an ordered contraction R-enriched and the last one
+species structure X - R '(A) (Fig. 19).
+
+We know that 1 / (1-C ,,) coincides with the species F, endofunctions
+ordered R-enriched (see Ex. 31 and 32).
+
+Lemma 2 (Lemma of the repartage). Let G be any linear species.
+A species structure F R - G (A) on L is identi fi ed with a partition L = L, + L2,
+the first segment L, being provided with an increasing function R-enriched
+f: L, - + L, the second segment L, being provided with a species structure G.
+
+The demonstration of this lemma is a "linear" version of that of the
+Lemma 3 in 2.4.
+We end the proof of the theorem as in 2.4.
+
+mm
+wszf
+I / U
+"<* JV" Eji
+
+FIGURE 19
+
+44 ANDRÉ JOYAL
+
+4.4. To finish this chapter on linear species, we will describe
+a homomorphism
+
+h E fi x]] -> EHXH.
+
+Let f / E E || X | l be the species of Linear Orders. The category el (. 'F)
+elements of Æ (see 1.1) coincides with category L. Linear species
+are functors el (_ '/) -> E, they are relative species (see 1.3). There is
+therefore equivalence i between category E | IX]] and category EllXll / Y. Of
+more explicitly, Let F be a linear species. A species structure i (F)
+on a set E is a pair (l, s), where the E / [E] and s E F [l]. So we have
+
+Card i (F) [n] = n! Card Fln]
+and in consequence
+Card i (F) = Card F.
+
+Functor h is obtained by composition of i with the functor forgetting
+E llXll / Ÿr 'E llXll-
+
+PROPOSITION 18. The functor h preserves the sum, the product and the
+substitution.
+
+5. SPECIES ON SEVERAL VARIABLES
+
+5.0. In this chapter, we will examine the extension, in the case of several
+variables, concepts and results of previous chapters. This extension
+will allow us to develop the rudiments of the theory of equations
+Combinatorial. We will state and demonstrate a species theorem
+implicit analogous to the implicit function theorem.
+
+5.1. Cash and operations
+Let an integer d> 0. Note B "the product d times by itself of the
+
+groupoid B of finite sets and bijections:
+
+B "= B x XB (d times).
+
+DEFINITION 16. A species on d sorts is a functor M: Bd - + E.
+
+We will write M [E] or M [E ,, ..., E ,,] to designate all the
+species structures M carried by E = (E ,, ..., E ,,) EB ". The concepts of
+transport of structures, isomorphisms, automorphisms are obvious.
+The group E! = E,!> <XEd! act on M [E]; the set nOM [E] of the
+
+A COMBINATORY THEORY 45
+
+orbits is the set of types of structures of species M on E. Let n =
+(n ,, ..., n ,,) EN ", we put n! = n ,! ndl; [n] = ([n,], ..., [nd]) and M [n] =
+M [n ,, ..., nd] = M [[n,], ..., [n ,,]]. We define two series
+
+M (x ,, ..., x ,,) = z CardM [n]% ;, (1)
+A7 (x,, ..., xd) = Âd Card (tt ,, M [n]) x ", (2)
+
+where x "= x '," x3 ".
+
+The first is the cardinality of M. The second series M (x) can be inter-
+to pretend as the cardinality of a species associated with it? (see 1.1, 2). A
+morphism between two species is a natural transformation. We de fi nite
+easily the disjoint sum of a summable family of species. Let's
+now to the de fi nition of the M - N product of two species. If E, F, G E B ',
+we will write E = F + G to express that E, = F, + G, (1 4 i g d) and we
+say (F, G) is a division of E into two pieces.
+
+DEFINITION 17. A species structure M - N on E e B "is a
+quadruplet (F, G, u, v) such that E = F + G and (u, v) E M [F] X N [G].
+
+PROPOSAL 19. We have
+
+CardM-N = CardM-CardN.
+
+A partition P of E E B 'is a partition of the total set
+E, + + Ed. Each class C 6 P can be seen as a multi-set:
+
+C = (C 0 E, C fl Ed) e B ".
+
+Let N be a species on d sorts such that N [0] = 0.
+
+DEFINITION 18. An assembly of species structures N on E E B "is
+a partition P of E of which each class C is provided with a structure of species
+N. A member of an assembly is a class C e P equipped with the N-structure
+corresponding. The divided power y ,, (N) is the species of the assemblies of n
+members. The exponential exp (N) is the species of all the assemblies of N-
+structures.
+
+PROPOSAL 20. We have
+1
+Card y ,, (N) = F N (x,, ..., xd) ",
+
+Card exp (N) = exp N (x,, ..., x ").
+
+46 ANDRÉ JOYAL
+
+Now let's go to the description of the substitution. Let N,, ..., N,
+species on d species such that N, [O] = Q for 1 g i g r, and let R be a species
+on r sorts.
+
+DEFINITION 19. A species structure R (N ,, ..., N,) on E E B "is a
+quadruplet (P, x, a,, 6), where
+
+(1) P is a partition of E.
+
+(2) x is a function P -> [r] giving each class a sort.
+
+(3) a is a function that chooses on each class C E P a
+species structure N ,, where i = 1 (C).
+
+(4) [i is a species structure R on P considered to be multi-
+together: P = (x "{l}, ..., x" {r}).
+
+PROPOSAL 21. We have
+
+R (N,, ..., N,) = R (N, (x), ..., N, (x))
+or
+
+x = (x ,, ..., xd).
+
+Notes. We will clarify the geometric or visual sense of
+the substitution operation. We need to understand the general type of
+species structures R (N ,, ..., N,). First note that it is not
+necessary that the set of sorts be an interval. If all
+sorts is {o, o}, we can represent as a whole on these two
+kinds
+
+FIGURE 20
+
+Let M be the species of endofunctions (of the total set) transforming the
+black dots in black dots. We have representation
+
+A COMBINATORY THEORY 47
+
+AAE fi ÿ
+
+FIGURE 21
+
+and for cardinality
+
+l
+CardM = z i "(i + j) '3i, -} - ÎI-,
+m), l. j.
+
+where the variable x is associated with black dots and the variable is associated with
+white points, The substitution rules given in the following remarks
+Theorem 1 of No. 2.2 applies, with the proviso that substitution does not
+is done more homogeneously: at the vertices so i (inflated one cells)
+we must substitute species structures N ,. Moreover (in the representation
+cell) it is necessary that each cell has the memory of the kind of the vertex
+original. The remarks in No. 2.2 on the substitution of dotted species
+also apply.
+
+EXAMPLE 35 (Leroux [22] and Labelle [21]). The concept of vertebrate,
+used in the demonstration of Cayley's theorem (following example 12)
+can also be used to obtain other results on the enumeration of
+trees. A two-colored tree is a tree on a set of two kinds {°, '}
+whose edges join vertices of distinct kinds. The number of trees
+two-colored on E = (E., Eo) is equal to n '"" m "" (where n = CardE.
+m = Card E0). To demonstrate this result, we define the concept of vertebrate
+bicoloured: it is a two-colored tree provided with a couple (xmxo) of vertices, the
+first being so 0 and the second so °. It will suffice to demonstrate that the
+number of bicolored vertebrates is equal to n "'m". For that, we will decom-
+ask the two-colored vertebrates as in Example 9.
+
+Let us denote by A. (X, Y) (respectively AO (X, Y)) the species of two-colored trees whose
+the root is so 9 (or so 0) (assuming X <> ', Y <> 0). Is
+V (X, Y) the species of two-colored vertebrates, we have the identity (Fig. 22)
+
+1
+
+V = --------.
+1+, _A.AO
+
+607/42 / 1-4
+
+48 ANDRÉ JOYAL
+
+FIGURE 22
+
+On the other hand, let us say that an endofunction of a set on two kinds {', 0}
+is oscillating if it transforms the points of a kind into the points of
+the other kind.
+
+Let (F (X, Y)) be the species of oscillating endofunctions and S the species of
+permutations, we have the identity (Fig. 23)
+
+F (X, Y) = S (A, AO).
+It is concluded that
+
+1+ V (x. Y) = F (x, y)
+which gives the result.
+
+We can point a species M (X ,, ..., X ,,) at level i (1 g i g d): an M
+structure pointed at level i (or X,) on (E ,, ..., E ,,) is an element of
+Cartesian product E, X M [E ,, ..., Ed]. We can also take the derivative
+tial:
+
+FIGURE 23
+
+COMBINATION THEORY 49
+
+DEFINITION 20. A species structure MM / aX on (E,, ..., Ed) is a
+structure of species M on (E,, ..., E, ", ..., En), where E," = E, - + {*}.
+
+PROPOSAL 22. We have
+
+AM
+Card --- = - - CardM.
+
+âx, âx,
+Moreover, the species of M-structures pointed at level X, coincides with
+X, (λ / δX,).
+
+The usual rules of calculation, governing the de fi ned operations more
+high, are still valid. For example, we have
+ô '6R ôN,
+
+--R (N N,) = - (N N, -
+ax, 'E, av,' 3x ,.
+
+for species R = R (Y,, ..., Y,) and N, = N, (X ,, ..., X ,,) (1 g i g r).
+
+5.2. The implicit species theorem
+
+Structural species often satisfy equations that characterize them.
+ised. The best-known example is probably species A of trees.
+We have A = X - exp (A). There is also the kind of fiber trees
+linearly ordered:
+
+but this equation leads
+
+AT
+A, = X- (1+ L)
+
+= X + A, Î.
+
+This last equation is exactly that satisfied by the species of
+parentheses (a parenthesis on E is a linear order with a system
+well formed parentheses). It would be interesting to be able to conclude without
+more calculation than species A, _ and that of parentheses are naturally
+isomorphic. This is the problem of the uniqueness of combinatorial solutions.
+The purpose of this part is to demonstrate a theorem of existence and uniqueness
+combinatorial solutions of a system of suitable equations.
+
+50 ANDRÉ JOYAL
+
+Let X = (X, Xd), Y = (Y, Y) and F (X, Y) = (F, (X, Y), ..., F, (X, Y)) -
+
+Suppose that F (0, 0) = O. We will say that N (X) = (N,, ..., N,) is a
+solution of the system of equations
+Y = F (X, Y) (I)
+if we have N (0) = 0 and
+N (X) = F (X, N (X)).
+
+More precisely, a solution is a pair (N, a), where a is a
+isomorphism
+N to F (X, N).
+
+An isomorphism of solutions u: (N, a) - + (P, [i) is an isomorphism
+of species u: N - + P such that the rectangle
+
+N - '* - »F (X, N)
+
+read lFu fi u)
+
+P i. F (X, P)
+be commutative.
+
+THEOREM 6. If the Jacobian matrix (ôF / ôY) (O, 0) is nilpotent,
+then the system of equations (I) has at least one solution; also there are
+one and only one isomorphism between two solutions.
+
+Let's say first that the total cardinality of a multi-set E =
+(E ,, ..., E ,,) is the sum CardE = CardE, + + Card E, Let A, B E E
+|| X ,, ..., X ,, ||. A morphism w: A -> B is a contact of order 2 n if
+LIFE: A [E] -v B [E] is an isomorphism when Card E g n.
+
+Let lll, ï U, -> V, (1 g i g s) morphisms of the category
+E || X ,, ..., X ,, ||, and let R E E || Y ,, ..., YSH. Suppose that U, (0) = V, (O): 9,
+for 1 g i g s.
+
+Lemma I. If all the morphisms w, (1 g i g s) are order contacts
+2 n then the morphism
+
+q; = R (I, u,, ..., 1.4 / 5): R (U,, ..., US) -> R (V ,, ..., V5)
+
+is a contact of order 2 n. If in addition, for an integer 1 gk gs, W; is a
+contact of order 2 n + 1 for all 1 g i <k and if
+
+8R ôR
+T, 'O) = ... zaYs (O) = g
+
+then u: is a contact of order 2 n + 1.
+
+COMBINATION THEORY 5l
+
+Proof. Let E E B 'with Card (E) g n. It must be shown that the application
+y / E: R (U ,, ..., U,) [E] "+ R (V ,, ..., V,) [E]
+
+is bijective. Let s E R (U ,, ..., U,) [E]. We have s = (P, x, a, fi). The classes of the
+P partition of E are multi-sets of total cardinality gn. The
+functions (w,) c for C E P are bijective. The structure w ,, - (s) is the result
+replacing, by means of (w,) c, U -structures on these classes, by
+V -structures. Which shows that I115 is bijective. To demonstrate the
+second assertion, it suffices to consider the case where Card (E) = n + 1.
+same notations. let C e P. If Card (C) g n, (II / I is bijective.
+so that Card (C) = n + 1. We then have P = {C} which implies that the multi-
+set P = Q "{l}, ..., x" '{r}) is isomorphic to ([0], [0], ..., [1]
+(position i), ..., [O]). Since, 8 is an element of R [P], we see that
+R 10, O, ..., 1 (position i), ..., 0] is not empty. The hypothesis on derivatives
+partial implies that i <k; as then w, is a contact of order 2 n + 1,
+we see again that (I / I,) C is bijective. C.Q.F.D.
+
+Now let f |] | X ,, ..., X ,, H the full subcategory of species
+A E E [X ,, ..., X ,, [| such that A [0, ..., 0] = ra. Note the product category
+J 'x x f (r factors). We will say that a morphism (w ,, ..., a):
+(A ,, ..., A,) -> (B ,, ..., B,) is a contact of order 2n if w, is a contact
+of order 2 n for all l g i g r. We will now define a functor
+F: I have ".
+
+F (A,, ..., A,) = (A ',, ..., A',),
+or
+AT; = F (X, A ,, ..., A,)
+: 5 Fi (X1, .-., Xd, A1'uIc, Ar) u
+
+LEMME 2. If A -> "'B e f' is a contact of order 2 n then FA -> F" 'FB
+is a contact of order 2 n. In addition, F '(w) = (F o o F) (w) (iteration
+of order r) is a contact of order 2 n + 1.
+
+Proof. The first assertion follows immediately from the first
+part of the lemma 1. For the second, it suffices to remark that the value of the
+Jacobian of F 'at the origin is null, {(FF / ôY) (O, 0))' = z, view the hypothesis of
+nilpotency. Then apply the second part of lemma I with s = d + r,
+k = d + 1, U, = X, = V, for 1 gigd, U, = A, and V, = B, for d + 1 <i <S-
+
+Let's move on to the demonstration of the proposal.
+
+52 ANDRÉ JOYAL
+
+(I) Existence of a solution
+
+Let A0 = z and A ", = F (A ,,). We have the empty function A0 - + "° A ,, it is a
+O-order contact. Morphisms are defined by recurrence
+
+in = F (in-1) (n> 1)
+The result is an unlimited suite
+
+A0-i ° -> A, -i-1> A2L> -n. (L)
+
+The direct limit of this sequence is fi nite. Indeed, Lemma 2 shows that
+i, is a contact of order 2 [n / r]. Which means that for all E E B "
+The application (in) is an isomorphism as soon as n is large enough. Let A0 be the
+direct limit of the sequence (1). We have commutative triangles:
+
+A0 __ "° __, __ A1" 1 __, A2_LA3 ____....
+. he; (2)
+D0
+A00.
+
+Check that Ae is a solution of equation (1). Indeed, the operation
+functorial F preserves the direct limits. F (Ace) is therefore a direct limit of
+after
+
+Foiopï. F (A) The "lbf (A) ___.
+that is to say from the following
+
+i i
+A, -'-> A, - '-> A3 -> ---.
+
+So there is one and only one isomorphism i: AŒ- + F (AŒ) such that all
+triangles
+
+N + 1
+fi n w ")
+AOE
+
+--- i - 'F (AOE)
+
+be commutative.
+
+(II) Uniqueness of the solutions
+
+Suppose we have another solution fi: B -> F (B). remark
+first the existence of one and only one sequence of morphisms A, -> "" B (n 2 0)
+such as triangles
+
+A COMBINATORY THEORY 53
+
+u
+An + i - "" -> B
+
+ <4>
+
+FOE)
+
+are all commutative. The uniqueness is obvious because uo has a domain of
+de fi nition empty, and since li is an isomorphism we have u, H = fl "'F (u ,,). The ex-
+istence follows at the same time. Let's see that triangles
+
+Ao "II" AI "ï" -42 "" "A3I '
+
+   (5,
+
+W u
+B
+are all commutative. This is obvious for the first (n = 0). To go from
+n to n + 1, we apply F to obtain
+
+At ln + I
+n + l n + 2
+
+AT
+F (u,. \ _ Fi n ") (6)
+
+F09)
+
+then write with fl "': F (B) - + B and use (4). We are now
+in crossing position at the limit: we have a unique morphism u: Aœ - + B tel
+that triangles
+
+Year
+'/ \: "<7)
+"B
+
+AOE ------- "
+
+are all commutative. Let's see that u is an isomorphism of solution. In
+effect u, is a contact of order 0 and the lemma shows that u, is a contact
+of order 2 [n / r]. We conclude that u is a contact of order oo, that is to say a
+isomorphism. We still need to check the compatibility:
+
+Aœ__u __. B
+
+l <i>
+
+F (A m) J '- "L, p (s).
+
+For this we compose the upper left end of this rectangle with
+j ,, + ,: A ,, +, -> Aœ and we get (by 7 and by 3)
+
+54 ANDRÉ JOYAL
+
+An + l 13 "B
+F09) 15 (9)
+FIA ...) I »P (R)
+
+that is to say (by 7) the triangle
+
+An + llnië 'B
+
+M l "(10)
+F (B)
+
+which is well commutative (par 4). Like the morphisms j ',,,,: A ,, +, - »Aœ
+cover Aoe we have demonstrated the commutativity of (8).
+
+It remains to show that u is unique. Assuming that (8) is commutative, we
+compose u with j ,,: A ,, -> Aœ and we obtain a sequence u ,,: A ,, -> B. As the
+morphisms j ": A, -> A (n 2 0) cover A, it will suffice to check that the following
+(a) satisfied (4), which will result in the result. Component Rectangle (8)
+with j, H: A ,, +, -> A 0, we obtain (9) and then (10), that is to say (4).
+
+C.Q.F.D.
+
+6. WEIGHTED SPECIES
+
+6.0. If the analogy between species and series of Hurwitz with total coef fi cients
+is correct, we must be able to make changes by
+coefficients. For every commutative monoid with finite factorizations P, we
+let's introduce a category E, of P-graduated sets. This category
+we will use as coef fi cients in the construction of a species category to
+value in E, .. Moreover, if 2 ,, denotes the ring of the linear combinations
+of the elements of P, the cardinality of a species of E, HXII will take its
+value in Z, IIXH.
+
+6.1. Let P be a monoid. We will say that a set A equipped with a
+function A a "P is P-graduated or P-weighted, the function p is the graduation
+or the weighting; the degree or weight of a E A is the element p (a) E P. A
+A -> 'B morphism of weighted sets is a weight preserving function.
+The sum A + B of weighted sets is the disjoint sum with the
+weighting induced by that of the factors. Product A -B is the product
+Cartesian A X B with the weighting p (a, b) = p (a) - p (b). Suppose
+now that p is finite factorizations (for all z EP the set
+{(x, y) l xy = z} is finite). Panel Z ,, = Z [[P]] can then be considered
+
+A COMBINATORY THEORY 55
+
+formal linear combinations of elements of P: an element f E Z, is a
+function f: P-v Z; the sum and the product are de fi ned as follows:
+
+(f + 8X2) = f (Z) + 8 (2)
+(fgXz) = f (x) 3U) -
+
+xy = Z
+
+We can write
+
+f = z f (x) -x.
+
+XEP
+
+Let's say that a graduated set A -> "P is fi ne if for any xEP
+the set p "{x} is finite; the cardinality of A - + "P is the function
+xI-r Card p "{x}. We will also say that CardA is the total weight of A.
+at
+
+CardA = z (Card p "{x}) - x
+
+XEI '
+
+= 2 p (a) -
+
+06A
+
+We shall denote by E the category of finite P-graduated sets. E,
+is closed for the product of the P-graduated sets.
+
+PROPOSAL 23. For A, B E E, we have
+CardA + B = CardA + CardE
+CardA -B = (CardA) - (Card B).
+DEFINITION 21. A P-graduated (or P-weighted) species is a functor
+M: B -r E,.
+The cardinality (or weight) of M is the Hurwitz series
+M (x) = go (Card M [n])
+
+If EPHXII denotes the category of p-weighted species, we have a
+homomorphism
+
+Card = E "llXll -> Z1" IIXII '
+
+56 ANDRÉ JOYAL
+The product and the sum of M, N E E ,, 1 | X || are de fi ned as follows:
+
+'(M + NIIEI = M [E] + N [E].
+
+(M - N) lEl = Ë MIAI -NIBI.
+
+A + B = E
+
+Suppose now that P is commutated. We can then de fi ne the
+substitution R (N) in the case where N [0] = Q. The de fi nition of this operation
+is absolutely identical to that given in 2.2. except that the
+weight of an R-assembly of N-structures: this is the product of the weights of the N-
+member structures multiplied by the weight of the R-structure on the assembly.
+
+PROPOSAL 24. We have
+Card R (N) = R (N (x)).
+
+The theory of weighted species is identical to that of all species
+short notwithstanding the attention to be given to weight. For example,
+suppose we are trying to express a species M in a form
+exponential M = exp (N). We proceed as usual: we identify a
+concept of connectivity. Knowing that M = exp (MC), where MC is the species
+(related) structures, it must then be verified that the weight of a
+M-structure is equal to the product of the weights of its components: in this
+case, we will say that the weighting of M is multiplicative; this condition
+finally leads to the fact that the weighted species M is the exponential of
+the weighted species MC. This analysis is generalized to the case Where we are looking for a
+decomposition M = R (N), the corresponding concept of multiplicativity of the
+weighting being clear.
+
+EXAMPLE 36 Let s ,, s ,, s3, ... be a countable sequence of undetermined.
+We can weight the S species of permutations by de fi ning the
+weight of a permutation o E S [E]:
+
+F (G) = if "s".
+
+where n = Card E and where d, (o) is the number of cycles of length i in o. We have
+so
+
+Card S = E: Znx ".
+
+n20
+
+A COMBINATORY THEORY 57
+
+where Z, is the polynomial indicator of the cycles of the group [n]!
+
+Z. = -1-, Z p (a) -
+
+n 'aeln]!
+
+The related structures are here circular permutations. As the
+weighting is obviously multiplicative we have S = exp (C). The weight of a
+circular permutation o E C [E] is equal to s, if Card E = n. So we have
+
+he
+
+CardC = z (n-1) lx ,, f -, -
+D, n.
+
+z s ""
+n> l n n
+which results in the well-known identity:
+
+z Z ,, x "= exp [Z s" xn].
+
+n> o n> l n
+
+EXAMPLE 37 (Mehler Formula) We will follow closely the
+demonstration of Foata [11]. If we modify the previous example in
+whereas the involutions, we get
+
+n x2
+
+z h x --ex (sx + s -)
+n> o nn! - 'p I 22'
+
+MS "S1) = 2 €" p (a)
+
+a1 = I
+
+the polynomials h, are closely related to the Hermite polynomials. The
+Mehler's formula is
+
+x "
+H hn (sl9 S2) hn (t13 [zim
+
+n> o
+_ 1 l exp [ÜIÏÙX + (Sitz 'l' tisz) 952/2]
+\ / 1-s, t, x '1 "S2t2x2
+
+To demonstrate this, the first member is combined: either
+M the species of involute pairs (o, r), with the weighting
+
+p07, T) = SÎTPIŸVÊ '
+
+58 ANDRÉ JOYAL
+
+if p (a) = s, "s31 and p (r) = s1lsäl.
+
+CardM = Z h ,, (s ,, s2) h ,, (t,, mi ",
+n> o n.
+
+It suffices now to express M in exponential form. Indeed, a
+couple (o, r) E M [E] induces a representation of the dihedral group D o (two
+involutive generators) on the set E. This representation breaks down
+in related representations. The weighting is obviously multiplicative.
+We therefore have M = eXp (MC). Related representations are classified into four
+subspecies:
+
+MC = A + B + C + D.
+
+We will describe these subspecies by graphs: we connect two
+vertices by a solid line (dotted) if they are exchanged by a (resp.
+We will also indicate the weight of the corresponding transpositions (and
+bouclesl).
+
+Subspecies A:
+Ë Îcz
+° \ ..... /
+
+These are the cyclic graphs of even lengths with alternate edges.
+natively full and dotted. We have
+
+l
+
+1
+AW = IMI zP
+
+Subspecies B:
+, 1
+
+If we orient this chain by choosing one of the loops, we obtain a
+isomorphous species to that briefly described as follows:
+
+5l
+
+5l 52
+
+So we have
+
+ = sîtzxz
+
+COMBINATION THEORY 59
+Subspecies C:
+
+.'o. ',
+vs, ._ _ .... .... .... . 1 :,
+
+Subspecies D:
+
+t2 s2
+s, .... .... .... n. "'. t
+
+D is isomorphic to the species briefly described by
+
+2
+
+.-.vs,
+s10 ..- .2
+
+So we have
+
+D = t -2--.
+(x) sllx1_s2t2x2
+
+EXAMPLE 38 (Exponential polynomials) We can weight as follows
+the species P partitions. Let x ,, x ,, ... be indeterminate. Let
+
+P (Q) = x "xi",
+
+where n is the cardinality of the set underlying Q and where d, is the number
+classes with cardinality i. Exponential polynomials are the
+polynomials
+
+Y "= Z P (Q).
+at
+
+where the summation takes place on all the partitions of [n]. The function p is
+multiplicative, so we have the identity
+
+xn
+z
+
+n> 0
+
+2 x ""]
+n> 0 n n! l
+
+EXAMPLE 39 (Binomial Suite). Let N be a species such that N [0]: 9.
+We can define the weight of an assembly h E exp (N) by putting p (h) = t ", where
+n is the number of members of h. Consider polynomials
+
+P. (I) = Z p (h) -
+
+heexp (N) [n]
+
+60 ANDRÉ JOYAL
+
+The function p is multiplicative, we have
+Card exp (N) = Exp (Card N)
+
+more explicitly
+
+he
+ÿ: P ,, (t) x - '= eXp (tN (x)).
+n20 n '
+Polynomials P ,, (t) have a combinatorial interpretation (Mullin and Rota
+[25]): If T is a set of cardinality t then p ,, (t) is the number of
+functions f: [n] -> T of which each fiber is provided with an assembly of N
+structures. We have the identity of the binomial:
+
+l1
+
+not
+Pn (t1 + l2): E:
+
+R10
+
+) Par.) P .-. <Z.>.
+
+7. SOME GENERAL ASPECTS
+
+7.0. In previous chapters we made a comparison
+between purely combinatorial concepts on the one hand and concepts
+purely algebraic on the other hand. This rapprochement relies mainly on the
+analog mode. The question arises whether it is possible to go beyond
+Panalogy by developing a general theory. It still seems too early to
+state such a theory. Too many directions are available On the way to
+generalization and only mathematical practice can tell us
+importance or insignificance of a concept. The theory presented in this
+chapter is minimal. It is located in the extension of the work of
+Rota [28], Joni and Rota [16], on the combinatorial interpretation of the cogebres.
+
+7.1. monoids
+
+Rap elons u'une caté Orie monoïdale is a caté Orie A provided with a
+q g g
+functoral binary operation
+
+A X A -; ® - + A,
+of a unit object I E A and natural isomorphisms
+
+A® (B®C) 3 (A®B) ®C,
+(A 6903A,
+I®A: A.
+
+A COMBINATION THEORY 61
+
+These natural isomorphisms are subject to conditions of coherence
+(see "Consistency in Categories," [32]). It is usually impossible
+completely eliminate issues of coherence. However, we will exclude
+as much as possible of this work the aspects of consistency assuming that
+the conditions of coherence are satisfied. This does not present too much
+risks if we have concrete, natural examples in our minds.
+
+A monoidal category (A, ®, I) is symmetrical if it is equipped with a
+isomorphism (coherent) switching A ®B s. B ®A.
+
+A monoid in a monoidal category A is a triplet
+(M, M®M-> M, I -> "M) where ME A and where c and e satisfy the axioms
+associativity and unity:
+
+M®M®M W M®M
+
+[water v] ..-
+
+M®M -'- "M
+
+ 
+
+ 
+
+I®M "e" M®M W M®I
+\ EC /
+M
+
+If the monoidal category A is symmetric, the product can be de fi ned
+M, M, of two monoes M, and M2. The multiplication of M, ®M,
+is obtained by composition
+
+ 
+
+M.®M.®M.®M.-ï »M.®M.®M.®M.
+
+[N902
+
+M, ®M ,.
+
+We can also define the concept of commutative monoide: the compound of
+M ® M -> ° M with the switching isomorphism M ® M 2: M ® M must
+to coincide with m.
+
+EXAMPLE 40. The category E IIX [I provided with the product of the species is
+monoidal symmetrical.
+
+EXAMPLE 41 Substitution is a monoidal operation on the ideal
+species such as N [0] = 0. The substitution is not symmetrical.
+
+EXAMPLE 42. If N [0] = Q, the species l / (1-N) is a monoid. The
+multiplication is the concatenation of linear assemblies of N-structures:
+
+62 ANDRÉ JOYAL
+
+Unit 1 -> 1 / (1-N) is the empty assembly. This monoid is free on the species
+N. It is not commutative. However, like all free monoïdes (in
+a symmetrical monoidal category), it is equipped with a (single) anti-
+involutionary automorphism inducing identity on N: it is the reversal of
+the order of a linear assembly.
+
+EXAMPLE 43 Exponential exp (N) is a commutative monoid for
+the meeting operation of two juxtaposed assemblies:
+
+exp (N) - exp (N) -> exp (N).
+We check that it is the free commutative monoid on N (N [0] = 0).
+
+EXAMPLE 44. The species X / 1-X of the non-empty linear orders is a
+monoid of the ideal f (for the substitution operation).
+
+EXAMPLE 45. If S Ef and S [1]: 0, the existence can be demonstrated
+of a monoid N free on S (for the substitution operation). For the
+to build, we take the solution N of the equation
+
+N = X + S (N)
+which gives a morphism
+S o N 'LE-r N.
+
+The multiplication operation N (N) -> N is the unique arrow m making
+commutative the rectangle
+
+s o N o N JL »s o N
+
+aoN
+l l
+
+N o N E N.
+
+More particularly, if S zXz / Zl then the solution N of the equation
+
+N = X + NZ / 2!
+
+is the species of commutated parentheses. Operation N (N) -> N does not
+than to express the usual substitution of parentheses in a parenthesis.
+
+7.2. Law of digital decomposition
+
+In what follows, we will often note as an addition the
+multiplication A XA -> A of a commutative monoid (ordinary). We
+then say that A is an additive monoid. A function f: A -> B preserving
+
+COMBINATION THEORY 63
+
+the sum and the null element is an additive function. A function
+fzA XB-r C additive in each variable is a bi-additive function. The
+
+tensor product A ®B of two monoids additives is obtained by constructing
+
+the universal bi-additive function A xB-æ / i ®B. The category Ad of
+monoids additives, provided with this tensor product, is a category
+symmetrical 'monoidal. The unit object for the tensor product is the monoid
+additive of natural numbers:
+
+A®N3N®A3A
+
+For every set I, let N (I) be the free abelian monoid on I. We have
+isomorphisms
+
+N (I x J) = N (I) N N (I),
+NU) = N.
+
+A cogebra is an object A eAd with a structure of monoi'de in the
+opposite category _Ad ° "". We have a co-multiplication
+
+A 14A ®A
+and a co-unit
+A -'r N
+having to satisfy the axioms of associativity
+
+A - "+ A®A
+
+"Isle
+A®A -> A®A®A
+
+etd'unité
+N®A-'® - " '- + A®A -" É'Ë-> A®N
+
+ïkïv
+
+AT.
+
+DEFINITION 22. A decomposition law (numeric) on a set I
+is the datum of a cogebra structure (d, e) on N (I).
+
+The co-multiplication d: N (I) -> N (I) N N (I) is equivalent to a function
+
+m1 .. N (I x r)
+
+607/42/16
+
+64 ANDRÉ JOYAL
+
+and we will often say that this is the law of decomposition. We have
+expressions
+
+where [jlk] E N is the number of ways to break down i into two pieces, the
+first being j and the second k. If [, ",,]> 0 we say that (j, k) is a
+decomposition of i (into two pieces). The associativity of the decomposition law
+position is expressed by the identity
+
+ëLÏhh "" "" k k k k k kHHHH "" "" ""
+
+The common value of the two members of this equality is the number [j,]
+in order to decompose i into (j, k, r). More generally, we define for
+each n 2 2 applications
+
+d ": I -> N (I"),
+
+d.tz ') = 2 l. ] O ..... j).
+(i, ...., j ,,) el "Jlamnln 1 n
+
+If [jlnfxd-n]> 0 we say that (j ,, ..., j ,,) is a decomposition of i (in n
+parts). The axiom of unity of the cogebra structure means that
+
+Èijial floûzëla ijlswùzô} ('in
+
+l1
+
+DEFINITION 23. An element uEI is neutral if e (u) = 1. An element
+v E I is primitive if d (v) = (v, v).
+
+(If v is primitive, it is also neutral.) For all i E I a (by (**)) 2
+
+z [id] e (a) = 1.
+
+ael l
+
+Which shows that there is one and only one element u 6 I such that
+
+[he. u] = 1 and e (u) = 1.
+
+Let λ, (i) = u. A neutral element is also defined by (i) requiring that
+laom {il = 1-
+
+A COMBINATORY THEORY 65
+
+PROPOsmON 25. The following conditions are equivalent:
+(i) i is neutral,
+
+(ii) e (i)> 0,
+(iii) a ,, (i) = i (resp., (i) = i).
+
+Proof. (i) => (ii), trivial
+(ii) => (iii). Suppose e (i)> 0. We have
+
+55 ° "; their) i to the "); Their ') i They ")> °
+
+which implies that i = a ,, (i).
+(iii) a (i), trivial.
+
+PROPOsmON 26. If (j, k) is a decomposition of i, we have equalities
+
+(i) ao (i) = ao (j).
+
+(ii). (ï) = δ (l <).
+
+(iii) 3I (J ') = 30 (k) -
+Moreover, if k (or j) is neutral we have i = j and k = a, (i) (resp.
+1313007) -
+
+Proof. Let's first prove the last statement. By hypothesis, we have
+[, ',,]> 0 and s (k) = I. Using identity (**) we have
+
+, = z [j] e (a) 2 [jik] e (k)> 0,
+
+a J
+
+and so i = j and k = â, (i). To demonstrate the rest, let's just assume that
+[j I k]> We have
+
+l. »21ml and 21ml
+
+atliik lk milk / eyelash "
+
+and so (by (= I =))
+
+'' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' '' ''?
+
+which leads to the existence of aEI such that [a 3,00]> 0. As o, (k) is
+
+66 ANDRÉ JOYAL
+
+neutral, we conclude that a, (i) = 0, (k). Finally, we use that [j l k] X
+laoikf ', k]> 0 and hence {M0,}, k]> 0 which results in the existence of
+
+aEIteI that
+have
+ljaoucilla kl "
+
+and finally that a = j and a, (a) = 800c). C.Q.F.D.
+
+EXAMPLE 46 (Leroux [22]). A category C is finitely decomposed if
+for all morphism f E C the set {(13,19 l f, f2 = f} is finite. Let N (C)
+the free additive monoid on the set of morphisms of C. We have a law of
+decomposition d: C -> N (C ® C)
+
+d (f) = Ï: (fnfz)
+fif2 = f
+the co-unit e: C -> N is the function
+g (f) = 1 if f is an identity
+= 0 otherwise.
+
+In this example, the neutral elements, the primitive elements and the
+Identity morphisms coincide.
+
+7.2.1. Let B be a semi-ring. A law of decomposition (d, s) on I we
+allows to define a semi-ring structure on set B 'of
+I to B functions:
+
+(f + gxz ') = f0') + g (t),
+. z.
+(F-g) (1) =; [j k lf (I) g (/ <) -
+
+In the case where B is a ring, B 'is a ring. A frequent problem is
+that of the determination of the reversible elements of Panel B 'as well as the
+explicit calculation of inverses. Let I0 denote the set of neutral elements of I.
+Let B 'be the ring of functions from I 0 to B (the multiplication of f, g E B' °
+
+is (fgXu) = f (u) 801)) -
+
+PROPOSITION 27. The inclusion B '° C + B' (extension by 0) is a
+ring homomorphism. Moreover, if any neutral element is primitive, the
+projection B '- + B' ° is also a homomorphism of a lamb.
+
+COMBINATION THEORY 67
+
+Proof. Be j; g e B ', functions belonging to the image B' ° C- 'B'.
+We have for everything iEI
+
+(r- g) <t) = Z [f k [f (j) gac).
+
+(JJÜËIXI
+
+Since we have f (j) = g (j) = 0 for I I -. 10 can be written
+
+. _ z '. .
+(f - gxz) - Mäfl o [j ​​[M guc).
+On the other hand, if [f k]> 0 and (j, k) EI0 X10 we have i = j = k (Proposition 26). it
+leads that
+(f 'ËXÏ) = f (Î) 8U) if ÎË Ïo
+
+= O otherwise.
+
+The second assertion of the proposition is immediate.
+Now say that (j ,, ..., j ,,) € I "is a strict decomposition of
+i E I if [1-1. Ï 4 "]> 0 and if there is no primitive element among {j,, ..., jn}.
+
+DEFINITION 24. A law of decomposition d: I- + N (I XI) is
+hereditarily fi nished if for each iEI, all the decompositions
+strict is fi nished.
+
+THEOREM 7 [7, 22, 29]. Suppose that d: I- + N (I XI) is a law
+hereditarily terminated. A necessary and sufficient condition for f E B '
+(B is a ring) either invertible is that f (i) is invertible for any element
+primitive i E I.
+
+Proof. Let us first remark that with the hypotheses of the proposition,
+the neutral and primitive elements coincide. Indeed, if i is neutral we have
+
+l- '-l = "
+z z
+which means that
+
+l1-î zl ...> Liil "liiil> °"
+
+If i were not primitive, we would have an in fi nity of strict decompositions of i,
+which is contrary to the hypothesis. The previous proposal then shows
+Panel B '° is a retract of Panel B'. We can write
+
+f = fi + fls
+
+68 ANDRÉ JOYAL
+
+where f0EB '° and f1 E Ker (B' -> B '°). If f is invertible then f0 is invertible
+since the projection B '-> B' ° is a ring homomorphism. What
+shows that the condition is necessary. Conversely, suppose that f0 is
+reversal. Let's show that
+
+(fi a) "f = 8 + Vol"?
+
+= E + 5
+is invertible. The geometric series
+(e + a) "= 1 (-1)" δ "
+n> 0
+converge because
+
+6m '): 2j'. [Aonu-orj.)
+(j, ..., j ',.) "jl9" "jn
+
+= V '[' i. [Ô <j.> '- ô <j.)
+
+(J ......) (I-Io> "J11":
+and the coefficients ljl. Ï 4 "] in this last sum cancel each other as soon as
+n is big enough. C.Q.F.D.
+
+Note 1. If ring B contains the rational numbers, we can
+de fi ning for all E B the power (a + ô) "using the development of
+Newton:
+
+(S + a) "=; 0 (; ') O"
+or
+(i:) = a (a-1) - '- "(a-n + 1).
+
+Note 2. The function zeta Ç: I -> B is the function such that Ç (i) 2 1
+for all i E]. The function of Mäbius p: I-> B is the inverse C "= p.
+equalities
+
+g (i) =; [JI k [at
+
+R '
+
+f (i) = Z [J7 k [nm guc)
+
+.k
+
+s.
+
+COMBINATION THEORY 69
+
+are therefore equivalent. The demonstration of the previous proposition we
+
+show that
+fl <i> = Z (-1) "['[
+
+(_h, ..., j,.) E (I-Io) "j] w-vjn
+
+in other words,
+# 0 ') = Do' ') - D10').
+
+where D0 (i) (respectively D, (i)) is the total number of strict decompositions of i,
+whose length is even (odd).
+
+7.2.2. A monoid structure
+I X I - '> I, e G I
+can extend additively into a semi-ring structure:
+N (I) X N (I) N N (I), e G N (I).
+
+It is possible that a law of decomposition (d, a) de fi nes homomorphisms
+of semi-rings:
+
+N <I) - "N (I) to N (I).
+N (I) L "N.
+
+(For the induced semi-ring structure on N (I) ®N (I).) In this case
+we will say that (d, e) and (-, e) are compatible and that N (I) is a bigrebre
+(Sweedler [3l]). That is equivalent to saying that we have equalities
+
+(i) [f1 he kiiliz i2 kzi '
+d (€) = (eue),
+
+(ii) 8 (I1 - i2) = 8G, - 6G,),
+s (e) = 1.
+
+Let I0 denote the set of neutral elements of I (Proposition 25).
+
+PROPOSITION 28. For all (i ,, iz) € IxI we have i, - i, E10 iff, e10 and
+i, E I0. In addition, we have equalities
+
+## EQU1 ##
+λ1 (II'i2) = 5161) 3x62) -
+
+70 ANDRÉ JOYAL
+
+Proof. The first assertion follows from equality (ii). To obtain the
+
+second, we use (i): sij = i1 - i, and k = â, (i1-i,) we have
+e v 1 n 1
+jy'j_2 [= j jl k1 f2 k2
+kl-kgîk
+
+which results in the existence of a quadruplet (jl, k ,, jz, k2) such that
+
+1 H w
+J} k1 f2 k2 '
+
+Since k, - k, = k we see that k, and k2 are neutral. The last assertion of
+proposition 26 allows us to conclude that
+
+k1 = â1 (1'1) and k2 = ô1 (1'2)
+and so that
+
+61 (1)): (1) (1) (1) (1) (i1'i2) C-Q-F-D-
+
+Let us say that a function f: I-> B is multiplicative if f (i - j) = f (i) -f (j) and
+f (e) = 1-
+
+PROPOSITION 29. Let B be a commutative ring. If f, gEB 'are
+Multiligative functions then f - gEB 'is multiplicative. Moreover, if f "
+exists, it is a multiplicative function.
+
+For all te I and for all f E B 'be _1] f 6B' the function j l-> f (i - j).
+(We also define f [i E B '.)
+
+LEMMA. We have the formula
+
+(I.k) eIx1
+
+U (fg) = Z [jik [(gf) (k_lg) -
+Proof. We successively
+
+he CfgXi ') = (fg) (I' l ")
+
+= Z [u 'i' v [f (u) g (v)
+
+V.1)
+
+= Z [ji k [(<11f> -Q <Jg)) (r>.
+
+JJ <
+
+ 
+
+A COMBINATORY THEORY 71
+
+Let's now prove the last proposition of the proposition: if f is
+multiplicative and if fg = e then g is multiplicative. It must be shown that
+g [r = g - (g (r)) for all r e I. (B 'is a B-algebra.) We have
+
+ie = ufg = Z [il kÿgrmg)
+
+k
+
+[Ï khrvmug
+
+ï.
+= f- [j k [fUXIll g) -
+On the other hand, we have
+
+1 = 6 (I) 6 = 6 (I) f '8 = f- (07 078) -
+
+As f is invertible it follows that
+
+ea> g = z [Ï k [us g).
+
+1.1: J
+
+In other words, that for all r E I
+
+e - (g (r "= r- (gin.
+
+Multiplying by g the two members of this last equality, we find
+
+g - (g (r)) = C-QFD.
+
+The previous proposal allows us to conclude in particular that the
+function of Mubius u = C "is multiplicative If B = Z (I), one can search
+to reverse the inc1usion I C "Z (I). If it's possible, we get Antipode
+6I: I -> Z (I). If the multiplication I X I - + I is commutative, the antipode is a
+multiplicative function. In the case where the law of decomposition is
+hereditarily terminated, we have the formula
+
+0 (z ') = Z] (- 1) j.
+
+(j1, ..., j ,,) Strlcte Jn
+
+7.3. Additive category
+
+We will use the term additive category in a different sense
+habitual, for want of having been able to find a better terminology. This is more or
+least to redo Linear Palgebra by replacing the concept (the whole by
+that of category and the concept of function by that of functor.
+
+72 ANDRÉ JOYAL
+
+An additive category (M, +, 0) is a symmetric monoidal category
+where the product ® is noted additively (+). The object unit is named object
+no. An additive functor F: M - + Æ between additive categories is a functor
+preserving the sum and the null object (with coherent isomorphism):
+
+F (A + B) 3F (A) + F (B),
+F (0): 0.
+
+We will denote Hom (M, .5 ') as the category of additive functors from M to Æ.
+It is an additive category, the sum F + G of two functors being de fi ned
+as usual:
+
+(F + G) (A) = F (A) + G (A),
+O (A) = 0.
+
+We also define the concept of bi-additive functor F: M> <u? »G it is a
+additive functor in each variable (and consistency):
+
+F (A1 + A21B) = F (A1 "B) + F (A21B) 1
+F (A, B1 + B2) F (A, B) + F (A, B2),
+F (A, 0) F (0, B) z0.
+
+A (semi) ring is an additive category M with a bi-product
+additive M X M - ° -> M and a unit object I E M satisfying the axioms
+associativity and unity (and coherence).
+
+The tensor product M (> 93 of two additive categories is obtained in
+constructing the universal bi-additive functor: M ®Æ -> M 63: 5 '.
+
+The free additive category L (C) on a category C is constructed from the
+following: the objects of L (C) are the finite families (A, -), - e, of objects of
+VS; the morphisms (A,) ke, -> (BjL-e, are the pairs (u, a), where u: I-> J is a
+bijection and where a = (qs,.),. ê, is a family of morphisms 95, -: A, - + B00, (i E I).
+The composition is de fi ned by the formula (v, w) (u, d) = (seen, u / uo), where y / uc =
+(wkumgkê, We will use the notation 2m14, - to designate the family
+(A,.) ,. e ,. With this notation we have the formula
+
+z A, + 2 A,. = V A, ..
+
+The
+ie, 1'512 iell + lz
+
+The additive category unit is the groupoid B of the finite sets and
+bijections (with the disjoint sum). We have equivalences of categories:
+
+M®B: 4 B®M 3M
+
+COMBINATION THEORY 73
+
+and also
+Hom (B, M) s. M.
+
+We have the usual properties: an additive functor M® -> V is equivalent
+to an additive functor M -> Hom (Æ, 7), etc.
+
+Let l be the category consisting of a single object and a single morphism. The
+Category L (1) coincides with the groupoid B of finite sets and bijections.
+We also have the formula
+
+L (C1XC2) 3L (C1) ®L (C2) -
+
+7.4. Combinatorial decomposition laws
+
+We will now examine the concept of co-multiplication on a
+additive groupoid:
+
+d: A- + A® / TO.
+
+We will always assume that d is associative and that we have a co-unit
+M - '-> B.
+
+We will limit ourselves to the case where M is free on a groupoid A.
+then say that d is a law of decomposition on A. Given the identity
+L (A) ®L (A): "L (A x A), a law of decomposition on A is a functor
+additive
+
+L (A) -> L (A X A).
+or more simply a functor
+At l L (A x A).
+Similarly, the co-unit e is a functor
+A -'- B.
+
+Strictly speaking, d is a law of binary decomposition. Can also
+consider a ternary decomposition by component
+
+L (A) 4 L (A) L (A)
+[L (A) ®d
+
+L (A) ®L (A) ®L (A) -
+
+74 ANDRÉ JOYAL
+
+The associativity of a law of decomposition expresses the fact that this law
+ternary can also be obtained (with coherent isomorphism) as a component
+
+L (A) - "- + L (A) ®L (A)
+
+dtîJuA)
+L (A) ® L (A) ® L (A) -
+We will write, for A E A
+
+d (A) = È (d. * (A) 1dË (A)) -
+IED (A)
+
+We will say that D (A) is the set of (binary) decompositions of A.
+We will also say that d, i (A) (resp, df (A)) is the first piece (resp.
+second piece) of the decomposition i E D (A).
+
+A law d is symmetrical if one has an involutional natural transformation
+r: d -> d and for each i E D (A) isomorphisms (coherent)
+dKA) 3 dIuKA)
+
+Now consider a category Æ with a semi- structure
+ring. A decomposition law on groupoid A will allow us to
+define a semi-ring structure on the category [A, Æ] of the functors of
+A to Æ (7.2.1). The product F-G of two functors F: A-> Æ, G: A a3
+is a functor whose value in A E A is equal to
+
+(F-G) (A) = Ÿ (F (d1 - '(A)) - G (d1 (A)))
+
+4._l
+
+IED (A)
+
+Suppose further that A is provided with a monoidal structure
+A X - - -> A, I E A, compatible with the law of decomposition d (7.2.2). This
+Compatibility is expressed by isomorphisms (coherent)
+
+p: D (A-B): 1 D (A) X D (B),
+6110443): dKA) 'dKB),
+d 1 (A-B) 3 61304) - d (B),
+
+61 (1) to (1,1),
+s (A-B) 3 G (A) X e (B),
+6 (1) r, 1.
+
+If p (k) = (U)
+
+If the semi-ring .9 is commutative (i.e., symmetric) one can demonstrate
+that the product F - G of two multiplicative functors F, G: A -> B is a
+multiplicative functor.
+
+A COMBINATORY THEORY 75
+
+EXAMPLE 47 Groupoid B is provided with a decomposition law
+symmetrical
+
+d: B - »L (B x B)
+whose value in E E B is equal to
+
+d (E) = ((A13)
+
+A + B = E
+
+where the summation takes place on all of all the shares of E in two
+parts. The co-unit e: B -> B is the functor
+
+6 (E) = Q if Eq fi z
+= l if E = Q.
+
+We also check that the sum B X B -> + B is a monoidal structure
+compatible with the law of decomposition d. Let .9 be a semi-ring
+commutative. The semi-ring [B, 9] is the semi-ring of the Hurwitz series
+with coefficients in .9. F: B-> 9 functors preserving structures
+multiplicative are the exponential series F = exp (BX) (B E 9).
+
+EXAMPLE 48. Let O be the groupoid of ordered sets defined and
+isomorphisms. A lower section S _ of E E 9 is a part S_ S E
+such that x ç y E S_ causes x E S _. The section concept is also de fi ned
+higher. A decomposition of E e O is a couple (S_, S k) of sections
+lower and upper such that S_ 05+ = 0 and S _ U S + = E. We have a law
+decomposition
+
+d: O-> L (OXO)
+
+whose value in E E 0 is equal to
+
+d (E) = z (S 1, S +).
+(S_, S +) eD (E)
+This law is not symmetrical. The disjoint sum of ordered sets
+gives us a multiplicative structure O x O -> * O compatible with the law
+decomposition. '
+
+EXAMPLE 49 (Fàa di Bruno). Consider the groupoid F whose objects
+are the overjections A - »A 'of fi nished sets and the morphisms are the
+commutative rectangles
+
+76 ANDRÉ JOYAL
+
+A-'3-> B
+
+l l
+
+WING!
+
+where u and u 'are isomorphisms.
+We have a law of decomposition
+
+d (A - +> A ') = z (A -> + A / R, A / R - »A')
+R
+
+where the summation takes place on the set of equivalence relations R on A
+inducing a factorization A - »A / R -> + A 'of A -» A'. The co-unit e: F - + B
+is de fi ned as follows
+s (A -> + A ') = 1 if A -> + A' is an isomorphism
+= g otherwise.
+
+The disjoint sum operation A + B - +> A '+ B' (of two surjections)
+allows to define a monoidal structure
+
+FXF - +> F
+
+compatible with the law of decomposition. If 9 is a semi-ring
+commutative, a multiplicative functor N: F -> 9 is fully determined if
+its restriction to the sub-groupoid of overjections A -> + 1 is known.
+the latter groupoid is equivalent to the groupoid B * of the finite sets
+empty, we can identify a multiplicative functor N: F- + 9 to a functor
+N: B * 49 that is to say a species N: B -> 9 such that N [0] = 0. From this
+way the monoidal structure on the category of multiplicative functors
+identify with the substitution of the species of the ideal f c: 9 | [X | [(Chapter 2)).
+
+EXAMPLE 50 Let A be the groupoid of finite abelian groups and
+isomorphisms. We have a law of decomposition
+
+d: A- + L (AXA)
+
+whose value in A E A is equal to
+
+d (A) = z (su / s)
+
+SGA
+
+where the summation takes place on all subgroups S of A.
+
+EXAMPLE 51 (Joni and Rota [16], Lawvere). A finite interval is a
+
+A COMBINATORY THEORY 77
+
+a finite ordered set having a smaller and larger element. Let l be the
+groupoid of finite intervals and isomorphisms. For U E I and x E U be U,
+(resp., U ') Interval {y | y E U, y {x} (resp. the interval {y! y E U, y> x})
+We have a law of decomposition
+
+d: I '-> L (I x I)
+
+whose value in U E I is the sum
+d (U) = z (U ,, U ').
+XEU
+
+Moreover, the product (Cartesian) U X V of two intervals is an interval. This
+which gives a monoidal structure
+
+IXI-ï »!
+
+compatible with the law of decomposition.
+
+7.4.1. Several laws of decomposition come from a law of
+composition. For example, let A be a groupoid with a structure
+monoidal (A, ®, I). A decomposition of an Object E e A is a triplet
+(A, B, a), where a is an isomorphism
+
+a: A ®B-> E.
+
+An isomorphism of decompositions (A, B, a) - + (A ', B', a ') is a couple
+(A -> "A ', B ->" B') isomorphisms such as the triangle
+
+A®B
+
+u®v E
+
+be commutative. Suppose now that the functor A X A-> ®A is
+and that for all E E A the set of classes of isomorphisms
+decompositions of E be finite. We can then define a law of decomposition
+
+A'®B '
+
+d: A- + L (AXA)
+
+whose value in E E A is
+
+d (E) = Z (Au?)
+
+A®B = E
+
+78 ANDRÉ JOYAL
+
+where the summation takes place on a complete system of class representatives
+of isomorphisms of the decompositions of E.
+
+EXAMPLE 52 (Dirichlet) Groupoid B * of non-empty fi nite sets
+(and bijections) provided with the cartesian product. A couple (R, S) of relationships
+equivalence on E E B * is orthogonal if the canonical application
+
+E -> E / R X I / O
+is a bijection. We have the law of decomposition
+
+d (E) =)) (E / RÆ / S)
+(R, S
+
+where the summation takes place on all the orthogonal pairs of relations
+equivalence on E.
+
+The composition of the morphisms of a category often allows us to
+de fi ne a law of decomposition. Let C be a category. A decomposition
+of a morphism f E C is a triangle fzf, = f:
+
+A --'-- "B
+N u '
+vs.
+
+Two decompositions f1f2 = fi gk g1 = f are isomorphic if there is a
+commutative diagram
+
+D
+
+where u is an isomorphism. Suppose that:
+
+(1) there is at most one isomorphism between two decompositions,
+
+(2) the set of classes of isomorphisms of the decompositions of a
+morphism is fi nished.
+
+If these two conditions are satisfied, a decomposition law can be de fi ned.
+
+A COMBINATION THEORY 79
+
+position on the groupoid C whose objects are the arrows of C and the
+isomorphisms are the commutative rectangles
+
+A - "-" A '
+
+the t '
+
+B - N> B.
+We have
+
+dg): Ë (fiafz):
+
+UhfÜËDU)
+
+where D (f) is a complete system of class representatives
+of isomorphisms of the decompositions of f.
+
+EXAMPLE 53. If category C is that of fi nished sets and
+surjections we obtain the example 49 (Faà di Bruno).
+
+EXAMPLE 54 Another example is obtained by taking C
+category of finite linear order and increasing overjections. There is on C a
+multiplicative structure compatible with the law of decomposition: this is the
+ordinal sum f, + f ,: L, + L, -> L ', + Lg of two increasing surjections
+f,: L, -> Lc, j ',: L, -> L' ,. If 9 is a commutative semi-ring, the functors
+multiplicative F: C -> 9 identifies with linear species without term
+constant. The product of multiplicative functors is distinguished by the substitution of
+these linear species.
+
+EXAMPLE 55. We can take for C the category whose objects are
+couples (E, a), where o is a permutation of the fi nite set E.
+morphisms (E, a) - »° (E ', a') are the overjections çlzE-HE 'such that
+va = 0'45. There is on C an obvious multiplicative structure. This example is
+closely related to the substitution of indicator series
+chapter 3.
+
+7.5. Numerical aspects
+
+Let A be a groupoid with a law of decomposition
+d: A - + L (A X A).
+
+We will describe a law of numerical decomposition induced on the
+seems n0 (A) related components of A:
+
+'d = 7to (A) - * N (7ro (A) x 7Io (A)) -
+
+4507/42/14
+
+80 ANDRÉ JOYAL
+
+Let's denote by | s | the connected component containing s e A. The element
+
+Z (| dl (s) l, ldi (s) l)
+
+IED (s)
+
+of N (7t0 (A) X n0 (A)) depends only on the isomorphism class | s | of s. We
+so has an application
+
+tto (A) -> N (fl o (A)> <ïro (A))
+
+as
+
+dasn = Z (ld1 '(s) lildi (s) l) -
+
+IED (S)
+We also define
+e: n0 (A) - + N
+by
+e (ls [) = Card a (s).
+PROPOSITION 30. The application (d, e) defines a decomposition law
+
+numeric position on the set n0 (A).
+
+If (i, j, k) E 7r0 (A), the natural integer [J. 'k] has the following meaning:
+1 '= [s] is the number of rED decompositions such as [df (s) | = j and
+[d (s) [= k. In the case where d comes from a monoidal structure A X A -> ® A
+(7.4.1) we have a more precise result. Suppose that for all s E A the group
+aut (s) automorphisms of s be fi nished. Let's ask for iE n0 (A)
+
+aut (i) = Card (aut (s))
+
+or i = | s |. Let n0 (A) X n0 (A) -> 'n0 (A) be the induced monoid structure
+by the monoidal structure of A. We have the formula
+
+[l J: aut (i)
+j aut (j) aut (k)
+
+= 0 otherwise.
+
+if j-k = i
+
+EXAMPLE 56. Most of the examples given in 7.4 are laws of
+Hereditarily finite decompositions (Def 24). We can therefore apply the
+Theorem 7 to calculate the inverses. In particular, if we use the bigeye
+of Faà di Bruno (Ex 49), this shows that the series of Hurwitz f, at coef-
+integers, such that f (0) = 0, f '(0) = 1, are closed for inversion
+
+fon
+
+A COMBINATORY THEORY 8l
+
+ctionnelle. We also see that sif has rational coef fi cients and if a E Q,
+
+we can de fi ne fractional fraction f ". Similar results are
+valid for multi-variable series. Etc.
+
+1l.
+
+l3.
+
+8. REFERENCES
+
+. E. A. BENDER AND J. R. GOLDMAN, Enumerative uses of generating functions, Indiana
+Univ. Math. J. (1971), 753-765.
+
+. N. BOURBAKI, "Elements of mathematics. Set Theory, "Chapter 4,
+"Structures," Hermarm, Paris, 1968.
+
+. W. BuRNsIDE, "Theory of Groups of Finite Order," 2nd ed. p. 191, Theorem V11, Dover,
+New York, 1955.
+
+. H. CARTAN, "Seminar Henri Cartan" (7th year 1954-1955).
+
+. P. CARTIER AND D. FOATA, "Combinatorial Problems of Switching and Rearrangements,"
+Reading Notes in Mathematics No. 85, Springer-Verlag, 1969.
+
+. L. CoIrrET, "Advanced Combinatorics," Reidel, Dordrecht-1-lolland / Boston, 1974.
+
+. M. CONTENT, F. LEMAY, AND P. LEROUX, Categories of Mëbius and Fonctorialités: A Framework
+General for the inversion of Mobius, J. Combin. Theory Ser. A 28 (1980), 169-190.
+
+. P. DOUBILET, G.-C. ROTA, E. R. STANLEY, The idea of ​​generating function, in
+"Finite Operator Calculus" (G.-C. Rota, Ed.), Pp. 83-134, Academic Press, New York,
+1975.
+
+. C. EHREsMANN, "Categories and Structures," Dunod, Paris, 1965.
+
+. D. FOATA, "The Exponential Generator Series in Problems,"
+
+Presses of the University of Montreal, 1974.
+
+D. FOATA, A combinatorial proof of the Mehler Formula, J. Combin. Theory Ser. A 24
+
+(1978), 367-376.
+
+. D. FOATA AND MR P. SCHÜTZENBERGER, "Geometric Theory of Euinian Polynomials,"
+
+Reading Notes in Mathematics No. 138, Springer-Verlag, New York / Berlin, 1970.
+
+A. M. GARs1A AND S. JONI, "Reading Notes in combinatorics, U.C.S.D.," Depanment
+
+of Mathematics, La Jolla, 1976.
+
+14. 1. M. GEssEL, "Generating Functions and Enumeration of Sequences," Ph. D. Thesis,
+
+1977.
+
+15. F. HARARY AND E. PALMER, "Graphical Enumeration," Academy Press, New York /
+
+NOT.-_
+O00!)
+
+London, 1973.
+
+. S. A. JONI AND G.-C. ROTA, Coalgebras and bialgebras in combinatorics, Stud. Appl.
+Math. 61 (1979), 93-139.
+
+. G. M. KELLY, On Clubs and Doctrines, in "Category Seminar" (GM Kelly, Ed.),
+Reading Notes in Mathematics No. 420, Springer-Verlag, New York / Berlin, 1974.
+
+. D. G. Kendall, Branching Processes since 1873, J. London Math. Soc. 41, 385-406.
+
+. D. E. KNUTH, Subspaces, Subsets, and Partitions, J. Combin. Theory 10 (1971), 178-180.
+
+. G. LABELLE, A new combinatorial demonstration of the inversion formulas of
+Lagrange, Advances in Math., In press.
+
+21. J. LABELLE, Various applications of the combinatorial theory of the species of structures.
+Ann. Sci. Math. Quebec, forthcoming.
+
+22. P. Leroux, The categories of Mbius, Cahiers Topologie Geom. Dwerential 16 (3)
+(1975), 280-283.
+
+23. S. MACLANE, "Categories for the Working Mathematician," Springer-Verlag, New York,
+1971.
+
+24. J. W. MOON, Counting Labelled Trees, Canadian Mathematica] monographs, 1970.
+
+82
+
+25
+
+26.
+
+28.
+
+30.
+
+3l.
+32.
+
+the
+
+ANDRÉ JOYAL
+
+. R. MULLIN AND G.-C. ROTA, On the foundations of combinatorial theory 111. Theory of
+binamial enumeration, in "Graph Theory and Its Applications," (B.Harris, Ed.),
+Academic Press, New York, 1970.
+
+G. POLYA, Kombinatorische Anzahlbestimmungen fur Gruppen, Graphen und Chemische
+Verbindungen. Acta Math. 68 (1937), 145-254.
+
+. G. RANEY, Functional composition patterns and power series reversion, Trans. Bitter.
+Math. Soc. 94 (1960), 441-451.
+
+GSC. ROTA, Hopf algebra in combinatorics, in "Combinatorial Problems and Theory
+graphs, "International Colloquium CNRS, No. 260, pp. 363-365, CNRS, Paris.
+
+. G.-C. ROTA, On the foundations of combinatorial theory. 1. Theory of Môbius functions,
+Z. Wahrsch. Band 2, Heft4 (1964), 340-368.
+
+R. P. STANLEY, Generating Functions, in "M.A.A. Studies in Combinatorics "(G.-C.
+Rota, Ed.), Mathematical Association of America, 1978.
+
+SWEEDLER, "Hopf Algebras," Benjamin, New York, 1969.
+
+S. MACLANE (Ed.), "Consistency in Categories," Reading Notes in Mathematics No. 281,
+Springer-Verlag, New York / Berlin, 1972.
+
+(Note: this list contains some references in addition to those directly cited in
+text.)
