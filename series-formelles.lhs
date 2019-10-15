@@ -2390,7 +2390,7 @@ we have the following obvious result:
 \begin{prop}
   If $P = 1/(1 - N)$ then \[ \unl P = \frac{1}{1 - \unl N}. \]
 \end{prop}
-We also have a well known result \citep{harary1973graphical}:
+We also have the well known result \citep{harary1973graphical}:
 \begin{prop}
   If $P = \exp(N)$ then \[ \unl P = \exp \left[ \sum_{n \geq 1}
       \frac{\unl N(x^n)}{n} \right]. \]
