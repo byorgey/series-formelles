@@ -2407,6 +2407,61 @@ that the nature of the answer depends strongly on the interal structure
 of the thing being substituted and very little on its cardinality. We
 will develop a concept finer than cardinality:
 \[ Z : \Poly \E X \to \MPoly \Z x \]
+having a value in the ring $\MPoly \Z x$ of formal series in an
+infinite number of variables $\{x_1, x_2, \dots\}$.  This ring is
+equipped with a substitution operation: if $f = f(x_1, \dots)$ and $g
+= g(x_1, \dots)$ then \[ f(g) = f(g_1, g_2, \dots), \] where \[ g_i =
+  g(x_i, x_{2i}, \dots). \] We will demonstrate a substitution
+theorem: \[ Z_{M(N)} = Z_M(Z_N). \]  Moreover, we have
+\begin{align*}
+  M(x) &=& Z_M(x, 0, 0, \dots), \\ \unl M(x) = Z_M(x, x^2, x^3, \dots)
+\end{align*}
+and we obtain the following result:
+\begin{prop}
+  If $P = M(N)$ then \[ \unl P(x) = Z_M(\unl N(x), \unl N(x^2),
+    \dots). \]
+\end{prop}
+
+We could give completely combinatorial demonstrations of the results
+in this chapter, but at the cost of heavy categorical artillery.  We
+have chosen an intermediate approach, using a bit of algebra such as
+the principle of extension of algebraic identities.  This results in a
+text that is easier to read.
+
+\subsection{} The problem is to calculate the cardinality of
+$\widetilde{M(N)}$.  For this, we seek to understand its combinatorial
+structure.  An element of $\widetilde{M(N)}[E]$ is a pair $(\sigma, h)$, where $h$
+is an element of $M(N)[E]$ and $\sigma$ is an automorphism of $h$.
+The assembly $h$ determines an equivalence relation $R$ on $E$.
+$\sigma$ is an automorphism of $E$, which means that $\sigma$ is
+\emph{compatible} with $R$.  The quotient $E/R$ is therefore equipped
+with an induced permutation $\sigma/R$.  This permutation decomposes
+into cycles.  We will begin by supposing that $\sigma/R$ is circular.
+
+\begin{defn}
+  A \term{crown} of $N$-structures is an assembly $h \in \exp(N)$
+  \emph{equipped with} an automorphism $\sigma$ that circularly
+  permutes its members.  The \term{length} of a crown is the number of
+  members of the assembly.  We use $C_n(N)$ to denote the species of
+  crowns (of $N$-structures) whose length is $n$.
+\end{defn}
+
+\begin{prop}
+  \[\Card C_n(N) = \unl N(x^n)/n. \]
+\end{prop}
+
+\begin{proof}
+  We first show how, from an element of $\unl N(X^n)$, we can
+  construct a crown.  An element $l$ of $\unl N(X^n)[E]$ is an $\unl
+  N$-assembly of linear orders with cardinality $n$.  This element $l$
+  defines a partition $P$ on $E$; the set $E/P$ of classes is equipped
+  with an $\unl N$-structure $(\tau, t)$ and each class is a linear
+  order of cardinality $n$.  For $1 \leq i \leq n$ let $C_i$ be the
+  set of all the elements of rank $i$ in these linear orders.  If we
+  send each element to its sucessor, we obtain bijections $\sigma_i :
+  C_i \to C_{i+1}$ for $1 \leq i \leq n-1$.  We have a chain \[ C_1
+    \to C_2 \to C_3 \dots \to C_n. \]
+\end{proof}
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}
