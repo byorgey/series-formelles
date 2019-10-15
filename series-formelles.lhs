@@ -2482,7 +2482,7 @@ into cycles.  We will begin by supposing that $\sigma/R$ is circular.
   $\{x_1 < \sigma x_1 < \dots < \sigma^{n-1}x_1\}$.  This gives us a
   partition $P$ whose classes are linear orders of size $n$. The set
   $E/P$ of classes is equipped with an $N$-structure $t$ isomorphic to
-  $t_1$ (or $t_i$). To obtain a automorphism $\tau$ of $t$, it
+  $t_1$ (or $t_i$). To obtain an automorphism $\tau$ of $t$, it
   suffices to transport on $E / P$ the automorphism $\tau_1$ of $C_1$
   obtained by making a complete tour of the crown:
   \[ \tau_1 = \sigma^n \mid C_1. \] It has therefore been shown that
