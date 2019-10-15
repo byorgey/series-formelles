@@ -2405,7 +2405,7 @@ The difficulty resits in the fact that the relation
 $\widetilde{M(N)}(x) = \unl M(\unl N(x))$ is false.  Examples show
 that the nature of the answer depends strongly on the interal structure
 of the thing being substituted and very little on its cardinality. We
-will develope a concept finer than cardinality:
+will develop a concept finer than cardinality:
 \[ Z : \Poly \E X \to \MPoly \Z x \]
 
 \bibliographystyle{plainnat}
