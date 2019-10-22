@@ -40,8 +40,8 @@
 
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
 % \newtheorem{conj}[thm]{Conjecture}
 
 \theoremstyle{definition}
