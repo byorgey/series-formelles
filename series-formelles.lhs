@@ -202,20 +202,20 @@ and programming languages, I read a lot of secondary literature on
 species, but not Joyal's original paper---it is written in French,
 which I do not read. I didn't think this would be a great loss, since
 I supposed the material in his paper would be well-covered elsewhere,
-for example in the textbook by \citet{bll} (which thankfully
-\emph{has} been translated into English). However, I eventually came
+for example in the textbook by \citet{bll}, which thankfully
+\emph{has} been translated into English. However, I eventually came
 across some questions to which I could not find answers, only to be
 told that the answers were already in Joyal's paper
 \citep{trimble-not-analytic}. Somewhat reluctantly, I found a copy and
 began trying to read it, whereupon I discovered two surprising things.
 
 First, armed with a dictionary and Google Translate, reading
-mathematical French is not too difficult (even for someone who does
-not know any French!)---though it certainly helps if one already
+mathematical French is not too difficult---even for someone who does
+not know any French!---though it certainly helps if one already
 understands the mathematics.  Second, it turns out that Joyal's paper
 makes for excellent reading, and is full of insights and examples
 which, as far as I know, do not appear in any of the secondary
-literature.  The paper (and the theory of species more generally) has
+literature.  The paper, and the theory of species more generally, has
 a lot to offer to computer science, and to functional programming in
 particular.
 
