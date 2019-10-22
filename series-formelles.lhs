@@ -1396,7 +1396,7 @@ dia = mconcat
   \end{commentary}
 \end{ex}
 
-\begin{ex}
+\begin{ex} \label{ex:monomial}
   Let $S$ be the species of permutations. Consider the groupoid $\el
   (S)$ of elements of $S$. The objects of $\el (S)$ are the sets $E
   \in \B$ equipped with a permutation $\sigma_E \in S [E]$. The
@@ -2392,7 +2392,7 @@ we have the following obvious result:
   If $P = 1/(1 - N)$ then \[ \unl P = \frac{1}{1 - \unl N}. \]
 \end{prop}
 We also have the well known result \citep{harary1973graphical}:
-\begin{prop}
+\begin{prop} \label{prop:exp}
   If $P = \exp(N)$ then \[ \unl P = \exp \left[ \sum_{n \geq 1}
       \frac{\unl N(x^n)}{n} \right]. \]
 \end{prop}
@@ -2439,12 +2439,14 @@ $\sigma$ is an automorphism of $E$, which means that $\sigma$ is
 with an induced permutation $\sigma/R$.  This permutation decomposes
 into cycles.  We will begin by supposing that $\sigma/R$ is circular.
 
+\todo{Should ``couronne'' be ``crown''? Or perhaps ``wreath''?}
+
 \begin{defn}
-  A \term{crown} of $N$-structures is an assembly $h \in \exp(N)$
-  \emph{equipped with} an automorphism $\sigma$ that circularly
-  permutes its members.  The \term{length} of a crown is the number of
-  members of the assembly.  We use $C_n(N)$ to denote the species of
-  crowns (of $N$-structures) whose length is $n$.
+  A \trans{crown}{couronne} of $N$-structures is an assembly
+  $h \in \exp(N)$ \emph{equipped with} an automorphism $\sigma$ that
+  circularly permutes its members.  The \term{length} of a crown is
+  the number of members of the assembly.  We use $C_n(N)$ to denote
+  the species of crowns (of $N$-structures) whose length is $n$.
 \end{defn}
 
 \begin{prop}
@@ -2491,9 +2493,32 @@ into cycles.  We will begin by supposing that $\sigma/R$ is circular.
   \emph{marked} with an initial member. Since there are $n$ possible
   choices for this initial member, we have
   \[ n \times \Card C_n(N) = \unl N(x^n). \]
-
-
 \end{proof}
+
+\begin{cor}
+  Suppose that $N[0] = \varnothing$.  The species of crowns of
+  $N$-structures has as its cardinality \[ \sum_{n \geq 1} \frac{\unl
+      N(x^n)}{n}. \]
+\end{cor}
+
+Consider now an element $(\sigma, h) \in \widetilde{\exp(N)}[E]$.  The
+element $h$ is an assembly of $N$-structures; it induces an
+equivalence relation $R$ on $E$.  The automorphism $\sigma$ induces a
+permutation $\sigma/R$ of $E/R$.  This permutation $\sigma/R$
+decomposes $E$ into an \emph{assembly} of crowns of $N$-structures.
+Thus we have
+
+\begin{cor}
+  Suppose that $N[0] = \varnothing$.  We have \[ \Card
+    \widetilde{\exp(N)} = \exp \left[ \sum_{n \geq 1} \frac{\unl
+        N(x^n)}{n} \right]. \]
+\end{cor}
+
+Note that the corollary implies Proposition~\ref{prop:exp}.  Now let
+$S$ be the species of permutations.  Consider the category $\el(S)$ of
+elements of $S$.  The objects of $\el(S)$ are the pairs $(E,
+\sigma_E)$, where $\sigma_E \in S[E]$.  We have already described
+(Example~\ref{ex:monomial}) 
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}
