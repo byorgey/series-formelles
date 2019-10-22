@@ -1449,14 +1449,9 @@ well-known formula \[ \Card ||s|| = \frac{n!}{\Card \Aut(s)}. \]
   is unmanageably large, since it contains structures labelled by
   every possible finite set.  One of the main observations of the
   above paragraph is that we still have all the relevant information
-  if we consider just \emph{one particular} set of each given size,
-  and permutations on that set, rather than considering \emph{all}
-  sets of a given size and bijections between them.
-
-  \todo{Observation of this para: instead
-    of looking at all finite sets and bijections, it's
-    sufficient to look at a \emph{single} chosen finite set $E$ and
-    consider permutations.}
+  if we consider just \emph{one particular} set of a given size, and
+  permutations on that set, rather than considering \emph{all} sets of
+  a given size and bijections between them.
 
   \todo{Permutations, group actions, orbits, etc.}
 \end{commentary}
@@ -1468,6 +1463,12 @@ evaluate the two infinite sequences of numbers
   \Card \pi_0(M[n]), \quad n \geq 0.
 \end{gather}
 
+\begin{commentary}
+  In English: how many labelled $M$-structures are there of each size
+  $n$?  And how many \emph{unlabelled} $M$-structures (that is,
+  equivalence classes of labelled $M$-structures under relabelling)?
+\end{commentary}
+
 We define two generating functions. The first is a series of Hurwitz
 \citep{comtet1974combinatorics}:
 
@@ -1477,7 +1478,7 @@ We define two generating functions. The first is a series of Hurwitz
 
 \begin{commentary}
   As mentioned in the introduction, this is also known as an
-  \emph{exponential} generating function.  Again, this type of
+  \emph{exponential} generating function (EGF).  Again, this type of
   generating function (with an $n!$ in the denominator) turns out to
   be exactly the right thing to count \emph{labelled} structures.
   Intuitively, dividing by $n!$ accounts for the $n!$ different ways
@@ -1490,6 +1491,11 @@ factorial):
 \begin{equation}
   \unl M(x) = \sum_{n \geq 0} \Card \pi_0(M[n]) x^n.
 \end{equation}
+
+\begin{commentary}
+  This is known as an \emph{ordinary} generating function (OGF), in
+  contrast to an exponential one.
+\end{commentary}
 
 We say that $M (x)$ is the \emph{cardinality} of $M$. Let us see
 immediately that the calculation of $\unl M (x)$ boils down to
