@@ -92,11 +92,14 @@
 
 \DeclareMathOperator{\Card}{Card}
 \DeclareMathOperator{\Aut}{Aut}
-\newcommand{\Mon}{\mathrm{Mon}}
+\DeclareMathOperator{\aut}{aut}
+\DeclareMathOperator{\Mon}{Mon}
 \newcommand{\unl}[1]{\tilde{#1}}
 \newcommand{\Simp}{\mathcal{S}}
 \newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
 \newcommand{\MPoly}[2]{#1 \{\!\{ #2 \}\!\} }
+
+\newcommand{\xx}{\ensuremath{\mathbf{x}}}
 
 \newcommand{\term}[1]{\emph{#1}}
 \newcommand{\ie}{\term{i.e.}\xspace}
@@ -2524,7 +2527,38 @@ Note that the corollary implies Proposition~\ref{prop:exp}.  Now let
 $S$ be the species of permutations.  Consider the category $\el(S)$ of
 elements of $S$.  The objects of $\el(S)$ are the pairs $(E,
 \sigma_E)$, where $\sigma_E \in S[E]$.  We have already described
-(Example~\ref{ex:monomial}) 
+(Example~\ref{ex:monomial}) the cycle indicator monomial $I(\sigma_E)
+= x_1^{d_1} \dots x_n^{d_n}$.  The set $\pi_0(S)$ of connected
+components of the groupoid $\el(S)$ is identified with the set
+$\Mon(s)$ of monomials in the variables $x_1, x_2, x_3,
+\dots$.  Moreover, if $I(\sigma_E) = \xx = x_1^{d_1} \dots
+x_n^{d_n}$, the cardinality of the group of automorphisms of the
+object $(E, \sigma_E)$ is equal to \[ \aut(\xx) = 1^{d_1}
+  2^{d_2} \dots n^{d_n} d_1! \dots d_n!. \]  Consider now an element
+$(\sigma,h) \in \widetilde{\exp(N)}[E]$.  We know that $h$ determines
+an equivalence relation $R$ on $E$ compatible with $\sigma$.  We say
+that $(\sigma, h)$ has \term{class} $\xx = x_1^{d_1} \dots
+x_n^{d_n}$ of we have $I(\sigma/R) = \xx$, where $\sigma/R$ is
+the permutation induced by $\sigma$ on the quotient $E/R$. In
+particular $(\sigma, h)$ has class $x_n$ if and only if it is a crown
+of length $n$.  With these conventions, we have:
+
+\begin{prop}
+  The species of \emph{assembies of crowns} (of $N$-structures) having
+  class $\xx = x_1^{d_1} \dots x_n^{d_n}$ has as its
+  cardinality \[ \frac{1}{\aut(\xx)}\unl N(x)^{d_1} \unl N(x^2)^{d_2}
+    \dots \unl N(x^n)^{d_n}. \]
+\end{prop}
+
+\begin{proof}
+  Indeed, this species is expressed as the product of \trans{divided
+    powers}{puissances divis\'ees} \[ \gamma_{d_1}(C_1(N))
+    \gamma_{d_2}(C_2(N)) \dots \gamma_{d_n}(C_n(N)). \] Its
+  cardinality is therefore \[ \frac{1}{d_1!} \unl N(x)^{d_1}
+    \frac{1}{d_2!}\left( \frac{\unl N(x^2)}{2}\right)^{d_1} \dots
+    \frac{1}{d_n!} \left( \frac{\unl N(x^n)}{n}\right)^{d_n}. \]
+  \todo{Is the $d_1$ exponent on the second term a typo for $d_2$?}
+\end{proof}
 
 \bibliographystyle{plainnat}
 \bibliography{series-formelles}
