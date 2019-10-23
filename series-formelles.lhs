@@ -483,7 +483,7 @@ classes:
 \end{itemize}
 
 To make this more concrete, consider the following Agda
-\citep{norell2007towards} code which implements these ideas.  We
+code \citep{norell2007towards} which implements these ideas.  We
 encode the coefficients of a generating function not as a literally
 infinite sequence, but as a function $\N \to \N$, which takes a
 natural number $n$ as input and ouputs the coefficient of $x^n$, that
@@ -575,13 +575,13 @@ structures on $n$ distinguishable atoms, and similarly for $G_n$.
 This is the same as the formula for indistinguishable atoms, except
 for the extra factor of $\binom n k$.
 
-Somewhat magically, it turns out counting structures with
-distinguishable atoms is captured by a different kind of generating
-function.  In particular, we define the \term{exponential generating
-  function} (egf) by \[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \] The
-$n!$ may seem like a rabbit out of a hat at this point, but hopefully
-it is at least plausible: it corresponds to the $n!$ different ways a
-set of $n$ distinguishable atoms can be permuted.
+It turns out counting structures with distinguishable atoms is
+captured by a different kind of generating function.  In particular,
+we define the \term{exponential generating function} (egf) by
+\[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \] The $n!$ may seem like a
+rabbit out of a hat at this point, but hopefully it is at least
+plausible: it corresponds to the $n!$ different ways a set of $n$
+distinguishable atoms can be permuted.
 
 Let's check that multiplying two such egf's yields the egf for the
 product.  Once again, an $x^n$ term in the result will come from the
