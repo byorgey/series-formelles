@@ -683,7 +683,7 @@ One category that fits the bill is the category whose objects are
   between the cardinalities of the sets.  Put another way, if we have
   an injection $S \inj T$ but then forget the identities of the
   elements of $S$ and $T$, the only thing we can remember about the
-  injection is the fact that the cardinality of $S$ must be $\leq$ the
+  injection is the fact that the cardinality of $S$ must be at most the
   cardinality of $T$.
 \item Addition of natural numbers is the shadow of coproducts
   (disjoint unions) of sets.  That is,
