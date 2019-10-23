@@ -460,7 +460,7 @@ classes:
   \[ \left(\sum_{n \geq 0} ||F_n|| x^n \right) + \left(\sum_{n \geq 0}
       ||G_n|| x^n \right) = \sum_{n \geq 0} \left(||F_n|| + ||G_n|| \right)
     x^n. \] On the right-hand side we get $||F_n|| + ||G_n||$ as the
-  coefficient of $x^n$, which as we have previously seen, is in fact
+  coefficient of $x^n$, which, as we have previously seen, is in fact
   the number of $F + G$ structures of size $n$.  So adding the
   generating functions for $F$ and $G$ yields the generating function
   for $F+G$.
@@ -481,8 +481,6 @@ classes:
   generating functions for $F$ and $G$ yields the generating function
   for $F \cdot G$.
 \end{itemize}
-
-\todo{Cite Wilf, ``Clothesline for hanging sequence of numbers.''}
 
 To make this more concrete, consider the following Agda
 \citep{norell2007towards} code which implements these ideas.  We
