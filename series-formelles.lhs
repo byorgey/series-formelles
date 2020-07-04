@@ -1048,7 +1048,7 @@ dia = hsep 0.8
   This is, it seems to me, the crux of Joyal's insight: replacing the
   complicated \emph{intensional} definition of Bourbaki (defined as a
   very explicit construction of sets and relations) with a simple,
-  \emph{extensional} definision.  Species are defined by their
+  \emph{extensional} definition.  Species are defined by their
   behavior, that is, what we can \emph{do} with them, not by what they
   \emph{are}: species are precisely those things which generate a set
   of structures from a set of labels and which can be functorially
