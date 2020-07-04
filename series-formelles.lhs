@@ -40,8 +40,8 @@
 
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
 % \newtheorem{conj}[thm]{Conjecture}
 
 \theoremstyle{definition}
@@ -92,11 +92,14 @@
 
 \DeclareMathOperator{\Card}{Card}
 \DeclareMathOperator{\Aut}{Aut}
-\newcommand{\Mon}{\mathrm{Mon}}
+\DeclareMathOperator{\aut}{aut}
+\DeclareMathOperator{\Mon}{Mon}
 \newcommand{\unl}[1]{\tilde{#1}}
 \newcommand{\Simp}{\mathcal{S}}
 \newcommand{\Poly}[2]{#1 \llbracket #2 \rrbracket}
 \newcommand{\MPoly}[2]{#1 \{\!\{ #2 \}\!\} }
+
+\newcommand{\xx}{\ensuremath{\mathbf{x}}}
 
 \newcommand{\term}[1]{\emph{#1}}
 \newcommand{\ie}{\term{i.e.}\xspace}
@@ -202,20 +205,20 @@ and programming languages, I read a lot of secondary literature on
 species, but not Joyal's original paper---it is written in French,
 which I do not read. I didn't think this would be a great loss, since
 I supposed the material in his paper would be well-covered elsewhere,
-for example in the textbook by \citet{bll} (which thankfully
-\emph{has} been translated into English). However, I eventually came
+for example in the textbook by \citet{bll}, which thankfully
+\emph{has} been translated into English. However, I eventually came
 across some questions to which I could not find answers, only to be
 told that the answers were already in Joyal's paper
 \citep{trimble-not-analytic}. Somewhat reluctantly, I found a copy and
 began trying to read it, whereupon I discovered two surprising things.
 
 First, armed with a dictionary and Google Translate, reading
-mathematical French is not too difficult (even for someone who does
-not know any French!)---though it certainly helps if one already
+mathematical French is not too difficult---even for someone who does
+not know any French!---though it certainly helps if one already
 understands the mathematics.  Second, it turns out that Joyal's paper
 makes for excellent reading, and is full of insights and examples
 which, as far as I know, do not appear in any of the secondary
-literature.  The paper (and the theory of species more generally) has
+literature.  The paper, and the theory of species more generally, has
 a lot to offer to computer science, and to functional programming in
 particular.
 
@@ -457,7 +460,7 @@ classes:
   \[ \left(\sum_{n \geq 0} ||F_n|| x^n \right) + \left(\sum_{n \geq 0}
       ||G_n|| x^n \right) = \sum_{n \geq 0} \left(||F_n|| + ||G_n|| \right)
     x^n. \] On the right-hand side we get $||F_n|| + ||G_n||$ as the
-  coefficient of $x^n$, which as we have previously seen, is in fact
+  coefficient of $x^n$, which, as we have previously seen, is in fact
   the number of $F + G$ structures of size $n$.  So adding the
   generating functions for $F$ and $G$ yields the generating function
   for $F+G$.
@@ -479,10 +482,8 @@ classes:
   for $F \cdot G$.
 \end{itemize}
 
-\todo{Cite Wilf, ``Clothesline for hanging sequence of numbers.''}
-
 To make this more concrete, consider the following Agda
-\citep{norell2007towards} code which implements these ideas.  We
+code \citep{norell2007towards} which implements these ideas.  We
 encode the coefficients of a generating function not as a literally
 infinite sequence, but as a function $\N \to \N$, which takes a
 natural number $n$ as input and ouputs the coefficient of $x^n$, that
@@ -574,13 +575,13 @@ structures on $n$ distinguishable atoms, and similarly for $G_n$.
 This is the same as the formula for indistinguishable atoms, except
 for the extra factor of $\binom n k$.
 
-Somewhat magically, it turns out counting structures with
-distinguishable atoms is captured by a different kind of generating
-function.  In particular, we define the \term{exponential generating
-  function} (egf) by \[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \] The
-$n!$ may seem like a rabbit out of a hat at this point, but hopefully
-it is at least plausible: it corresponds to the $n!$ different ways a
-set of $n$ distinguishable atoms can be permuted.
+It turns out counting structures with distinguishable atoms is
+captured by a different kind of generating function.  In particular,
+we define the \term{exponential generating function} (egf) by
+\[ \sum_{n \geq 0} ||F_n|| \frac{x^n}{n!} \] The $n!$ may seem like a
+rabbit out of a hat at this point, but hopefully it is at least
+plausible: it corresponds to the $n!$ different ways a set of $n$
+distinguishable atoms can be permuted.
 
 Let's check that multiplying two such egf's yields the egf for the
 product.  Once again, an $x^n$ term in the result will come from the
@@ -682,7 +683,7 @@ One category that fits the bill is the category whose objects are
   between the cardinalities of the sets.  Put another way, if we have
   an injection $S \inj T$ but then forget the identities of the
   elements of $S$ and $T$, the only thing we can remember about the
-  injection is the fact that the cardinality of $S$ must be $\leq$ the
+  injection is the fact that the cardinality of $S$ must be at most the
   cardinality of $T$.
 \item Addition of natural numbers is the shadow of coproducts
   (disjoint unions) of sets.  That is,
@@ -1396,7 +1397,7 @@ dia = mconcat
   \end{commentary}
 \end{ex}
 
-\begin{ex}
+\begin{ex} \label{ex:monomial}
   Let $S$ be the species of permutations. Consider the groupoid $\el
   (S)$ of elements of $S$. The objects of $\el (S)$ are the sets $E
   \in \B$ equipped with a permutation $\sigma_E \in S [E]$. The
@@ -2398,7 +2399,7 @@ we have the following obvious result:
   If $P = 1/(1 - N)$ then \[ \unl P = \frac{1}{1 - \unl N}. \]
 \end{prop}
 We also have the well known result \citep{harary1973graphical}:
-\begin{prop}
+\begin{prop} \label{prop:exp}
   If $P = \exp(N)$ then \[ \unl P = \exp \left[ \sum_{n \geq 1}
       \frac{\unl N(x^n)}{n} \right]. \]
 \end{prop}
@@ -2445,12 +2446,14 @@ $\sigma$ is an automorphism of $E$, which means that $\sigma$ is
 with an induced permutation $\sigma/R$.  This permutation decomposes
 into cycles.  We will begin by supposing that $\sigma/R$ is circular.
 
+\todo{Should ``couronne'' be ``crown''? Or perhaps ``wreath''?}
+
 \begin{defn}
-  A \term{crown} of $N$-structures is an assembly $h \in \exp(N)$
-  \emph{equipped with} an automorphism $\sigma$ that circularly
-  permutes its members.  The \term{length} of a crown is the number of
-  members of the assembly.  We use $C_n(N)$ to denote the species of
-  crowns (of $N$-structures) whose length is $n$.
+  A \trans{crown}{couronne} of $N$-structures is an assembly
+  $h \in \exp(N)$ \emph{equipped with} an automorphism $\sigma$ that
+  circularly permutes its members.  The \term{length} of a crown is
+  the number of members of the assembly.  We use $C_n(N)$ to denote
+  the species of crowns (of $N$-structures) whose length is $n$.
 \end{defn}
 
 \begin{prop}
@@ -2497,8 +2500,62 @@ into cycles.  We will begin by supposing that $\sigma/R$ is circular.
   \emph{marked} with an initial member. Since there are $n$ possible
   choices for this initial member, we have
   \[ n \times \Card C_n(N) = \unl N(x^n). \]
+\end{proof}
 
+\begin{cor}
+  Suppose that $N[0] = \varnothing$.  The species of crowns of
+  $N$-structures has as its cardinality \[ \sum_{n \geq 1} \frac{\unl
+      N(x^n)}{n}. \]
+\end{cor}
 
+Consider now an element $(\sigma, h) \in \widetilde{\exp(N)}[E]$.  The
+element $h$ is an assembly of $N$-structures; it induces an
+equivalence relation $R$ on $E$.  The automorphism $\sigma$ induces a
+permutation $\sigma/R$ of $E/R$.  This permutation $\sigma/R$
+decomposes $E$ into an \emph{assembly} of crowns of $N$-structures.
+Thus we have
+
+\begin{cor}
+  Suppose that $N[0] = \varnothing$.  We have \[ \Card
+    \widetilde{\exp(N)} = \exp \left[ \sum_{n \geq 1} \frac{\unl
+        N(x^n)}{n} \right]. \]
+\end{cor}
+
+Note that the corollary implies Proposition~\ref{prop:exp}.  Now let
+$S$ be the species of permutations.  Consider the category $\el(S)$ of
+elements of $S$.  The objects of $\el(S)$ are the pairs $(E,
+\sigma_E)$, where $\sigma_E \in S[E]$.  We have already described
+(Example~\ref{ex:monomial}) the cycle indicator monomial $I(\sigma_E)
+= x_1^{d_1} \dots x_n^{d_n}$.  The set $\pi_0(S)$ of connected
+components of the groupoid $\el(S)$ is identified with the set
+$\Mon(s)$ of monomials in the variables $x_1, x_2, x_3,
+\dots$.  Moreover, if $I(\sigma_E) = \xx = x_1^{d_1} \dots
+x_n^{d_n}$, the cardinality of the group of automorphisms of the
+object $(E, \sigma_E)$ is equal to \[ \aut(\xx) = 1^{d_1}
+  2^{d_2} \dots n^{d_n} d_1! \dots d_n!. \]  Consider now an element
+$(\sigma,h) \in \widetilde{\exp(N)}[E]$.  We know that $h$ determines
+an equivalence relation $R$ on $E$ compatible with $\sigma$.  We say
+that $(\sigma, h)$ has \term{class} $\xx = x_1^{d_1} \dots
+x_n^{d_n}$ of we have $I(\sigma/R) = \xx$, where $\sigma/R$ is
+the permutation induced by $\sigma$ on the quotient $E/R$. In
+particular $(\sigma, h)$ has class $x_n$ if and only if it is a crown
+of length $n$.  With these conventions, we have:
+
+\begin{prop}
+  The species of \emph{assembies of crowns} (of $N$-structures) having
+  class $\xx = x_1^{d_1} \dots x_n^{d_n}$ has as its
+  cardinality \[ \frac{1}{\aut(\xx)}\unl N(x)^{d_1} \unl N(x^2)^{d_2}
+    \dots \unl N(x^n)^{d_n}. \]
+\end{prop}
+
+\begin{proof}
+  Indeed, this species is expressed as the product of \trans{divided
+    powers}{puissances divis\'ees} \[ \gamma_{d_1}(C_1(N))
+    \gamma_{d_2}(C_2(N)) \dots \gamma_{d_n}(C_n(N)). \] Its
+  cardinality is therefore \[ \frac{1}{d_1!} \unl N(x)^{d_1}
+    \frac{1}{d_2!}\left( \frac{\unl N(x^2)}{2}\right)^{d_1} \dots
+    \frac{1}{d_n!} \left( \frac{\unl N(x^n)}{n}\right)^{d_n}. \]
+  \todo{Is the $d_1$ exponent on the second term a typo for $d_2$?}
 \end{proof}
 
 \bibliographystyle{plainnat}
