@@ -1619,7 +1619,7 @@ this functor commutes with the forgetful functors \[ \xymatrix@@C=0.7em{\el(M)
 It is not true that a functor $\el (M) \to \el (N)$ is always induced
 by a morphism of species $M \to N$. For example, if $M$ is the species
 of preorders and $N$ the species of the orders, the usual construction
-of an order relation to from a pre-order (on a quotient of the
+of an order relation to form a pre-order (on a quotient of the
 pre-order's underlying set) determines a functor $\el (M) \to \el (N)$
 that \emph{does not come} from a morphism of species $M \to
 N$. However, it is easily checked that every functor $\el (M) \to \el
