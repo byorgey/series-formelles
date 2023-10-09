@@ -670,8 +670,7 @@ such that
 
 One category that fits the bill is the category whose objects are
 \emph{finite sets} with morphisms being arbitrary (total)
-\emph{functions} between sets.  \todo{XXX injection vs arbitrary
-  function?  Baez \& Dolan mention FinSet with finite sets and functions.}
+\emph{injections} between sets.
 \begin{itemize}
 \item Each natural number $n$ can be seen as the ``shadow'' of all the
   finite sets having cardinality $n$.  The natural number $n$ should
