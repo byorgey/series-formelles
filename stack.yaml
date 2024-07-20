@@ -1,21 +1,8 @@
-resolver: lts-13.8
+resolver: lts-22.29
 packages: []
 
 extra-deps:
-- diagrams-pgf-1.4.1
-- multiset-comb-0.2.4.1
-- texrunner-0.0.1.2
-- palette-0.3.0.2
-- diagrams-core-1.4.1.1
-- diagrams-lib-1.4.2.3
-- diagrams-contrib-1.4.3
-- SVGFonts-1.7.0.1
-- shake-0.17.6
-- filepattern-0.1.1
-- diagrams-builder-0.8.0.4
-- haskell-src-exts-simple-1.20.0.0
-- lhs2tex-1.21
-- Agda-2.5.4.2
+- texrunner-0.0.1.3
 
 flags:
   diagrams-builder:
